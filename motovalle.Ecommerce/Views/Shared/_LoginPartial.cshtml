@@ -1,0 +1,37 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using motovalle.Ecommerce.Models.Entities.Identity
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+    var user = await UserManager.GetUserAsync(User);
+    <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/Index", new { area = "" })" method="post" id="logoutForm">
+        <nav class="b-topBar__nav">
+            <ul>
+                <li><a href="http://www.asmseguros.com/" target="_blank" rel="noreferrer"><span><img src="~/images/brand_logos/asm-seguros.png" width="28%" alt="asm_logo" /></span> Seguros</a></li>
+                <li><a href="javascript:void(0)" rel="noreferrer" title="Realizar un pago" onclick="callWompiHome()"><span class="fa fa-credit-card"></span> Pagos en línea</a></li>
+                <li>
+                    <a href="#" onclick="document.getElementById('logoutForm').submit();"><span class="glyphicon glyphicon-log-out"></span> CERRAR SESIÓN</a>
+                </li>
+                @await Component.InvokeAsync("ShoppingCartSummary")
+                <li>
+                    <a asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage"><span class="fa fa-user"></span> ¡Hola <strong>@user.Name</strong>!</a>
+                </li>
+            </ul>
+        </nav>
+    </form>
+}
+else
+{
+    <nav class="b-topBar__nav">
+        <ul>
+            <li><a href="http://www.asmseguros.com/" target="_blank"><span><img src="~/images/brand_logos/asm-seguros.png" width="28%" alt="asm_logo" /></span> Seguros</a></li>
+            <li><a href="javascript:void(0)" rel="noreferrer" title="Realizar un pago" onclick="callWompiHome()"><span class="fa fa-credit-card"></span> Pagos en línea</a></li>
+            @await Component.InvokeAsync("ShoppingCartSummary")
+            <li><a asp-area="Identity" asp-page="/Account/Register"><span class="fa fa-pencil-square-o"></span> REGISTRARSE</a></li>
+            <li><a asp-area="Identity" asp-page="/Account/Login"><span class="glyphicon glyphicon-log-in"></span> INICIAR SESIÓN</a></li>
+        </ul>
+    </nav>
+}

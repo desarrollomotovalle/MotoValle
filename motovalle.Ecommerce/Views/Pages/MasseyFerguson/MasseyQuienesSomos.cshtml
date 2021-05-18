@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewData["Title"] = "MasseyQuienesSomos";
+    Layout = "~/Views/Shared/_LayoutMasseyFerguson.cshtml";
+}
+
+<section class="b-pageHeader massey">
+</section><!--b-pageHeader-->
+
+<div class="b-breadCumbs s-shadow">
+    <div class="container wow zoomInUp" data-wow-delay="0.5s">
+        <a class="b-breadCumbs__page" href="/">Home</a><span class="fa fa-angle-right"></span>
+        <a asp-action="Index" asp-controller="MasseyFerguson" class="b-breadCumbs__page">Massey Ferguson</a><span class="fa fa-angle-right"></span>
+        <a class="b-breadCumbs__page m-active" href="#">¿Quiénes somos?</a>
+    </div>
+</div><!--b-breadCumbs-->
+
+<section class="b-article">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 col-xs-12">
+                <!--About Massey-->
+                <div id="masseyAboutId" class="row wow zoomInLeft" data-wow-delay="0.55s">
+                    <header class="b-contacts__form-header s-lineDownLeft wow zoomInUp" data-wow-delay="0.5s">
+                        <h1 class="s-titleDet text-center" style="font-size:18px;">
+                            ¿Quiénes somos?
+                        </h1>
+                    </header>
+                    <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                        <b>La marca <span style="color:#C21B2F">Massey Ferguson</span> es fabricada por AGCO, mayor fabricante de tractores de América Latina.</b>
+                        Los tractores, cosechadoras e implementos son producidos en las tres fábricas al sur de Brasil (situadas en las ciudades de Canoas, Santa Rosa e Ibirubá).
+                        Se exportan hacía más de 80 países, con actuación destacada en Venezuela, Chile, Estados Unidos y Sudáfrica. La marca Massey Ferguson está presente en América Latina hace más de 50 años.
+                    </p>
+                    <br />
+                    <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                        AGCO fue fundada en 1990, ofrece una línea completa de productos incluyendo tractores, cosechadoras, equipamientos para henolaje y forraje, pulverizadores, equipamientos para preparación del suelo,
+                        implementos y repuestos relacionados. Los productos de AGCO se venden a través de sus principales marcas: Challenger, Fendt, Massey Ferguson y Valtra,
+                        que se distribuyen a través de más de 3.000 concesionarias y distribuidores independientes en más de 140 países en el mundo.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-3 col-xs-12">
+                @await Html.PartialAsync("_NavCategoryMassey")
+            </div>
+        </div>
+    </div>
+</section><!--b-article-->

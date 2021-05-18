@@ -1,0 +1,141 @@
+﻿@model motovalle.Ecommerce.Models.ViewModels.Landing.ContactViewModel
+
+@{
+    ViewData["Title"] = "Movámonos con tranquilidad";
+    Layout = "~/Views/Shared/Landing/_LayoutLandingV2.cshtml";
+}
+
+@section Styles{
+    <style type="text/css">
+        /*-------------- set css for different resolutions --------------*/
+        .full-page-intro-custom {
+            background: url( @Url.Content("~/landingAssets/img/main/ford/move-calmly/lndng-full.png") ) no-repeat center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            height: 100%;
+            width: 100%;
+        }
+
+        /*.button-section {
+            background-color: rgb(255, 255, 255);
+            opacity: 0;*/ /*Opacidad 60% */
+            /*margin-top: -7rem;
+        }
+
+        .btn-custom {
+            height: 7rem;
+        }*/
+
+        @@media only screen and (min-width: 1025px) {
+            .full-page-intro-custom {
+                height: 100%;
+            }
+        }
+
+        @@media only screen and (max-width: 776px) {
+            .full-page-intro-custom {
+                background: url( @Url.Content("~/landingAssets/img/main/ford/move-calmly/lndng-mobile.png") ) no-repeat top;
+                background-size: contain;
+                background-repeat: no-repeat;
+                -webkit-background-size: contain;
+                -moz-background-size: contain;
+                -o-background-size: contain;
+                height: 100%;
+                width: 100%;
+            }
+        }
+    </style>
+}
+
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
+    <div class="container">
+        <!-- Navbar center -->
+        <ul class="navbar-nav nav-flex-icons">
+            <li class="nav-item" style="display: inline-block; float:none;">
+                <a href="https://wa.me/@TempData["Phone"]" class="nav-link waves-effect waves-light" target="_blank">
+                    <img src="~/landingAssets/img/svg/whatsapp-lollipop.png" width="7%" class="img-responsive center-block" alt="wpp-logo"> <span class="h6">Contáctanos</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<!-- Navbar -->
+<!-- Full Page Intro -->
+<div class="view full-page-intro-custom">
+</div>
+@*<div class="container button-section">
+    <div class="row">
+        <div class="col-12">
+            <a class="btn btn-block btn-custom" onclick="openModalOrSmoothToForm()"></a>
+        </div>
+    </div>
+</div>*@
+
+<!--Card-->
+<div class="card out">
+    @{ await Html.RenderPartialAsync("/Views/Shared/Landing/_ContactForm.cshtml"); }
+</div>
+<!--/.Card-->
+<!-- Full Page Intro -->
+
+@{ await Html.RenderPartialAsync("/Views/Shared/Landing/_ContactFormModal.cshtml"); }
+
+
+@section Scripts{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+
+    <script type="text/javascript">
+        (async () => {
+            if ('@TempData["Error"]' != '') {
+                if ('@TempData["Error"]' == "true") {
+                    document.getElementsByName("frmInfo").reset();
+                    const ToastError = Swal.mixin({
+                        toast: true,
+                        position: 'top',
+                        showConfirmButton: false,
+                        timer: 3000,
+                        timerProgressBar: true,
+                        onOpen: (toast) => {
+                            toast.addEventListener('mouseenter', Swal.stopTimer)
+                            toast.addEventListener('mouseleave', Swal.resumeTimer)
+                        }
+                    })
+
+                    await ToastError.fire({
+                        icon: 'error',
+                        title: '¡Ups!',
+                        html: 'Ha sucedido un error al enviar tu información. &#128577;. Intenta nuevamente.',
+                    });
+
+                    openFormPopup();
+                }
+                else {
+                    const ToastSuccess = Swal.mixin({
+                        toast: true,
+                        position: 'top',
+                        showConfirmButton: false,
+                        timer: 6000,
+                        timerProgressBar: true,
+                        onOpen: (toast) => {
+                            toast.addEventListener('mouseenter', Swal.stopTimer)
+                            toast.addEventListener('mouseleave', Swal.resumeTimer)
+                        }
+                    })
+
+                    await ToastSuccess.fire({
+                        icon: 'success',
+                        title: '<strong>¡Perfecto!..</strong>',
+                        html: 'Tu información ha sido enviada correctamente. &#128512;.'
+                    });
+
+                    openFormPopup();
+                };
+            } else {
+                openFormPopup();
+            }
+        })();
+    </script>
+}

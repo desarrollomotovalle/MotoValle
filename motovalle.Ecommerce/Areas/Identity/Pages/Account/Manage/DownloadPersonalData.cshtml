@@ -1,0 +1,22 @@
+﻿@page
+@model DownloadPersonalDataModel
+@{
+    ViewData["Title"] = "Download Your Data";
+    ViewData["ActivePage"] = ManageNavPages.PersonalData;
+    Layout = "/Areas/Identity/Pages/Account/Manage/_Layout.cshtml";
+}
+
+
+<section class="b-breadCumbs wow zoomInUp" data-wow-delay="0.5s">
+    <div class="container">
+        <div class="row">
+            <h4>Descargar tus datos personales</h4>
+
+            @section Scripts {
+                <partial name="_ValidationScriptsPartial" />
+            }
+        </div>
+    </div>
+    <br />
+    <br />
+</section>

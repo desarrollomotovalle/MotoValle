@@ -1,0 +1,96 @@
+﻿@model IEnumerable<Ecommerce.Models.Entities.InterestedCustomers>
+@{
+    ViewData["Title"] = "InterestedCustomers";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="content">
+    <div class="container-fluid">
+        <div>
+            <div class="col-12 text-center">
+                <h1 class="m-0 text-dark">Clientes Interesados</h1>
+            </div>
+            @{ await Html.RenderPartialAsync("_MessageStatus"); }
+        </div>
+
+        <div class="table">
+            <table id="dtTableDefault" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(x => x.CreateOn)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(x => x.Name)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(x => x.Email)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(x => x.PhoneNumber)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(x => x.FkInventoryItems.FkProducts.ProductName)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(x => x.FkInventoryItems.SalesPrice)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(x => x.FkInventoryItems.FkColors.ColorName)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(x => x.Retake)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(x => x.Headquarter)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(x => x.Managed)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(x => x.ManagedOn)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(x => x.ManagedFor)
+                        </th>
+                        <th class="th-sm">
+                            Editar
+                        </th>
+                        <th class="th-sm">
+                            Eliminar
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.CreateOn)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                            <td>@Html.DisplayFor(modelItem => item.PhoneNumber)</td>
+                            <td>@Html.DisplayFor(modelItem => item.FkInventoryItems.FkProducts.ProductName)</td>
+                            <td>@Html.DisplayFor(modelItem => item.FkInventoryItems.SalesPrice)</td>
+                            <td>@Html.DisplayFor(modelItem => item.FkInventoryItems.FkColors.ColorName)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Retake)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Headquarter)</td>
+                            <td>
+                                @{ var managed = item.Managed == 0 ? "NO" : "YES"; }
+                                @managed
+                            </td>
+                            <td>@Html.DisplayFor(modelItem => item.ManagedOn)</td>
+                            <td>@Html.DisplayFor(modelItem => item.ManagedFor)</td>
+                            <td><a class="btn btn-info btn-block" style="width:70%" asp-action="InterestedCustomersEdit" asp-controller="Admin" asp-route-id="@item.InterestedCustomersId"><span class="fa fa-pencil-alt"></span></a></td>
+                            <td><a class="btn btn-danger btn-block" style="width:70%" asp-action="InterestedCustomersDelete" asp-controller="Admin" asp-route-id="@item.InterestedCustomersId"><span class="fa fa-times"></span></a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+
+@section Scripts{
+    <script type="text/javascript" src="~/admin/dist/js/admin-ecommerce-tables-settings-default.js"></script>
+}

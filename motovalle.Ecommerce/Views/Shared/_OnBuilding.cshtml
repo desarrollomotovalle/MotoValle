@@ -1,0 +1,57 @@
+﻿@model string
+
+<div class="container">
+    <div class=" text-center">
+        @if (Model != "NoTitle")
+        {
+            <h1 class="wow zoomInUp" data-wow-delay="0.4s">Estamos en construcción</h1>
+            <br />
+        }
+
+        <p class="wow zoomInUp" data-wow-delay="0.2s">
+            Estámos trabajando arduamente para mejorar nuestro sitio web y brindarte la mejor experiencia.
+            <br />
+            Por ahora, puedes disfrutar de nuetros otros servicios
+        </p>
+    </div>
+
+    <div class="b-personal hiring" style="margin-bottom:-3em;">
+        <h3 class="s-titleBg wow zoomInUp" data-wow-delay="0.5s">Explora nuestras</h3><br />
+        <h2 class="s-title wow zoomInUp" data-wow-delay="0.5s">Tiendas</h2>
+        <div id="carousel-small" class="owl-carousel enable-owl-carousel" data-items="3" data-navigation="true" data-auto-play="true" data-stop-on-hover="true" data-items-desktop="3" data-items-desktop-small="1" data-items-tablet="1" data-items-tablet-small="1">
+            <div>
+                <div class="b-personal__worker wow zoomInUp" data-wow-delay="0.5s">
+                    <div class="b-personal__worker-img">
+                        <a asp-action="Index" asp-controller="Ford">
+                            <img src="~/ford/logo/logo ford 2019.png" class="img-responsive" width="80%" alt="ford" />
+                        </a>
+                    </div>
+                    <h6 class="text-center">Tienda Ford</h6>
+                </div>
+            </div>
+            <div>
+                <div class="b-personal__worker wow zoomInUp" data-wow-delay="0.5s">
+                    <div class="b-personal__worker-img">
+                        <a asp-action="Index" asp-controller="Mazda">
+                            <img src="~/mazda/logo/Mazda-logo-1997-1920x1080.png" class="img-responsive" alt="Mazda" />
+                        </a>
+                    </div>
+                    <h6 class="text-center">Tienda Mazda</h6>
+                </div>
+            </div>
+            <div>
+                <div class="b-personal__worker wow zoomInUp" data-wow-delay="0.5s">
+                    <div class="b-personal__worker-img">
+                        <a asp-action="Index" asp-controller="MasseyFerguson">
+                            <img src="~/massey_ferguson/logo/MFlogo.png" class="img-responsive" alt="massey" />
+                        </a>
+                    </div>
+                    <h6 class="text-center">Tienda Massey Fergusson</h6>
+                </div>
+            </div>
+        </div>
+    </div><!--b-personal-->
+
+    @{ await Html.RenderPartialAsync("_ContactUs"); }
+</div>
+<br />

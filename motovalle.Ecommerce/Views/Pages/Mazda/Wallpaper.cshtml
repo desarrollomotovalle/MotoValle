@@ -1,0 +1,126 @@
+﻿
+@{
+    ViewData["Title"] = "Wallpaper Mazda";
+    Layout = "~/Views/Shared/_LayoutMazda.cshtml";
+}
+
+
+<section class="b-pageHeader mazda">
+    <div class="container">
+        <h1 class="wow zoomInLeft" data-wow-delay="0.5s">Mazda Wallpaper</h1>
+        @*Issue 1: 04/08/2020 Diego - Remove Subtitle Octavio's request*@
+        @*<div class="b-pageHeader__search wow zoomInRight" data-wow-delay="0.5s">
+                <h3>Motovalle</h3>
+            </div>*@
+    </div>
+</section><!--b-pageHeader-->
+
+<div class="b-breadCumbs s-shadow wow zoomInUp" data-wow-delay="0.5s">
+    <div class="container">
+        <a asp-action="Index" asp-controller="Home" class="b-breadCumbs__page">Home</a><span class="fa fa-angle-right"></span>
+        <a asp-action="Index" asp-controller="Mazda" class="b-breadCumbs__page">Mazda</a><span class="fa fa-angle-right"></span>
+        <a asp-action="Mazda_Wallpaper" asp-controller="Pages" class="b-breadCumbs__page m-active">Mazda Wallpaper</a>
+    </div>
+    @if (ViewBag.Message != null)
+    {
+        <div class="alert alert-danger text-center wow zoomInUp" role="alert" data-wow-delay="0.5s">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <strong>¡Ups!..</strong> @ViewBag.Message &#128577;
+        </div>
+    }
+</div><!--b-breadCumbs-->
+
+
+<section class="b-article">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 col-xs-12">
+                <div class="b-article__main">
+                    <div class="b-blog__posts-one">
+                        <div class="row m-noBlockPadding">
+                            <div class="col-sm-1 col-xs-2">
+
+                            </div>
+                            <div class="col-sm-11 col-xs-10">
+                                <div class="b-blog__posts-one-body">
+                                    <header class="b-blog__posts-one-body-head wow zoomInUp" data-wow-delay="0.5s">
+                                        <h2 class="s-titleDet">Mazda Wallpapers</h2>
+                                    </header>
+                                    <div class="b-blog__posts-one-body-why wow zoomInUp" data-wow-delay="0.5s">
+                                        <div class="s-lineDownLeft  s-titleLeft">
+                                            <div>
+                                                <h2 class="s-titleDet">Wallpapers Disponibles</h2>
+                                            </div>
+                                        </div>
+                                        <p>¡Estaremos agregando wallpapers periódicamente!</p>
+                                        <div class="clearfix"></div>
+
+                                        <div id="mazda-wallpaper" data-nanogallery2='{ "itemsBaseURL": "@Url.Content("~/media/Wallpaper_Mazda/")",
+                                                                                  "thumbnailWidth": "auto",
+                                                                                  "thumbnailHeight": "380",
+                                                                                  "thumbnailBorderVertical": 0,
+                                                                                  "thumbnailBorderHorizontal": 0,
+                                                                                  "thumbnailDisplayTransition": "slideUp2",
+                                                                                  "thumbnailDisplayInterval": 0,
+                                                                                  "thumbnailLabel": {
+                                                                                    "position": "overImageOnBottom",
+                                                                                    "titleMultiLine": true,
+                                                                                    "displayDescription": true,
+                                                                                    "descriptionMultiLine": true
+                                                                                  },
+                                                                                  "allowHTMLinData": true,
+                                                                                  "thumbnailHoverEffect2": "image_translateY_0%_0%_1000|label_translateX_-100%_0%_0|label_font-size_1em_1.5em_0",
+                                                                                  "thumbnailAlignment": "justified",
+                                                                                  "gallerySorting": "random",
+                                                                                  "galleryDisplayMode": "pagination",
+                                                                                  "thumbnailLevelUp": true,
+                                                                                  "thumbnailOpenImage": true,
+                                                                                  "thumbnailToolbarImage": { "topLeft": "featured", "topRight" : "download" } }'>
+                                            <a href="mazda.jpg" data-ngthumb="mazda.jpg" data-ngdesc="Mazda">Mazda</a>
+                                            <a href="mazda_wallpaper.jpg" data-ngthumb="mazda_wallpaper.jpg" data-ngdesc="Mazda #2">Mazda #2</a>
+                                            <a href="mazda-3_wallpaper_cellphone.jpg" data-ngthumb="mazda-3_wallpaper_cellphone.jpg" data-ngdesc="Mustang Wallpaper">Mustang Wallpaper</a>
+                                            <a href="Mazda-RX-wallpaper.jpg" data-ngthumb="Mazda-RX-wallpaper.jpg" data-ngdesc="Mazda RX">Mazda RX</a>
+                                            <a href="wallpaper_cellphone2.jpg" data-ngthumb="wallpaper_cellphone2.jpg" data-ngdesc="Cellphone Wallpaper">Cellphone Wallpaper</a>
+                                            <a href="wallpaper_computer.jpg" data-ngthumb="wallpaper_computer.jpg" data-ngdesc="Computer Wallpaper">Computer Wallpaper</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-xs-12">
+                <aside class="b-blog__aside">
+                    <div class="b-blog__aside-categories wow zoomInUp" data-wow-delay="0.5s">
+                        <header class="s-lineDownLeft">
+                            <h2 class="s-titleDet">Áreas Interactivas</h2>
+                        </header>
+                        <nav>
+                            <ul class="b-blog__aside-categories-list">
+                                <li><a asp-controller="Pages" asp-action="Mazda_Interactivo">Mazda Interactivo</a></li>
+                                <li><a asp-controller="Pages" asp-action="Mazda_Coloring">Mazda Coloring</a></li>
+                                <li class="m-active"><a asp-controller="Pages" asp-action="Mazda_Wallpaper">Wallpapers</a></li>
+                                @*<li><a asp-controller="Pages" asp-action="Test_Drive_Interactivo_Mazda">Test Drive Interactivo</a></li>
+                                    <li><a asp-controller="Pages" asp-action="Airlife">Combatiendo COVID-19 con Airlife</a></li>
+                                    <li><a href="#">Donaciones y Programas de Ayuda</a></li>*@
+                            </ul>
+                        </nav>
+                    </div>
+
+                </aside>
+            </div>
+        </div>
+    </div>
+</section><!--b-article-->
+
+
+@section Styles{
+    <link href="https://cdn.jsdelivr.net/npm/nanogallery2@3/dist/css/nanogallery2.min.css" rel="stylesheet" type="text/css">
+}
+
+@section Scripts{
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/nanogallery2@3/dist/jquery.nanogallery2.min.js"></script>
+}

@@ -1,0 +1,70 @@
+﻿/*------------------------------------------------------------------
+[Fonts by Make]
+Author:     Diego Arenas
+Company:    Motovalle
+-------------------------------------------------------------------*/
+
+
+/*FORD*/
+@font-face {
+    font-family: ford-font;
+    src: url('/fonts/Ford-tipografias/FordAntenna-Black.otf') format("opentype");
+    font-weight: bolder;
+}
+
+@font-face {
+    font-family: ford-font;
+    src: url('/fonts/Ford-tipografias/FordAntenna-Bold.otf') format("opentype");
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: ford-font;
+    src: url('/fonts/Ford-tipografias/FordAntenna-Light.otf') format("opentype");
+    font-weight: lighter;
+}
+
+@font-face {
+    font-family: ford-font;
+    src: url('/fonts/Ford-tipografias/FordAntenna-Regular.otf') format("opentype");
+    font-weight: normal;
+}
+
+/*MAZDA*/
+@font-face {
+    font-family: mazda-font;
+    src: url('/fonts/Mazda-tipografias/MazdaType-Regular.otf') format("opentype");
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: mazda-font;
+    src: url('/fonts/Mazda-tipografias/MazdaType-Bold.otf') format("opentype");
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: mazda-font;
+    src: url('/fonts/Mazda-tipografias//MazdaType-Medium.otf') format("opentype");
+    font-weight: lighter;
+}
+
+
+/*MASSEY*/
+@font-face {
+    font-family: massey-font;
+    src: url('/fonts/Massey-tipografias/HelveticaNeueLTStd-Roman.otf') format("opentype");
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: massey-font;
+    src: url('/fonts/Massey-tipografias/HelveticaNeueLTStd-Blk.otf') format("opentype");
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: massey-font;
+    src: url('/fonts/Massey-tipografias/HelveticaNeueLTStd-Bd.otf') format("opentype");
+    font-weight: bolder;
+}

@@ -1,0 +1,240 @@
+------------------------------------------------------------------------ 
+ Registred On: miércoles, 14 abril 2021 22:20:55
+ Report Id: cee1f9af-e093-4914-b0e3-eb46ea82401c 
+ Request Type: Santander Bank 
+ Request Body: {"DatosBasicos":{"TipoDocumento":1,"NumeroDocumento":"1114824697","Nombre1":"Prueba Prueba","ValorVehiculo":10000000,"CuotaInicial":1000000,"Plazo":1,"Celular":"3185993392","CorreoPersonal":"arizacastrillon@hotmail.com","AsociadoJuriscoop":false},"DatosFinancieros":{"ActividadEconomica":1,"ActividadIndependiente":1,"IngresoMensual":1500000},"OtrosDatos":{"ConcesionarioRadicacion":26,"IdentificacionVendedor":147,"UsuarioRadica":"c.sacanamboyc"},"IsJuriscoop":false} 
+ Response: {"ControlStatus":"Error","Errors":null,"Message":"Error al realizar la solicitud de crédito, favor comuniquese con el administrador del sistema y compartele este identificador: <b>cee1f9af-e093-4914-b0e3-eb46ea82401c</b>","Response":{"Request":null,"InhabilitarValVeh":false,"MontoSol":0,"MontoSolMax":0,"CuotaProyectada":0,"ValorSeguroMes":0,"ValorSeguroMesMax":0,"CuotaSeguro":0,"CuotaSeguroMax":0,"ValorSeguro":0,"ValorSeguroMax":0,"Semaforo":0,"Titulo":null}}------------------------------------------------------------------------ 
+ 
+
+------------------------------------------------------------------------ 
+ Registred On: miércoles, 14 abril 2021 22:31:15
+ Report Id: 7a5ffd48-b107-4812-a60b-260532e602e9 
+ Request Type: Santander Bank 
+ Request Body: {"DatosBasicos":{"TipoDocumento":1,"NumeroDocumento":"1114824697","Nombre1":"Prueba Prueba","ValorVehiculo":10000000,"CuotaInicial":1000000,"Plazo":1,"Celular":"3185993392","CorreoPersonal":"arizacastrillon@hotmail.com","AsociadoJuriscoop":false},"DatosFinancieros":{"ActividadEconomica":1,"ActividadIndependiente":1,"IngresoMensual":1500000},"OtrosDatos":{"ConcesionarioRadicacion":26,"IdentificacionVendedor":147,"UsuarioRadica":"c.sacanamboyc"},"IsJuriscoop":false} 
+ Response: {"ControlStatus":"Error","Errors":null,"Message":"Error al realizar la solicitud de crédito, favor comuniquese con el administrador del sistema y compartele este identificador: <b>7a5ffd48-b107-4812-a60b-260532e602e9</b>","Response":{"Request":null,"InhabilitarValVeh":false,"MontoSol":0,"MontoSolMax":0,"CuotaProyectada":0,"ValorSeguroMes":0,"ValorSeguroMesMax":0,"CuotaSeguro":0,"CuotaSeguroMax":0,"ValorSeguro":0,"ValorSeguroMax":0,"Semaforo":0,"Titulo":null}}------------------------------------------------------------------------ 
+ 
+
+------------------------------------------------------------------------ 
+ Registred On: miércoles, 14 abril 2021 22:32:27
+ Report Id: df4ffaf5-1aaf-4496-8d64-5e71b7a69e1a 
+ Request Type: Santander Bank 
+ Request Body: {"DatosBasicos":{"TipoDocumento":1,"NumeroDocumento":"1114824697","Nombre1":"Cesar Ariza","ValorVehiculo":10000000,"CuotaInicial":1000000,"Plazo":1,"Celular":"3185993392","CorreoPersonal":"arizacastrillon@hotmail.com","AsociadoJuriscoop":false},"DatosFinancieros":{"ActividadEconomica":1,"ActividadIndependiente":1,"IngresoMensual":1500000},"OtrosDatos":{"ConcesionarioRadicacion":26,"IdentificacionVendedor":147,"UsuarioRadica":"c.sacanamboyc"},"IsJuriscoop":false} 
+ Response: {"ControlStatus":"Error","Errors":null,"Message":"Error al realizar la solicitud de crédito, favor comuniquese con el administrador del sistema y compartele este identificador: <b>df4ffaf5-1aaf-4496-8d64-5e71b7a69e1a</b>","Response":{"Request":null,"InhabilitarValVeh":false,"MontoSol":0,"MontoSolMax":0,"CuotaProyectada":0,"ValorSeguroMes":0,"ValorSeguroMesMax":0,"CuotaSeguro":0,"CuotaSeguroMax":0,"ValorSeguro":0,"ValorSeguroMax":0,"Semaforo":0,"Titulo":null}}------------------------------------------------------------------------ 
+ 
+
+------------------------------------------------------------------------ 
+ Registred On: jueves, 15 abril 2021 08:02:23
+ Report Id: 753acbde-c147-4570-bcf2-e7c496f3dd34 
+ Request Type: Santander Bank 
+ Request Body: {"DatosBasicos":{"TipoDocumento":1,"NumeroDocumento":"1114824697","Nombre1":"Cesar Ariza","ValorVehiculo":10000000,"CuotaInicial":1000000,"Plazo":1,"Celular":"3185993392","CorreoPersonal":"arizacastrillon@hotmail.com","AsociadoJuriscoop":false},"DatosFinancieros":{"ActividadEconomica":1,"ActividadIndependiente":1,"IngresoMensual":1500000},"OtrosDatos":{"ConcesionarioRadicacion":26,"IdentificacionVendedor":147,"UsuarioRadica":"c.sacanamboyc"},"IsJuriscoop":false} 
+ Response: {"ControlStatus":"Error","Errors":null,"Message":"Error al realizar la solicitud de crédito, favor comuniquese con el administrador del sistema y compartele este identificador: <b>753acbde-c147-4570-bcf2-e7c496f3dd34</b>","Response":{"Request":null,"InhabilitarValVeh":false,"MontoSol":0,"MontoSolMax":0,"CuotaProyectada":0,"ValorSeguroMes":0,"ValorSeguroMesMax":0,"CuotaSeguro":0,"CuotaSeguroMax":0,"ValorSeguro":0,"ValorSeguroMax":0,"Semaforo":0,"Titulo":null}}------------------------------------------------------------------------ 
+ 
+
+------------------------------------------------------------------------ 
+ Registred On: jueves, 15 abril 2021 08:12:22
+ Report Id: 33ef91cd-e8b0-46b4-83af-4412b1e501b9 
+ Request Type: Santander Bank 
+ Request Body: {"DatosBasicos":{"TipoDocumento":1,"NumeroDocumento":"1114824697","Nombre1":"Prueba Prueba","ValorVehiculo":10000000,"CuotaInicial":1000000,"Plazo":1,"Celular":"3185993392","CorreoPersonal":"arizacastrillon@hotmail.com","AsociadoJuriscoop":false},"DatosFinancieros":{"ActividadEconomica":1,"ActividadIndependiente":1,"IngresoMensual":1500000},"OtrosDatos":{"ConcesionarioRadicacion":26,"IdentificacionVendedor":147,"UsuarioRadica":"c.sacanamboyc"},"IsJuriscoop":false} 
+ Response: {"ControlStatus":"Error","Errors":null,"Message":"Error al realizar la solicitud de crédito, favor comuniquese con el administrador del sistema y compartele este identificador: <b>33ef91cd-e8b0-46b4-83af-4412b1e501b9</b>","Response":{"Request":null,"InhabilitarValVeh":false,"MontoSol":0,"MontoSolMax":0,"CuotaProyectada":0,"ValorSeguroMes":0,"ValorSeguroMesMax":0,"CuotaSeguro":0,"CuotaSeguroMax":0,"ValorSeguro":0,"ValorSeguroMax":0,"Semaforo":0,"Titulo":null}}------------------------------------------------------------------------ 
+ 
+
+------------------------------------------------------------------------ 
+ Registred On: jueves, 15 abril 2021 08:14:34
+ Report Id: 677bac94-13f9-4307-9bfd-8a90d45aa0f8 
+ Request Type: Santander Bank 
+ Request Body: {"DatosBasicos":{"TipoDocumento":1,"NumeroDocumento":"1114824697","Nombre1":"Prueba Prueba","ValorVehiculo":10000000,"CuotaInicial":1000000,"Plazo":1,"Celular":"3185993392","CorreoPersonal":"arizacastrillon@hotmail.com","AsociadoJuriscoop":false},"DatosFinancieros":{"ActividadEconomica":1,"ActividadIndependiente":1,"IngresoMensual":1500000},"OtrosDatos":{"ConcesionarioRadicacion":26,"IdentificacionVendedor":147,"UsuarioRadica":"c.sacanamboyc"},"IsJuriscoop":false} 
+ Response: {"Value":{"ControlStatus":"Info","Errors":null,"Message":"Señor usuario su solicitud no cumple con los requisitos y ha sido <b>NEGADA</b>. Consulta con tu ejecutivo de cuenta","Response":{"Request":{"ValVehiculo":0,"CuotaInicial":0,"Plazo":12,"Tasa":0.0117,"CuotaMaxAprob":0,"TieneCapacidad":false,"SumSemaforo":0,"CuotaObligTtal":0.0,"IngresoAjustado":0,"Ratio":0.0},"InhabilitarValVeh":true,"MontoSol":0,"MontoSolMax":0,"CuotaProyectada":0,"ValorSeguroMes":0,"ValorSeguroMesMax":0,"CuotaSeguro":0,"CuotaSeguroMax":0,"ValorSeguro":-14640,"ValorSeguroMax":0,"Semaforo":1,"Titulo":"Consulta con tu ejecutivo de cuenta"}},"Formatters":[],"ContentTypes":[],"DeclaredType":null,"StatusCode":200}------------------------------------------------------------------------ 
+ 
+
+------------------------------------------------------------------------ 
+ Registred On: jueves, 15 abril 2021 08:20:39
+ Report Id: d7578294-034c-4d36-a403-cda546ce9568 
+ Request Type: Santander Bank 
+ Request Body: {"DatosBasicos":{"TipoDocumento":1,"NumeroDocumento":"1114824697","Nombre1":"Prueba Prueba","ValorVehiculo":10000000,"CuotaInicial":1000000,"Plazo":1,"Celular":"3185993392","CorreoPersonal":"arizacastrillon@hotmail.com","AsociadoJuriscoop":false},"DatosFinancieros":{"ActividadEconomica":1,"ActividadIndependiente":1,"IngresoMensual":1500000},"OtrosDatos":{"ConcesionarioRadicacion":26,"IdentificacionVendedor":147,"UsuarioRadica":"c.sacanamboyc"},"IsJuriscoop":false} 
+ Response: {"Value":{"ControlStatus":"Info","Errors":null,"Message":"Señor usuario su solicitud no cumple con los requisitos y ha sido <b>NEGADA</b>. Consulta con tu ejecutivo de cuenta","Response":{"Request":{"ValVehiculo":0,"CuotaInicial":0,"Plazo":12,"Tasa":0.0117,"CuotaMaxAprob":0,"TieneCapacidad":false,"SumSemaforo":0,"CuotaObligTtal":0.0,"IngresoAjustado":0,"Ratio":0.0},"InhabilitarValVeh":true,"MontoSol":0,"MontoSolMax":0,"CuotaProyectada":0,"ValorSeguroMes":0,"ValorSeguroMesMax":0,"CuotaSeguro":0,"CuotaSeguroMax":0,"ValorSeguro":-14640,"ValorSeguroMax":0,"Semaforo":1,"Titulo":"Consulta con tu ejecutivo de cuenta"}},"Formatters":[],"ContentTypes":[],"DeclaredType":null,"StatusCode":200}------------------------------------------------------------------------ 
+ 
+
+------------------------------------------------------------------------ 
+ Registred On: jueves, 15 abril 2021 08:29:13
+ Report Id: 81871782-3c83-44f0-a0c9-b9eb81bb63de 
+ Request Type: Santander Bank 
+ Request Body: {"DatosBasicos":{"TipoDocumento":1,"NumeroDocumento":"1114824697","Nombre1":"Prueba Prueba","ValorVehiculo":10000000,"CuotaInicial":1000000,"Plazo":1,"Celular":"3185993392","CorreoPersonal":"arizacastrillon@hotmail.com","AsociadoJuriscoop":false},"DatosFinancieros":{"ActividadEconomica":1,"ActividadIndependiente":1,"IngresoMensual":1500000},"OtrosDatos":{"ConcesionarioRadicacion":26,"IdentificacionVendedor":147,"UsuarioRadica":"c.sacanamboyc"},"IsJuriscoop":false} 
+ Response: {"Value":{"ControlStatus":"Info","Errors":null,"Message":"Señor usuario su solicitud no cumple con los requisitos y ha sido <b>NEGADA</b>. Consulta con tu ejecutivo de cuenta","Response":{"Request":{"ValVehiculo":0,"CuotaInicial":0,"Plazo":12,"Tasa":0.0117,"CuotaMaxAprob":0,"TieneCapacidad":false,"SumSemaforo":0,"CuotaObligTtal":0.0,"IngresoAjustado":0,"Ratio":0.0},"InhabilitarValVeh":true,"MontoSol":0,"MontoSolMax":0,"CuotaProyectada":0,"ValorSeguroMes":0,"ValorSeguroMesMax":0,"CuotaSeguro":0,"CuotaSeguroMax":0,"ValorSeguro":-14640,"ValorSeguroMax":0,"Semaforo":1,"Titulo":"Consulta con tu ejecutivo de cuenta"}},"Formatters":[],"ContentTypes":[],"DeclaredType":null,"StatusCode":200}------------------------------------------------------------------------ 
+ 
+
+------------------------------------------------------------------------ 
+ Registred On: jueves, 15 abril 2021 10:24:33
+ Report Id: c853cf89-056b-4605-9f79-19606abea7be 
+ Request Type: Santander Bank 
+ Request Body: {"DatosBasicos":{"TipoDocumento":1,"NumeroDocumento":"1114824697","Nombre1":"Prueba Prueba","ValorVehiculo":10000000,"CuotaInicial":1000000,"Plazo":1,"Celular":"3185993392","CorreoPersonal":"arizacastrillon@hotmail.com","AsociadoJuriscoop":false},"DatosFinancieros":{"ActividadEconomica":1,"ActividadIndependiente":1,"IngresoMensual":1500000},"OtrosDatos":{"ConcesionarioRadicacion":26,"IdentificacionVendedor":147,"UsuarioRadica":"c.sacanamboyc"},"IsJuriscoop":false} 
+ Response: {"Value":{"ControlStatus":"Info","Errors":null,"Message":"Señor usuario su solicitud no cumple con los requisitos y ha sido <b>NEGADA</b>. Consulta con tu ejecutivo de cuenta","Response":{"Request":{"ValVehiculo":0,"CuotaInicial":0,"Plazo":12,"Tasa":0.0117,"CuotaMaxAprob":0,"TieneCapacidad":false,"SumSemaforo":0,"CuotaObligTtal":0.0,"IngresoAjustado":0,"Ratio":0.0},"InhabilitarValVeh":true,"MontoSol":0,"MontoSolMax":0,"CuotaProyectada":0,"ValorSeguroMes":0,"ValorSeguroMesMax":0,"CuotaSeguro":0,"CuotaSeguroMax":0,"ValorSeguro":-14640,"ValorSeguroMax":0,"Semaforo":1,"Titulo":"Consulta con tu ejecutivo de cuenta"}},"Formatters":[],"ContentTypes":[],"DeclaredType":null,"StatusCode":200}------------------------------------------------------------------------ 
+ 
+
+------------------------------------------------------------------------ 
+ Registred On: jueves, 15 abril 2021 20:36:17
+ Report Id: 88833bca-6333-41aa-a2d9-36b5c38afb77 
+ Request Type: Santander Bank 
+ Request Body: {"DatosBasicos":{"TipoDocumento":1,"NumeroDocumento":"1114824697","Nombre1":"Prueba Prueba","ValorVehiculo":10000000,"CuotaInicial":1000000,"Plazo":1,"Celular":"3185993392","CorreoPersonal":"arizacastrillon@hotmail.com","AsociadoJuriscoop":false},"DatosFinancieros":{"ActividadEconomica":1,"ActividadIndependiente":1,"IngresoMensual":1500000},"OtrosDatos":{"ConcesionarioRadicacion":26,"IdentificacionVendedor":147,"UsuarioRadica":"c.sacanamboyc"},"IsJuriscoop":false} 
+ Response: {"ControlStatus":"Error","Errors":null,"Message":"Error al realizar la solicitud de crédito, favor comuniquese con el administrador del sistema y compartele este identificador: <b>88833bca-6333-41aa-a2d9-36b5c38afb77</b>","Response":{"Request":null,"InhabilitarValVeh":false,"MontoSol":0,"MontoSolMax":0,"CuotaProyectada":0,"ValorSeguroMes":0,"ValorSeguroMesMax":0,"CuotaSeguro":0,"CuotaSeguroMax":0,"ValorSeguro":0,"ValorSeguroMax":0,"Semaforo":0,"Titulo":null}}------------------------------------------------------------------------ 
+ 
+
+------------------------------------------------------------------------ 
+ Registred On: jueves, 15 abril 2021 20:36:33
+ Report Id: 86ed87cd-9d10-43c0-9924-6b874bf8e36b 
+ Request Type: Santander Bank 
+ Request Body: {"DatosBasicos":{"TipoDocumento":1,"NumeroDocumento":"1114824697","Nombre1":"Prueba Prueba","ValorVehiculo":10000000,"CuotaInicial":1000000,"Plazo":1,"Celular":"3185993392","CorreoPersonal":"arizacastrillon@hotmail.com","AsociadoJuriscoop":false},"DatosFinancieros":{"ActividadEconomica":1,"ActividadIndependiente":1,"IngresoMensual":1500000},"OtrosDatos":{"ConcesionarioRadicacion":26,"IdentificacionVendedor":147,"UsuarioRadica":"c.sacanamboyc"},"IsJuriscoop":false} 
+ Response: {"ControlStatus":"Error","Errors":null,"Message":"Error al realizar la solicitud de crédito, favor comuniquese con el administrador del sistema y compartele este identificador: <b>86ed87cd-9d10-43c0-9924-6b874bf8e36b</b>","Response":{"Request":null,"InhabilitarValVeh":false,"MontoSol":0,"MontoSolMax":0,"CuotaProyectada":0,"ValorSeguroMes":0,"ValorSeguroMesMax":0,"CuotaSeguro":0,"CuotaSeguroMax":0,"ValorSeguro":0,"ValorSeguroMax":0,"Semaforo":0,"Titulo":null}}------------------------------------------------------------------------ 
+ 
+
+------------------------------------------------------------------------ 
+ Registred On: jueves, 15 abril 2021 20:40:42
+ Report Id: f44d9b1f-2cdd-487a-a8ad-bc8a07910d92 
+ Request Type: Santander Bank 
+ Request Body: {"DatosBasicos":{"TipoDocumento":1,"NumeroDocumento":"1114824697","Nombre1":"Cesar Ariza","ValorVehiculo":10000000,"CuotaInicial":1000000,"Plazo":1,"Celular":"3185993392","CorreoPersonal":"arizacastrillon@hotmail.com","AsociadoJuriscoop":false},"DatosFinancieros":{"ActividadEconomica":1,"ActividadIndependiente":1,"IngresoMensual":1500000},"OtrosDatos":{"ConcesionarioRadicacion":26,"IdentificacionVendedor":147,"UsuarioRadica":"c.sacanamboyc"},"IsJuriscoop":false} 
+ Response: {"ControlStatus":"Error","Errors":null,"Message":"Error al realizar la solicitud de crédito, favor comuniquese con el administrador del sistema y compartele este identificador: <b>f44d9b1f-2cdd-487a-a8ad-bc8a07910d92</b>","Response":{"Request":null,"InhabilitarValVeh":false,"MontoSol":0,"MontoSolMax":0,"CuotaProyectada":0,"ValorSeguroMes":0,"ValorSeguroMesMax":0,"CuotaSeguro":0,"CuotaSeguroMax":0,"ValorSeguro":0,"ValorSeguroMax":0,"Semaforo":0,"Titulo":null}}------------------------------------------------------------------------ 
+ 
+
+------------------------------------------------------------------------ 
+ Registred On: jueves, 15 abril 2021 20:45:40
+ Report Id: f602a83e-7799-4321-afc1-87877fb832cc 
+ Request Type: Santander Bank 
+ Request Body: {"DatosBasicos":{"TipoDocumento":1,"NumeroDocumento":"1114824697","Nombre1":"Prueba Prueba","ValorVehiculo":10000000,"CuotaInicial":1000000,"Plazo":1,"Celular":"3185993392","CorreoPersonal":"arizacastrillon@hotmail.com","AsociadoJuriscoop":false},"DatosFinancieros":{"ActividadEconomica":1,"ActividadIndependiente":1,"IngresoMensual":1500000},"OtrosDatos":{"ConcesionarioRadicacion":26,"IdentificacionVendedor":147,"UsuarioRadica":"c.sacanamboyc"},"IsJuriscoop":false} 
+ Response: {"ControlStatus":"Error","Errors":null,"Message":"Error al realizar la solicitud de crédito, favor comuniquese con el administrador del sistema y compartele este identificador: <b>f602a83e-7799-4321-afc1-87877fb832cc</b>","Response":{"Request":null,"InhabilitarValVeh":false,"MontoSol":0,"MontoSolMax":0,"CuotaProyectada":0,"ValorSeguroMes":0,"ValorSeguroMesMax":0,"CuotaSeguro":0,"CuotaSeguroMax":0,"ValorSeguro":0,"ValorSeguroMax":0,"Semaforo":0,"Titulo":null}}------------------------------------------------------------------------ 
+ 
+
+------------------------------------------------------------------------ 
+ Registred On: jueves, 15 abril 2021 20:56:14
+ Report Id: f5e5c0cc-295b-40f7-9351-42d1f87e5433 
+ Request Type: Santander Bank 
+ Request Body: {"DatosBasicos":{"TipoDocumento":1,"NumeroDocumento":"1114824697","Nombre1":"Prueba Prueba","ValorVehiculo":10000000,"CuotaInicial":1000000,"Plazo":1,"Celular":"3185993392","CorreoPersonal":"arizacastrillon@hotmail.com","AsociadoJuriscoop":false},"DatosFinancieros":{"ActividadEconomica":1,"ActividadIndependiente":1,"IngresoMensual":1500000},"OtrosDatos":{"ConcesionarioRadicacion":26,"IdentificacionVendedor":147,"UsuarioRadica":"c.sacanamboyc"},"IsJuriscoop":false} 
+ Response: {"ControlStatus":"Error","Errors":null,"Message":"Error al realizar la solicitud de crédito, favor comuniquese con el administrador del sistema y compartele este identificador: <b>f5e5c0cc-295b-40f7-9351-42d1f87e5433</b>","Response":{"Request":null,"InhabilitarValVeh":false,"MontoSol":0,"MontoSolMax":0,"CuotaProyectada":0,"ValorSeguroMes":0,"ValorSeguroMesMax":0,"CuotaSeguro":0,"CuotaSeguroMax":0,"ValorSeguro":0,"ValorSeguroMax":0,"Semaforo":0,"Titulo":null}}------------------------------------------------------------------------ 
+ 
+
+------------------------------------------------------------------------ 
+ Registred On: jueves, 15 abril 2021 20:56:38
+ Report Id: 0b8a809a-d923-43a3-aa5a-2ad553eceea7 
+ Request Type: Santander Bank 
+ Request Body: {"DatosBasicos":{"TipoDocumento":1,"NumeroDocumento":"1114824697","Nombre1":"Prueba Prueba","ValorVehiculo":10000000,"CuotaInicial":1000000,"Plazo":1,"Celular":"3185993392","CorreoPersonal":"arizacastrillon@hotmail.com","AsociadoJuriscoop":false},"DatosFinancieros":{"ActividadEconomica":1,"ActividadIndependiente":1,"IngresoMensual":1500000},"OtrosDatos":{"ConcesionarioRadicacion":26,"IdentificacionVendedor":147,"UsuarioRadica":"c.sacanamboyc"},"IsJuriscoop":false} 
+ Response: {"ControlStatus":"Error","Errors":null,"Message":"Error al realizar la solicitud de crédito, favor comuniquese con el administrador del sistema y compartele este identificador: <b>0b8a809a-d923-43a3-aa5a-2ad553eceea7</b>","Response":{"Request":null,"InhabilitarValVeh":false,"MontoSol":0,"MontoSolMax":0,"CuotaProyectada":0,"ValorSeguroMes":0,"ValorSeguroMesMax":0,"CuotaSeguro":0,"CuotaSeguroMax":0,"ValorSeguro":0,"ValorSeguroMax":0,"Semaforo":0,"Titulo":null}}------------------------------------------------------------------------ 
+ 
+
+------------------------------------------------------------------------ 
+ Registred On: jueves, 15 abril 2021 21:01:31
+ Report Id: ce059a1b-4f82-4efc-a106-483571570567 
+ Request Type: Santander Bank 
+ Request Body: {"DatosBasicos":{"TipoDocumento":1,"NumeroDocumento":"1114824697","Nombre1":"Prueba Prueba","ValorVehiculo":10000000,"CuotaInicial":1000000,"Plazo":1,"Celular":"3185993392","CorreoPersonal":"arizacastrillon@hotmail.com","AsociadoJuriscoop":false},"DatosFinancieros":{"ActividadEconomica":1,"ActividadIndependiente":1,"IngresoMensual":1500000},"OtrosDatos":{"ConcesionarioRadicacion":26,"IdentificacionVendedor":147,"UsuarioRadica":"c.sacanamboyc"},"IsJuriscoop":false} 
+ Response: {"ControlStatus":"Error","Errors":null,"Message":"Error al realizar la solicitud de crédito, favor comuniquese con el administrador del sistema y compartele este identificador: <b>ce059a1b-4f82-4efc-a106-483571570567</b>","Response":{"Request":null,"InhabilitarValVeh":false,"MontoSol":0,"MontoSolMax":0,"CuotaProyectada":0,"ValorSeguroMes":0,"ValorSeguroMesMax":0,"CuotaSeguro":0,"CuotaSeguroMax":0,"ValorSeguro":0,"ValorSeguroMax":0,"Semaforo":0,"Titulo":null}}------------------------------------------------------------------------ 
+ 
+
+------------------------------------------------------------------------ 
+ Registred On: jueves, 15 abril 2021 21:06:56
+ Report Id: 895a85e3-c243-4c26-b884-0af8cf516969 
+ Request Type: Santander Bank 
+ Request Body: {"DatosBasicos":{"TipoDocumento":1,"NumeroDocumento":"1114824697","Nombre1":"Prueba Prueba","ValorVehiculo":10000000,"CuotaInicial":1000000,"Plazo":1,"Celular":"3185993392","CorreoPersonal":"arizacastrillon@hotmail.com","AsociadoJuriscoop":false},"DatosFinancieros":{"ActividadEconomica":1,"ActividadIndependiente":1,"IngresoMensual":1500000},"OtrosDatos":{"ConcesionarioRadicacion":26,"IdentificacionVendedor":147,"UsuarioRadica":"c.sacanamboyc"},"IsJuriscoop":false} 
+ Response: {"ControlStatus":"Error","Errors":null,"Message":"Error al realizar la solicitud de crédito, favor comuniquese con el administrador del sistema y compartele este identificador: <b>895a85e3-c243-4c26-b884-0af8cf516969</b>","Response":{"Request":null,"InhabilitarValVeh":false,"MontoSol":0,"MontoSolMax":0,"CuotaProyectada":0,"ValorSeguroMes":0,"ValorSeguroMesMax":0,"CuotaSeguro":0,"CuotaSeguroMax":0,"ValorSeguro":0,"ValorSeguroMax":0,"Semaforo":0,"Titulo":null}}------------------------------------------------------------------------ 
+ 
+
+------------------------------------------------------------------------ 
+ Registred On: jueves, 15 abril 2021 21:19:03
+ Report Id: 968dbd98-1e0f-4026-b25d-1406a6f99cfa 
+ Request Type: Santander Bank 
+ Request Body: {"DatosBasicos":{"TipoDocumento":1,"NumeroDocumento":"1114824697","Nombre1":"Prueba Prueba","ValorVehiculo":10000000,"CuotaInicial":1000000,"Plazo":1,"Celular":"3185993392","CorreoPersonal":"arizacastrillon@hotmail.com","AsociadoJuriscoop":false},"DatosFinancieros":{"ActividadEconomica":1,"ActividadIndependiente":1,"IngresoMensual":1500000},"OtrosDatos":{"ConcesionarioRadicacion":26,"IdentificacionVendedor":147,"UsuarioRadica":"c.sacanamboyc"},"IsJuriscoop":false} 
+ Response: {"ControlStatus":"Error","Errors":null,"Message":"Error al realizar la solicitud de crédito, favor comuniquese con el administrador del sistema y compartele este identificador: <b>968dbd98-1e0f-4026-b25d-1406a6f99cfa</b>","Response":{"Request":null,"InhabilitarValVeh":false,"MontoSol":0,"MontoSolMax":0,"CuotaProyectada":0,"ValorSeguroMes":0,"ValorSeguroMesMax":0,"CuotaSeguro":0,"CuotaSeguroMax":0,"ValorSeguro":0,"ValorSeguroMax":0,"Semaforo":0,"Titulo":null}}------------------------------------------------------------------------ 
+ 
+
+------------------------------------------------------------------------ 
+ Registred On: jueves, 15 abril 2021 21:49:51
+ Report Id: cd12ab50-85b6-4b5c-a3e5-d0e6a5b95f88 
+ Request Type: Santander Bank 
+ Request Body: {"DatosBasicos":{"TipoDocumento":1,"NumeroDocumento":"1114824697","Nombre1":"Prueba Prueba","ValorVehiculo":10000000,"CuotaInicial":1000000,"Plazo":1,"Celular":"3185993392","CorreoPersonal":"arizacastrillon@hotmail.com","AsociadoJuriscoop":false},"DatosFinancieros":{"ActividadEconomica":1,"ActividadIndependiente":1,"IngresoMensual":1500000},"OtrosDatos":{"ConcesionarioRadicacion":26,"IdentificacionVendedor":147,"UsuarioRadica":"c.sacanamboyc"},"IsJuriscoop":false} 
+ Response: {"ControlStatus":"Error","Errors":null,"Message":"Error al realizar la solicitud de crédito, favor comuniquese con el administrador del sistema y compartele este identificador: <b>cd12ab50-85b6-4b5c-a3e5-d0e6a5b95f88</b>","Response":{"Request":null,"InhabilitarValVeh":false,"MontoSol":0,"MontoSolMax":0,"CuotaProyectada":0,"ValorSeguroMes":0,"ValorSeguroMesMax":0,"CuotaSeguro":0,"CuotaSeguroMax":0,"ValorSeguro":0,"ValorSeguroMax":0,"Semaforo":0,"Titulo":null}}------------------------------------------------------------------------ 
+ 
+
+------------------------------------------------------------------------ 
+ Registred On: jueves, 15 abril 2021 21:54:52
+ Report Id: 36585f13-b2ce-465e-9fcf-b07e2a0aa37d 
+ Request Type: Santander Bank 
+ Request Body: {"DatosBasicos":{"TipoDocumento":1,"NumeroDocumento":"1114824697","Nombre1":"Cesar Prueba","ValorVehiculo":10000000,"CuotaInicial":1000000,"Plazo":1,"Celular":"3185993392","CorreoPersonal":"arizacastrillon@hotmail.com","AsociadoJuriscoop":false},"DatosFinancieros":{"ActividadEconomica":1,"ActividadIndependiente":1,"IngresoMensual":1500000},"OtrosDatos":{"ConcesionarioRadicacion":26,"IdentificacionVendedor":147,"UsuarioRadica":"c.sacanamboyc"},"IsJuriscoop":false} 
+ Response: {"ControlStatus":"Error","Errors":null,"Message":"Error al realizar la solicitud de crédito, favor comuniquese con el administrador del sistema y compartele este identificador: <b>36585f13-b2ce-465e-9fcf-b07e2a0aa37d</b>","Response":{"Request":null,"InhabilitarValVeh":false,"MontoSol":0,"MontoSolMax":0,"CuotaProyectada":0,"ValorSeguroMes":0,"ValorSeguroMesMax":0,"CuotaSeguro":0,"CuotaSeguroMax":0,"ValorSeguro":0,"ValorSeguroMax":0,"Semaforo":0,"Titulo":null}}------------------------------------------------------------------------ 
+ 
+
+------------------------------------------------------------------------ 
+ Registred On: jueves, 15 abril 2021 21:56:50
+ Report Id: b92332fa-5c95-4beb-881f-07814f388a88 
+ Request Type: Santander Bank 
+ Request Body: {"DatosBasicos":{"TipoDocumento":1,"NumeroDocumento":"1114824697","Nombre1":"Cesar Prueba","ValorVehiculo":10000000,"CuotaInicial":1000000,"Plazo":1,"Celular":"3185993392","CorreoPersonal":"arizacastrillon@hotmail.com","AsociadoJuriscoop":false},"DatosFinancieros":{"ActividadEconomica":1,"ActividadIndependiente":1,"IngresoMensual":1500000},"OtrosDatos":{"ConcesionarioRadicacion":26,"IdentificacionVendedor":147,"UsuarioRadica":"c.sacanamboyc"},"IsJuriscoop":false} 
+ Response: {"ControlStatus":"Error","Errors":null,"Message":"Error al realizar la solicitud de crédito, favor comuniquese con el administrador del sistema y compartele este identificador: <b>b92332fa-5c95-4beb-881f-07814f388a88</b>","Response":{"Request":null,"InhabilitarValVeh":false,"MontoSol":0,"MontoSolMax":0,"CuotaProyectada":0,"ValorSeguroMes":0,"ValorSeguroMesMax":0,"CuotaSeguro":0,"CuotaSeguroMax":0,"ValorSeguro":0,"ValorSeguroMax":0,"Semaforo":0,"Titulo":null}}------------------------------------------------------------------------ 
+ 
+
+------------------------------------------------------------------------ 
+ Registred On: jueves, 15 abril 2021 22:00:58
+ Report Id: 59dbd7b1-064d-467f-b8a6-36d2b64ea05c 
+ Request Type: Santander Bank 
+ Request Body: {"DatosBasicos":{"TipoDocumento":1,"NumeroDocumento":"1114824697","Nombre1":"Prueba Ariza","ValorVehiculo":10000000,"CuotaInicial":1000000,"Plazo":1,"Celular":"3185993392","CorreoPersonal":"arizacastrillon@hotmail.com","AsociadoJuriscoop":false},"DatosFinancieros":{"ActividadEconomica":1,"ActividadIndependiente":16,"IngresoMensual":1500000},"OtrosDatos":{"ConcesionarioRadicacion":26,"IdentificacionVendedor":147,"UsuarioRadica":"c.sacanamboyc"},"IsJuriscoop":false} 
+ Response: {"ControlStatus":"Error","Errors":null,"Message":"Error al realizar la solicitud de crédito, favor comuniquese con el administrador del sistema y compartele este identificador: <b>59dbd7b1-064d-467f-b8a6-36d2b64ea05c</b>","Response":{"Request":null,"InhabilitarValVeh":false,"MontoSol":0,"MontoSolMax":0,"CuotaProyectada":0,"ValorSeguroMes":0,"ValorSeguroMesMax":0,"CuotaSeguro":0,"CuotaSeguroMax":0,"ValorSeguro":0,"ValorSeguroMax":0,"Semaforo":0,"Titulo":null}}------------------------------------------------------------------------ 
+ 
+
+------------------------------------------------------------------------ 
+ Registred On: jueves, 15 abril 2021 22:12:14
+ Report Id: ed7c5609-dde3-43dc-bd3d-07cccd45987e 
+ Request Type: Santander Bank 
+ Request Body: {"DatosBasicos":{"TipoDocumento":1,"NumeroDocumento":"1114824697","Nombre1":"Cesar Ariza","ValorVehiculo":10000000,"CuotaInicial":1000000,"Plazo":1,"Celular":"3185993392","CorreoPersonal":"arizacastrillon@hotmail.com","AsociadoJuriscoop":false},"DatosFinancieros":{"ActividadEconomica":1,"ActividadIndependiente":1,"IngresoMensual":1500000},"OtrosDatos":{"ConcesionarioRadicacion":26,"IdentificacionVendedor":147,"UsuarioRadica":"c.sacanamboyc"},"IsJuriscoop":false} 
+ Response: {"ControlStatus":"Error","Errors":null,"Message":"Error al realizar la solicitud de crédito, favor comuniquese con el administrador del sistema y compartele este identificador: <b>ed7c5609-dde3-43dc-bd3d-07cccd45987e</b>","Response":{"Request":null,"InhabilitarValVeh":false,"MontoSol":0,"MontoSolMax":0,"CuotaProyectada":0,"ValorSeguroMes":0,"ValorSeguroMesMax":0,"CuotaSeguro":0,"CuotaSeguroMax":0,"ValorSeguro":0,"ValorSeguroMax":0,"Semaforo":0,"Titulo":null}}------------------------------------------------------------------------ 
+ 
+
+------------------------------------------------------------------------ 
+ Registred On: jueves, 15 abril 2021 22:16:00
+ Report Id: 251b12dd-58cd-4461-b5fa-b5ec1f5adced 
+ Request Type: Santander Bank 
+ Request Body: {"DatosBasicos":{"TipoDocumento":1,"NumeroDocumento":"1114824697","Nombre1":"Cesar Ariza","ValorVehiculo":10000000,"CuotaInicial":1000000,"Plazo":1,"Celular":"3185993392","CorreoPersonal":"Prueba@motovalle.com.co","AsociadoJuriscoop":false},"DatosFinancieros":{"ActividadEconomica":1,"ActividadIndependiente":1,"IngresoMensual":1500000},"OtrosDatos":{"ConcesionarioRadicacion":26,"IdentificacionVendedor":147,"UsuarioRadica":"c.sacanamboyc"},"IsJuriscoop":false} 
+ Response: {"ControlStatus":"Error","Errors":null,"Message":"Error al realizar la solicitud de crédito, favor comuniquese con el administrador del sistema y compartele este identificador: <b>251b12dd-58cd-4461-b5fa-b5ec1f5adced</b>","Response":{"Request":null,"InhabilitarValVeh":false,"MontoSol":0,"MontoSolMax":0,"CuotaProyectada":0,"ValorSeguroMes":0,"ValorSeguroMesMax":0,"CuotaSeguro":0,"CuotaSeguroMax":0,"ValorSeguro":0,"ValorSeguroMax":0,"Semaforo":0,"Titulo":null}}------------------------------------------------------------------------ 
+ 
+
+------------------------------------------------------------------------ 
+ Registred On: jueves, 15 abril 2021 22:25:47
+ Report Id: 5c0b81fa-24cd-4561-b51a-6991a9ea6cca 
+ Request Type: Santander Bank 
+ Request Body: {"DatosBasicos":{"TipoDocumento":1,"NumeroDocumento":"1114824697","Nombre1":"Cesar Ariza","ValorVehiculo":10000000,"CuotaInicial":1000000,"Plazo":1,"Celular":"3185993392","CorreoPersonal":"arizacastrillon@hotmail.com","AsociadoJuriscoop":false},"DatosFinancieros":{"ActividadEconomica":1,"ActividadIndependiente":1,"IngresoMensual":1500000},"OtrosDatos":{"ConcesionarioRadicacion":26,"IdentificacionVendedor":147,"UsuarioRadica":"c.sacanamboyc"},"IsJuriscoop":false} 
+ Response: {"ControlStatus":"Error","Errors":null,"Message":"Error al realizar la solicitud de crédito, favor comuniquese con el administrador del sistema y compartele este identificador: <b>5c0b81fa-24cd-4561-b51a-6991a9ea6cca</b>","Response":{"Request":null,"InhabilitarValVeh":false,"MontoSol":0,"MontoSolMax":0,"CuotaProyectada":0,"ValorSeguroMes":0,"ValorSeguroMesMax":0,"CuotaSeguro":0,"CuotaSeguroMax":0,"ValorSeguro":0,"ValorSeguroMax":0,"Semaforo":0,"Titulo":null}}------------------------------------------------------------------------ 
+ 
+
+------------------------------------------------------------------------ 
+ Registred On: jueves, 15 abril 2021 22:41:39
+ Report Id: 4713f106-001d-48d7-9dd6-5ae1a87d786b 
+ Request Type: Santander Bank 
+ Request Body: {"DatosBasicos":{"TipoDocumento":1,"NumeroDocumento":"1114824697","Nombre1":"Cesar Ariza","ValorVehiculo":10000000,"CuotaInicial":1000000,"Plazo":1,"Celular":"3185993392","CorreoPersonal":"arizacastrillon@hotmail.com","AsociadoJuriscoop":false},"DatosFinancieros":{"ActividadEconomica":1,"ActividadIndependiente":1,"IngresoMensual":1500000},"OtrosDatos":{"ConcesionarioRadicacion":26,"IdentificacionVendedor":147,"UsuarioRadica":"c.sacanamboyc"},"IsJuriscoop":false} 
+ Response: {"ControlStatus":"Error","Errors":null,"Message":"Error al realizar la solicitud de crédito, favor comuniquese con el administrador del sistema y compartele este identificador: <b>4713f106-001d-48d7-9dd6-5ae1a87d786b</b>","Response":{"Request":null,"InhabilitarValVeh":false,"MontoSol":0,"MontoSolMax":0,"CuotaProyectada":0,"ValorSeguroMes":0,"ValorSeguroMesMax":0,"CuotaSeguro":0,"CuotaSeguroMax":0,"ValorSeguro":0,"ValorSeguroMax":0,"Semaforo":0,"Titulo":null}}------------------------------------------------------------------------ 
+ 
+
+------------------------------------------------------------------------ 
+ Registred On: jueves, 15 abril 2021 22:58:21
+ Report Id: df5a9a9b-e494-4e61-a4b3-443d865f4c95 
+ Request Type: Santander Bank 
+ Request Body: {"DatosBasicos":{"TipoDocumento":1,"NumeroDocumento":"1114824697","Nombre1":"Cesar Ariza","ValorVehiculo":10000000,"CuotaInicial":1000000,"Plazo":1,"Celular":"3185993392","CorreoPersonal":"arizacastrillon@hotmail.com","AsociadoJuriscoop":false},"DatosFinancieros":{"ActividadEconomica":1,"ActividadIndependiente":1,"IngresoMensual":1500000},"OtrosDatos":{"ConcesionarioRadicacion":26,"IdentificacionVendedor":147,"UsuarioRadica":"c.sacanamboyc"},"IsJuriscoop":false} 
+ Response: {"ControlStatus":"Error","Errors":null,"Message":"Error al realizar la solicitud de crédito, favor comuniquese con el administrador del sistema y compartele este identificador: <b>df5a9a9b-e494-4e61-a4b3-443d865f4c95</b>","Response":{"Request":null,"InhabilitarValVeh":false,"MontoSol":0,"MontoSolMax":0,"CuotaProyectada":0,"ValorSeguroMes":0,"ValorSeguroMesMax":0,"CuotaSeguro":0,"CuotaSeguroMax":0,"ValorSeguro":0,"ValorSeguroMax":0,"Semaforo":0,"Titulo":null}}------------------------------------------------------------------------ 
+ 
+
+------------------------------------------------------------------------ 
+ Registred On: viernes, 16 abril 2021 07:40:02
+ Report Id: 8b9174cb-f317-4d19-8579-555d3628544f 
+ Request Type: Santander Bank 
+ Request Body: {"DatosBasicos":{"TipoDocumento":1,"NumeroDocumento":"1114824697","Nombre1":"Cesar Prueba","ValorVehiculo":10000000,"CuotaInicial":1000000,"Plazo":1,"Celular":"3185993392","CorreoPersonal":"arizacastrillon@hotmail.com","AsociadoJuriscoop":false},"DatosFinancieros":{"ActividadEconomica":1,"ActividadIndependiente":1,"IngresoMensual":1500000},"OtrosDatos":{"ConcesionarioRadicacion":26,"IdentificacionVendedor":147,"UsuarioRadica":"c.sacanamboyc"},"IsJuriscoop":false} 
+ Response: {"Value":{"ControlStatus":"Info","Errors":null,"Message":"Señor usuario su solicitud no cumple con los requisitos y ha sido <b>NEGADA</b>. Consulta con tu ejecutivo de cuenta","Response":{"Request":{"ValVehiculo":0,"CuotaInicial":0,"Plazo":12,"Tasa":0.0117,"CuotaMaxAprob":0,"TieneCapacidad":false,"SumSemaforo":0,"CuotaObligTtal":0.0,"IngresoAjustado":0,"Ratio":0.0},"InhabilitarValVeh":true,"MontoSol":0,"MontoSolMax":0,"CuotaProyectada":0,"ValorSeguroMes":0,"ValorSeguroMesMax":0,"CuotaSeguro":0,"CuotaSeguroMax":0,"ValorSeguro":-14640,"ValorSeguroMax":0,"Semaforo":1,"Titulo":"Consulta con tu ejecutivo de cuenta"}},"Formatters":[],"ContentTypes":[],"DeclaredType":null,"StatusCode":200}------------------------------------------------------------------------ 
+ 
+
+------------------------------------------------------------------------ 
+ Registred On: viernes, 16 abril 2021 21:09:06
+ Report Id: 91b1a22a-ff1d-4d53-add7-971f55756319 
+ Request Type: Santander Bank 
+ Request Body: {"DatosBasicos":{"TipoDocumento":1,"NumeroDocumento":"1114824697","Nombre1":"Prueba Prueba","ValorVehiculo":10000000,"CuotaInicial":1000000,"Plazo":1,"Celular":"3185993392","CorreoPersonal":"arizacastrillon@hotmail.com","AsociadoJuriscoop":false},"DatosFinancieros":{"ActividadEconomica":1,"ActividadIndependiente":1,"IngresoMensual":1500000},"OtrosDatos":{"ConcesionarioRadicacion":26,"IdentificacionVendedor":147,"UsuarioRadica":"c.sacanamboyc"},"IsJuriscoop":false} 
+ Response: {"Value":{"ControlStatus":"Info","Errors":null,"Message":"Señor usuario su solicitud no cumple con los requisitos y ha sido <b>NEGADA</b>. Consulta con tu ejecutivo de cuenta","Response":{"Request":{"ValVehiculo":0,"CuotaInicial":0,"Plazo":12,"Tasa":0.0117,"CuotaMaxAprob":0,"TieneCapacidad":false,"SumSemaforo":0,"CuotaObligTtal":0.0,"IngresoAjustado":0,"Ratio":0.0},"InhabilitarValVeh":true,"MontoSol":0,"MontoSolMax":0,"CuotaProyectada":0,"ValorSeguroMes":0,"ValorSeguroMesMax":0,"CuotaSeguro":0,"CuotaSeguroMax":0,"ValorSeguro":-14640,"ValorSeguroMax":0,"Semaforo":1,"Titulo":"Consulta con tu ejecutivo de cuenta"}},"Formatters":[],"ContentTypes":[],"DeclaredType":null,"StatusCode":200}------------------------------------------------------------------------ 
+ 
+
+------------------------------------------------------------------------ 
+ Registred On: lunes, 19 abril 2021 08:26:37
+ Report Id: 4f42c16e-415c-4f06-975a-d426724512e9 
+ Request Type: Santander Bank 
+ Request Body: {"DatosBasicos":{"TipoDocumento":1,"NumeroDocumento":"1114824697","Nombre1":"Prueba Prueba","ValorVehiculo":10000000,"CuotaInicial":1000000,"Plazo":1,"Celular":"3185993392","CorreoPersonal":"arizacastrillon@hotmail.com","AsociadoJuriscoop":false},"DatosFinancieros":{"ActividadEconomica":1,"ActividadIndependiente":1,"IngresoMensual":1500000},"OtrosDatos":{"ConcesionarioRadicacion":26,"IdentificacionVendedor":147,"UsuarioRadica":"c.sacanamboyc"},"IsJuriscoop":false} 
+ Response: {"Value":{"ControlStatus":"Info","Errors":null,"Message":"Señor usuario su solicitud no cumple con los requisitos y ha sido <b>NEGADA</b>. Consulta con tu ejecutivo de cuenta","Response":{"Request":{"ValVehiculo":0,"CuotaInicial":0,"Plazo":12,"Tasa":0.0117,"CuotaMaxAprob":0,"TieneCapacidad":false,"SumSemaforo":0,"CuotaObligTtal":0.0,"IngresoAjustado":0,"Ratio":0.0},"InhabilitarValVeh":true,"MontoSol":0,"MontoSolMax":0,"CuotaProyectada":0,"ValorSeguroMes":0,"ValorSeguroMesMax":0,"CuotaSeguro":0,"CuotaSeguroMax":0,"ValorSeguro":-14640,"ValorSeguroMax":0,"Semaforo":1,"Titulo":"Consulta con tu ejecutivo de cuenta"}},"Formatters":[],"ContentTypes":[],"DeclaredType":null,"StatusCode":200}------------------------------------------------------------------------ 
+ 
+

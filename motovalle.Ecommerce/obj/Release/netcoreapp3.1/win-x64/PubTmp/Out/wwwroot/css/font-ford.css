@@ -1,0 +1,50 @@
+﻿/*------------------------------------------------------------------
+[Fonts by Make]
+Author:     Diego Arenas
+Company:    Motovalle
+-------------------------------------------------------------------*/
+
+
+/*FORD*/
+@font-face {
+    font-family: ford-font;
+    src: url('/fonts/Ford-tipografias/FordAntenna-Black.otf') format("opentype");
+    font-weight: bolder;
+}
+
+@font-face {
+    font-family: ford-font;
+    src: url('/fonts/Ford-tipografias/FordAntenna-Bold.otf') format("opentype");
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: ford-font;
+    src: url('/fonts/Ford-tipografias/FordAntenna-Light.otf') format("opentype");
+    font-weight: lighter;
+}
+
+@font-face {
+    font-family: ford-font;
+    src: url('/fonts/Ford-tipografias/FordAntenna-Regular.otf') format("opentype");
+    font-weight: normal;
+}
+
+
+body, .btn.m-btn, .b-search__main-title h2, .b-search__main-type h4, .b-search__main-type h5, .m-firstSelects select, .m-firstSelects p,
+.b-search__main-form-range label, .b-search__main-form-range a .max, .b-search__main-form-range a .min,
+.b-infoBar__select-one-title, .b-infoBar__select-one select, .b-items__cars-one-info p,
+.s-noRightMargin .b-items__cars-one-info-title, .s-noRightMargin .b-items__cars-one-info-value,
+.s-lineDownLeft.b-items__cell-info-title h2, .m-smallPadding ul > li, .b-items__cell-info-km > p, .b-items__cell-info-price,
+.b-items__cell-info a.btn,
+.b-detail__head-title h1, .b-detail__head-title h3, .b-detail__head-price-num, .b-detail__head-price > p, .s-titleDet,
+.b-detail__main-aside-desc-title, p.b-detail__main-aside-desc-value, .b-detail__main-aside-about-call > div,
+.b-detail__main-aside-about-seller > p, .b-detail__main-aside-about-seller > p > span, .b-detail__main-aside-payment-form form input[placeholder],
+.b-detail__main-aside-payment-form form select, .b-detail__main-info-characteristics-one-top > p, .b-detail__main-info-characteristics-one-bottom,
+.b-detail__main-aside-about-form-links > a, a.j-tab{
+    font-family: ford-font;
+}
+
+#info1, #info1 > p, #info2 > p {
+    font-family: ford-font;
+}

@@ -1,0 +1,41 @@
+﻿@page
+@model ConfirmEmailModel
+@{
+    ViewData["Title"] = "Confirm email";
+}
+
+
+<section class="b-pageHeader identity">
+    <div class="container">
+        <h1 class="wow zoomInLeft" data-wow-delay="0.5s">Confirmación de correo electrónico</h1>
+        <div class="b-pageHeader__search wow zoomInRight" data-wow-delay="0.5s">
+            <h3>Revisa tu buzón de correo</h3>
+        </div>
+    </div>
+</section>
+
+<div class="b-breadCumbs s-shadow wow zoomInUp" data-wow-delay="0.5s">
+    <div class="container">
+        <a asp-controller="Home" asp-action="Index" class="b-breadCumbs__page">Home</a><span class="fa fa-angle-right"></span><a asp-area="Identity" asp-page="/Account/ConfirmEmail" class="b-breadCumbs__page m-active">Confirmación de correo</a>
+    </div>
+</div>
+
+<section class="b-breadCumbs wow zoomInUp" data-wow-delay="0.5s">
+    <div class="container">
+        <div class="row">
+            <partial name="_StatusMessage" model="Model.StatusMessage" />
+        </div>
+        <div class="row">
+            <form method="post">
+                <div class="text-center">
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-default">Iniciar sesión</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        @{ await Html.RenderPartialAsync("_ContactUs"); }
+    </div>
+    <br />
+    <br />
+</section>

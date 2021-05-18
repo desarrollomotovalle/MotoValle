@@ -1,0 +1,55 @@
+﻿@model inventek_blog.Models.Entities.Posts
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+<div class="post">
+    <div class="post-meta">
+        <div class="row">
+
+            <!--Heading-->
+            <div class="post-title">
+                <h2>@Model.Title</h2>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <!--Category-->
+            <div class="post-category">
+                <span>Category: </span>@Model.FkCategories
+            </div>
+
+            <!--Tags-->
+            <div class="post-tags">
+                <span>Tags:</span>@Model.PostTagMap
+            </div>
+
+            <!--Posted date-->
+            <div class="posted-date">
+                @Model.PostedOn.ToShortDateString()
+            </div>
+
+        </div>
+
+    </div>
+
+    <!--Short Description-->
+    <div class="post-body">
+        @Html.Raw(Model.ShortDescription)
+    </div>
+
+    <div class="post-foot">
+        @Html.ActionLink("continue...", "post", "blog",
+            new
+            {
+                year = Model.PostedOn.Year,
+                month = Model.PostedOn.Month,
+                day = Model.PostedOn.Day,
+                title = Model.UrlSlug
+            },
+            new { title = "continue..." }
+        )
+    </div>
+</div>

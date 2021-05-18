@@ -1,0 +1,10 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "imask@6.0.5",
+      "destination": "wwwroot/lib/imask/"
+    }
+  ]
+}

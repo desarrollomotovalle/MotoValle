@@ -1,0 +1,80 @@
+﻿@model List<UsersViewModel>
+
+@{
+    ViewData["Title"] = "RoleManager";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="content">
+    <div class="container">
+        <div>
+            <div class="col-12 text-center">
+                <h1 class="m-0 text-dark">Administrador de Roles</h1>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-12 text-center">
+                <a asp-action="UserManager" asp-controller="Admin" class="btn btn-dark" style="width: 34%;"><span class="fa fa-arrow-alt-circle-left"></span> Voler al administrador de usuarios</a>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="table">
+                <table id="dtUserRoleManagerId" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th class="th-sm">
+                                Id
+                            </th>
+                            <th class="th-sm">
+                                Nombres
+                            </th>
+                            <th class="th-sm">
+                                Correo/Usuario
+                            </th>
+                            <th class="th-sm">
+                                Roles
+                            </th>
+                            <th class="th-sm">
+                                Acciones
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Id</td>
+                                <td>@item.Name</td>
+                                <td>@item.Email</td>
+                                @foreach (var role in item.Roles)
+                                {
+                                    <td>@role</td>
+                                    <td>@Html.ActionLink("Editar", "UserRoleManager", "Admin", new { idUser = item.Id, roleName = role }, new { @class = "btn btn-info", style = "width:100%;" })</td>
+                                }
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $('#dtUserRoleManagerId').DataTable({
+                "autoWidth": false,
+                "paging": true,
+                "ordering": true,
+                "scrollY": true,
+                "searching": true,
+            });
+
+            $('.dataTables_length').addClass('bs-select');
+        });
+    </script>
+}

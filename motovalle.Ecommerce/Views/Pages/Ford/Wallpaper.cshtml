@@ -1,0 +1,132 @@
+﻿
+@{
+    ViewData["Title"] = "Ford Wallpaper";
+    Layout = "~/Views/Shared/_LayoutFord.cshtml";
+}
+
+<section class="b-pageHeader">
+    <div class="container">
+        <h1 class="wow zoomInLeft" data-wow-delay="0.5s">Ford Wallpaper</h1>
+    </div>
+</section><!--b-pageHeader-->
+
+<div class="b-breadCumbs s-shadow">
+    <div class="container wow zoomInUp" data-wow-delay="0.5s">
+        <a asp-action="Index" asp-controller="Home" class="b-breadCumbs__page">Home</a><span class="fa fa-angle-right"></span>
+        <a asp-action="Index" asp-controller="Ford" class="b-breadCumbs__page">Ford</a><span class="fa fa-angle-right"></span>
+        <a asp-action="Wallpaper" asp-controller="Pages" class="b-breadCumbs__page m-active">Ford Wallpaper</a>
+    </div>
+    @if (ViewBag.Message != null)
+    {
+        <div class="alert alert-danger text-center wow zoomInUp" role="alert" data-wow-delay="0.5s">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <strong>¡Ups!..</strong> @ViewBag.Message &#128577;
+        </div>
+    }
+</div>
+
+
+<section class="b-article">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 col-xs-12">
+                <div class="b-article__main">
+                    <div class="b-blog__posts-one">
+                        <div class="row m-noBlockPadding">
+                            <div class="col-sm-1 col-xs-2">
+
+                            </div>
+                            <div class="col-sm-11 col-xs-10">
+                                <div class="b-blog__posts-one-body">
+                                    <header class="b-blog__posts-one-body-head wow zoomInUp" data-wow-delay="0.5s">
+                                        <h2 class="s-titleDet">Ford Wallpapers</h2>
+                                    </header>
+                                    <div class="b-blog__posts-one-body-main wow zoomInUp" data-wow-delay="0.5s">
+                                        <div class="b-blog__posts-one-body-main-img">
+                                            <div class="bxslider enable-bx-slider" data-pager-custom="#bx-pager" data-mode="fade" data-pager-slide="false" data-mode-pager="horizontal" data-pager-qty="0">
+                                                <img class="img-responsive" src="~/images/ford/ford_raptor.jpg" alt="jaguar" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="b-blog__posts-one-body-why wow zoomInUp" data-wow-delay="0.5s">
+                                        <div class="s-lineDownLeft  s-titleLeft">
+                                            <div>
+                                                <h2 class="s-titleDet">Wallpapers Disponibles</h2>
+                                                ¡Estaremos agregando wallpapers periódicamente!
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+
+                                        <div id="ford-wallpaper" data-nanogallery2='{ "itemsBaseURL": "@Url.Content("~/media/Wallpaper_Ford/")",
+                                                                                  "thumbnailWidth": "auto",
+                                                                                  "thumbnailHeight": "380",
+                                                                                  "thumbnailBorderVertical": 0,
+                                                                                  "thumbnailBorderHorizontal": 0,
+                                                                                  "thumbnailDisplayTransition": "slideUp2",
+                                                                                  "thumbnailDisplayInterval": 0,
+                                                                                  "thumbnailLabel": {
+                                                                                    "position": "overImageOnBottom",
+                                                                                    "titleMultiLine": true,
+                                                                                    "displayDescription": true,
+                                                                                    "descriptionMultiLine": true
+                                                                                  },
+                                                                                  "allowHTMLinData": true,
+                                                                                  "thumbnailHoverEffect2": "image_translateY_0%_0%_1000|label_translateX_-100%_0%_0|label_font-size_1em_1.5em_0",
+                                                                                  "thumbnailAlignment": "justified",
+                                                                                  "gallerySorting": "random",
+                                                                                  "galleryDisplayMode": "pagination",
+                                                                                  "thumbnailLevelUp": true,
+                                                                                  "thumbnailOpenImage": true,
+                                                                                  "thumbnailToolbarImage": { "topLeft": "featured", "topRight" : "download" } }'>
+                                            <a href="cobra_wallpaper_cellphone.jpg" data-ngthumb="cobra_wallpaper_cellphone.jpg" data-ngdesc="Cobra Wallpaper para Celular">Cobra Wallpaper</a>
+                                            <a href="Ford_Logo_wallpaper.jpg" data-ngthumb="Ford_Logo_wallpaper.jpg" data-ngdesc="Logo de Ford">Logo de Ford</a>
+                                            <a href="mustang_elenor_wallpaper.jpg" data-ngthumb="mustang_elenor_wallpaper.jpg" data-ngdesc="Mustang Elenor">Mustang Elenor</a>
+                                            <a href="mustang_wallpaper.jpg" data-ngthumb="mustang_wallpaper.jpg" data-ngdesc="Mustang Wallpaper">Mustang Wallpaper</a>
+                                            <a href="mustang_wallpaper_cellphone.jpg" data-ngthumb="mustang_wallpaper_cellphone.jpg" data-ngdesc="Mustang Elenor">Mustang Elenor Celular</a>
+                                            <a href="Raptor_wallpaper.jpg" data-ngthumb="Raptor_wallpaper.jpg" data-ngdesc="Raptor Wallpaper">Raptor Wallpaper</a>
+                                            <a href="raptor_wallpaper_2.jpg" data-ngthumb="raptor_wallpaper_2.jpg" data-ngdesc="Raptor Wallpaper #2">Raptor Wallpaper #2</a>
+                                            <a href="wallpaper_cell_phone_raptor.jpg" data-ngthumb="wallpaper_cell_phone_raptor.jpg" data-ngdesc="Raptor Wallpaper para cecular">Raptor Wallpaper para Celular</a>
+                                            <a href="Shelby_wallpaper.jpg" data-ngthumb="Shelby_wallpaper.jpg" data-ngdesc="Shelby_wallpaper.jpg">Shebly Wallpaper</a>
+                                            <a href="shelby_wallpaper_cellphone.jpg" data-ngthumb="shelby_wallpaper_cellphone.jpg" data-ngdesc="Mustang Elenor">Shelby Wallpaper para Celular</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-xs-12">
+                <aside class="b-blog__aside">
+                    <div class="b-blog__aside-categories wow zoomInUp" data-wow-delay="0.5s">
+                        <header class="s-lineDownLeft">
+                            <h2 class="s-titleDet">Áreas Interactivas</h2>
+                        </header>
+                        <nav>
+                            <ul class="b-blog__aside-categories-list">
+                                <li><a asp-controller="Pages" asp-action="Ford_Interactivo">Ford Interactivo</a></li>
+                                <li><a asp-controller="Pages" asp-action="Ford_Coloring">Ford Coloring</a></li>
+                                <li class="m-active"><a asp-controller="Pages" asp-action="Ford_Wallpaper">Wallpapers</a></li>
+                                <li><a asp-controller="Pages" asp-action="Ford_en_Peliculas">Ford en Películas</a></li>
+                                @*<li><a asp-controller="Pages" asp-action="Test_Drive_Interactivo_Ford">Test Drive Interactivo</a></li>
+                                    <li><a asp-controller="Pages" asp-action="Airlife">Combatiendo COVID-19 con Airlife</a></li>
+                                    <li><a href="#">Donaciones y Programas de Ayuda</a></li>*@
+                            </ul>
+                        </nav>
+                    </div>
+
+                </aside>
+            </div>
+        </div>
+    </div>
+</section><!--b-article-->
+
+@section Styles{ 
+    <link href="https://cdn.jsdelivr.net/npm/nanogallery2@3/dist/css/nanogallery2.min.css" rel="stylesheet" type="text/css">
+}
+
+@section Scripts{ 
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/nanogallery2@3/dist/jquery.nanogallery2.min.js"></script>
+}

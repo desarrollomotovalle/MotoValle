@@ -1,0 +1,106 @@
+﻿@model MPExternalWebTokenizeViewModel
+@{
+    ViewData["Title"] = "MPExternalWebTokenize";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="b-pageHeader checkout">
+    <div class="container">
+        <h1 class=" wow zoomInLeft" data-wow-delay="0.5s">Compra</h1>
+        <div class="b-pageHeader__search wow zoomInRight" data-wow-delay="0.5s">
+            <h3>Tu compra</h3>
+        </div>
+    </div>
+</section><!--b-pageHeader-->
+
+<div class="b-breadCumbs s-shadow">
+    <div class="container wow zoomInUp" data-wow-delay="0.5s">
+        <a asp-action="Index" asp-controller="Home" class="b-breadCumbs__page">Home</a><span class="fa fa-angle-right"></span><a asp-action="Index" asp-controller="ShoppingCart" class="b-breadCumbs__page m-active">Compra</a>
+    </div>
+    @if (ViewBag.Message != null)
+    {
+        <div class="container">
+            <div class="alert alert-danger text-center wow zoomInUp" role="alert" data-wow-delay="0.5s">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <strong>¡Ups!..</strong> @ViewBag.Message &#128577;
+            </div>
+
+            <div asp-validation-summary="All" class="alert alert-danger wow zoomInUp" role="alert" data-wow-delay="0.5s"></div>
+        </div>
+    }
+    else
+    {
+        <div class="container">
+            <div class="text-center">
+                <form asp-action="MPExternalWebTokenize" asp-controller="ShoppingCart" method="POST" id="frmMPExternalWebTokenize">
+                    @Html.AntiForgeryToken()
+                    <input asp-for="FirstName" type="hidden" class="form-control" />
+                    <input asp-for="LastName" type="hidden" class="form-control" />
+                    <input asp-for="Email" type="hidden" class="form-control" />
+                    <input asp-for="ShipToZipcode" type="hidden" class="form-control" />
+                    <input asp-for="ShipToState" type="hidden" class="form-control" />
+                    <input asp-for="ShipToCity" type="hidden" class="form-control" />
+                    <input asp-for="ShipToAddress" type="hidden" class="form-control" />
+                    <input asp-for="PhoneNumber" type="hidden" class="form-control" />
+                    <input asp-for="Description" type="hidden" class="form-control" />
+                    <input asp-for="InventoryItemId" type="hidden" class="form-control" />
+                    <input value="@ViewBag.TotalAmount" name="TotalAmount" id="TotalAmount" type="hidden" class="form-control" />
+                    <input asp-for="Description" type="hidden" class="form-control" />
+                    <input asp-for="IdentificationType" type="hidden" class="form-control" />
+                    <input asp-for="IdentificationNumber" type="hidden" class="form-control" />
+
+                    <script src="https://www.mercadopago.com.co/integrations/v1/web-tokenize-checkout.js"
+                            data-public-key="@ViewBag.MercadoPagoPublicKey"
+                            data-transaction-amount="@ViewBag.TotalAmount"
+                            data-summary-product="@Model.Description"
+                            data-open="true"
+                            data-summary-product-label="Ítem"
+                            data-header-color="#03271f"
+                            data-button-label="Pagar"
+                            data-elements-color="#BC9B67">
+                    </script>
+                </form>
+            </div>
+        </div>
+
+        @section Scripts {
+            <script src="https://www.mercadopago.com/v2/security.js"></script>
+            <partial name="_ValidationScriptsPartial" />
+            <script type="text/javascript">
+                //********************** Mostrar ventana de carga **********************//
+                window.addEventListener("message", async (event) => {
+
+                    ////Sólo para pantallas grandes (No Móviles)
+                    if (screen.width > 768) {
+
+                        if (event.origin !== 'https://www.mercadopago.com.co' || event.data === null || event.data.type !== "submit") {
+                            return;
+                        }
+
+                        Swal.fire({
+                            title: 'Procesando pago...',
+                            html: '<p>Espere</p>',
+                            onBeforeOpen: () => {
+                                Swal.showLoading()
+                            },
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        });
+                    }
+                });
+                //********************** Mostrar ventana de carga **********************//
+            </script>
+        }
+
+        @section Styles{
+            <style>
+                button.mercadopago-button {
+                    padding: 2rem 5rem 2rem 5rem;
+                    font-size: 18px;
+                }
+            </style>
+         }
+    }
+</div><!--b-breadCumbs-->

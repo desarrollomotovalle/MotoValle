@@ -1,0 +1,51 @@
+﻿@model Ecommerce.Models.Entities.ChamberDimensions
+
+@{
+    ViewData["Title"] = "ChamberDimensionsEdit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="content">
+    <div class="container">
+        <div>
+            <div class="col-12 text-center">
+                <h1 class="m-0 text-dark">Editar</h1>
+            </div>
+            <div class="text-left">
+                <p>
+                    <a asp-action="ChamberDimensions" asp-controller="Admin" class="btn btn-md btn-dark"><span class="fa fa-arrow-circle-left"></span> Volver</a>
+                </p>
+            </div>
+
+            @if (ViewBag.Message != null)
+            {
+                <div class="alert alert-danger text-center wow zoomInUp" role="alert" data-wow-delay="0.5s">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <strong>¡Ups!..</strong> @ViewBag.Message &#128577;
+                </div>
+            }
+        </div>
+
+        <div class="col-lg-offset-3 ">
+            <form method="post" asp-action="ChamberDimensionsEdit" asp-controller="Admin">
+                @Html.AntiForgeryToken()
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="ChamberDimensionsId" />
+                <div class="form-group">
+                    <label asp-for="ChamberDimensionName" class="control-label"></label>
+                    <input asp-for="ChamberDimensionName" class="form-control" />
+                    <span asp-validation-for="ChamberDimensionName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Guardar cambios" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

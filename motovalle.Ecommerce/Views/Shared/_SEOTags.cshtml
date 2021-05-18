@@ -1,0 +1,12 @@
+﻿@using motovalle.Ecommerce.Helpers.Services
+@inject SEOSearchHelper seoService
+@model string
+
+@{
+    var seoTags = seoService.GetSEO(Model);
+
+    ///Set SEO Tags
+    TempData["Title"] = seoTags.Title;
+    TempData["Description"] = seoTags.Description;
+    TempData["Keywords"] = seoTags.Keywords;
+}

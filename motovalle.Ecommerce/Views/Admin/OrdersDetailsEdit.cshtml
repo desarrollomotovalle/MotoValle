@@ -1,0 +1,101 @@
+﻿@model Ecommerce.Models.Entities.OrderDetails
+
+@{
+    ViewData["Title"] = "OrdersDetailsEdit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="content">
+    <div class="container">
+        <div>
+            <div class="col-12 text-center">
+                <h1 class="m-0 text-dark">Editar</h1>
+            </div>
+            <div class="text-left">
+                <p>
+                    <a asp-action="OrdersDetails" asp-controller="Admin" asp-route-id="@Model.FkOrdersId" class="btn btn-md btn-dark"><span class="fa fa-arrow-circle-left"></span> Volver</a>
+                </p>
+            </div>
+
+            @if (ViewBag.Message != null)
+            {
+                <div class="alert alert-danger text-center wow zoomInUp" role="alert" data-wow-delay="0.5s">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <strong>¡Ups!..</strong> @ViewBag.Message &#128577;
+                </div>
+            }
+        </div>
+
+        <div class="col-lg-offset-3 ">
+            <form method="post" asp-action="OrdersDetailsEdit" asp-controller="Admin">
+                @Html.AntiForgeryToken()
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="OrderDetailsId" />
+                <input type="hidden" asp-for="FKInventoryItemsId" />
+                <input type="hidden" asp-for="FkOrdersId" />
+                <input type="hidden" asp-for="FkProductsId" />
+                <input type="hidden" asp-for="Tax" />
+                <input type="hidden" asp-for="Quantity" />
+
+                <div class="row">
+                    <div class="col-3">
+                        <div class="form-group">
+                            <label asp-for="FkProducts.ProductName" class="control-label"></label>
+                            <input asp-for="FkProducts.ProductName" class="form-control" disabled />
+                            <span asp-validation-for="FkProducts.ProductName" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="form-group">
+                            <label asp-for="ItemPrice" class="control-label"></label>
+                            <input type="hidden" asp-for="ItemPrice" class="form-control" />
+                            <input value="@Model.ItemPrice.ToString("C")" class="form-control" disabled />
+                            <span asp-validation-for="ItemPrice" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="form-group">
+                            <label asp-for="Tax" class="control-label"></label>
+                            <input type="hidden" asp-for="Tax" class="form-control" />
+                            <input value="@((Model.Tax ?? 0).ToString("C"))" class="form-control" disabled />
+                            <span asp-validation-for="Tax" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="form-group">
+                            <label asp-for="Quantity" class="control-label"></label>
+                            <input value="@Model.Quantity" class="form-control" disabled />
+                            <span asp-validation-for="Quantity" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-3">
+                        <div class="form-group">
+                            <label asp-for="ShipDate" class="control-label"></label>
+                            <input asp-for="ShipDate" class="form-control" />
+                            <span asp-validation-for="ShipDate" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-9">
+
+                        <div class="form-group">
+                            <label asp-for="Notes" class="control-label"></label>
+                            @Html.TextAreaFor(x => x.Notes, 4, 1, new { @class = "form-control" })
+                            <span asp-validation-for="Notes" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Guardar cambios" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

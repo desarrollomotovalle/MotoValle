@@ -1,0 +1,37 @@
+﻿@page
+@model AccessDeniedModel
+@{
+    ViewData["Title"] = "Access denied";
+}
+
+
+<section class="b-pageHeader identity">
+    <div class="container">
+        <h1 class="wow zoomInLeft" data-wow-delay="0.5s">Acceso denegado</h1>
+        <div class="b-pageHeader__search wow zoomInRight" data-wow-delay="0.5s">
+            <h3>Lo sentimos</h3>
+        </div>
+    </div>
+</section>
+
+
+<div class="b-breadCumbs s-shadow wow zoomInUp" data-wow-delay="0.5s">
+    <div class="container">
+        <a asp-controller="Home" asp-action="Index" class="b-breadCumbs__page">Home</a><span class="fa fa-angle-right"></span><a asp-area="Identity" asp-page="/Account/AccessDenied" class="b-breadCumbs__page m-active">Acceso denegado</a>
+    </div>
+</div>
+
+
+<header>
+    <section class="b-breadCumbs wow zoomInUp" data-wow-delay="0.5s">
+        <div class="container">
+            <div class="row">
+                <h1 class="text-danger">Acceso denegado</h1>
+                <p class="text-danger">Lo sentimos, no tienes los permisos requeridos para acceder al recurso solicitado.</p>
+            </div>
+            @{ await Html.RenderPartialAsync("_ContactUs"); }
+        </div>
+        <br />
+        <br />
+    </section>
+</header>

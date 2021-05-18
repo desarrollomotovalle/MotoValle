@@ -1,0 +1,111 @@
+﻿@model string
+@inject Microsoft.AspNetCore.Identity.UserManager<motovalle.Ecommerce.Models.Entities.Identity.ApplicationUser> UserManager
+
+@{
+    var fillColor = Model switch
+    {
+        "ford" => "#228dcb",
+        "mazda" => "#de483d",
+        "carshow" => "#f76d2b",
+        "massey" => "#C21B2F",
+        "repuestos" => "#0191CA",
+        _ => "#228dcb"
+    };
+
+    var userName = string.Empty;
+    var userEmail = string.Empty;
+    var userPhone = string.Empty;
+    if (User.Identity.IsAuthenticated)
+    {
+        var user = await UserManager.GetUserAsync(User);
+        userName = user.FullName;
+        userEmail = user.Email;
+        userPhone = user.PhoneNumber;
+    }
+}
+
+<!--
+    <div class="more-info">
+        <ul>
+            @if (!Model.Contains("Mazda", StringComparison.OrdinalIgnoreCase))
+            {
+                <li style="writing-mode: vertical-lr; text-orientation: sideways-right; font-size: 18px"><a asp-action="SolicitaTuCreditoYa" asp-controller="Pages" title="Crédito de vehículo en Línea" class="info-financiera"><i class="fa fa-info-circle fa-2x"></i> Crédito de vehículo en Línea</a></li>
+            }
+            else
+            {
+                <li style="writing-mode: vertical-lr; text-orientation: sideways-right; font-size: 18px"><a asp-action="SolicitaTuCreditoYaMazda" asp-controller="Pages" title="Crédito de vehículo en Línea" class="info-financiera"><i class="fa fa-info-circle fa-2x"></i> Crédito de vehículo en Línea</a></li>
+            }
+        </ul>
+    </div>
+
+
+    <div class="finacieras-box">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="financieras-box-svg-top"><path fill="@fillColor" fill-opacity="1" d="M0,192L1440,0L1440,0L0,0Z"></path></svg>
+        <div class="financieras-box-inner" style="margin:0px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="text-center">
+                            <h2><i class="fa fa-bank"></i> FINANCIACIÓN</h2>
+                            <span class="h3">Pregunta por nuestros aliados financieros</span>
+                        </div>
+                        <hr />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="container">
+                        <div class="col-12">
+                            <p class="lead">Conoce como obtener el vehículo de tus sueños con nuestra oferta de financiación</p>
+                        </div>
+                        <div class="col-12">
+                            <div class="text-center">
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                <a href="javascript:;" onclick="jivo_api.setContactInfo({ name: '@userName', email: '@userEmail', phone: '@userPhone', description: 'Financiación' }); jivo_api.setCustomData({ 'Asunto': 'Quiero saber más sobre la financiación con banco Santander' }); jivo_api.open({ start: 'chat' });"><img src="~/images/brand_logos/santander_logo_blanco.jpg" class="img-responsive center-block" style="max-width:250px;" /></a>
+                                }
+                                else
+                                {
+                                <a href="javascript:;" onclick="jivo_api.setCustomData({ 'Asunto': 'Quiero saber más sobre la financiación con banco Santander' }); jivo_api.open({ start: 'chat' });"><img src="~/images/brand_logos/santander_logo_blanco.jpg" class="img-responsive center-block" style="max-width:250px;" /></a>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="financieras-box-svg-bottom"><path fill="@fillColor" fill-opacity="1" d="M0,320L1440,0L1440,320L0,320Z"></path></svg>
+    </div>
+-->
+
+@if (Model == "ford")
+{
+    <button type="button" class="chatLauncher" style="display:none;">
+        <div class="rejilla">
+            <div class="text-center">
+                <img src="~/media/brands/logo-occidente-nuevo.png" width="39px" alt="logo occidente" />
+            </div>
+            <div>
+                <br>
+                <strong class="h5">¡Fináncialo aquí!</strong>
+            </div>
+        </div>
+    </button>
+}
+
+
+<!--Common Modal -->
+<div class="modal fade modal-xl" id="commonModalId" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable" role="dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h3 class="modal-title">Title</h3>
+            </div>
+            <div class="modal-body">
+                @{ await Html.RenderPartialAsync("_LoadingPartial", "Cargando..."); }
+            </div>
+        </div>
+    </div>
+</div>

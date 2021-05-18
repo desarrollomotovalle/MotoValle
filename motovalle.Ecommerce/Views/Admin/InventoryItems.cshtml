@@ -1,0 +1,164 @@
+﻿@model IEnumerable<Ecommerce.Models.Entities.InventoryItems>
+@{
+    ViewData["Title"] = "InventoryItems";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="content">
+    <div class="container-fluid">
+        <div>
+            <div class="col-12 text-center">
+                <h1 class="m-0 text-dark">Inventario por producto</h1>
+            </div>
+            <div class="text-left">
+                <p>
+                    <a asp-action="InventoryItemsCreate" asp-controller="Admin" class="btn btn-md btn-dark">Crear nuevo registro <span class="fa fa-plus-square"></span></a>
+                </p>
+            </div>
+
+            @{ await Html.RenderPartialAsync("_MessageStatus"); }
+        </div>
+
+        <div class="table">
+            <table id="dtTableDefault" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(x => x.InventoryItemsId)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(model => model.FkProducts)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(model => model.FkColors)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(model => model.AllowShow)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(model => model.FkWarranties)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(model => model.QuantityInStock)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(model => model.Picture360Url)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(model => model.Picture360Quantity)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(model => model.Cupix360Url)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(model => model.Vin)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(model => model.Cost)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(model => model.SalesPrice)
+                        </th>
+                        <th class="th-sm">
+                            Taxes
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(model => model.Mileage)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(model => model.IsNew)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(model => model.IsSold)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(model => model.CoverPictureUrl)
+                        </th>
+                        <th class="th-sm">
+                            Editar
+                        </th>
+                        <th class="th-sm">
+                            Preview
+                        </th>
+                        <th class="th-sm">
+                            Ver Imagenes
+                        </th>
+                        <th class="th-sm">
+                            Eliminar
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.InventoryItemsId)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FkProducts.ProductName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FkColors.ColorName)
+                            </td>
+                            <td>
+                                @{ var allowShow = item.AllowShow == 0 ? "NO" : "YES"; }
+                                @allowShow
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FkWarranties.WarrantyName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.QuantityInStock)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Picture360Url)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Picture360Quantity)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Cupix360Url)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Vin)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Cost)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SalesPrice)
+                            </td>
+                            <td>
+                                <a asp-action="InventoryItemsMore" asp-controller="Admin" asp-route-id="@item.InventoryItemsId">Para ver los impuestos dirígase a la opción <b>Preview</b></a>
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Mileage)
+                            </td>
+                            <td>
+                                @{ var isNew = item.IsNew == 1 ? "YES" : "NO"; }
+                                @isNew
+                            </td>
+                            <td>
+                                @{ var isSold = item.IsSold == 1 ? "YES" : "NO"; }
+                                @isSold
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CoverPictureUrl)
+                            </td>
+                            <td><a class="btn btn-info btn-block" style="width:70%" asp-action="InventoryItemsEdit" asp-controller="Admin" asp-route-id="@item.InventoryItemsId"><span class="fa fa-pencil-alt"></span></a></td>
+                            <td><a class="btn btn-success btn-block" style="width:70%" asp-action="InventoryItemsMore" asp-controller="Admin" asp-route-id="@item.InventoryItemsId"><span class="fa fa-eye"></span></a></td>
+                            <td><a class="btn btn-primary btn-block" style="width:70%" asp-action="InventoryItemPictures" asp-controller="Admin" asp-route-inventoryItemId="@item.InventoryItemsId"><span class="fa fa-eye"></span></a></td>
+                            <td><a class="btn btn-danger btn-block" style="width:70%" asp-action="InventoryItemsDelete" asp-controller="Admin" asp-route-id="@item.InventoryItemsId"><span class="fa fa-times"></span></a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+
+@section Scripts{
+    <script type="text/javascript" src="~/admin/dist/js/admin-ecommerce-tables-settings-default.js"></script>
+}

@@ -1,0 +1,84 @@
+﻿@model Ecommerce.Models.ViewModels.OrderWithDetailsAndProductInfo
+
+@{
+    ViewData["Title"] = "OrdersDetails";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<section class="content">
+    <div class="container">
+        <div>
+            <div class="col-12 text-center">
+                <h1 class="m-0 text-dark">Detalles de la Orden # <b>@Model.OrderNumber</b></h1>
+            </div>
+            <div class="text-left">
+                <p>
+                    <a asp-action="Orders" asp-controller="Admin" class="btn btn-md btn-dark"><span class="fa fa-arrow-circle-left"></span> Volver</a>
+                </p>
+            </div>
+
+            @{ await Html.RenderPartialAsync("_MessageStatus"); }
+        </div>
+
+        <div class="table">
+            <table id="dtTableDefault" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th class="th-sm">
+                            Product Image
+                        </th>
+                        <th class="th-sm">
+                            Product Name
+                        </th>
+                        <th class="th-sm">
+                            Item Price
+                        </th>
+                        <th class="th-sm">
+                            Taxes
+                        </th>
+                        <th class="th-sm">
+                            Quantity
+                        </th>
+                        <th class="th-sm">
+                            Notes
+                        </th>
+                        <th class="th-sm">
+                            Ship Date
+                        </th>
+                        <th class="th-sm">
+                            Editar
+                        </th>
+                        <th class="th-sm">
+                            Eliminar
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.OrderDetails != null)
+                    {
+                        foreach (var item in Model.OrderDetails)
+                        {
+                            <tr>
+                                <td><img src="@Url.Content($"~/{item.ProductImage}")" alt='@item.ProductName' style="max-width:270px; max-height:230px;" /></td>
+                                <td>@Html.DisplayFor(modelItem => item.ProductName)</td>
+                                <td>@Html.DisplayFor(modelItem => item.LineItemTotal)</td>
+                                <td>@Html.DisplayFor(modelItem => item.LineItemTaxTotal)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Quantity)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Notes)</td>
+                                <td>@Html.DisplayFor(modelItem => item.ShipDate)</td>
+                                <td><a class="btn btn-info btn-block" style="width:100%" asp-action="OrdersDetailsEdit" asp-controller="Admin" asp-route-id="@item.OrderDetailsId"><span class="fa fa-pencil-alt"></span></a></td>
+                                <td><a class="btn btn-danger btn-block" style="width:100%" asp-action="OrderDetailsDelete" asp-controller="Admin" asp-route-id="@item.OrderDetailsId"><span class="fa fa-times"></span></a></td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+
+@section Scripts{
+    <script type="text/javascript" src="~/admin/dist/js/admin-ecommerce-tables-settings-default.js"></script>
+}

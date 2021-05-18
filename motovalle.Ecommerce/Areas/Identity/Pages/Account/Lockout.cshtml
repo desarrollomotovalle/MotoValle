@@ -1,0 +1,35 @@
+﻿@page
+@model LockoutModel
+@{
+    ViewData["Title"] = "Locked out";
+}
+
+
+<section class="b-pageHeader identity">
+    <div class="container">
+        <h1 class="wow zoomInLeft" data-wow-delay="0.5s">Usuario bloqueado</h1>
+        <div class="b-pageHeader__search wow zoomInRight" data-wow-delay="0.5s">
+            <h3>Tu usuario se encuentra bloqueado</h3>
+        </div>
+    </div>
+</section>
+
+<div class="b-breadCumbs s-shadow wow zoomInUp" data-wow-delay="0.5s">
+    <div class="container">
+        <a asp-controller="Home" asp-action="Index" class="b-breadCumbs__page">Home</a><span class="fa fa-angle-right"></span><a asp-area="Identity" asp-page="/Account/Lockout" class="b-breadCumbs__page m-active">Usuario bloqueado</a>
+    </div>
+</div>
+
+<header>
+    <section class="b-breadCumbs wow zoomInUp" data-wow-delay="0.5s">
+        <div class="container">
+            <div class="row">
+                <h1 class="text-danger">Usuario bloqueado</h1>
+                <p class="text-danger">Esta cuenta ha sido bloqueada. Por favor intente nuevamente a partir de <b>@Model.Input.LockoutEnd.ToString("MM/dd/yyyy hh:mm tt")</b></p>
+            </div>
+            @{ await Html.RenderPartialAsync("_ContactUs"); }
+        </div>
+    </section>
+    <br />
+    <br />
+</header>

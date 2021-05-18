@@ -1,0 +1,141 @@
+﻿@model ContactUsViewModel
+
+@{
+    ViewData["Title"] = "ContactUs";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="b-pageHeader contact">
+    <div class="container">
+        <h1 class=" wow zoomInLeft" data-wow-delay="0.5s">Contáctenos</h1>
+        <div class="b-pageHeader__search wow zoomInRight" data-wow-delay="0.5s">
+            <h3>Ponte en contacto con nosotros ahora mismo</h3>
+        </div>
+    </div>
+</section><!--b-pageHeader-->
+
+<div class="b-breadCumbs s-shadow wow zoomInUp" data-wow-delay="0.5s">
+    <div class="container">
+        <a asp-controller="Home" asp-action="Index" class="b-breadCumbs__page">Home</a><span class="fa fa-angle-right"></span><a asp-action="ContactUs" asp-controller="Info" class="b-breadCumbs__page m-active">Contáctenos</a>
+    </div>
+</div><!--b-breadCumbs-->
+
+<section class="b-contacts s-shadow">
+    <div class="container">
+        <div class="row wow zoomInUp" data-wow-delay="0.5s">
+
+            @if (ViewBag.Error != null)
+            {
+                if (!ViewBag.Error)
+                {
+                    <div class="alert alert-success text-center" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <strong>¡Perfecto!</strong>. Nos pondremos en contacto contigo prontamente. &#128578;
+                    </div>
+                }
+                else
+                {
+                    <div class="alert alert-danger text-center" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <strong>¡Ups!..</strong> Algo sucedió. Por favor inténtalo nuevamente. &#128577;
+                    </div>
+                }
+            }
+
+            <div class="col-xs-6">
+                <div class="b-contacts__form">
+                    <header class="b-contacts__form-header s-lineDownLeft wow zoomInUp" data-wow-delay="0.5s">
+                        <h2 class="s-titleDet">Formulario de contacto</h2>
+                    </header>
+                    <p class=" wow zoomInUp" data-wow-delay="0.5s">Ingresa tu solicitud a través del siguiente formulario y nuestros profesionales de servicio al cliente se pondrán en contacto contigo lo antes posible.</p>
+                    <div id="success"></div>
+                    <form id="contactForm" asp-controller="Info" asp-action="ContactUs" method="post" novalidate class="s-form wow zoomInUp" data-wow-delay="0.5s">
+                        @Html.AntiForgeryToken()
+                        <div asp-validation-summary="All" class="text-danger"></div>
+                        
+                        <span asp-validation-for="ContactUsType" class="error text-danger"></span>
+                        <div class="s-relative">
+                            <select asp-for="ContactUsType" asp-items="Html.GetEnumSelectList<ContactUsType>()" class="m-select">
+                                <option value="">SELECCIONA UN TEMA</option>
+                            </select>
+                            <span class="fa fa-caret-down"></span>
+                        </div>
+
+                        <span asp-validation-for="Name" class="error text-danger"></span>
+                        <input type="text" placeholder="TUS NOMBRES Y APELLIDOS" value="" asp-for="Name" id="user-name" />
+
+                        <span asp-validation-for="EmailAddress" class="error text-danger"></span>
+                        <input type="text" placeholder="CORREO ELECTRÓNICO" value="" asp-for="EmailAddress" id="user-email" />
+
+                        <span asp-validation-for="PhoneNumber" class="error text-danger"></span>
+                        <input type="text" placeholder="NÚMERO DE TELÉFONO" value="" asp-for="PhoneNumber" id="user-phone" />
+
+                        <span asp-validation-for="Message" class="error text-danger"></span>
+                        <textarea id="user-message" asp-for="Message" placeholder="COMENTARIOS..."></textarea>
+
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <span asp-validation-for="DataTreatment" class="error text-danger"></span>
+                                <label><input type="checkbox" asp-for="DataTreatment" id="user-dataTreatmentId" /><a href="~/files/POLITICA DATOS PERSONALES MOTOVALLE[2336].pdf" rel="noreferrer" target="_blank"> Conozco y acepto</a> las políticas de tratamiento de datos de Motovalle y lo autorizo a contactarme</label>
+                            </div>
+                            <br />
+                            <div class="col-xs-6">
+                                <span asp-validation-for="TermsAndConditions" class="error text-danger"></span>
+                                <label><input type="checkbox" asp-for="TermsAndConditions" id="user-termsconditions-id" /><a asp-action="Privacy" asp-controller="Home"> Acepto los términos</a> y condiciones</label>
+                            </div>
+                        </div>
+
+                        @{ await Html.RenderPartialAsync("_Recaptcha"); }
+                        
+                        <button type="submit" class="btn m-btn">ENVIAR AHORA MISMO<span class="fa fa-angle-right"></span></button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-xs-6">
+                <div class="b-contacts__address">
+                    <div class="b-contacts__address-hours">
+                        <h2 class="s-titleDet wow zoomInUp" data-wow-delay="0.5s">Horarios de servicio</h2>
+                        <div class="b-contacts__address-hours-main wow zoomInUp" data-wow-delay="0.5s">
+                            <div class="row">
+                                <div class="col-md-12 col-xs-12">
+                                    <p style="font-size:14px;"><strong>Motovalle cuenta con un departamento de Contact Center</strong> con más de 12 agentes telefónicos disponibles a atender todos tus requerimientos.</p>
+                                    <h5>Horarios</h5>
+                                    <p>
+                                        Lun-Vie : 7:00am - 6:00pm <br />
+                                        Sáb : 8:00am - 1:00pm
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="b-contacts__address-hours">
+                        <h2 class="s-titleDet wow zoomInUp" data-wow-delay="0.5s">Podrás encontrar</h2>
+                        <div class="b-contacts__address-hours-main wow zoomInUp" data-wow-delay="0.5s">
+                            <div class="row">
+                                <h5>Información sobre:</h5>
+                                <div class="col-md-6 col-xs-6">
+                                    <span class="fa fa-check"></span> Vehículos nuevos. <br />
+                                    <span class="fa fa-check"></span> Citas en nuestros centros de servicio.<br />
+                                    <span class="fa fa-check"></span> Estado de reparación del vehículo.
+                                </div>
+                                <div class="col-md-6 col-xs-6">
+                                    <span class="fa fa-check"></span> Repuestos.<br />
+                                    <span class="fa fa-check"></span> Financieras y seguros.<br />
+                                    <span class="fa fa-check"></span> Servicio al cliente y/o cualquier otra inquietud.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!--b-contacts-->
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

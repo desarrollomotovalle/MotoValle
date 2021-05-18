@@ -1,0 +1,58 @@
+﻿@model Inventek.CMS.DAL.ViewModels.WidgetViewModel
+
+@{
+    ViewData["Title"] = "Motovalle Blog";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="b-pageHeader blog">
+    <div class="container">
+        <h1 class=" wow zoomInLeft" data-wow-delay="0.3s">Motovalle - Blog</h1>
+        <div class="b-pageHeader__search wow zoomInRight" data-wow-delay="0.3s">
+            <h3>Lea lás últimas noticias de autos &amp; Reviews</h3>
+        </div>
+    </div>
+</section><!--b-pageHeader-->
+
+<div class="b-breadCumbs s-shadow">
+    <div class="container wow zoomInUp" data-wow-delay="0.3s">
+        <a asp-action="Index" asp-controller="Home" class="b-breadCumbs__page">Home</a><span class="fa fa-angle-right"></span><a asp-action="Home" asp-controller="Blog" class="b-breadCumbs__page m-active">Blog</a>
+    </div>
+</div><!--b-breadCumbs-->
+
+<div class="b-blog s-shadow">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-xs-12">
+                <aside class="b-blog__aside">
+                    @*<form class="b-blog__aside-search wow zoomInUp" data-wow-delay="0.3s" action="/" method="post">
+                        <div>
+                            @{ await Html.RenderPartialAsync("_Search"); }
+                        </div>
+                    </form>*@
+                    <div class="b-blog__aside-categories wow zoomInUp" data-wow-delay="0.3s">
+                        <header class="s-lineDownLeft">
+                            <h2 class="s-titleDet">CATEGORIAS</h2>
+                        </header>
+                        <nav>
+                            @{ await Html.RenderPartialAsync("_Categories", Model.Categories); }
+                        </nav>
+                    </div>
+                    <div class="b-blog__aside-popular wow zoomInUp" data-wow-delay="0.3s">
+                        <header class="s-lineDownLeft">
+                            <h2 class="s-titleDet">PUBLICACIONES POPULARES</h2>
+                        </header>
+                        <div class="b-blog__aside-popular-posts">
+                            @{ await Html.RenderPartialAsync("_LatestPosts", Model.LatestPosts.Take(10).ToList()); }
+                        </div>
+                    </div>
+                </aside>
+            </div>
+            <div class="col-md-9 col-xs-12">
+                <div class="b-blog__posts">
+                    @{ await Html.RenderPartialAsync("_LatestPostDetailed", Model.ListViewModel); }
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!--b-blog-->

@@ -1,0 +1,63 @@
+﻿@model Inventek.CMS.DAL.ViewModels.ListViewModel
+@* Read the current page and total pages *@
+
+@{
+    int currentPage = 0;
+    try
+    {
+        currentPage = int.Parse(TempData.Peek("currentPage")?.ToString() ?? "1");
+    }
+    catch
+    {
+        currentPage = 0;
+    }
+
+    var totalPages = Math.Ceiling((double)Model.TotalPosts / 10);
+}
+
+@* Check do we need to display pagination links *@
+
+@if (currentPage > 1 || currentPage < totalPages)
+{
+    var p = (currentPage - 1).ToString();
+    var n = (currentPage + 1).ToString();
+
+    @* If the view is rendered for "search" action append the pagination value with "&" *@
+
+    //if (ViewContext.RouteData.Values["action"].ToString()
+    //  .Equals("search", StringComparison.OrdinalIgnoreCase))
+    //{
+    //    String searchString = "";
+    //    try
+    //    {
+    //        searchString = TempData.Peek("s").ToString();
+    //    }
+    //    catch
+    //    {
+    //        searchString = "";
+    //    }
+    //    var s = String.Format("?s={0}", searchString);
+    //    p = String.Format("{0}&{1}", s, p);
+    //    n = String.Format("{0}&{1}", s, n);
+    //}
+
+    <!--pagination links-->
+    <div class="text-center wow zoomInUp" data-wow-delay="0.3s">
+        <div class="b-items__pagination-main text-center">
+
+            <a asp-action="Index" asp-controller="Blog" asp-route-p="@p" title="Anterior" class="m-left"
+               style="visibility:@(currentPage > 1 ? "visible" : "collapse")"><span class="fa fa-angle-left"></span></a>
+            <span class="m-active">
+                <a asp-action="Index" asp-controller="Blog" asp-route-p="@p"
+                   style="visibility:@(currentPage > 1 ? "visible" : "collapse")">Anterior</a>
+            </span>
+
+            <span class="m-active">
+                <a asp-action="Index" asp-controller="Blog" asp-route-p="@n"
+                   style="visibility:@(currentPage < totalPages ? "visible" : "collapse")">Siguiente</a>
+            </span>
+            <a asp-route-p="@n" title="Siguiente" class="m-right"
+               style="visibility:@(currentPage < totalPages ? "visible" : "collapse")"><span class="fa fa-angle-right"></span></a>
+        </div>
+    </div>
+}

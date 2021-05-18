@@ -1,0 +1,923 @@
+﻿@model motovalle.Ecommerce.Models.ViewModels.Landing.ContactViewModel
+@{
+    ViewData["Title"] = "Ford - Plan Financiero";
+    Layout = "~/Views/Shared/Landing/_LayoutLandingFord.cshtml";
+}
+
+@section Styles{
+    <style type="text/css">
+        :root {
+            --fordColor: #228dcb;
+            --fordColorHover: #196592;
+        }
+
+        #hero {
+            background: url("@Url.Content("~/landingAssets/landing-mazda/assets/img/ford-campaigns/ford-cali-nov-full.png")") top center no-repeat;
+            background-size: cover;
+            background-repeat: no-repeat;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            height: 100vh;
+            width: 100%;
+            position: relative;
+            border-bottom: 1px solid #17618d;
+            background-color: black
+        }
+
+        .cotizacion {
+            position: fixed; /* Hacemos que la posición en pantalla sea fija para que siempre se muestre en pantalla*/
+            right: 0; /* Establecemos la barra en la izquierda */
+            padding: 0;
+            top: 200px; /* Bajamos la barra 200px de arriba a abajo */
+            z-index: 2000; /* Utilizamos la propiedad z-index para que no se superponga algún otro elemento como sliders, galerías, etc */
+        }
+
+        .cotizacion ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            writing-mode: vertical-lr;
+            text-orientation: sideways-right;
+        }
+
+        .cotizacion ul li a {
+            display: inline-block;
+            color: #fff;
+            background: var(--fordColor);
+            padding: 1.2em 1.2em;
+            font-size: 22px;
+            text-decoration: none;
+            -webkit-transition: all 500ms ease;
+            -o-transition: all 500ms ease;
+            transition: all 500ms ease; /* Establecemos una transición a todas las propiedades */
+        }
+
+        .cotizacion ul li .info-campania {
+            background: var(--fordColor);
+        }
+
+        .cotizacion ul li a:hover.info-campania {
+            background: var(--fordColorHover); /*Cambiamos el fondo cuando el usuario pase el mouse */
+            padding: 1.6em 1.6em; /*Hacemos mas grande el espacio cuando el usuario pase el mouse */
+        }
+
+        .cotizacion-box {
+            display: none;
+            float: left;
+            overflow: hidden;
+            background: #2E2E2E;
+            position: fixed;
+            z-index: 2001;
+            color: white;
+        }
+
+        /* Add padding and border to inner content
+        for better animation effect */
+        .cotizacion-box-inner {
+            width: auto;
+            padding: 0px;
+        }
+
+        .wpp-contact {
+            width: 60%;
+        }
+
+        .btn.btn-ford {
+            background-color: var(--fordColor)
+        }
+
+        .btn.btn-ford:hover {
+            background-color: var(--fordColorHover)
+        }
+
+        @@media (max-width: 768px) {
+            #hero {
+                background: url('@Url.Content("~/landingAssets/landing-mazda/assets/img/ford-campaigns/ford-cali-nov-mobile.png")') top center no-repeat;
+                height: 83.3vh;
+                background-size: contain;
+                background-repeat: no-repeat;
+                -webkit-background-size: contain;
+                -moz-background-size: contain;
+                -o-background-size: contain;
+                position: relative;
+                background-color: black;
+            }
+
+            .cotizacion-box {
+                width: 80%;
+            }
+
+            .cotizacion ul li a {
+                padding: 0.8em 0.8em;
+                font-size: 18px;
+            }
+
+            .cotizacion ul li a:hover.info-campania {
+                background: var(--fordColorHover); /*Cambiamos el fondo cuando el usuario pase el mouse */
+                padding: 1em 1em; /*Hacemos mas grande el espacio cuando el usuario pase el mouse */
+            }
+
+            .card-header > h4 {
+                font-size: 18px;
+            }
+
+            .wpp-contact {
+                width: 140%;
+            }
+
+            .custom-size {
+                font-size: 12px;
+            }
+        }
+
+        @@media (max-width: 411px) {
+            #hero {
+                height: 76vh;
+            }
+        }
+
+        @@media (max-width: 375px) {
+            #hero {
+                height: 76vh;
+            }
+        }
+
+        @@media (max-width: 360px) {
+            #hero {
+                height: 76vh;
+            }
+        }
+
+        @@media (max-width: 280px) {
+            #hero {
+                height: 58vh;
+            }
+        }
+
+        .video-container {
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+        }
+
+        .video-container::after {
+            padding-top: 56.25%;
+            display: block;
+            content: '';
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .exhibition-cars-item a {
+            text-decoration: inherit;
+            color: inherit;
+        }
+    </style>
+
+    <style type="text/css">
+        .wpgmp-map-52, .wpgmp-map-52 .wpgmp_tabs_container, .wpgmp-map-52 .wpgmp_listing_container {
+            font-size: 16px !important;
+        }
+    </style>
+
+    <!-- CUSTOM FONT -->
+    <link href="~/css/font-ford.css" rel="stylesheet" asp-append-version="true" />
+}
+
+<!-- ======= Cotizacion Section ======= -->
+<div class="cotizacion">
+    <ul>
+        <li><a href="javascript:;" title="Solicita tu Crédito en Linea Ya" class="info-campania"><i class="icofont-ui-edit"></i> Solicita tu Crédito en Linea Ya</a></li>
+    </ul>
+</div>
+<!-- ======= End Cotizacion Section ======= -->
+<!-- ======= Hero Section ======= -->
+<section id="hero">
+    <div class="hero-container">
+        <a href="#features" class="scrollto"><i class='bx bxs-chevrons-down bx-flashing bx-big-size'></i></a>
+    </div>
+    <!-- Form -->
+    <div class="cotizacion-box">
+        <div class="cotizacion-box-inner">
+            <div class="p-3" id="formCardMazda">
+                <div>
+                    <!-- form user info -->
+                    <div class="card" style="background-color:#191919; color:white;">
+                        <div class="card-header">
+                            <button type="button" class="close text-white" aria-label="Close" onclick="toggleForm()">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                            <h4 class="mb-0">Solicita tu Crédito en Linea Ya</h4>
+                        </div>
+                        <div class="card-body">
+                            <!-- Form -->
+                            <form method="post" action="/Pages/@TempData["Controller"]" id="frmMazdaCotizar">
+                                @Html.AntiForgeryToken()
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                <input asp-for="CampaingNumber" hidden />
+                                <!-- Heading -->
+
+                                <div class="form-group form-group-sm">
+                                    <input asp-for="FullName" class="form-control form-control-sm" placeholder="@Html.DisplayNameFor(m => m.FullName)" />
+                                    <span asp-validation-for="FullName" class="text-danger"></span>
+                                </div>
+                                <div class="form-group form-group-sm">
+                                    <input asp-for="Email" class="form-control form-control-sm" placeholder="@Html.DisplayNameFor(m => m.Email)" />
+                                    <span asp-validation-for="Email" class="text-danger"></span>
+                                </div>
+                                <div class="form-group form-group-sm">
+                                    <input asp-for="City" class="form-control form-control-sm" placeholder="@Html.DisplayNameFor(m => m.City)" />
+                                    <span asp-validation-for="City" class="text-danger"></span>
+                                </div>
+                                <div class="form-group form-group-sm">
+                                    <input asp-for="PhoneNumber" class="form-control form-control-sm" placeholder="@Html.DisplayNameFor(m => m.PhoneNumber)" />
+                                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                                </div>
+                                <div class="form-group form-group-sm">
+                                    @Html.TextAreaFor(x => x.Message, 3, 1, new { @class = "form-control form-control-sm", @placeholder = @Html.DisplayNameFor(m => m.Message) })
+                                    <span asp-validation-for="Message" class="text-danger"></span>
+                                </div>
+                                <div class="form-group form-group-sm">
+                                    <div class="form-check">
+                                        @Html.CheckBoxFor(model => model.HabeasData, new { @class = "form-check-input", @required = "required" })
+                                        <label class="form-check-label">
+                                            Acepto las <a href="~/files/POLITICA DATOS PERSONALES MOTOVALLE[2336].pdf" rel="noreferrer" target="_blank"> políticas de privacidad</a>
+                                        </label>
+                                    </div>
+                                    <span asp-validation-for="HabeasData" class="text-danger"></span>
+                                </div>
+
+                                <div class="text-center">
+                                    <input type="submit" class="btn btn-secondary" value="¡Cotiza ya!" />
+                                </div>
+                            </form>
+                            <!-- Form -->
+                        </div>
+                    </div>
+                    <!-- /form user info -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Form -->
+</section>
+<!-- End Hero -->
+<!-- ======= Header ======= -->
+<header id="header" class="d-flex align-items-center" style="">
+    <div class="container d-flex align-items-center">
+        <div class="col-md-4">
+            <div class="logo">
+                <a href="#" class="go-home"><img src="~/media/brands/mv65_1b.png" alt="" class="img-fluid"></a>
+            </div>
+        </div>
+        <div class="col-md-5 pl-0 pr-4">
+            <a href="https://api.whatsapp.com/send?phone=573113769946&text=Quiero%20Cotizar%20con%20%20Motovalle%20el%20Ford%20de%20%20mis%20%20sue%C3%B1os%20&&&source=&data=&app_absent=" target="_blank" rel="noreferrer">
+                <img src="~/landingAssets/landing-mazda/assets/img/add/cotizar-wpp.png" alt="wpp-Contact" class="wpp-contact" />
+            </a>
+        </div>
+        <div class="col-md-3 ml-2 pr-0">
+            <a href="https://www.asmseguros.com/" target="_blank" rel="noreferrer" class="btn btn-ford p-lg-3 p-0">
+                <i class="text-wrap text-white custom-size">PROTEJA SU VEHÍCULO</i>
+            </a>
+        </div>
+    </div>
+</header><!-- End Header -->
+
+<main id="main">
+    <!-- ======= Features Section ======= -->
+    <section id="features" class="features pb-2">
+        <div class="container">
+            <div class="owl-carousel exhibition-cars-carousel">
+                <div class="exhibition-cars-item">
+                    <a asp-action="ProductDetails" asp-controller="Ford" asp-route-productId="1" asp-route-inventoryItemsId="45" rel="noreferrer">
+                        <img src="~/ford/products/pictures/ranger/ranger_xls_25l_gasolina_mt_4x2/2020/fco-nueva-ranger-model-xls-2-5l-gasolina-mt-4x2.jpg" class="img-fluid" alt="RANGER XLS 2.5L GASOLINA MT 4X2">
+                        <h6 class="text-center">RANGER XLS 2.5L GASOLINA MT 4X2</h6>
+                    </a>
+                </div>
+                <div class="exhibition-cars-item">
+                    <a asp-action="ProductDetails" asp-controller="Ford" asp-route-productId="11" asp-route-inventoryItemsId="93" rel="noreferrer">
+                        <img src="~/ford/products/pictures/fusion/ford_fusion_hibryd/2020/fusion%20hibrido.jpg" class="img-fluid" alt="FORD FUSION SEL HIBRYD">
+                        <h6 class="text-center">FORD FUSION SEL HIBRYD</h6>
+                    </a>
+                </div>
+                <div class="exhibition-cars-item">
+                    <a asp-action="ProductDetails" asp-controller="Ford" asp-route-productId="26" asp-route-inventoryItemsId="103" rel="noreferrer">
+                        <img src="~/ford/products/pictures/ecosport/ecosport_se_at_fwd/2020/ecosport_SE_AT_FWD.jpg" class="img-fluid" alt="ECOSPORT SE A/T FWD">
+                        <h6 class="text-center">ECOSPORT SE A/T FWD</h6>
+                    </a>
+                </div>
+                <div class="exhibition-cars-item">
+                    <a asp-action="ProductDetails" asp-controller="Ford" asp-route-productId="27" asp-route-inventoryItemsId="106" rel="noreferrer">
+                        <img src="~/ford/products/pictures/ecosport/ecosport_titanium_fwd/2020/ecosport_titanium_FWD.jpg" class="img-fluid" alt="ECOSPORT TITANIUM FWD">
+                        <h6 class="text-center">ECOSPORT TITANIUM FWD</h6>
+                    </a>
+                </div>
+                <div class="exhibition-cars-item">
+                    <a asp-action="ProductDetails" asp-controller="Ford" asp-route-productId="34" asp-route-inventoryItemsId="123" rel="noreferrer">
+                        <img src="~/ford/products/pictures/edge/ford_edge_ride/2020/edge_ride_SEL.jpg" class="img-fluid" alt="EDGE RIDE">
+                        <h6 class="text-center">EDGE RIDE</h6>
+                    </a>
+                </div>
+                <div class="exhibition-cars-item">
+                    <a asp-action="ProductDetails" asp-controller="Ford" asp-route-productId="36" asp-route-inventoryItemsId="128" rel="noreferrer">
+                        <img src="~/ford/products/pictures/explorer/explorer_limited_4wd/2020/explorer_limited_4WD.jpg" class="img-fluid" alt="EXPLORER LIMITED AWD">
+                        <h6 class="text-center">EXPLORER LIMITED AWD</h6>
+                    </a>
+                </div>
+                <div class="exhibition-cars-item">
+                    <a asp-action="ProductDetails" asp-controller="Ford" asp-route-productId="2" asp-route-inventoryItemsId="50" rel="noreferrer">
+                        <img src="~/ford/products/pictures/f-150/f150_lariat_sport_doble_cabina/2020/f150_lariat%20sport_blanco%20oxford.jpg" class="img-fluid" alt="F-150 LARIAT SPORT DOBLE CABINA">
+                        <h6 class="text-center">F-150 LARIAT SPORT DOBLE CABINA</h6>
+                    </a>
+                </div>
+                <div class="exhibition-cars-item">
+                    <a asp-action="ProductDetails" asp-controller="Ford" asp-route-productId="153" asp-route-inventoryItemsId="279" rel="noreferrer">
+                        <img src="~/ford/products/pictures/escape_h%C3%ADbrida/escape_h%C3%ADbrida_se_sport_4x2/2020/escape%20hibrida%20SE%20Sport%204X2.jpg" class="img-fluid" alt="ESCAPE HÍBRIDA SE SPORT 4X2">
+                        <h6 class="text-center">ESCAPE HÍBRIDA SE SPORT 4X2</h6>
+                    </a>
+                </div>
+                <div class="exhibition-cars-item">
+                    <a asp-action="ProductDetails" asp-controller="Ford" asp-route-productId="9" asp-route-inventoryItemsId="82" rel="noreferrer">
+                        <img src="~/ford/products/pictures/raptor/raptor_doble_cabina/2019/raptor_doble%20cabina%20_2.jpg" class="img-fluid" alt="F-150 RAPTOR DOBLE CABINA">
+                        <h6 class="text-center">F-150 RAPTOR DOBLE CABINA</h6>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Features Section -->
+    <!-- ======= Features Section ======= -->
+    <section id="features" class="features pb-0 m-0">
+        <div class="container">
+            <h1>Ford F-150 versus Ford Ranger</h1><h3 style="text-align: justify;"><span style="font-family: Arial, Helvetica, sans-serif;"><span style="font-size: 12pt;"><span style="color: rgb(22, 22, 22); text-decoration: inherit;">Entrar en un concesionario <strong>Ford</strong> y elegir una camioneta ya no es fácil. La camioneta <b>Ford Ranger</b> de tamaño mediano 2019 y la camioneta <b>Ford F-150 2019</b> de tamaño completo se superponen en más formas de las que algunos compradores podrían esperar.</span></span></span></h3><h3 style="text-align: justify;"><span style="font-family: Arial, Helvetica, sans-serif;"><span style="font-size: 12pt;"><span style="color: rgb(22, 22, 22); text-decoration: inherit;"><b>Ford</b> revivió el nombre de Ranger para 2019 como una camioneta mediana disponible en configuraciones de cabina extendida y cabina extendida. Solo se ofrece un motor y es uno bueno. El 2.3 litros turbo-4 produce 270 caballos de fuerza y equipos con una transmisión automática de 10 velocidades de cambio suave. La tracción trasera es estándar y la tracción en las cuatro ruedas es opcional.</span></span></span></h3><h3 style="text-align: justify;"><span style="font-family: Arial, Helvetica, sans-serif;"><span style="font-size: 12pt;"><span style="color: rgb(22, 22, 22); text-decoration: inherit;">Elegir un guardabosques es fácil; un F-150 requiere más consideración. Su línea ofrece motores V-6 o V-8 alimentados por gasolina o diesel, automáticas de 6 o 10 velocidades, tracción trasera o en las cuatro ruedas, y cabinas regulares, extendidas y tripulantes con varias longitudes de cama. La mayoría de los compradores terminan con un potente V-6 turboalimentado de 325 hp de 2.7 litros y el cuerpo de la cabina de la tripulación.</span></span></span></h3><h3 style="text-align: justify;"><span style="font-family: Arial, Helvetica, sans-serif;"><span style="font-size: 12pt;"><span style="color: rgb(22, 22, 22); text-decoration: inherit;">Un Ranger con tracción en las cuatro ruedas tiene una potencia de 22 mpg combinados, según la EPA, frente a 21 mpg para el V-6 F-150 turboalimentado de 2.7 litros. Los dos camiones comparten una transmisión y sus motores proporcionan una aceleración similar ya que el Ranger pesa alrededor de 500 libras menos que el F-150 más voluminoso en la configuración popular. <b>Ford</b> califica al F-150 para remolcar hasta 8,500 libras con el V-6 turboalimentado, 1,000 libras más que el Ranger. Ambas camionetas también cuentan con modos de remolque para su transmisión, pero aquellos que se enganchan regularmente encontrarán que el F-150 es un transportista más seguro.</span></span></span></h3><h3 style="text-align: justify;"><span style="font-family: Arial, Helvetica, sans-serif;"><span style="font-size: 12pt;"><span style="color: rgb(22, 22, 22); text-decoration: inherit;">Sin embargo, estacionar los camiones es una historia diferente. Con casi 211 pulgadas independientemente de la cabina, el Ranger se acomodará en garajes estadounidenses promedio con algo de espacio de sobra. La cabina de la F-150 de 232 pulgadas con la cama estándar de 5.5 pies probablemente tendrá que pasar la noche afuera. La maniobrabilidad urbana y de estacionamiento también se ve comprometida dado el ancho de casi 80 pulgadas del F-150 en comparación con las 74 pulgadas del Ranger.</span></span></span></h3><h3 style="text-align: justify;"><span style="font-family: Arial, Helvetica, sans-serif;"><span style="font-size: 12pt;"><span style="color: rgb(22, 22, 22); text-decoration: inherit;">La dirección del <b>Ford Ranger</b> es rápida y su suspensión es tensa, pero no rígida, lo que le da una sensación atlética. En comparación, el F-150 tiene una dirección ligera y una conducción suave y compuesta, pero difícilmente se presta a una conducción enérgica dado su tamaño. Esa gran huella paga dividendos dentro del F-150, con espacio extendido en las cuatro posiciones de los asientos externos. El Ranger tiene buen espacio para los asientos delanteros, pero los pasajeros de los asientos traseros encontrarán espacio limitado para las piernas.</span></span></span></h3><h3 style="text-align: justify;"><span style="font-family: Arial, Helvetica, sans-serif;"><span style="font-size: 12pt;"><span style="color: rgb(22, 22, 22); text-decoration: inherit;">Sorprendentemente, el frenado automático de emergencia no es uno de esos, al menos en el F-150 XLT. Esa tecnología que salva vidas es estándar en el <b>Ford Ranger</b>, pero es una opción de costo adicional reservada para el F-150 Lariat y versiones superiores. El control de crucero adaptativo también es opcional en todas las versiones del Ranger y no está disponible en el F-150 XLT. El Ranger es un nuevo diseño que no ha sido bloqueado por el IIHS o la NHTSA, por lo que no podemos emitir un juicio final sobre su puntaje de seguridad. El F-150 obtuvo cinco estrellas en general de los federales. Los buenos puntajes del IIHS en la mayoría de las categorías no pudieron superar los faros que los evaluadores financiados por la industria de seguros calificaron como "pobres".</span></span></span></h3>
+        </div>
+    </section>
+    <!-- End Features Section -->
+    <!-- ======= Video Section ======= -->
+    <div id="youtubeVideo">
+        <div class="container text-center">
+            <div class="mb-2" id="video-container">
+                @*¡¡¡¡¡OJO!!!!! SE DEBE AÑADIR ESTE PARAMETRO AL LINK PARA PODER ACCEDER AL API DE YOUTUBE ==> ?enablejsapi=1 (SAMPLE https://www.youtube.com/embed/SxR4igmb_s0?enablejsapi=1)*@
+                <iframe id="yt-video" src="https://www.youtube.com/embed/SxR4igmb_s0?enablejsapi=1" width="560" height="315" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+    <!-- End Video Section -->
+    <!-- ======= Contact Us Section ======= -->
+    <section id="contact" class="contact pt-1">
+        <div class="container">
+            <div class="section-title">
+                <h3>En Motovalle Nos sumamos a la reactivación del país</h3>
+            </div>
+            <div class="section-title">
+                <span>¿Dónde estámos?</span>
+                <h2>¿Dónde estámos?</h2>
+            </div>
+            <div class="row justify-content-center pb-lg-5 pb-md-5 pb-4">
+                <div class="col-lg-6 col-md-6 pb-lg-0 pb-md-0 pb-4">
+                    <div class="info-box">
+                        <i class="bx bx-map"></i>
+                        <h3>Dirección</h3>
+                        <p>Calle 13 # 49 - 91 Puente Aranda</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="info-box">
+                        <i class="bx bx-phone-call"></i>
+                        <h3>Comunícate con nosotos</h3>
+                        <p>Botogá: (1) 746 1234</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="wpgmp_map_container wpgmp-map-52" rel="map12"><div class="wpgmp_map " style="width: 100%; height: 680px; position: relative; overflow: hidden;" id="map52"></div></div>
+        </div>
+    </section><!-- End Contact Us Section -->
+</main>
+
+@section Scripts{
+    @*Imports*@
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+    <script src="~/landingAssets/landing-mazda/assets/js/lading-mazda.js" type="text/javascript" asp-append-version="true"></script>
+    <script type="text/javascript" src="~/js/maps.js"></script>
+    <script type='text/javascript' src='https://maps.google.com/maps/api/js?key=AIzaSyBVJ03UjRxywFn8ch5YseSPn2tZ_FsFOgQ&#038;libraries=geometry%2Cplaces%2Cweather%2Cpanoramio%2Cdrawing&#038;language=es&#038;ver=5.2.5'></script>
+
+    @*YOUTUBE API*@
+    <script src='https://www.youtube.com/iframe_api' async></script>
+    <script type="text/javascript">
+        var player;
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('yt-video', {
+                events: {}
+            });
+        }
+
+        const $youtubeVideo = document.querySelector("#youtubeVideo");
+        const observer = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) {
+                player.playVideo();
+            } else {
+                player.pauseVideo();
+            }
+        }, { threshold: 0.4 });
+
+        observer.observe($youtubeVideo);
+    </script>
+
+    @*Maps Bogotá*@
+    <script>
+        $(document).ready(function ($) {
+            var map52 = $("#map52").maps({
+                "map_options": {
+                    "center_lat": "4.626103",
+                    "center_lng": "-74.105714",
+                    "zoom": 12,
+                    "map_type_id": "ROADMAP",
+                    "center_by_nearest": true,
+                    "center_circle_fillcolor": "#8CAEF2",
+                    "center_circle_fillopacity": ".5",
+                    "center_circle_strokecolor": "#8CAEF2",
+                    "center_circle_strokeopacity": ".5",
+                    "center_circle_radius": "5",
+                    "show_center_circle": false,
+                    "show_center_marker": false,
+                    "center_marker_icon": "https://unpkg.com/leaflet@1.3.3/dist/images/marker-icon.png",
+                    "center_marker_infowindow": "",
+                    "center_circle_strokeweight": "1",
+                    "draggable": true,
+                    "scroll_wheel": false,
+                    "display_45_imagery": "",
+                    "marker_default_icon": "/images/maps/pointers/pointer.png",
+                    "infowindow_setting": `<div class="fc-main"><div class="fc-item-title">{marker_title} <span class="fc-badge info">{marker_category}</span></div><div class="fc-item-featured_image">{marker_image} </div><p>{marker_message}</p><address><b>Address : </b>{marker_address}</address></div><div><a href="https://www.google.com/maps/dir/?api=1&destination={address_map}&travelmode=traffic" target="_blank">Ver ruta en Google Maps</a></div>`,
+                    "infowindow_geotags_setting": `<div class="fc-main"><div class="fc-item-title">{post_title} <span class="fc-badge info">{post_categories}</span></div><div class="fc-item-featured_image">{post_featured_image} </div><p>{post_excerpt}</p><address><b>Address : </b>{marker_address}</address><p><a target="_blank"  class="fc-btn fc-btn-small fc-btn-red" href="{post_link}">Read More...</a></div>`,
+                    "infowindow_bounce_animation": "",
+                    "infowindow_drop_animation": false,
+                    "close_infowindow_on_map_click": false,
+                    "default_infowindow_open": false,
+                    "infowindow_open_event": "click",
+                    "infowindow_filter_only": false,
+                    "infowindow_click_change_zoom": 0,
+                    "infowindow_click_change_center": false,
+                    "full_screen_control": false,
+                    "search_control": true,
+                    "zoom_control": true,
+                    "map_type_control": false,
+                    "street_view_control": false,
+                    "zoom_mobile": 0,
+                    "draggable_mobile": true,
+                    "scroll_wheel_mobile": true,
+                    "full_screen_control_position": "TOP_RIGHT",
+                    "search_control_position": "TOP_LEFT",
+                    "zoom_control_position": "TOP_LEFT",
+                    "map_type_control_position": "TOP_LEFT",
+                    "map_type_control_style": "HORIZONTAL_BAR",
+                    "street_view_control_position": "TOP_LEFT",
+                    "map_control": true,
+                    "map_control_settings": [
+
+                    ],
+                    "screens": {
+                        "smartphones": {
+                            "map_width_mobile": "",
+                            "map_height_mobile": "380px",
+                            "map_zoom_level_mobile": "12"
+                        },
+                        "ipads": {
+                            "map_width_mobile": "",
+                            "map_height_mobile": "440px",
+                            "map_zoom_level_mobile": "12"
+                        },
+                        "large-screens": {
+                            "map_width_mobile": "",
+                            "map_height_mobile": "680px",
+                            "map_zoom_level_mobile": "13"
+                        }
+                    },
+                    "map_infowindow_customisations": false,
+                    "infowindow_border_color": "rgba(0, 0, 0, 0.0980392)",
+                    "infowindow_bg_color": "#fff",
+                    "show_infowindow_header": false,
+                    "width": "",
+                    "height": "680"
+                },
+                "places": [
+                    {
+                        "id": "2",
+                        "title": "Motovalle Bogotá",
+                        "address": "Calle 13 # 49 - 91 Puente Aranda",
+                        "source": "manual",
+                        "content": "Motovalle Bogotá",
+                        "location": {
+                            "icon": `${window.location.origin}/images/maps/pointers/ford1.png`,
+                            "lat": "4.626103",
+                            "lng": "-74.105714",
+                            "city": "Bogotá",
+                            "state": "Bogotá",
+                            "country": "Colombia",
+                            "onclick_action": "marker",
+                            "redirect_custom_link": "",
+                            "marker_image": "",
+                            "open_new_tab": "yes",
+                            "postal_code": "111611",
+                            "draggable": false,
+                            "infowindow_default_open": false,
+                            "animation": "BOUNCE",
+                            "infowindow_disable": true,
+                            "zoom": 5,
+                            "extra_fields": {
+                                "address_map": "Ford+Motovalle,+Cl.+13+%23%2349+-+91,+Bogotá,+Cundinamarca",
+                                "listorder": 0
+                            }
+                        },
+                        "categories": [
+                            {
+                                "id": "5",
+                                "name": "Corporativo Ford",
+                                "type": "category",
+                                "extension_fields": {
+                                    "cat_order": "0"
+                                },
+                                "icon": `${window.location.origin}/images/maps/pointers/ford1.png`
+                            }
+                        ],
+                        "custom_filters": [
+
+                        ]
+                    }
+                ],
+                "styles": [
+                    {
+                        "featureType": "all",
+                        "elementType": "geometry",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "all",
+                        "elementType": "labels",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "all",
+                        "elementType": "labels.text",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "all",
+                        "elementType": "labels.text.fill",
+                        "stylers": [
+                            {
+                                "color": "#7d7e92"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "all",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            },
+                            {
+                                "hue": "#ff0000"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "administrative",
+                        "elementType": "labels.text.fill",
+                        "stylers": [
+                            {
+                                "color": "#444444"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "landscape",
+                        "elementType": "geometry.fill",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            },
+                            {
+                                "color": "#e0e1e6"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "landscape",
+                        "elementType": "geometry.stroke",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "geometry",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            },
+                            {
+                                "color": "#c71313"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "geometry.fill",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            },
+                            {
+                                "color": "#7c7d91"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "geometry.stroke",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            },
+                            {
+                                "color": "#a12222"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "labels",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            },
+                            {
+                                "hue": "#000fff"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "labels.text",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "hue": "#0054ff"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.business",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            },
+                            {
+                                "hue": "#007aff"
+                            },
+                            {
+                                "weight": "10.00"
+                            },
+                            {
+                                "saturation": "-100"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.government",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.medical",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.place_of_worship",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.school",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.sports_complex",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "saturation": -100
+                            },
+                            {
+                                "lightness": 45
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.highway",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "visibility": "simplified"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.highway",
+                        "elementType": "geometry.fill",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            },
+                            {
+                                "color": "#dedee6"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.highway",
+                        "elementType": "geometry.stroke",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            },
+                            {
+                                "color": "#7c7d91"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.highway",
+                        "elementType": "labels.text.stroke",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            },
+                            {
+                                "hue": "#ff0000"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.arterial",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "transit",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "water",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "color": "#46bcec"
+                            },
+                            {
+                                "visibility": "on"
+                            }
+                        ]
+                    }
+                ],
+                "street_view": null,
+                "routes": null,
+                "marker_cluster": null,
+                "overlay_setting": null,
+                "panning_control": null,
+                "map_tabs": {
+                    "category_tab": null,
+                    "direction_tab": null,
+                    "nearby_tab": null,
+                    "route_tab": null
+                },
+                "listing": null,
+                "map_property": {
+                    "map_id": "12"
+                },
+                "shapes": {
+                    "drawing_editable": false
+                },
+                "filters": {
+                    "custom_filters": [
+
+                    ],
+                    "filters_container": `[data-container="wpgmp-filters-container"]`
+                }
+            }).data("wpgmp_maps");
+        });
+    </script>
+
+    @*Toggle form*@
+    <script type="text/javascript">
+        function toggleForm() {
+            $(".cotizacion-box").animate({
+                width: "toggle",
+                height: "toggle",
+                opacity: "toggle"
+            });
+        }
+
+        function resizeIframe() {
+            const $videoContainer = document.querySelector("#video-container");
+            if (document.documentElement.clientWidth < 769) {
+                if (!$videoContainer.classList["video-container"]) {
+                    $videoContainer.classList.add("video-container");
+                }
+            } else {
+                if ($videoContainer.classList["video-container"]) {
+                    $videoContainer.classList.remove("video-container");
+                }
+            }
+        }
+
+        if (document.querySelector(".info-campania")) {
+            document.querySelector(".info-campania").addEventListener("click", toggleForm);
+        }
+
+        (() => {
+            resizeIframe();
+        })();
+
+        window.addEventListener('resize', resizeIframe);
+    </script>
+}

@@ -1,0 +1,94 @@
+﻿@model Ecommerce.Models.Entities.InterestedCustomers
+
+@{
+    ViewData["Title"] = "InterestedCustomersDelete";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="content">
+    <div class="container">
+        <div>
+            <div class="col-12 text-center">
+                <h1 class="m-0 text-dark">Eliminar</h1>
+            </div>
+            <div class="text-left">
+                <p>
+                    <a asp-action="InterestedCustomers" asp-controller="Admin" class="btn btn-md btn-dark"><span class="fa fa-arrow-circle-left"></span> Volver</a>
+                </p>
+            </div>
+            <div class="col-12 text-center">
+                <h2 class="m-0 text-dark"><b>¿Estás seguro de querer eliminar este registro?</b></h2>
+            </div>
+
+            @if (ViewBag.Message != null)
+            {
+                <div class="alert alert-danger text-center wow zoomInUp" role="alert" data-wow-delay="0.5s">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <strong>¡Ups!..</strong> @ViewBag.Message &#128577;
+                </div>
+            }
+        </div>
+        <hr />
+        <div class="col-lg-offset-3">
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.InterestedCustomersId)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.InterestedCustomersId)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.CreateOn)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.CreateOn)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Name)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Email)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Email)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.FkInventoryItems.FkProducts.ProductName)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.FkInventoryItems.FkProducts.ProductName)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.FkInventoryItems.SalesPrice)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.FkInventoryItems.SalesPrice)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Retake)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Retake)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Headquarter)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Headquarter)
+                </dd>
+            </dl>
+            <hr />
+            <form method="post" asp-action="InterestedCustomersDeleteConfirmed" asp-controller="Admin">
+                @Html.AntiForgeryToken()
+                <input type="hidden" asp-for="InterestedCustomersId" />
+                <input type="submit" value="Eliminar" class="btn btn-danger" />
+            </form>
+        </div>
+    </div>
+</section>
+

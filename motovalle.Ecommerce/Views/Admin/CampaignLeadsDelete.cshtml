@@ -1,0 +1,137 @@
+﻿@model Ecommerce.Models.Entities.CampaignLeads
+
+@{
+    ViewData["Title"] = "CampaignLeadsDelete";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="content">
+    <div class="container">
+        <div>
+            <div class="col-12 text-center">
+                <h1 class="m-0 text-dark">Eliminar</h1>
+            </div>
+            <div class="text-left">
+                <p>
+                    <a asp-action="CampaignLeads" asp-controller="Admin" class="btn btn-md btn-dark"><span class="fa fa-arrow-circle-left"></span> Volver</a>
+                </p>
+            </div>
+            <div class="col-12 text-center">
+                <h2 class="m-0 text-dark"><b>¿Estás seguro de querer eliminar este registro?</b></h2>
+            </div>
+
+            @if (ViewBag.Message != null)
+            {
+                <div class="alert alert-danger text-center wow zoomInUp" role="alert" data-wow-delay="0.5s">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <strong>¡Ups!..</strong> @ViewBag.Message &#128577;
+                </div>
+            }
+        </div>
+        <hr />
+        <div class="col">
+            <dl class="row">
+                <dt class="col-sm-4">
+                    @Html.DisplayNameFor(model => model.CampaignLeadsId)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.CampaignLeadsId)
+                </dd>
+            </dl>
+            <dl class="row">
+                <dt class="col-sm-4">
+                    @Html.DisplayNameFor(model => model.CreatedOn)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.CreatedOn)
+                </dd>
+            </dl>
+            <dl class="row">
+                <dt class="col-sm-4">
+                    @Html.DisplayNameFor(model => model.Name)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
+            </dl>
+            <dl class="row">
+                <dt class="col-sm-4">
+                    @Html.DisplayNameFor(model => model.Email)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.Email)
+                </dd>
+            </dl>
+            <dl class="row">
+                <dt class="col-sm-4">
+                    @Html.DisplayNameFor(model => model.City)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.City)
+                </dd>
+            </dl>
+            <dl class="row">
+                <dt class="col-sm-4">
+                    @Html.DisplayNameFor(model => model.PhoneNumber)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.PhoneNumber)
+                </dd>
+            </dl>
+            <dl class="row">
+                <dt class="col-sm-4">
+                    @Html.DisplayNameFor(model => model.Campaign)
+                </dt>
+                <dd class="col-sm-8">
+                    @{var campaing = (Campaings)Enum.ToObject(typeof(Campaings), Model.Campaign);}
+                    @campaing.ToString()
+                </dd>
+            </dl>
+            <dl class="row">
+                <dt class="col-sm-4">
+                    @Html.DisplayNameFor(model => model.InfoFrom)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.InfoFrom)
+                </dd>
+            </dl>
+            <dl class="row">
+                <dt class="col-sm-4">
+                    @Html.DisplayNameFor(model => model.EmailSentTo)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.EmailSentTo)
+                </dd>
+            </dl>
+            <dl class="row">
+                <dt class="col-sm-4">
+                    @Html.DisplayNameFor(model => model.Status)
+                </dt>
+                <dd class="col-sm-8">
+                    @{var status = (Status)Enum.ToObject(typeof(Status), Model.Status);}
+                    @status.ToString()
+                </dd>
+            </dl>
+            <dl class="row">
+                <dt class="col-sm-4">
+                    @Html.DisplayNameFor(model => model.Remarks)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.Remarks)
+                </dd>
+            </dl>
+            <hr />
+            <form method="post" asp-action="CampaignLeadsDeleteConfirmed" asp-controller="Admin">
+                @Html.AntiForgeryToken()
+                <input type="hidden" asp-for="CampaignLeadsId" />
+                <input type="submit" value="Eliminar" class="btn btn-danger" />
+            </form>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

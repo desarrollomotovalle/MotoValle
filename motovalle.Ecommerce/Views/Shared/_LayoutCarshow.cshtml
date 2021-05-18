@@ -1,0 +1,240 @@
+﻿<!DOCTYPE html>
+<html lang="es-co">
+<head prefix="og: http://ogp.me/ns">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <!-- Render Meta general Meta Tags -->
+    @await Html.PartialAsync("_MetaTags")
+
+    <link rel="shortcut icon" type="image/x-icon" href="~/favicon.ico" />
+
+    <!-- START: StyleSheets declarations -->
+    <link href="~/css/master.css" rel="stylesheet">
+
+    <!-- SWITCHER -->
+    <link href="~/assets/switcher/css/color1.css" rel="stylesheet">
+
+    <link href="~/css/site.css" rel="stylesheet" asp-append-version="true" />
+
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- END: StyleSheets declarations -->
+
+    <!--Syncfusion Stuff-->
+    <!-- Syncfusion Essential JS 2 Styles -->
+    <link rel="stylesheet" href="https://cdn.syncfusion.com/ej2/material.css" />
+
+    <!-- Render General Analyzers -->
+    @await Html.PartialAsync("_Analyzers")
+
+    @RenderSection("Styles", required: false)
+</head>
+<body class="m-index" data-scrolling-animations="true" data-equal-height=".b-auto__main-item">
+    <!-- Render Body Analyzers -->
+    @await Html.PartialAsync("_AnalyzersBody")
+    <!-- Loader -->
+    <div id="page-preloader"><span class="spinner"></span></div>
+    <!-- Loader end -->
+
+    <!-- Start main Header -->
+    <header class="b-topBar wow slideInDown" data-wow-delay="0.7s">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-xs-3 text-center">
+                    <div class="b-topBar__tel">
+                        <div class="dropdown lang">
+                            <a href="https://wa.me/573113769946?text=%C2%A1Hola!%2C%20Quiero%20obtener%20m%C3%A1s%20informaci%C3%B3n." aria-expanded="false" style="text-decoration: none;" target="_blank"><span class="fa fa-whatsapp"></span>Contact center</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-9 col-xs-9">
+                    <nav class="b-topBar__nav">
+                        @{ await Html.RenderPartialAsync("_LoginPartial"); }
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header><!--b-topBar-->
+    <!-- End main Header -->
+
+    <!-- Start Nav bar render -->
+   @{ await Html.RenderPartialAsync("~/Views/Shared/NavBars/_MainNavBar.cshtml", "Carshow"); }
+    <!-- Start Nav bar render -->
+
+    <!-- Start Render body content -->
+    @RenderBody()
+    @{ await Html.RenderPartialAsync("_CookieConsentPartial"); }
+    <!-- End Render body content -->
+
+    <!-- Start pre-footer content -->
+    <div class="b-features">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9 col-md-offset-3 col-xs-4 col-xs-offset-7">
+                    <ul class="b-features__items">
+                        <li class="wow zoomInUp" data-wow-delay="0.3s" data-wow-offset="100">Precios competitivos</li>
+                        <li class="wow zoomInUp" data-wow-delay="0.3s" data-wow-offset="100">Excelencia y calidad de servicio</li>
+                        <li class="wow zoomInUp" data-wow-delay="0.3s" data-wow-offset="100">Agilidad</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div><!--b-features-->
+    <!-- End pre-footer content -->
+
+    <!-- Start pre-footer info -->
+    <div class="b-info">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-xs-6">
+                    <aside class="b-info__aside wow zoomInLeft" data-wow-delay="0.3s">
+                        <article class="b-info__aside-article">
+                            <h3>Nuestras sedes</h3>
+                            @await Component.InvokeAsync("OurHeadquarters", "CarShow")
+                            <a asp-action="Sedes" asp-controller="Info" class="btn m-btn">Más información<span class="fa fa-angle-right"></span></a>
+                        </article>
+
+                        <article class="b-info__aside-article">
+                            <h3>Acerca de nosotros</h3>
+                            <p class="text-justify">
+                                Motovalle S.A.S, es una de las mayores empresas del sector Automotor en Colombia,
+                                somos sinónimo de buen servicio, agilidad y competitividad.
+                            </p>
+                            <br />
+                            <a asp-action="Index" asp-controller="Info" class="btn m-btn">Más información<span class="fa fa-angle-right"></span></a>
+                        </article>
+                    </aside>
+                </div>
+                <div class="col-md-5 col-xs-6">
+                    @await Component.InvokeAsync("LatestPostShared", "CarShow")
+                </div>
+                <div class="col-md-4 col-xs-6">
+                    <address class="b-info__contacts wow zoomInUp" data-wow-delay="0.3s">
+                        <p>Contáctenos</p>
+                        <div class="b-info__contacts-item">
+                            <span class="fa fa-map-marker"></span>
+                            <em>
+                                CL 26 1-71, Cali,
+                                Valle del Cauca, Colombia
+                            </em>
+                        </div>
+                        @*<div class="b-info__contacts-item">
+                            <span class="fa fa-phone"></span>
+                            <em>Teléfono:  (+57) 2 4899907</em>
+                        </div>
+                        <div class="b-info__contacts-item">
+                            <span class="fa fa-fax"></span>
+                            <em>FAX:  (+57) 2 4883000</em>
+                        </div>*@
+                        <div class="b-info__contacts-item">
+                            <span class="fa fa-envelope"></span>
+                            <em>Email:  info@tiendamotovalle.com</em>
+                        </div>
+                        <div class="b-info__contacts-item">
+                            <span class="fa fa-question"></span>
+                            <em><a asp-action="ContactUs" asp-controller="Info">¿Preguntas?, contáctenos.</a></em>
+                        </div>
+                    </address>
+                </div>
+            </div>
+        </div>
+    </div><!--b-info-->
+    <!-- End pre-footer info -->
+
+    <!-- Strart Footer -->
+    <footer class="b-footer">
+        <a id="to-top" href="#this-is-top"><i class="fa fa-chevron-up"></i></a>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-3">
+                    <div class="b-footer__company wow fadeInLeft" data-wow-delay="0.3s">
+                        <a class="navbar-brand" asp-action="Index" asp-controller="Home"><img src="~/media/brands/motovalle-logo.png" style="width:210px; height:40px;" alt="Motovalle-logo65"></a>
+                    </div>
+                </div>
+                <div class="col-xs-4">
+                    <p class="text-justify" style="color:#555; margin-top:1.2em;">&copy; Todos los derechos reservados - Motores del Valle S.A.S @DateTime.Now.Year.ToString() Powered by: <a href="http://innovamarketingsystems.com/" target="_blank">Innova Marketing Systems</a>.</p>
+                </div>
+                <div class="col-xs-5">
+                    <div class="b-footer__content wow fadeInRight" data-wow-delay="0.3s">
+                        <div class="b-footer__content-social">
+                            <a href="https://web.facebook.com/motovalle/" target="_blank"><span class="fa fa-facebook-square"></span></a>
+                            <a href="https://twitter.com/motovalle_col" target="_blank"><span class="fa fa-twitter-square"></span></a>
+                            <a href="https://www.instagram.com/motovalle_oficial/" target="_blank"><span class="fa fa-instagram"></span></a>
+                            <a href="https://www.youtube.com/channel/UC_0MawhV4cWPrz1pIPdrSVA" target="_blank"><span class="fa fa-youtube-square"></span></a>
+                        </div>
+                        <nav class="b-footer__content-nav">
+                            <ul>
+                                <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                                <li>@Html.ActionLink("Acerca de nosotros", "Index", "Info")</li>
+                                <li>@Html.ActionLink("Blog", "Index", "Blog")</li>
+                                <li>@Html.ActionLink("Privacidad", "Privacy", "Home")</li>
+                                <li>@Html.ActionLink("Contáctenos", "ContactUs", "Info")</li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer><!--b-footer-->
+    <!-- End Footer -->
+
+    <!-- Partial View -->
+    @{ await Html.RenderPartialAsync("_ProductVideo"); }
+    @{ await Html.RenderPartialAsync("_MoreInfo", "carshow"); }
+    <!-- Partial View -->
+
+    <!-- Start Scripts section -->
+    <!--JivoChat -->
+    <script src="//code.jivosite.com/widget/zQCYoMifqg" async></script>
+    <!--JivoChat -->
+
+    <!--Main-->
+    <script src="~/js/jquery-1.11.3.min.js"></script>
+    <script src="~/js/jquery-ui.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/modernizr.custom.js"></script>
+
+    <!--Owl Carousel-->
+    <script src="~/assets/owl-carousel/owl.carousel.min.js"></script>
+
+    <!--bxSlider-->
+    <script src="~/assets/bxslider/jquery.bxslider.js"></script>
+
+    <!-- jQuery UI Slider -->
+    <script src="~/assets/slider/jquery.ui-slider.js"></script>
+
+    <!--Theme-->
+    <script src="~/js/jquery.smooth-scroll.js"></script>
+    <script src="~/js/wow.min.js"></script>
+    <script src="~/js/jquery.placeholder.min.js"></script>
+    <script src="~/js/theme.js" asp-append-version="true"></script>
+    <script src="~/js/ecommerce-functions.js" asp-append-version="true"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <!--360 -->
+    <script src="https://cdn.scaleflex.it/plugins/js-cloudimage-360-view/2/js-cloudimage-360-view.min.js"></script>
+    <!--360 -->
+
+    <!--MDbootstrap -->
+    <script src="~/js/datatables.min.js"></script>
+    <!--MDbootstrap -->
+
+    <!-- MercadoPago -->
+    <script src="https://secure.mlstatic.com/sdk/javascript/v1/mercadopago.js"></script>
+    <!--MercadoPago -->
+
+    <!-- Sweet Alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
+     <!-- Syncfusion Essential JS 2 Scripts -->
+    <script src="https://cdn.syncfusion.com/ej2/dist/ej2.min.js"></script>
+
+    @RenderSection("Scripts", required: false)
+    <!-- End Scripts section -->
+
+     <!-- Syncfusion Essential JS 2 ScriptManager -->
+    <ejs-scripts></ejs-scripts>
+</body>
+</html>

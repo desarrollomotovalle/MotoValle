@@ -1,0 +1,47 @@
+﻿@page
+@model RegisterConfirmationModel
+@{
+    ViewData["Title"] = "Register confirmation";
+}
+
+<section class="b-pageHeader identity">
+    <div class="container">
+        <h1 class="wow zoomInLeft" data-wow-delay="0.5s">Confirmación de registro</h1>
+        <div class="b-pageHeader__search wow zoomInRight" data-wow-delay="0.5s">
+            <h3>Estás a un paso de completar tu registro</h3>
+        </div>
+    </div>
+</section>
+
+
+<div class="b-breadCumbs s-shadow wow zoomInUp" data-wow-delay="0.5s">
+    <div class="container">
+        <a asp-controller="Home" asp-action="Index" class="b-breadCumbs__page">Home</a><span class="fa fa-angle-right"></span><a asp-area="Identity" asp-page="/Account/RegisterConfirmation" class="b-breadCumbs__page m-active">Conformación de registro</a>
+    </div>
+</div>
+
+<section class="b-breadCumbs wow zoomInUp" data-wow-delay="0.5s">
+    <div class="container">
+        <div class="row">
+            <h2>Confirmación de registro</h2>
+            @{
+                if (@Model.DisplayConfirmAccountLink)
+                {
+                    <p>
+                        <a id="confirm-link" href="@Model.EmailConfirmationUrl"><b>Presiona aquí para confirmar tu cuenta</b></a>
+                    </p>
+                }
+                else
+                {
+                    <p>
+                        Por favor verifica tu buzón de correo electrónico para confirmar tu cuenta.
+                    </p>
+                }
+            }
+
+        </div>
+        @{ await Html.RenderPartialAsync("_ContactUs"); }
+    </div>
+    <br />
+    <br />
+</section>

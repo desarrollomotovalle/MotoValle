@@ -1,0 +1,179 @@
+﻿@model motovalle.Ecommerce.Models.ViewModels.Admin.InventoryItemsViewModel
+@{
+    ViewData["Title"] = "InventoryItemsCreate";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="content">
+    <div class="container">
+        <div>
+            <div class="col-12 text-center">
+                <h1 class="m-0 text-dark">Crear Nuevo Registro</h1>
+            </div>
+            <div class="text-left">
+                <p>
+                    <a asp-action="InventoryItems" asp-controller="Admin" class="btn btn-md btn-dark"><span class="fa fa-arrow-circle-left"></span> Volver</a>
+                </p>
+            </div>
+        </div>
+
+        <div class="col-lg-offset-3 ">
+            <form method="post" asp-action="InventoryItemsCreate" asp-controller="Admin" id="frmInventoryItems" name="frmInventoryItems" enctype="multipart/form-data">
+                @Html.AntiForgeryToken()
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="InventoryItemsId" />
+                <div class="row">
+                    <div class="col-2">
+                        <div class="form-group">
+                            <label asp-for="Vin" class="control-label"></label>
+                            <input asp-for="Vin" class="form-control" />
+                            <span asp-validation-for="Vin" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <div class="form-group">
+                            <label asp-for="FkProducts.FkMakes" class="control-label"></label>
+                            <select asp-for="FkProducts.FkMakes" class="form-control" asp-items="ViewBag.FkMakesId" onchange="getProductsForMake(this.value)"></select>
+                            <span asp-validation-for="FkProducts.FkMakes" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="form-group">
+                            <label asp-for="FkProductsId" class="control-label"></label>
+                            <select asp-for="FkProductsId" class="form-control" asp-items="ViewBag.FkProductsId" onchange="getColorsForProduct()"></select>
+                            <span asp-validation-for="FkProductsId" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="form-group">
+                            <label asp-for="FkColorsId" class="control-label"></label>
+                            <select asp-for="FkColorsId" class="form-control" asp-items="ViewBag.FkColorsId" id="idColors"></select>
+                            <span asp-validation-for="FkColorsId" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <div class="form-group">
+                            <label asp-for="AllowShow" class="control-label"></label>
+                            <input asp-for="AllowShow" type="hidden" id="allowShowHiddenId" />
+                            <input type="checkbox" class="form-control" id="cbxAllowShow" checked />
+                            <span asp-validation-for="AllowShow" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-2">
+                        <div class="form-group">
+                            <label asp-for="QuantityInStock" class="control-label"></label>
+                            <input asp-for="QuantityInStock" value="0" class="form-control" />
+                            <span asp-validation-for="QuantityInStock" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <div class="form-group">
+                            <label asp-for="Mileage" class="control-label"></label>
+                            <input asp-for="Mileage" class="form-control" />
+                            <span asp-validation-for="Mileage" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <div class="form-group">
+                            <label asp-for="Cost" class="control-label"></label>
+                            <input asp-for="Cost" class="form-control" />
+                            <span asp-validation-for="Cost" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <div class="form-group">
+                            <label asp-for="SalesPrice" class="control-label"></label>
+                            <input asp-for="SalesPrice" class="form-control" />
+                            <span asp-validation-for="SalesPrice" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="form-group">
+                            <label asp-for="FkWarrantiesId" class="control-label"></label>
+                            <select asp-for="FkWarrantiesId" class="form-control" asp-items="ViewBag.FkWarrantiesId"></select>
+                            <span asp-validation-for="FkWarrantiesId" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-3">
+                        <div class="form-group">
+                            <label asp-for="IsNew" class="control-label"></label>
+                            <input asp-for="IsNew" type="hidden" id="isNewHiddenId" />
+                            <select id="isNewId" class="form-control">
+                                <option value="0">NO</option>
+                                <option value="1" selected>YES</option>
+                            </select>
+                            <span asp-validation-for="IsNew" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="form-group">
+                            <label asp-for="IsSold" class="control-label"></label>
+                            <input asp-for="IsSold" type="hidden" id="isSoldHiddenId" />
+                            <select id="isSoldId" class="form-control">
+                                <option value="0" selected>NO</option>
+                                <option value="1">YES</option>
+                            </select>
+                            <span asp-validation-for="IsSold" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label asp-for="Cupix360Url" class="control-label"></label>
+                            <input asp-for="Cupix360Url" class="form-control" />
+                            <span asp-validation-for="Cupix360Url" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-5">
+                        <div class="form-group">
+                            <label asp-for="CoverPictureUrl" class="control-label"></label>
+                            <input asp-for="CoverPictureUrl" class="form-control" onkeyup="disableUploadPictures('Inventory', 'Cover', this.value)" />
+                            @Html.EditorFor(x => x.CoverPictureFile, new { type = "file", accept = ".jpg,.png,.jpeg", @class = "form-control" })
+                            <span asp-validation-for="CoverPictureUrl" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-5">
+                        <div class="form-group">
+                            <label asp-for="Picture360Url" class="control-label"></label>
+                            <input asp-for="Picture360Url" class="form-control" onkeyup="disableUploadPictures('Inventory', '360', this.value)" />
+                            @Html.EditorFor(x => x.Pictures360File, new { type = "file", accept = "jpg", @class = "form-control", @multiple = "multiple" })
+                            <span asp-validation-for="Picture360Url" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <div class="form-group">
+                            <label asp-for="Picture360Quantity" class="control-label"></label>
+                            <input asp-for="Picture360Quantity" class="form-control" />
+                            <span asp-validation-for="Picture360Quantity" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label class="control-label">Choose Taxes (Press Ctrl to choose 2 or more taxes)</label>
+                            <select asp-for="SelectedTaxes" class="form-control" asp-items="ViewBag.Taxes" id="idTaxes" multiple></select>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class="form-group">
+                <input type="button" value="Guardar cambios" class="btn btn-primary" onclick="saveInventoryItems()" />
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+    <script type="text/javascript">
+        $('#Pictures360File').on('change', () => {
+            validateSize('Inventory');
+        });
+    </script>
+}

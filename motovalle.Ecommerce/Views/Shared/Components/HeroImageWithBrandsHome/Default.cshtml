@@ -1,0 +1,179 @@
+﻿@model Ecommerce.Models.Entities.HeroImages
+
+<section id="hero" class="d-flex align-items-center">
+</section>
+
+<section id="brands-home" class="brands-home">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-sm-6 col-md-3 col-lg-3 col-xl-3 d-flex wow zoomInDown">
+                <a asp-action="Index" asp-controller="Mazda">
+                    <div class="content-box mazda">
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-3 col-lg-3 col-xl-3 d-flex wow zoomInDown" data-wow-delay="0.05s">
+                <a asp-action="Index" asp-controller="MasseyFerguson">
+                    <div class="content-box massey">
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-3 col-lg-3 col-xl-3 d-flex wow zoomInDown" data-wow-delay="0.1s">
+                <a asp-action="Index" asp-controller="Ford">
+                    <div class="content-box ford">
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-3 col-lg-3 col-xl-3 d-flex wow zoomInDown" data-wow-delay="0.15s">
+                <a asp-action="Index" asp-controller="Carshow">
+                    <div class="content-box carshow">
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-12 col-sm-12 col-md-12 col-md-offset-1 col-lg-12 col-lg-offset-2 col-xl-12 d-flex wow zoomInLeft">
+                <a asp-action="Index" asp-controller="Repuestos">
+                    <div class="content-box repuestos">
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<style type="text/css">
+    #hero {
+        width: 100%;
+        height: 70vh;
+        background: url("@Url.Content($"~/{Model.ImageURL.Replace(@"\","/")}")");
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        margin-bottom: -200px;
+        z-index: -1;
+    }
+
+    .brands-home .content-box {
+        text-align: center;
+        border-radius: 5px;
+        background: rgba(255, 255, 255, 0.00);
+        -webkit-box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.4);
+        box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.4);
+        padding: 40px 30px;
+        transition: all ease-in-out 0.15s;
+        min-height: 350px;
+        margin: 30px 0;
+    }
+
+    .brands-home .content-box.repuestos {
+        min-height: 160px;
+        max-width: 750px;
+    }
+
+    .brands-home .content-box.ford {
+        background: url("@Url.Content("~/ford/home/btn ford grande.jpg")") center no-repeat;
+        background-size: cover;
+    }
+
+    .brands-home .content-box.mazda {
+        background: url("@Url.Content("~/mazda/home/btn mazda grande.jpg")") center no-repeat;
+        background-size: cover;
+    }
+
+    .brands-home .content-box.massey {
+        background: url("@Url.Content("~/massey_ferguson/home/btn massey grande.jpg")") center no-repeat;
+        background-size: cover;
+    }
+
+    .brands-home .content-box.carshow {
+        background: url("@Url.Content("~/carshow/home/btn carshow grande.jpg")") center no-repeat;
+        background-size: cover;
+    }
+
+    .brands-home .content-box.repuestos {
+        background: url("@Url.Content("~/repuestos/home/btn repuestos.jpg")") center  no-repeat;
+        background-size: cover;
+    }
+
+    .brands-home .content-box:hover {
+        transform: translate(0, -25px);
+    }
+
+    .brands-home .content-box:hover::after {
+        transform: translate(0, 0px);
+    }
+
+    @@media (min-width: 1024px) {
+        #hero {
+        }
+    }
+
+    @@media (max-width: 992px) {
+        #hero {
+            height: 70vh;
+        }
+    }
+
+    @@media (max-width: 767px) {
+        #hero {
+            margin-bottom: -50px;
+            height: 60vh;
+        }
+
+        .brands-home .content-box {
+            min-height: 180px;
+            margin: 20px 0;
+        }
+
+        .brands-home .content-box:hover {
+            transform: translate(0, -15px);
+        }
+
+        .brands-home .content-box:hover::after {
+            transform: translate(0, 0px);
+        }
+
+
+        .brands-home .content-box.ford {
+            background: url("@Url.Content("~/ford/home/btn ford.jpg")") center no-repeat;
+            background-size: cover;
+        }
+
+        .brands-home .content-box.mazda {
+            background: url("@Url.Content("~/mazda/home/btn mazda.jpg")") center no-repeat;
+            background-size: cover;
+        }
+
+        .brands-home .content-box.massey {
+            background: url("@Url.Content("~/massey_ferguson/home/btn massey.jpg")") center no-repeat;
+            background-size: cover;
+        }
+
+        .brands-home .content-box.carshow {
+            background: url("@Url.Content("~/carshow/home/btn carshow.jpg")") center no-repeat;
+            background-size: cover;
+        }
+
+        .brands-home .content-box.repuestos {
+            min-height: 160px;
+            background: url("@Url.Content("~/repuestos/home/btn repuestos.jpg")") center no-repeat;
+            background-size: cover;
+        }
+    }
+
+    @@media (max-width: 500px) {
+        #hero {
+            height: 30vh;
+        }
+    }
+
+    @@media (max-height: 500px) {
+        #hero {
+            height: auto;
+        }
+    }
+</style>

@@ -1,0 +1,23 @@
+﻿@inject Microsoft.Extensions.Configuration.IConfiguration configuration
+@{
+    var wompiPublicKey = configuration.GetSection("WompiSettings:PublicKey").Value;
+}
+
+<div id="wompiWidget">
+    <div class="container">
+        <h1 class="text-center">Widget</h1>
+
+        <section id="frmWompi" class="my-5 text-center">
+            <form>
+                <script src="https://checkout.wompi.co/widget.js"
+                        data-render="button"
+                        data-public-key="@wompiPublicKey"
+                        data-currency="@motovalle.Ecommerce.Models.WompiCurrencyType.COP.ToString()"
+                        data-amount-in-cents="@Model.TotalAmount"
+                        data-reference="@Model.Reference"
+                        data-redirect-url="https://localhost:44358/Wompi/Result">
+                </script>
+            </form>
+        </section>
+    </div>
+</div>

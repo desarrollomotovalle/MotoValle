@@ -1,0 +1,135 @@
+﻿@model motovalle.Ecommerce.Models.ViewModels.Admin.HeroImagesViewModel
+
+@{
+    ViewData["Title"] = "Hero Images Edit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="content">
+    <div class="container">
+        <div>
+            <div class="col-12 text-center">
+                <h1 class="m-0 text-dark">Editar</h1>
+                <h6 class="text-info">La resolución óptima para las imágenes es: <b>1600 x 420px</b></h6>
+            </div>
+            <div class="text-left">
+                <p>
+                    <a asp-action="HeroImages" asp-controller="Admin" class="btn btn-md btn-dark"><span class="fa fa-arrow-circle-left"></span> Volver</a>
+                </p>
+            </div>
+
+            @if (ViewBag.Message != null)
+            {
+                <div class="alert alert-danger text-center wow zoomInUp" role="alert" data-wow-delay="0.5s">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <strong>¡Ups!..</strong> @ViewBag.Message &#128577;
+                </div>
+            }
+        </div>
+
+        <div class="col-lg-offset-3 ">
+            <form method="post" asp-action="HeroImagesEdit" asp-controller="Admin" enctype="multipart/form-data">
+                @Html.AntiForgeryToken()
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="HeroImagesId" />
+                <div class="row">
+                    <div class="col-2">
+                        <div class="form-group">
+                            <label asp-for="Enable" class="control-label"></label>
+                            <input asp-for="Enable" class="form-control" />
+                            <span asp-validation-for="Enable" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <div class="form-group">
+                            <label asp-for="FkMakesId" class="control-label"></label>
+                            @Html.DropDownListFor(
+                                 x => x.FkMakesId,
+                                 (SelectList)ViewBag.FkMakesId,
+                                 "-- Motovalle --", new { @class="form-control" }
+                            )
+                            <span asp-validation-for="FkMakesId" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <div class="form-group">
+                            <label asp-for="Index" class="control-label"></label>
+                            <input asp-for="Index" class="form-control" />
+                            <span asp-validation-for="Index" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label asp-for="ImageURL" class="control-label"></label>
+                            <input asp-for="ImageURL" class="form-control" onkeyup="disableUploadPictures('HeroImages', 'ImageURL', this.value)" />
+                            @Html.EditorFor(x => x.ImageUrlFile, new { type = "file", accept = ".jpg,.png,.jpeg", @class = "form-control" })
+                            <span asp-validation-for="ImageURL" class="text-danger"></span>
+                            <span asp-validation-for="ImageUrlFile" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-2">
+                        <div class="form-group">
+                            <label asp-for="HasButton" class="control-label"></label>
+                            <input asp-for="HasButton" class="form-control" onchange="enableHeroImageButtonUrl(this.checked)" />
+                            <span asp-validation-for="HasButton" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-10">
+                        <div class="form-group">
+                            <label asp-for="ButtonURL" class="control-label"></label>
+                            <input asp-for="ButtonURL" class="form-control" />
+                            <span asp-validation-for="ButtonURL" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-2">
+                        <div class="form-group">
+                            <label asp-for="ShowSpan" class="control-label"></label>
+                            <input asp-for="ShowSpan" class="form-control" onchange="enableSpanText(this.checked)" />
+                            <span asp-validation-for="ShowSpan" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-5">
+                        <div class="form-group">
+                            <label asp-for="SpanText" class="control-label"></label>
+                            <input asp-for="SpanText" class="form-control" />
+                            <span asp-validation-for="SpanText" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-5">
+                        <div class="form-group">
+                            <label asp-for="SpanComplementText" class="control-label"></label>
+                            <input asp-for="SpanComplementText" class="form-control" />
+                            <span asp-validation-for="SpanComplementText" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Guardar cambios" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+    <script type="text/javascript">
+        (() => {
+            enableHeroImageButtonUrl(@Model.HasButton.ToString().ToLower());
+            enableSpanText(@Model.ShowSpan.ToString().ToLower())
+            if (document.getElementById("ImageURL").value != null && document.getElementById("ImageURL").value != "") {
+                document.getElementById("ImageUrlFile").disabled = true;
+            }
+        })();
+
+        $('#ImageUrlFile').on('change', () => {
+            validateSize('HeroImageURL');
+        });
+    </script>
+}

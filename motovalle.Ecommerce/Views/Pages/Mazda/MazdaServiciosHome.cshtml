@@ -1,0 +1,81 @@
+﻿
+@{
+    ViewData["Title"] = "Servicios";
+
+    Layout = "~/Views/Shared/_LayoutMazda.cshtml";
+
+}
+
+<section class="b-pageHeader mazda">
+    <div class="container">
+        <h1 class="wow zoomInLeft" data-wow-delay="0.7s">Servicios </h1>
+        <div class="b-pageHeader__search wow zoomInRight" data-wow-delay="0.7s">
+
+        </div>
+    </div>
+</section><!--b-pageHeader-->
+
+<div class="b-breadCumbs s-shadow">
+    <div class="container wow zoomInUp" data-wow-delay="0.5s">
+        <a class="b-breadCumbs__page" href="/">Home</a><span class="fa fa-angle-right"></span>
+        <a asp-action="Index" asp-controller="Mazda" class="b-breadCumbs__page">Mazda</a><span class="fa fa-angle-right"></span>
+        <a class="b-breadCumbs__page m-active" href="#">Mazda Servicios</a>
+    </div>
+</div><!--b-breadCumbs-->
+
+<section class="b-article">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 col-xs-12">
+                <div class="b-article__main">
+                    <div class="b-blog__posts-one">
+                        <div class="row m-noBlockPadding">
+                            <div class="grid-container row">
+                                <div class="grid__item grid__big col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                                    <div class="grid--item-container row">
+                                        <div class="sub__item col-xs-12 col-sm-12 col-md-12" style="background-image: url('/images/mazda/descripcion.png')">
+                                            <div class="big--content">
+                                                <img src="/images/mazda/Motovalle-Home-240.png" alt="Logo Mazda">
+                                                <p>
+                                                    Visita nuestro taller autorizado y encontrarás todos los servicios de mantenimiento y reparación que tu vehículo necesita, realizados por personal altamente calificado, utilizando tecnología de punta y herramientas especializadas para diagnosticar y reparar correctamente tu Mazda.
+                                                </p>
+                                            </div>
+                                        </div><!--sub__item-->
+                                    </div><!--grid--item-container-->
+                                </div><!--grid__item grid__big-->
+                                <div class="grid__item grid__small col-xs-12 col-sm-12 col-md-8 col-lg-8">
+                                    <div class="grid--item-container row">
+                                        <div class="sub__item col-xs-12 col-sm-12 col-md-6" style="background-image: url('/images/mazda/agendamiento.png')">
+                                            <div class="sub__item-enlace">
+                                                <a href="/mazda/servicios/agendamiento-de-citas/">Agendamiento de citas</a>
+                                            </div>
+                                        </div><!--sub__item-->
+                                        <div class="sub__item col-xs-12 col-sm-12 col-md-6" style="background-image: url('/images/mazda/servicio.png')">
+                                            <div class="sub__item-enlace">
+                                                <a href="/mazda/servicios/servicio/">Servicio</a>
+                                            </div>
+                                        </div><!--sub__item-->
+                                        <div class="sub__item col-xs-12 col-sm-12 col-md-6" style="background-image: url('/images/mazda/repuestos-y-accesorios.png')">
+                                            <div class="sub__item-enlace">
+                                                <a href="/mazda/servicios/repuestos-y-accesorios/">Repuestos y Accesorios</a>
+                                            </div>
+                                        </div><!--sub__item-->
+                                        <div class="sub__item col-xs-12 col-sm-12 col-md-6" style="background-image: url('/images/mazda/campanas-servicio.png')">
+                                            <div class="sub__item-enlace">
+                                                <a href="/mazda/servicios/campanas-de-servicio/">Campañas de servicio</a>
+                                            </div>
+                                        </div><!--sub__item-->
+                                    </div><!--grid--item-container-->
+                                </div><!--grid__item grid__small-->
+                            </div><!--grid-container-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-xs-12">
+                @await Html.PartialAsync("_NavCategoryMazda")
+
+            </div>
+        </div>
+    </div>
+</section><!--b-article-->

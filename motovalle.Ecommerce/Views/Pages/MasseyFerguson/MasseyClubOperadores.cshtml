@@ -1,0 +1,181 @@
+﻿@model OperatorsClubViewModel
+@{
+    ViewData["Title"] = "MasseyQuienesSomos";
+    Layout = "~/Views/Shared/_LayoutMasseyFerguson.cshtml";
+}
+
+<section class="b-pageHeader massey">
+</section><!--b-pageHeader-->
+
+<div class="b-breadCumbs s-shadow">
+    <div class="container wow zoomInUp" data-wow-delay="0.5s">
+        <a class="b-breadCumbs__page" href="/">Home</a><span class="fa fa-angle-right"></span>
+        <a asp-action="Index" asp-controller="MasseyFerguson" class="b-breadCumbs__page">Massey Ferguson</a><span class="fa fa-angle-right"></span>
+        <a class="b-breadCumbs__page m-active" href="#">¿Quiénes somos?</a>
+    </div>
+</div><!--b-breadCumbs-->
+
+<section class="b-article">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 col-xs-12">
+                <!--Operators Club-->
+                <div id="masseyOperatorsClubId" class="row wow zoomInLeft" data-wow-delay="0.55s">
+                    <div class="col-md-12 col-xs-12 text-center">
+                        <img class="img-responsive center-block" src="~/massey_ferguson/home/header-4.png" width="90%" alt="Tractor" />
+                    </div>
+                    <div class="col-md-12 col-xs-12">
+                        <div>
+                            <header class="b-contacts__form-header s-lineDownLeft wow zoomInUp" data-wow-delay="0.5s">
+                                <h1 class="s-titleDet text-center" style="font-size:18px;">
+                                    Club de <span style="color:#C21B2F">Operadores Massey</span>
+                                </h1>
+                            </header>
+
+                            <div class="panel panel-default">
+                                <div class="panel-heading text-center">¡Haz parte del Club oficial de operadores Massey llenando el formulario de inscripción!</div>
+                                <div class="panel-body">
+                                    <form id="frmClubOperadores">
+                                        @Html.AntiForgeryToken()
+                                        <div class="row">
+                                            <div class="col-md-6 col-xs-12">
+                                                <div class="form-group">
+                                                    <input asp-for="Name" class="form-control" placeholder="Nombres*" />
+                                                    <span asp-validation-for="Name" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-xs-12">
+                                                <div class="form-group">
+                                                    <input asp-for="LastName" class="form-control" placeholder="Apellidos*" />
+                                                    <span asp-validation-for="LastName" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-xs-12">
+                                                <div class="form-group">
+                                                    <input asp-for="PhoneNumber" class="form-control" placeholder="Celular" />
+                                                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-xs-12">
+                                                <div class="form-group">
+                                                    <input asp-for="Email" class="form-control" placeholder="Email" />
+                                                    <span asp-validation-for="Email" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-xs-12">
+                                                <div class="form-group">
+                                                    <label asp-for="DateOfBirth" class="control-label"></label>
+                                                    <input asp-for="DateOfBirth" class="form-control" />
+                                                    <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-xs-12">
+                                                <div class="form-group">
+                                                    <input asp-for="Serial" class="form-control" placeholder="Serie del Tractor - Modelo" />
+                                                    <span asp-validation-for="Serial" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-xs-12">
+                                                <div class="form-group">
+                                                    <input asp-for="ChasisNumber" class="form-control" placeholder="Número de Chasis" />
+                                                    <span asp-validation-for="ChasisNumber" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 col-xs-12">
+                                                <div class="form-group">
+                                                    <input asp-for="Ubication" class="form-control" placeholder="Ubicación, cuidad o municipio" />
+                                                    <span asp-validation-for="Ubication" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12 col-xs-12">
+                                                <div class="form-group">
+                                                    <input type="checkbox" asp-for="HabeasData" required style="width: 20px; height: 20px;">
+                                                    <label asp-for="HabeasData"> Acepto las <a href="~/files/POLITICA DATOS PERSONALES MOTOVALLE[2336].pdf" rel="noreferrer" target="_blank"> políticas de privacidad</a></label>
+                                                    <span asp-validation-for="HabeasData" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 col-xs-12">
+                                                <div class="b-submit__main-element" style="margin-left: 1em;">
+                                                    @{ await Html.RenderPartialAsync("_Recaptcha"); }
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <div class="form-group text-center">
+                                            <input type="submit" value="Suscribrirme ahora" class="btn btn-danger" />
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-xs-12">
+                @await Html.PartialAsync("_NavCategoryMassey")
+            </div>
+        </div>
+    </div>
+</section><!--b-article-->
+
+@section Scripts{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+    <script type="text/javascript">
+        const $frmClubOperadores = document.querySelector("#frmClubOperadores");
+        $frmClubOperadores.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            debugger;
+            if (!$(e.target).valid()) {
+                return;
+            }
+
+            const gResponse = grecaptcha.getResponse();
+            if (!gResponse) {
+                await Swal.fire({
+                    icon: 'error',
+                    title: 'Verifica los datos ingresados',
+                    text: 'Por favor valida el reCaptcha',
+                    footer: '<b><a href="/Info/ContactUs">Por favor infórmanos</a></b>',
+                    allowOutsideClick: false,
+                    allowEscapeKey: false
+                });
+
+                return;
+            }
+
+            const request = await fetch('/Pages/MasseyClubOperadores', {
+                method: "POST",
+                body: new FormData(e.target)
+            });
+
+            if (request.ok) {
+                Swal.fire({
+                    title: '¡Información envíada exitosamente!',
+                    text: 'En breve nos comunicaremos contigo',
+                    position: 'top-end',
+                    icon: 'success',
+                    showConfirmButton: false,
+                    timer: 6000,
+                    allowOutsideClick: false,
+                    allowEscapeKey: false,
+                    timerProgressBar: true
+                });
+
+                grecaptcha.reset();
+                e.target.reset();
+            } else {
+                await Swal.fire({
+                    icon: 'error',
+                    title: 'Algo salió mal :(',
+                    text: 'Lo sentimos.',
+                    footer: '<b><a href="/Info/ContactUs">Por favor infórmanos</a></b>',
+                    allowOutsideClick: false,
+                    allowEscapeKey: false
+                });
+            }
+        });
+    </script>
+
+}

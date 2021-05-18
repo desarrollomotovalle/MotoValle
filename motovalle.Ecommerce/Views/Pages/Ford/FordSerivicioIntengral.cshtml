@@ -1,0 +1,91 @@
+﻿
+@{
+    ViewData["Title"] = "Ford Serivicio Intengral";
+    Layout = "~/Views/Shared/_LayoutFord.cshtml";
+}
+
+<section class="b-pageHeader ford">
+    <div class="container">
+        <div class="b-pageHeader__search wow zoomInRight" data-wow-delay="0.7s">
+
+        </div>
+    </div>
+</section><!--b-pageHeader-->
+
+<div class="b-breadCumbs s-shadow">
+    <div class="container wow zoomInUp" data-wow-delay="0.5s">
+        <a class="b-breadCumbs__page" href="/">Home</a><span class="fa fa-angle-right"></span>
+        <a asp-action="Index" asp-controller="Ford" class="b-breadCumbs__page">Ford</a><span class="fa fa-angle-right"></span>
+        <a class="b-breadCumbs__page m-active" href="#">Servicio Integral</a>
+    </div>
+</div><!--b-breadCumbs-->
+
+<section class="b-article">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 col-xs-12">
+                <div id="fordIntegralServiceId" class="row wow zoomInLeft" data-wow-delay="0.55s">
+                    <div class="col-md-12 col-xs-12">
+                        <br />
+                        <header class="b-contacts__form-header s-lineDownLeft wow zoomInUp" data-wow-delay="0.5s">
+                            <h1 class="s-titleDet text-center h1">
+                                Servicio Integral
+                            </h1>
+                        </header>
+                        <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                            <b>La experiencia de los Concesionarios Ford Certificados por el Programa SERVICIO INTEGRAL</b> demuestra que la aplicación de este nuevo concepto de mejora de procesos incrementa considerablemente la Satisfacción del Cliente, en comparación con los métodos tradicionales de funcionamiento del taller
+                        </p>
+                        <br />
+                        <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                            Los satisfactorios resultados del Programa SERVICIO INTEGRAL tienen sus fundamentos en:<br />
+                            Un sistema de citas que le permite al Cliente la posibilidad de tener la revisión de su vehículo el día y hora acordados previamente con su Concesionario Ford.
+                        </p>
+                        <br />
+                        <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                            Una inspección del vehículo más completa y fiable que le permite al Cliente conocer con anticipación cuál es el trabajo que requiere la unidad y el costo del mismo. Todo esto en su presencia para una mejor comprensión de las necesidades de mantenimiento y de los servicios que serán ejecutados en el vehículo.
+                        </p>
+                        <br />
+                        <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                            Los procesos internos son más eficientes, sobre todo los de planificación de taller, reserva de repuestos y promesa de entrega del vehículo.
+                        </p>
+                        <br />
+                        <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                            Motovalle le informa que nuestro Servicio de taller está dividido en las siguientes etapas:
+                        </p>
+                        <br />
+                        <ul class="s-list" style="padding-left:3em;">
+                            <li style="font-size:14px;"><span class="fa fa-check"></span>Agendamiento para ingreso al Taller </li>
+                            <li style="font-size:14px;"><span class="fa fa-check"></span>Recepción </li>
+                            <li style="font-size:14px;"><span class="fa fa-check"></span>Diagnóstico </li>
+                            <li style="font-size:14px;"><span class="fa fa-check"></span>Cotización </li>
+                            <li style="font-size:14px;"><span class="fa fa-check"></span>Autorización </li>
+                            <li style="font-size:14px;"><span class="fa fa-check"></span>Aprovisionamiento </li>
+                            <li style="font-size:14px;"><span class="fa fa-check"></span>Reparación </li>
+                            <li style="font-size:14px;"><span class="fa fa-check"></span>Control de calidad </li>
+                            <li style="font-size:14px;"><span class="fa fa-check"></span>Agendamiento de entrega </li>
+                            <li style="font-size:14px;"><span class="fa fa-check"></span>Entrega y explicación de las trabajos y cargos generados </li>
+                            <li style="font-size:14px;"><span class="fa fa-check"></span>Encuesta de satisfacción </li>
+                        </ul>
+                        <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                            Motovalle y/o Ford Colombia una vez concluido el servicio solicitado, le harán una encuesta de satisfacción vía telefónica y/o e-mail la cual agradecemos responder por ser vital para continuar mejorando.
+                        </p>
+                    </div>
+                    <div class="col-md-12 col-xs-12">
+                        <header class="b-contacts__form-header s-lineDownLeft wow zoomInUp" data-wow-delay="0.5s">
+                            <h2 class="s-titleDet text-center">
+                                Video
+                            </h2>
+                        </header>
+                        <br />
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe src="https://www.youtube-nocookie.com/embed/xOSQ36wvg2M" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-xs-12">
+                @await Html.PartialAsync("_NavCategoryFord", 1)
+            </div>
+        </div>
+    </div>
+</section><!--b-article-->

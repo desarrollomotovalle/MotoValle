@@ -1,0 +1,229 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<section class="b-pageHeader contact">
+    <div class="container">
+        <h1 class="wow zoomInLeft" data-wow-delay="0.7s">Acerca de nosotros</h1>
+        <div class="b-pageHeader__search wow zoomInRight" data-wow-delay="0.7s">
+            <h3>El mejor concesionario de vehículos en Colombia</h3>
+        </div>
+    </div>
+</section><!--b-pageHeader-->
+
+<div class="b-breadCumbs s-shadow">
+    <div class="container">
+        <a asp-action="Index" asp-controller="Home" class="b-breadCumbs__page">Home</a><span class="fa fa-angle-right"></span><a asp-action="Index" asp-controller="Info" class="b-breadCumbs__page m-active">Acerca de nosotros</a>
+    </div>
+</div><!--b-breadCumbs-->
+
+<section class="b-best">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-xs-12">
+                <div class="b-best__info">
+                    <header class="s-lineDownLeft b-best__info-head wow zoomInUp" data-wow-delay="0.5s">
+                        <h2><span>Motovalle S.A.S.</span></h2>
+                    </header>
+                    <h6 class="wow zoomInUp" data-wow-delay="0.5s">Es una de las Mayores empresas del Sector Automotor en Colombia</h6>
+                    <p class="wow zoomInUp text-justify" data-wow-delay="0.5s">
+                        Somos sinónimo de buen servicio, agilidad y competitividad generando satisfacción, buenos negocios y rentabilidad a nuestros clientes.
+                        <br />
+                        <br />
+                        <strong>Somos el primer concesionario del suroccidente colombiano, empresa 100% vallecaucana</strong>, con más de 65 años de tradición que hoy cuenta con 10 instalaciones en Cali, Bogotá, Villavicencio, Bucaramanga, Itagui; Mas de 400 empleados, 25.000 m2 de construcción y 11.000 m2 de taller.
+                        <br />
+                        <br />
+                        <strong>Hemos sido galardonados con el premio a la excelencia en servicio y repuestos Q101 por FORD MOTOR COMPANY</strong>, así también estamos certificados con “SERVICIO TOTAL” convirtiéndonos en el primer concesionario en Colombia con las certificaciones antes mencionadas.
+                        <br />
+                        <br />
+                        En nuestras sedes en Cali y Bogotá estamos certificados en la norma ISO 9001:2008 por Bureau Veritas en todos nuestros procesos de venta de vehículos, repuestos, maquinaria agrícola y servicio postventa.
+                    </p>
+                    <a href="https://www.elpais.com.co/marcas-de-corazon/motovalle-un-orgullo-regional.html" target="_blank" class="btn m-btn m-readMore wow zoomInUp" data-wow-delay="0.5s">Ver reseña<span class="fa fa-angle-right"></span></a>
+                </div>
+            </div>
+            <div class="col-sm-6 col-xs-12">
+                <img class="img-responsive center-block wow zoomInUp" data-wow-delay="0.5s" alt="best" src="~/media/about/570x345slider1.jpg" />
+                <br />
+                <img class="img-responsive center-block wow zoomInUp" data-wow-delay="0.5s" alt="best" src="~/media/about/570x345slider2.jpg" />
+            </div>
+        </div>
+    </div>
+</section><!--b-best-->
+
+
+
+<section class="b-personal">
+    <div class="container">
+        <h3 class="s-titleBg wow zoomInUp" data-wow-delay="0.5s">Vive la experiencia Motovalle</h3><br />
+        <h2 class="s-title wow zoomInUp" data-wow-delay="0.5s">VISITA NUESTRAS SALAS VIP</h2><br />
+        <h5 class="wow zoomInUp" data-wow-delay="0.5s" style="margin-top:-2em;">
+            En nuestras salas VIP vivirás grandes experiencias que convertirán de tu estadía en Motovalle en tiempo que no pasará desapercibido.
+        </h5>
+        <div id="carousel-small" class="owl-carousel enable-owl-carousel" data-items="3" data-navigation="true" data-auto-play="true" data-stop-on-hover="true" data-items-desktop="3" data-items-desktop-small="2" data-items-tablet="2" data-items-tablet-small="2">
+            <div>
+                <div class="b-personal__worker wow zoomInUp" data-wow-delay="0.5s">
+                    <div class="b-personal__worker-img">
+                        <img src="~/images/vip-zone/vip-zone-common.jpeg" class="img-responsive center-block" alt="vip_zone_common" style="border-radius: 20px;" />
+                        <div class="b-personal__worker-img-social">
+                            <div class="b-personal__worker-img-social-main">
+                                <a href="https://www.facebook.com/motovalle/photos/a.169680926444463/2020177394728131" target="_blank"><span class="fa fa-facebook-square"></span></a>
+                            </div>
+                        </div>
+                    </div>
+                    <h6>Sala VIP</h6>
+                    <div class="b-personal__worker-name">
+                        <h4 class="s-titleDet">Zona de espera</h4>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="b-personal__worker wow zoomInUp" data-wow-delay="0.5s">
+                    <div class="b-personal__worker-img">
+                        <img src="~/images/vip-zone/vip-zone-pet.jpeg" class="img-responsive center-block" alt="vip_zone_pet" style="border-radius: 20px; width:100%;" />
+                        <div class="b-personal__worker-img-social">
+                            <div class="b-personal__worker-img-social-main">
+                                <a href="https://www.facebook.com/motovalle/photos/a.169680926444463/2020177394728131" target="_blank"><span class="fa fa-facebook-square"></span></a>
+                            </div>
+                        </div>
+                    </div>
+                    <h6>Sala VIP</h6>
+                    <div class="b-personal__worker-name">
+                        <h4 class="s-titleDet">Zona para mascotas</h4>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="b-personal__worker wow zoomInUp" data-wow-delay="0.5s">
+                    <div class="b-personal__worker-img">
+                        <img src="~/images/vip-zone/vip-zone-play.jpeg" class="img-responsive center-block" alt="vip_zone_play" style="border-radius: 20px;" />
+                        <div class="b-personal__worker-img-social">
+                            <div class="b-personal__worker-img-social-main">
+                                <a href="https://www.facebook.com/motovalle/photos/a.169680926444463/2063660967046440" target="_blank"><span class="fa fa-facebook-square"></span></a>
+                            </div>
+                        </div>
+                    </div>
+                    <h6>Sala VIP</h6>
+                    <div class="b-personal__worker-name">
+                        <h4 class="s-titleDet">Zona de entretenimiento</h4>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="b-personal__worker wow zoomInUp" data-wow-delay="0.5s">
+                    <div class="b-personal__worker-img">
+                        <img src="~/images/vip-zone/vip-zone-kids.jpg" class="img-responsive center-block" alt="vip_zone_kids" style="border-radius: 20px;" />
+                        <div class="b-personal__worker-img-social">
+                            <div class="b-personal__worker-img-social-main">
+                                <a href="https://www.facebook.com/motovalle/photos/a.169680926444463/2063660967046440" target="_blank"><span class="fa fa-facebook-square"></span></a>
+                            </div>
+                        </div>
+                    </div>
+                    <h6>Sala VIP</h6>
+                    <div class="b-personal__worker-name">
+                        <h4 class="s-titleDet">Zona para niños</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!--b-personal-->
+
+
+
+
+
+<section class="b-what s-shadow m-home">
+    <div class="container">
+        <h3 class="s-titleBg wow zoomInUp" data-wow-delay="0.5s">NUESTROS CLIENTES, LO MÁS IMPORTANTE</h3><br />
+        <h2 class="s-title wow zoomInUp" data-wow-delay="0.5s">¿QUÉ OFRECEMOS?</h2>
+        <div class="row">
+            <div class="col-sm-4 col-xs-12">
+                <div class="b-world__item wow zoomInLeft" data-wow-delay="0.5s">
+                    <img class="img-responsive center-block" src="~/media/about/370x200Low.jpg" alt="wolks" />
+                    <div class="b-world__item-val">
+                        <span class="b-world__item-val-title">OFRECEMOS</span>
+                    </div>
+                    <h2>Precios bajos<br /><br /></h2>
+                    <p>
+                        En Motovalle encuentras los mejores precios del mercado ya que no manejamos terceros en el proceso de adquisición del auto de tus sueños.
+                    </p>
+                </div>
+            </div>
+            <div class="col-sm-4 col-xs-12">
+                <div class="b-world__item wow zoomInUp" data-wow-delay="0.5s">
+                    <img class="img-responsive center-block" src="~/media/about/370x200Dealer.jpg" alt="mazda" />
+                    <div class="b-world__item-val">
+                        <span class="b-world__item-val-title">SOMOS</span>
+                    </div>
+                    <h2>El mejor concesionario de autos online de Colombia </h2>
+                    <p>
+                        Motovalle convierte el adquirir el auto de tus sueños en toda una experiencia con gran recordación.
+                    </p>
+                </div>
+            </div>
+            <div class="col-sm-4 col-xs-12">
+                <div class="b-world__item wow zoomInRight" data-wow-delay="0.5s">
+                    <img class="img-responsive center-block" src="~/media/about/370x200Agility.jpg" alt="chevrolet" />
+                    <div class="b-world__item-val">
+                        <span class="b-world__item-val-title">NUESTROS CLIENTES OBTIENEN</span>
+                    </div>
+                    <h2>Agilidad y la mejor calidad<br /><br /></h2>
+                    <p>
+                        Contamos con la mejor infraestructura en Colombia garantizando agilidad, calidad y buen servicio en la adquisión del auto de tus sueños.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!--b-what-->
+
+<section class="b-more">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-xs-12">
+                <div class="b-more__why wow zoomInLeft" data-wow-delay="0.5s">
+                    <h2 class="s-title">¿PORQUÉ ESCOGERNOS?</h2>
+                    <p>Motovalle - Ecommerce, cuenta con gran experiencia en el sector automoriz, por lo cual adquirir el vehículo de tus sueños con nosotros será toda una experiencia innolvidable.</p>
+                    <ul class="s-list">
+                        <li><span class="fa fa-check"></span>65 años de experiencia.</li>
+                        <li><span class="fa fa-check"></span>Excelencia en cada uno de nuestros procesos.</li>
+                        <li><span class="fa fa-check"></span>Última tecnología y constante actualización.</li>
+                        <li><span class="fa fa-check"></span>Atención al detalle.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-6 col-xs-12">
+                <div class="b-more__info wow zoomInRight" data-wow-delay="0.5s">
+                    <h2 class="s-title">MÁS INFORMACIÓN</h2>
+                    <div class="b-more__info-block">
+                        <div class="b-more__info-block-title">Precios justos<a class="j-more" href="#"><span class="fa fa-angle-left"></span></a></div>
+                        <div class="b-more__info-block-inside j-inside">
+                            <p>
+                                Gracias a que no tenemos intermediarios en la venta, nuestros precios se encuentran entre los más competitivos del sector.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="b-more__info-block">
+                        <div class="b-more__info-block-title">Gran inventario de vehículos<a href="#" class="j-more"><span class="fa fa-angle-left"></span></a></div>
+                        <div class="b-more__info-block-inside j-inside">
+                            <p>
+                                Contamos con los mejores convenios con los distribuidores a nivel nacional, lo que nos permite tener alta disponibilidad de inventario.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="b-more__info-block">
+                        <div class="b-more__info-block-title">Entrega rápida<a href="#" class="j-more"><span class="fa fa-angle-left"></span></a></div>
+                        <div class="b-more__info-block-inside j-inside">
+                            <p>
+                                Gracias a las alianzas con las transportadoras más importantes del país, nuestras promesas de entregan se cumplen a cabalidad.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!--b-more-->

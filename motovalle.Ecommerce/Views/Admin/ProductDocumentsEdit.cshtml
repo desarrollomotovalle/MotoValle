@@ -1,0 +1,87 @@
+﻿@model motovalle.Ecommerce.Models.ViewModels.Admin.ProductDocumentsViewModel
+
+@{
+    ViewData["Title"] = "ProductDocumentsEdit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="content">
+    <div class="container">
+        <div>
+            <div class="col-12 text-center">
+                <h1 class="m-0 text-dark">Editar</h1>
+            </div>
+            <div class="text-left">
+                <p>
+                    <a class="btn btn-md btn-dark" asp-action="ProductDocuments" asp-controller="Admin" asp-route-productsId="@Model.FkProductsId"><span class="fa fa-arrow-circle-left"></span> Volver</a>
+                </p>
+            </div>
+
+            @if (ViewBag.Message != null)
+            {
+                <div class="alert alert-danger text-center wow zoomInUp" role="alert" data-wow-delay="0.5s">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <strong>¡Ups!..</strong> @ViewBag.Message &#128577;
+                </div>
+            }
+        </div>
+
+
+        <form method="post" asp-action="ProductDocumentsEdit" asp-controller="Admin" enctype="multipart/form-data">
+            @Html.AntiForgeryToken()
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ProductDocumentsId" />
+            <input type="hidden" asp-for="FkProductsId" />
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label class="control-label">File Name (Include extension)</label>
+                        <input asp-for="FileName" class="form-control" />
+                        <span asp-validation-for="FileName" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label asp-for="FkProductDocumentsCategoriesId" class="control-label"></label>
+                        <select asp-for="FkProductDocumentsCategoriesId" asp-items="ViewBag.FkProductDocumentsCategories" class="form-control"></select>
+                        <span asp-validation-for="FkProductDocumentsCategoriesId" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="form-group">
+                        <label asp-for="FilePath" class="control-label"></label>
+                        <input asp-for="FilePath" class="form-control" onkeyup="disableUploadPictures('ProductDocument', 'FilePath', this.value)" />
+                        @Html.EditorFor(x => x.File, new { type = "file", accept = ".pdf", @class = "form-control" })
+                        <span asp-validation-for="FilePath" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Guardar cambios" class="btn btn-primary" />
+            </div>
+        </form>
+
+    </div>
+</section>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+    <script type="text/javascript">
+        window.onload = () => {
+            if (document.getElementById("FilePath").value != null && document.getElementById("FilePath").value != "") {
+                document.getElementById("File").disabled = true;
+            }
+        }
+
+
+        $('#File').on('change', () => {
+            validateSize('Document');
+        });
+
+    </script>
+}
+

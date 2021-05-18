@@ -1,0 +1,70 @@
+﻿@model Ecommerce.Models.Entities.Warranties
+@{
+    ViewData["Title"] = "WarrantiesMore";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<section class="content">
+    <div class="container">
+        <div>
+            <div class="col-12 text-center">
+                <h1 class="m-0 text-dark">Warranty Preview</h1>
+            </div>
+            <div class="text-left">
+                <p>
+                    <a asp-action="Warranties" asp-controller="Admin" class="btn btn-md btn-dark"><span class="fa fa-arrow-circle-left"></span> Volver</a>
+                </p>
+            </div>
+
+            @if (ViewBag.Message != null)
+            {
+                <div class="alert alert-danger text-center wow zoomInUp" role="alert" data-wow-delay="0.5s">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <strong>¡Ups!..</strong> @ViewBag.Message &#128577;
+                </div>
+            }
+        </div>
+        <hr />
+        <div class="col-lg-offset-3">
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.WarrantiesId)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.WarrantiesId)
+                </dd>
+            </dl>
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.WarrantyName)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.WarrantyName)
+                </dd>
+            </dl>
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Description)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.Raw(Model.Description)
+                </dd>
+            </dl>
+            <hr />
+            <div class="text-left">
+                <p>
+                    <a asp-action="WarrantiesEdit" asp-controller="Admin" asp-route-id="@Model.WarrantiesId" class="btn btn-md btn-outline-dark"><span class="fa fa-pencil-alt"></span> Editar</a>
+                </p>
+            </div>
+            <div class="text-left">
+                <p>
+                    <a asp-action="Warranties" asp-controller="Admin" class="btn btn-md btn-dark"><span class="fa fa-arrow-circle-left"></span> Volver</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+

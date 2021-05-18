@@ -1,0 +1,363 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head prefix="og: http://ogp.me/ns">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Motovalle S.A.S - Blog</title>
+    <meta name="description" content="Motovalle S.A.S, es una de las mayores empresas del sector Automotor en Colombia sinónimo de buen servicio, agilidad y competitividad." />
+    <meta name="author" content="Innova Marketing Systems S.A.S" />
+
+    <meta property="og:title" content="MotoValle">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://www.motovalle.com/">
+    <meta property="og:image" content="@Url.Content("~/media/brands/motovalle-logo.png")">
+
+    <link rel="shortcut icon" type="image/x-icon" href="~/favicon.ico" />
+
+    <!-- START: StyleSheets declarations -->
+    <link href="~/css/master.css" rel="stylesheet">
+
+    <!-- SWITCHER -->
+    <link rel="stylesheet" id="switcher-css" type="text/css" href="~/assets/switcher/css/switcher.css" media="all" />
+    <link rel="alternate stylesheet" type="text/css" href="~/assets/switcher/css/color3.css" title="color3" media="all" data-default-color="true" />
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
+
+    <!--Syncfusion Stuff-->
+    <!-- Syncfusion Essential JS 2 Styles -->
+    <link rel="stylesheet" href="https://cdn.syncfusion.com/ej2/material.css" />
+
+    <!-- Syncfusion Essential JS 2 Scripts -->
+    <script src="https://cdn.syncfusion.com/ej2/dist/ej2.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <script src="/lib/jquery/dist/jquery.min.js"></script>
+    <script src="/lib/bootstrap/dist/js/bootstrap.js"></script>
+
+    <!-- Sweet Alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+</head>
+<body class="m-index" data-scrolling-animations="true" data-equal-height=".b-auto__main-item">
+
+    <!-- Loader -->
+    <div id="page-preloader"><span class="spinner"></span></div>
+
+
+
+    <!-- Start main Header -->
+    <header class="b-topBar wow slideInDown" data-wow-delay="0.7s">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-xs-3 text-center">
+                    <div class="b-topBar__tel">
+                        <div class="dropdown lang">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" style="text-decoration: none;"><span class="fa fa-phone"></span>Líneas de atención</a>
+                            <ul class="dropdown-menu h-lang" style="padding-left:1em; padding-right:1em;">
+                                <li>
+                                    <dl>
+                                        <dt class="text-center">
+                                            <img src="/images/maps/pointers/ford1.png" class="b-topBar__lang" alt="ford-logo">
+                                        </dt>
+                                        <dd class="text-center">
+                                            <b>Bogotá:</b> (1) 746 1234 <br>
+                                            <b>Cali:</b> (2) 488 3000
+                                        </dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <hr />
+                                    <dl style="margin-top:-1.8em;">
+                                        <dt class="text-center">
+                                            <img src="~/images/maps/pointers/mazda1.png" class="b-topBar__lang" alt="mazda-logo" />
+                                        </dt>
+                                        <dd class="text-center">
+                                            <b>Bogotá:</b> (1) 743 1046
+                                        </dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <hr />
+                                    <dl style="margin-top:-1.8em;">
+                                        <dt class="text-center">
+                                            <img src="~/images/maps/pointers/massey1.png" class="b-topBar__lang" alt="massey-logo" />
+                                        </dt>
+                                        <dd class="text-center">
+                                            <b>Bogotá:</b> (1) 746 1235 <br />
+                                            <b>Cali:</b> (2) 488 3000 - (2) 489 9934 <br />
+                                            <b>Villavicencio:</b> 684 8547 <br />
+                                            <b>Antioquia:</b> (4) 604 1234<br />
+                                            <b>Bucaramanga:</b> (7) 697 0360
+                                        </dd>
+                                    </dl>
+                                </li>
+                                <li style="margin-top:-1em;">
+                                    <hr />
+                                    <a class="m-langLink" asp-action="Headquarters" asp-controller="Info"><span class="fa fa-plus"></span> Más información</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5 col-xs-6">
+                    <nav class="b-topBar__nav">
+                        <ul>
+                            <li><a href="#">Carrito</a></li>
+                            <li><a href="#">Registrarse</a></li>
+                            <li><a href="#">Iniciar sesión</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header><!--b-topBar-->
+    <!-- End main Header -->
+    <!-- Start navigation pages -->
+    <nav class="b-nav">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4 col-xs-4">
+
+                    <a class="navbar-brand" asp-action="Index" asp-controller="Home"><img src="~/media/brands/motovalle-logo.png" alt="Motovalle"></a>
+                </div>
+                <div class="col-sm-8 col-xs-8">
+                    <div class="b-nav__list wow slideInRight" data-wow-delay="0.3s">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                        </div>
+                        <div class="collapse navbar-collapse navbar-main-slide" id="nav">
+                            <ul class="navbar-nav-menu">
+                                <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                                <li class="dropdown">
+                                    <a class="dropdown-toggle" data-toggle='dropdown' href="#">Tiendas <span class="fa fa-caret-down"></span></a>
+                                    <ul class="dropdown-menu h-nav">
+                                        <li>@Html.ActionLink("Ford", "Index", "Ford")</li>
+                                        <li>@Html.ActionLink("Mazda", "Index", "Mazda")</li>
+                                        <li>@Html.ActionLink("Massey Fergusson", "Index", "MasseyFergusson")</li>
+                                        <li>@Html.ActionLink("Carshow", "Index", "Carshow")</li>
+                                        <li>@Html.ActionLink("Repuestos", "Index", "Repuestos")</li>
+                                    </ul>
+                                </li>
+                                <li>@Html.ActionLink("Blog", "Index", "Blog")</li>
+                                <li>@Html.ActionLink("Acerca de nosotros", "Index", "Info")</li>
+                                <li>@Html.ActionLink("Contáctenos", "ContactUs", "Info")</li>
+                                <li><a asp-controller="Blog" asp-action="BlogAdmin" />Administración</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav><!--b-nav-->
+
+    @RenderBody()
+
+    <div class="b-features">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9 col-md-offset-3 col-xs-4 col-xs-offset-7">
+                    <ul class="b-features__items">
+                        <li class="wow zoomInUp" data-wow-delay="0.3s" data-wow-offset="100">Precios competitivos</li>
+                        <li class="wow zoomInUp" data-wow-delay="0.3s" data-wow-offset="100">El mayor concesionario de autos online</li>
+                        <li class="wow zoomInUp" data-wow-delay="0.3s" data-wow-offset="100">Agilidad</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div><!--b-features-->
+    <!-- End pre-footer content -->
+    <!-- Start pre-footer info -->
+    <div class="b-info">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-xs-6">
+                    <aside class="b-info__aside wow zoomInLeft" data-wow-delay="0.3s">
+                        <article class="b-info__aside-article">
+                            <h3>Nuestras sedes</h3>
+                            <div class="b-info__aside-article-item">
+                                <h6>MAZDA - BOGOTÁ</h6>
+                                <p>
+                                    Avenida 19 #127 – 05 La Calleja<br />
+                                    Lun-Vie : 8:00am - 7:00pm<br />
+                                    Sáb: 9:00am - 6:00pm<br />
+                                    Dom: 10:00am - 5:00pm
+                                </p>
+                            </div>
+                            <div class="b-info__aside-article-item">
+                                <h6>FORD - BOGOTÁ</h6>
+                                <p>
+                                    Calle 13 # 49 - 91 Puente Aranda<br />
+                                    Lun-Vie : 8:00am - 5:30pm<br />
+                                    Sáb: 8:00am - 4:00pm<br />
+                                    Dom: 11:00am - 3:00pm
+                                </p>
+                            </div>
+                            <a href="http://www.motovalle.com/sobre-motovalle/sedes/" target="_blank" class="btn m-btn">Más información<span class="fa fa-angle-right"></span></a>
+                        </article>
+
+                        <article class="b-info__aside-article">
+                            <h3>Acerca de nosotros</h3>
+                            <p class="text-justify">
+                                Motovalle S.A.S, es una de las mayores empresas del sector Automotor en Colombia,
+                                somos sinónimo de buen servicio, agilidad y competitividad.
+                            </p>
+                            <br />
+                            <a asp-action="Index" asp-controller="Info" class="btn m-btn">Más información<span class="fa fa-angle-right"></span></a>
+                        </article>
+                    </aside>
+                </div>
+                <div class="col-md-5 col-xs-6">
+                    <div class="b-info__latest">
+                        <h3>Últimas noticias</h3>
+                        <div class="b-info__latest-article wow zoomInUp" data-wow-delay="0.3s">
+                            <div class="b-info__latest-article-photo m-audi">
+                                <img class="img-responsive" src="~/media/370x200/Mazda_CX5.jpg" alt="CX5" />
+                            </div>
+                            <div class="b-info__latest-article-info">
+                                <h6><a href="#">Mazda CX-5 2020</a></h6>
+                                <p>Review</p>
+                            </div>
+                        </div>
+                        <div class="b-info__latest-article wow zoomInUp" data-wow-delay="0.3s">
+                            <div class="b-info__latest-article-photo m-audiSpyder">
+                                <img class="img-responsive" src="~/media/370x200/FordRaptor.jpg" alt="Raptor" />
+                            </div>
+                            <div class="b-info__latest-article-info">
+                                <h6><a href="#">Ford Raptor 2020</a></h6>
+                                <p>Review</p>
+                            </div>
+                        </div>
+                        <div class="b-info__latest-article wow zoomInUp" data-wow-delay="0.3s">
+                            <div class="b-info__latest-article-photo m-aston">
+                                <img class="img-responsive" src="~/media/370x200/Ventajas.jpg" alt="Ventajas" />
+                            </div>
+                            <div class="b-info__latest-article-info">
+                                <h6><a href="#">Ventajas de comprar un vehículo nuevo</a></h6>
+                                <p>Tips</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-xs-6">
+                    <address class="b-info__contacts wow zoomInUp" data-wow-delay="0.3s">
+                        <p>Contáctenos</p>
+                        <div class="b-info__contacts-item">
+                            <span class="fa fa-map-marker"></span>
+                            <em>
+                                CL 26 1-71, Cali,
+                                Valle del cauca, Colombia
+                            </em>
+                        </div>
+                        @*<div class="b-info__contacts-item">
+                            <span class="fa fa-phone"></span>
+                            <em>Teléfono:  (+57) 2 4899907</em>
+                        </div>*@
+                        <div class="b-info__contacts-item">
+                            <span class="fa fa-fax"></span>
+                            <em>FAX:  (+57) 2 4883000</em>
+                        </div>
+                        <div class="b-info__contacts-item">
+                            <span class="fa fa-envelope"></span>
+                            <em>Email:  info@tiendamotovalle.com</em>
+                        </div>
+                    </address>
+                </div>
+            </div>
+        </div>
+    </div><!--b-info-->
+    <!-- End pre-footer info -->
+    <!-- Strart Footer -->
+    <footer class="b-footer">
+        <a id="to-top" href="#this-is-top"><i class="fa fa-chevron-up"></i></a>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-3">
+                    <div class="b-footer__company wow fadeInLeft" data-wow-delay="0.3s">
+                        <a class="navbar-brand" asp-action="Index" asp-controller="Home"><img src="~/media/brands/motovalle-logo.png" alt="Motovalle"></a>
+                    </div>
+                </div>
+                <div class="col-xs-4">
+                    <p class="text-justify" style="color:#555; margin-top:1.2em;">&copy; Todos los derechos reservados - Motovalle @DateTime.Now.Year.ToString() Powered by: <a href="http://innovamarketingsystems.com/" target="_blank">Innova Marketing Systems</a>.</p>
+                </div>
+                <div class="col-xs-5">
+                    <div class="b-footer__content wow fadeInRight" data-wow-delay="0.3s">
+                        <div class="b-footer__content-social">
+                            <a href="https://web.facebook.com/motovalle/" target="_blank"><span class="fa fa-facebook-square"></span></a>
+                            <a href="https://twitter.com/motovalle_col" target="_blank"><span class="fa fa-twitter-square"></span></a>
+                            <a href="https://www.instagram.com/motovalle_oficial/" target="_blank"><span class="fa fa-instagram"></span></a>
+                            <a href="https://www.youtube.com/channel/UC_0MawhV4cWPrz1pIPdrSVA" target="_blank"><span class="fa fa-youtube-square"></span></a>
+                        </div>
+                        <nav class="b-footer__content-nav">
+                            <ul>
+                                <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                                <li>@Html.ActionLink("Acerca de nosotros", "Index", "Info")</li>
+                                <li>@Html.ActionLink("Blog", "Index", "Blog")</li>
+                                <li>@Html.ActionLink("Privacidad", "Privacy", "Home")</li>
+                                <li>@Html.ActionLink("Contáctenos", "ContactUs", "Info")</li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer><!--b-footer-->
+    <!-- End Footer -->
+    <!-- Partial View -->
+    @{ await Html.RenderPartialAsync("_ProductVideo"); }
+    <!-- Partial View -->
+    <!-- Start Scripts section -->
+    <!--Main-->
+    <script src="~/js/jquery-1.11.3.min.js"></script>
+    <script src="~/js/jquery-ui.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/modernizr.custom.js"></script>
+
+    <script src="~/assets/rendro-easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
+    <script src="~/js/waypoints.min.js"></script>
+    <script src="~/js/jquery.easypiechart.min.js"></script>
+    <script src="~/js/classie.js"></script>
+
+    <!--Switcher-->
+    <script src="~/assets/switcher/js/switcher.js"></script>
+
+    <!--Owl Carousel-->
+    <script src="~/assets/owl-carousel/owl.carousel.min.js"></script>
+
+    <!--bxSlider-->
+    <script src="~/assets/bxslider/jquery.bxslider.js"></script>
+
+    <!-- jQuery UI Slider -->
+    <script src="~/assets/slider/jquery.ui-slider.js"></script>
+
+    <!--Theme-->
+    <script src="~/js/jquery.smooth-scroll.js"></script>
+    <script src="~/js/wow.min.js"></script>
+    <script src="~/js/jquery.placeholder.min.js"></script>
+    <script src="~/js/theme.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <!--360 -->
+    <script src="https://cdn.scaleflex.it/plugins/js-cloudimage-360-view/2/js-cloudimage-360-view.min.js"></script>
+    <!--360 -->
+    <!--JivoChat -->
+    <script src="//code.jivosite.com/widget/DWToTHwSVT" async></script>
+    <!--JivoChat -->
+
+    @RenderSection("Scripts", required: false)
+    <!-- End Scripts section -->
+    <!-- Syncfusion Essential JS 2 ScriptManager -->
+    <ejs-scripts></ejs-scripts>
+</body>
+</html>

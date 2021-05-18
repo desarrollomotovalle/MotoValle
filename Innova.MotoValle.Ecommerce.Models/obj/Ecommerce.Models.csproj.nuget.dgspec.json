@@ -1,0 +1,84 @@
+{
+  "format": 1,
+  "restore": {
+    "E:\\Desarrollos\\Desarrollos de pruebas\\MotoValle\\Inicial (2)\\Inicial\\Innova.MotoValle.Ecommerce.Models\\Ecommerce.Models.csproj": {}
+  },
+  "projects": {
+    "E:\\Desarrollos\\Desarrollos de pruebas\\MotoValle\\Inicial (2)\\Inicial\\Innova.MotoValle.Ecommerce.Models\\Ecommerce.Models.csproj": {
+      "version": "1.0.2.42",
+      "restore": {
+        "projectUniqueName": "E:\\Desarrollos\\Desarrollos de pruebas\\MotoValle\\Inicial (2)\\Inicial\\Innova.MotoValle.Ecommerce.Models\\Ecommerce.Models.csproj",
+        "projectName": "Ecommerce.Models",
+        "projectPath": "E:\\Desarrollos\\Desarrollos de pruebas\\MotoValle\\Inicial (2)\\Inicial\\Innova.MotoValle.Ecommerce.Models\\Ecommerce.Models.csproj",
+        "packagesPath": "C:\\Users\\cariza\\.nuget\\packages\\",
+        "outputPath": "E:\\Desarrollos\\Desarrollos de pruebas\\MotoValle\\Inicial (2)\\Inicial\\Innova.MotoValle.Ecommerce.Models\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\cariza\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[2.2.6, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "target": "Package",
+              "version": "[2.2.6, )"
+            },
+            "MySql.Data": {
+              "target": "Package",
+              "version": "[8.0.17, )"
+            },
+            "MySql.Data.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.17, )"
+            },
+            "System.ComponentModel.Annotations": {
+              "target": "Package",
+              "version": "[4.7.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,73 @@
+﻿@model motovalle.Ecommerce.Models.ViewModels.Landing.ContactViewModel
+
+@{
+    ViewData["Title"] = "Edge";
+    Layout = "~/Views/Shared/Landing/_LayoutLanding.cshtml";
+}
+
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
+    <div class="container">
+        <!-- Navbar center -->
+        <ul class="navbar-nav nav-flex-icons" style="float:none; margin:0 auto; display: block; text-align: center;">
+            <li class="nav-item" style="display: inline-block; float:none;">
+                <a href="https://wa.me/@TempData["Phone"]" class="nav-link waves-effect waves-light" target="_blank">
+                    <img src="/landingAssets/img/svg/whatsapp-lollipop.png" width="7%" class="img-responsive center-block" alt="wpp-logo">  Contáctanos
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<!-- Navbar -->
+
+<!-- Full Page Intro -->
+<div class="view full-page-intro-edge">
+
+    <!-- Mask & flexbox options-->
+    <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
+
+        <!-- Content -->
+        <div class="container-fluid">
+
+            <!--Grid row-->
+            <div class="row wow fadeIn">
+                <div class="">
+                    <!--Card-->
+                    <div class="card">
+                        @{ await Html.RenderPartialAsync("/Views/Shared/Landing/_ContactForm.cshtml"); }
+                    </div>
+                    <!--/.Card-->
+
+                </div>
+                <!--Grid column-->
+
+            </div>
+            <!--Grid row-->
+
+        </div>
+        <!-- Content -->
+
+    </div>
+    <!-- Mask & flexbox options-->
+
+</div>
+<!-- Full Page Intro -->
+<!--Card-->
+<div class="card out">
+    @{ await Html.RenderPartialAsync("/Views/Shared/Landing/_ContactForm.cshtml"); }
+</div>
+<!--/.Card-->
+
+
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+    <script type="text/javascript">
+        window.onload = () => {
+            document.querySelector("#FullName").value = "";
+            document.querySelector("#Email").value = "";
+            document.querySelector("#PhoneNumber").value = "";
+            document.querySelector("#Message").value = "";
+            document.querySelector("#City").value = "";
+        }
+    </script>
+}

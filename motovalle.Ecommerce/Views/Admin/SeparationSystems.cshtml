@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Ecommerce.Models.Entities.SeparationSystems>
+
+@{
+    ViewData["Title"] = "SeparationSystems";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="content">
+    <div class="container">
+        <div>
+            <div class="col-12 text-center">
+                <h1 class="m-0 text-dark">Sistemas de Separación</h1>
+            </div>
+            <div class="text-left">
+                <p>
+                    <a asp-action="SeparationSystemsCreate" asp-controller="Admin" class="btn btn-md btn-dark">Crear nuevo registro <span class="fa fa-plus-square"></span></a>
+                </p>
+            </div>
+
+            @{ await Html.RenderPartialAsync("_MessageStatus"); }
+        </div>
+
+        <div class="table">
+            <table id="dtTableDefault" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(x => x.SeparationSystemsId)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(x => x.SeparationSystemName)
+                        </th>
+                        <th class="th-sm">
+                            Editar
+                        </th>
+                        <th class="th-sm">
+                            Eliminar
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.SeparationSystemsId)</td>
+                            <td>@Html.DisplayFor(modelItem => item.SeparationSystemName)</td>
+                            <td><a class="btn btn-info btn-block" style="width:33%" asp-action="SeparationSystemsEdit" asp-controller="Admin" asp-route-id="@item.SeparationSystemsId"><span class="fa fa-pencil-alt"></span></a></td>
+                            <td><a class="btn btn-danger btn-block" style="width:33%" asp-action="SeparationSystemsDelete" asp-controller="Admin" asp-route-id="@item.SeparationSystemsId"><span class="fa fa-times"></span></a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+
+@section Scripts{
+    <script type="text/javascript" src="~/admin/dist/js/admin-ecommerce-tables-settings-default.js"></script>
+}

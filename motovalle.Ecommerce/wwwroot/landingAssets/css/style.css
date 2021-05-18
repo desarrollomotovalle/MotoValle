@@ -1,0 +1,524 @@
+/* Required height of parents of the Half Page Carousel for proper displaying carousel itself */
+html,
+body,
+.view {
+    height: 100%;
+}
+
+
+/*-------------- set css for different resolutions --------------*/ 
+.card.out {
+    display: none
+}
+
+
+/*-------------- set css for FORD ECOSPORT --------------*/ 
+.full-page-intro {
+    background: url('../../landingAssets/img/main/ecosport-landingADJ.jpg') no-repeat center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+}
+
+.full-page-intro-ecosport2 {
+    background: url('../../landingAssets/img/main/ecosport/ecosport-campaing2.jpg') no-repeat center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+}
+
+/*-------------- set css for FORD ESCAPE --------------*/
+.full-page-intro-escape {
+    background: url('../../landingAssets/img/main/escape/escape.jpg') no-repeat center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+}
+
+.full-page-intro-escape2 {
+    background: url('../../landingAssets/img/main/escape/escape_2.jpg') no-repeat center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+}
+
+.full-page-intro-escape3 {
+    background: url('../../landingAssets/img/main/escape/hybrid/escape_hybrid.jpg') no-repeat center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+}
+
+/*-------------- set css for FORD FUSION --------------*/
+.full-page-intro-fusion {
+    background: url('../../landingAssets/img/main/fusion/fusion.jpg') no-repeat center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+}
+
+/*-------------- set css for FORD RANGER --------------*/
+.full-page-intro-ranger {
+    background: url('../../landingAssets/img/main/ranger/ranger.jpg') no-repeat center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+}
+
+/*-------------- set css for FORD EDGE --------------*/
+.full-page-intro-edge {
+    background: url('../../landingAssets/img/main/edge/edge.jpg') no-repeat center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+}
+
+/*-------------- set css for FORD EXPLORER --------------*/
+.full-page-intro-explorer {
+    background: url('../../landingAssets/img/main/explorer/explorer.jpg') no-repeat center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+}
+
+/*-------------- set css for Carshow --------------*/
+.full-page-intro-carshow {
+    background: url('../../landingAssets/img/main/carshow/carshow-web-tienda-julio.jpg') no-repeat center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+}
+
+/*-------------- set css for Ford Campaings --------------*/
+.full-page-intro-ford-camaping {
+    background: url('../../landingAssets/img/main/ford/Bnnr-wblanding-100-agosto.jpg') no-repeat center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+}
+
+/*-------------- set css for Ford Campaings --------------*/
+.full-page-intro-ford-camaping-hybrids {
+    background: url('../../landingAssets/img/main/ford/hybrids/LandingHibridos.png') no-repeat center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+}
+
+/*-------------- set css for Motovalle Campaings --------------*/
+.full-page-intro-mv-capaing {
+    background: url('../../landingAssets/img/main/motovalle/MV-SIN-LIMITES-LANDING.jpg') no-repeat center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    height: 100%;
+    width: 100%;
+}
+
+/*-------------- set css for Mazda Campaings --------------*/
+.full-page-intro-mazda-campaing {
+    background: url('../../landingAssets/img/main/mazda/cds-mazdalandng.png') no-repeat center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    height: 100%;
+    width: 100%;
+}
+
+@media only screen and (max-width: 1025px) {
+    .full-page-intro, .full-page-intro-mazda-campaing, .full-page-intro-ford-camaping-hybrids {
+        height: 100%;
+    }
+
+    .full-page-intro-escape {
+        height: 100%;
+    }
+
+    .full-page-intro-escape2 {
+        height: 100%;
+    }
+
+    .full-page-intro-escape3 {
+        height: 100%;
+    }
+
+    .full-page-intro-fusion {
+        height: 100%;
+    }
+
+    .full-page-intro-ranger {
+        height: 100%;
+    }
+
+    .full-page-intro-ecosport2 {
+        height: 100%;
+    }
+
+    .full-page-intro-edge {
+        height: 100%;
+    }
+
+    .full-page-intro-explorer {
+        height: 100%;
+    }
+
+    .full-page-intro-carshow {
+        height: 100%;
+    }
+
+    .full-page-intro-ford-camaping {
+        height: 100%;
+    }
+
+    .full-page-intro-mv-capaing {
+        height: 100%;
+    }
+
+    .card {
+        display: none;
+    }
+
+    .card.out {
+        display: block;
+    }
+}
+
+@media only screen and (max-width: 776px) {
+    .full-page-intro  {
+        height: 100%;
+        background: url('../../landingAssets/img/main/ecosport-landingADJ3.jpg') no-repeat top;
+        background-size: contain;
+        background-repeat: no-repeat;
+        -webkit-background-size: contain;
+        -moz-background-size: contain;
+        -o-background-size: contain;
+        background-size: contain;
+        height: 100%;
+        width: 100%;
+    }
+
+    .full-page-intro-escape {
+        height: 100%;
+        background: url('../../landingAssets/img/main/escape/escape_mobile.jpg') no-repeat top;
+        background-size: contain;
+        background-repeat: no-repeat;
+        -webkit-background-size: contain;
+        -moz-background-size: contain;
+        -o-background-size: contain;
+        background-size: contain;
+        height: 100%;
+        width: 100%;
+    }
+
+    .full-page-intro-escape2 {
+        height: 100%;
+        background: url('../../landingAssets/img/main/escape/escape_2_mobile.jpg') no-repeat top;
+        background-size: contain;
+        background-repeat: no-repeat;
+        -webkit-background-size: contain;
+        -moz-background-size: contain;
+        -o-background-size: contain;
+        background-size: contain;
+        height: 100%;
+        width: 100%;
+    }
+
+    .full-page-intro-escape3 {
+        height: 100%;
+        background: url('../../landingAssets/img/main/escape/hybrid/escape_hybrid_mobile.jpg') no-repeat top;
+        background-size: contain;
+        background-repeat: no-repeat;
+        -webkit-background-size: contain;
+        -moz-background-size: contain;
+        -o-background-size: contain;
+        background-size: contain;
+        height: 100%;
+        width: 100%;
+    }
+
+    .full-page-intro-fusion {
+        height: 100%;
+        background: url('../../landingAssets/img/main/fusion/fusion_mobile.jpg') no-repeat top;
+        background-size: contain;
+        background-repeat: no-repeat;
+        -webkit-background-size: contain;
+        -moz-background-size: contain;
+        -o-background-size: contain;
+        background-size: contain;
+        height: 100%;
+        width: 100%;
+    }
+
+    .full-page-intro-ranger {
+        height: 100%;
+        background: url('../../landingAssets/img/main/ranger/ranger-mobile.jpg') no-repeat top;
+        background-size: contain;
+        background-repeat: no-repeat;
+        -webkit-background-size: contain;
+        -moz-background-size: contain;
+        -o-background-size: contain;
+        background-size: contain;
+        height: 100%;
+        width: 100%;
+    }
+
+    .full-page-intro-ecosport2 {
+        height: 100%;
+        background: url('../../landingAssets/img/main/ecosport/ecosport-mobile-camaping2.jpg') no-repeat top;
+        background-size: contain;
+        background-repeat: no-repeat;
+        -webkit-background-size: contain;
+        -moz-background-size: contain;
+        -o-background-size: contain;
+        background-size: contain;
+        height: 100%;
+        width: 100%;
+    }
+
+    .full-page-intro-edge {
+        height: 100%;
+        background: url('../../landingAssets/img/main/edge/edge_mobile.jpg') no-repeat top;
+        background-size: contain;
+        background-repeat: no-repeat;
+        -webkit-background-size: contain;
+        -moz-background-size: contain;
+        -o-background-size: contain;
+        background-size: contain;
+        height: 100%;
+        width: 100%;
+    }
+
+    .full-page-intro-explorer {
+        height: 100%;
+        background: url('../../landingAssets/img/main/explorer/explorer_mobile.jpg') no-repeat top;
+        background-size: contain;
+        background-repeat: no-repeat;
+        -webkit-background-size: contain;
+        -moz-background-size: contain;
+        -o-background-size: contain;
+        background-size: contain;
+        height: 100%;
+        width: 100%;
+    }
+
+    .full-page-intro-carshow {
+        height: 100%;
+        background: url('../../landingAssets/img/main/carshow/carshow-mobile-julio.png') no-repeat top;
+        background-size: contain;
+        background-repeat: no-repeat;
+        -webkit-background-size: contain;
+        -moz-background-size: contain;
+        -o-background-size: contain;
+        background-size: contain;
+        height: 100%;
+        width: 100%;
+    }
+
+    .full-page-intro-ford-camaping {
+        background: url('../../landingAssets/img/main/ford/BANNER-MV-MOBILE-FORD-JUL.png') no-repeat top;
+        background-size: contain;
+        background-repeat: no-repeat;
+        -webkit-background-size: contain;
+        -moz-background-size: contain;
+        -o-background-size: contain;
+        height: 100%;
+        width: 100%;
+    }
+
+    .full-page-intro-ford-camaping-hybrids {
+        background: url('../../landingAssets/img/main/ford/hybrids/LandingHibridos-responsive.png') no-repeat top;
+        background-size: contain;
+        background-repeat: no-repeat;
+        -webkit-background-size: contain;
+        -moz-background-size: contain;
+        -o-background-size: contain;
+        height: 100%;
+        width: 100%;
+    }
+
+    .full-page-intro-mv-capaing {
+        background: url('../../landingAssets/img/main/motovalle/mobile-MV-SIN-LIMITES-mailing.png') no-repeat top;
+        background-size: contain;
+        background-repeat: no-repeat;
+        -webkit-background-size: contain;
+        -moz-background-size: contain;
+        -o-background-size: contain;
+        height: 100%;
+        width: 100%;
+    }
+
+    .full-page-intro-mazda-campaing {
+        background: url('../../landingAssets/img/main/mazda/cds-mobile.png') no-repeat top;
+        background-size: contain;
+        background-repeat: no-repeat;
+        -webkit-background-size: contain;
+        -moz-background-size: contain;
+        -o-background-size: contain;
+        height: 100%;
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 415px) {
+    .card.out {
+        margin-top: -24em;
+    }
+}
+
+@media only screen and (max-width: 376px) {
+    .card.out {
+        margin-top: -28em;
+    }
+}
+
+@media only screen and (max-width: 361px) {
+    .card.out {
+        margin-top: -28em;
+    }
+}
+
+@media only screen and (max-width: 321px) {
+    .card.out {
+        margin-top: -32em;
+    }
+}
+/* -------------- End CSS -------------- */ 
+
+
+/* Half Page Carousel itself*/
+.carousel {
+    height: 50%;
+}
+
+    .carousel .carousel-inner {
+        height: 100%;
+    }
+
+        .carousel .carousel-inner .carousel-item,
+        .carousel .carousel-inner .active {
+            height: 100%;
+        }
+
+/* Adjustment for mobile devices*/
+@media (max-width: 776px) {
+    .carousel {
+        height: 100%;
+    }
+}
+
+/* Navbar animation */
+.navbar {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+/*.top-nav-collapse {
+    background-color: #1C2331;
+}*/
+
+/* Adding color to the Navbar on mobile */
+/*@media only screen and (max-width: 768px) {
+    .navbar {
+        background-color: #1C2331;
+    }
+}*/
+
+/* Footer color for sake of consistency with Navbar */
+.page-footer {
+    background-color: #1C2331;
+}
+
+
+html,
+body,
+header,
+.view {
+    height: 100%;
+}
+
+@media (max-width: 740px) {
+    html,
+    body,
+    header,
+    .view {
+        height: 1000px;
+    }
+}
+
+@media (min-width: 800px) and (max-width: 850px) {
+    html,
+    body,
+    header,
+    .view {
+        height: 650px;
+    }
+}
+
+@media (min-width: 800px) and (max-width: 850px) {
+    .navbar:not(.top-nav-collapse) {
+        background: #1C2331 !important;
+    }
+}

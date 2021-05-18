@@ -1,0 +1,109 @@
+﻿@model IEnumerable<Ecommerce.Models.Entities.CampaignLeads>
+
+@{
+    ViewData["Title"] = "Campaign Leads";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="content">
+    <div class="container-fluid">
+        <div>
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h1 class="m-0 text-dark">Leads Campañas</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6 pull-left">
+                    <a asp-action="CampaignLeadsCreate" asp-controller="Admin" class="btn btn-md btn-dark">Crear nuevo registro <span class="fa fa-plus-square"></span></a>
+                </div>
+                <div class="col-6">
+                    <div class="text-right">
+                        <a asp-action="GetReport" asp-controller="Admin" asp-route-report="CampaingLeads" asp-route-type="Excel" class="btn btn-md btn-outline-dark">Descargar Informe <span class="fa fa-file-download"></span></a>
+                    </div>
+                </div>
+            </div>
+
+            @{ await Html.RenderPartialAsync("_MessageStatus"); }
+        </div>
+
+        <div class="table">
+            <table id="dtTableDefault" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(x => x.CampaignLeadsId)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(x => x.CreatedOn)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(x => x.Name)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(x => x.Email)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(x => x.City)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(x => x.PhoneNumber)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(x => x.Remarks)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(x => x.Campaign)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(x => x.InfoFrom)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(x => x.EmailSentTo)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(x => x.Status)
+                        </th>
+                        <th class="th-sm">
+                            Editar
+                        </th>
+                        <th class="th-sm">
+                            Eliminar
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.CampaignLeadsId)</td>
+                            <td>@Html.DisplayFor(modelItem => item.CreatedOn)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                            <td>@Html.DisplayFor(modelItem => item.City)</td>
+                            <td>@Html.DisplayFor(modelItem => item.PhoneNumber)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Remarks)</td>
+                            <td>
+                                @{var campaing = (Campaings)Enum.ToObject(typeof(Campaings), item.Campaign);}
+                                @motovalle.Ecommerce.Helpers.EnumExtensions.GetDisplayName(campaing)
+                            </td>
+                            <td>@Html.DisplayFor(modelItem => item.InfoFrom)</td>
+                            <td>@Html.DisplayFor(modelItem => item.EmailSentTo)</td>
+                            <td>
+                                @{var status = (Status)Enum.ToObject(typeof(Status), item.Status);}
+                                @motovalle.Ecommerce.Helpers.EnumExtensions.GetDisplayName(status)
+                            </td>
+                            <td><a class="btn btn-info btn-block" style="width:70%" asp-action="CampaignLeadsEdit" asp-controller="Admin" asp-route-id="@item.CampaignLeadsId"><span class="fa fa-pencil-alt"></span></a></td>
+                            <td><a class="btn btn-danger btn-block" style="width:70%" asp-action="CampaignLeadsDelete" asp-controller="Admin" asp-route-id="@item.CampaignLeadsId"><span class="fa fa-times"></span></a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+
+@section Scripts{
+    <script type="text/javascript" src="~/admin/dist/js/admin-ecommerce-tables-settings-default.js"></script>
+}

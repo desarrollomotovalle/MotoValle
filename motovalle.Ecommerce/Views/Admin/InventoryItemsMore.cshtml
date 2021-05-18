@@ -1,0 +1,176 @@
+﻿@model Ecommerce.Models.Entities.InventoryItems
+@{
+    ViewData["Title"] = "InventoryItemsMore";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="content">
+    <div class="container">
+        <div>
+            <div class="col-12 text-center">
+                <h1 class="m-0 text-dark">Inventory Preview</h1>
+            </div>
+            <div class="text-left">
+                <p>
+                    <a asp-action="InventoryItems" asp-controller="Admin" class="btn btn-md btn-dark"><span class="fa fa-arrow-circle-left"></span> Volver</a>
+                </p>
+            </div>
+
+            @if (ViewBag.Message != null)
+            {
+                <div class="alert alert-danger text-center wow zoomInUp" role="alert" data-wow-delay="0.5s">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <strong>¡Ups!..</strong> @ViewBag.Message &#128577;
+                </div>
+            }
+        </div>
+        <hr />
+        <div class="col-lg-offset-3">
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.InventoryItemsId)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.InventoryItemsId)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Vin)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Vin)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.AllowShow)
+                </dt>
+                <dd class="col-sm-10">
+                    @{var allowShow = Model.AllowShow == 1 ? "YES" : "NO"; }
+                    @allowShow
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Cost)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Cost)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.SalesPrice)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.SalesPrice)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.QuantityInStock)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.QuantityInStock)
+                </dd>
+                <dt class="col-sm-2">
+                    Taxes For Inventory
+                </dt>
+                <dd class="col-sm-10">
+                    @if (ViewBag.TaxesForInventory != null)
+                    {
+                        <ul>
+                            @foreach (var item in ViewBag.TaxesForInventory)
+                            {
+                                <li>@item.FkTaxes.TaxName - @item.FkTaxes.TaxPercent%</li>
+                            }
+                        </ul>
+                    }
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Mileage)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Mileage)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.IsNew)
+                </dt>
+                <dd class="col-sm-10">
+                    @{var isNew = Model.IsNew == 1 ? "YES" : "NO"; }
+                    @isNew
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.IsSold)
+                </dt>
+                <dd class="col-sm-10">
+                    @{ var isSold = Model.IsSold == 1 ? "YES" : "NO";}
+                    @isSold
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.CoverPictureUrl)
+                </dt>
+                <dd class="col-sm-10">
+                    <img src="@Url.Content($"~/{Model.CoverPictureUrl}")" alt='@Model.FkProducts.ProductName' style="max-width:270px; max-height:230px;" />
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.FkColors)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.FkColors.ColorName)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.FkProducts)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.FkProducts.ProductName)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Picture360Url)
+                </dt>
+                <dd class="col-sm-10">
+                    @if (!string.IsNullOrEmpty(Model.Picture360Url))
+                    {
+                        <div class="cloudimage-360" style="height:480px; width:480px;"
+                             data-folder="@Url.Content($"~/{Model.Picture360Url}/")"
+                             data-filename="{index}.jpg"
+                             data-amount="@Model.Picture360Quantity"
+                             data-magnifier="2"
+                             data-spin-reverse>
+                        </div>
+                        <!--360 -->
+                    }
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Picture360Quantity)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Picture360Quantity)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Cupix360Url)
+                </dt>
+                <dd class="col-sm-10">
+                    @if (!string.IsNullOrEmpty(Model.Cupix360Url))
+                    {
+                        <iframe class="embed-responsive-item" src='@Model.Cupix360Url' allow="accelerometer; autoplay; encrypted-media; gyroscope;" allowfullscreen style="max-height:480px; max-width:480px;"></iframe>
+                    }
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.FkWarranties)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.FkWarranties.WarrantyName)
+                </dd>
+            </dl>
+            <hr />
+            <div class="text-left">
+                <p>
+                    <a asp-action="InventoryItemsEdit" asp-controller="Admin" asp-route-id="@Model.InventoryItemsId" class="btn btn-md btn-outline-dark"><span class="fa fa-pencil-alt"></span> Editar</a>
+                </p>
+                <p>
+                    <a asp-action="InventoryItems" asp-controller="Admin" class="btn btn-md btn-dark"><span class="fa fa-arrow-circle-left"></span> Volver</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <!--360 -->
+    <script src="https://cdn.scaleflex.it/plugins/js-cloudimage-360-view/2/js-cloudimage-360-view.min.js"></script>
+    <!--360 -->
+}

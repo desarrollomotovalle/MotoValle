@@ -1,0 +1,23 @@
+﻿@model IEnumerable<inventek_blog.Models.Entities.Posts>
+
+
+<div class="b-info__latest">
+    <h3>Últimas noticias</h3>
+    @if (Model.Count() > 0)
+    {
+        @foreach (var post in Model)
+        {
+            <div class="b-info__latest-article wow zoomInUp" data-wow-delay="0.1s">
+                <div class="b-info__latest-article-photo m-aston">
+                    <a asp-action="Post" asp-controller="Blog" asp-route-id="@post.PostsId">
+                        <img loading="lazy" class="img-responsive" src="@post.ImageURL" alt="@post.Title" />
+                    </a>
+                </div>
+                <div class="b-info__latest-article-info">
+                    <h6><a asp-action="Post" asp-controller="Blog" asp-route-id="@post.PostsId">@post.Title</a></h6>
+                    <p>@post.PostedOn.ToString("dd/MM/yyyy")</p>
+                </div>
+            </div>
+        }
+    }
+</div>

@@ -1,0 +1,115 @@
+﻿@model Ecommerce.Models.Entities.ProductMaintenances
+
+@{
+    ViewData["Title"] = "Product Maintenances Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    var tools = new[] { "Bold", "Italic", "Underline", "StrikeThrough",
+        "FontName", "FontSize", "FontColor", "BackgroundColor",
+        "LowerCase", "UpperCase", "SuperScript", "SubScript", "|",
+        "Formats", "Alignments", "OrderedList", "UnorderedList",
+        "Outdent", "Indent", "|",
+        "CreateTable", "CreateLink", "|", "ClearFormat", "Print",
+        "SourceCode", "FullScreen", "|", "Undo", "Redo" };
+    var asyncSettings = new Syncfusion.EJ2.Inputs.UploaderAsyncSettings
+    {
+        SaveUrl = @Url.Content("~/Admin/SaveFile"),
+        RemoveUrl = @Url.Content("~/Admin/RemoveFile")
+    };
+}
+
+<section class="content">
+    <div class="container">
+        <div>
+            <div class="col-12 text-center">
+                <h1 class="m-0 text-dark">Crear Nuevo Registro</h1>
+            </div>
+            <div class="text-left">
+                <p>
+                    <a asp-action="ProductMaintenances" asp-controller="Admin" asp-route-productsId="@ViewBag.FkProducts.ProductsId" class="btn btn-md btn-dark"><span class="fa fa-arrow-circle-left"></span> Volver</a>
+                </p>
+            </div>
+
+
+            @if (ViewBag.Message != null)
+            {
+                <div class="alert alert-danger text-center wow zoomInUp" role="alert" data-wow-delay="0.5s">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <strong>¡Ups!..</strong> @ViewBag.Message &#128577;
+                </div>
+            }
+        </div>
+
+        <div class="col-lg-offset-3 ">
+            <form method="post" asp-action="ProductMaintenancesCreate" asp-controller="Admin">
+                @Html.AntiForgeryToken()
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="FkProductsId" value="@ViewBag.FkProducts.ProductsId" />
+                <div class="row">
+                    <div class="col-5">
+                        <div class="form-group">
+                            <label class="control-label" asp-for="MaintenanceIndex"></label>
+                            <input asp-for="MaintenanceIndex" class="form-control" />
+                            <span asp-validation-for="MaintenanceIndex" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-5">
+                        <div class="form-group">
+                            <label class="control-label" asp-for="SalesPrice"></label>
+                            <input asp-for="SalesPrice" class="form-control" />
+                            <span asp-validation-for="SalesPrice" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <div class="form-group">
+                            <label class="control-label" asp-for="Enable"></label>
+                            <input asp-for="Enable" class="form-control" />
+                            <span asp-validation-for="Enable" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label asp-for="Title" class="control-label"></label>
+                            <input asp-for="Title" class="form-control" />
+                            <span asp-validation-for="Title" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label asp-for="Description" class="control-label"></label>
+                            <ejs-richtexteditor id="Description" ejs-for="Description" pasteCleanupSettings="new Syncfusion.EJ2.RichTextEditor.RichTextEditorPasteCleanupSettings() { Prompt = true }" enableResize="true">
+                                <e-content-template>
+
+                                </e-content-template>
+                                <e-richtexteditor-fontfamily items="@ViewBag.Fonts" width="80px"></e-richtexteditor-fontfamily>
+                                <e-richtexteditor-toolbarsettings items="@tools"></e-richtexteditor-toolbarsettings>
+                            </ejs-richtexteditor>
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Guardar cambios" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+    <script type="text/javascript">
+        (async () => {
+            const $fkProductsId = document.querySelector("#FkProductsId");
+            const $maintenanceIndex = document.querySelector("#MaintenanceIndex");
+            const indexRequest = await fetch(`/Admin/GetNextMaintenanceIndex/${$fkProductsId.value}`);
+            if (indexRequest.ok) {
+                const indexResult = await indexRequest.text();
+                $maintenanceIndex.value = indexResult;
+            }
+        })();
+    </script>
+}

@@ -1,0 +1,632 @@
+﻿@using Ecommerce.Models.Entities;
+@using motovalle.Ecommerce.Models.ViewModels
+@model ShopViewModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutFord.cshtml";
+    var categories = (List<Categories>)ViewBag.CategoryList;
+    var makesId = (int)ViewBag.MakesId;
+    var categoryId = (int?)ViewBag.CategoryId ?? 0;
+    var modelId = (int?)ViewBag.ModelId ?? 0;
+    var makesName = (string)ViewBag.MakesName;
+    var isSearch = (bool?)ViewBag.IsSearch ?? false;
+    var modelsForCategory = (List<ModelAndCategoryBase>)ViewBag.ModelsForCategory;
+}
+
+<section class="b-slider">
+    @{ await Html.RenderPartialAsync("_LoadingPartial", "Cargando banners..."); }
+</section>
+
+<div class="b-breadCumbs s-shadow">
+    <div class="container wow zoomInUp" data-wow-delay="0.5s">
+        <a asp-action="Index" asp-controller="Home" class="b-breadCumbs__page">Home</a><span class="fa fa-angle-right"></span><a asp-action="Index" asp-controller="Ford" class="b-breadCumbs__page m-active">Tienda (Ford)</a>
+    </div>
+    @if (ViewBag.Message != null)
+    {
+        <div class="alert alert-danger text-center wow zoomInUp" role="alert" data-wow-delay="0.5s">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <strong>¡Ups!..</strong> @ViewBag.Message &#128577;
+        </div>
+    }
+</div><!--b-breadCumbs-->
+
+<div class="b-infoBar">
+    <section class="b-search">
+        <div class="container">
+            <form asp-action="Index" asp-controller="Ford" method="POST" class="b-search__main" id="frmMainSearch" name="frmMainSearch">
+                <h1 class="wow zoomInLeft" data-wow-delay="0.5s">Lista de vehículos</h1>
+                
+                <div class="wow zoomInRight text-center" data-wow-delay="0.1s" style="margin-top:3.5rem;">
+                    <h3>Un vehículo para cada <span style="color:#228dcb;">estilo de vida</span></h3>
+                </div>
+                
+                @Html.AntiForgeryToken()
+                <div asp-validation-summary="All" class="text-danger" style="text-align:left;"></div>
+                <div class="b-search__main-title wow zoomInUp" data-wow-delay="0.1s" style="margin:2.5rem;">
+                    <h2>CONOCE Y ENCUENTRA AQUÍ NUESTRA LÍNEA ACTUAL DE VEHÍCULOS</h2>
+                </div>
+                <div class="b-search__main-type wow zoomInUp" data-wow-delay="0.1s" style="margin:2.5rem;">
+                    <div class="col-xs-12 col-md-2 s-noLeftPadding">
+                        <h4>1. Seleccione Categoría</h4>
+                    </div>
+                    <input asp-for="BasicSearchViewModel.MakeId" id="makes" type="text" name="MakeId" value="@makesId" hidden />
+                    <input asp-for="BasicSearchViewModel.RecordsPerPage" id="recordsPerPageId" type="text" name="RecordsPerPage" hidden />
+                    <input asp-for="BasicSearchViewModel.PageNumber" id="pageNumberId" type="text" name="PageNumber" hidden />
+                    <input id="makesName" type="text" name="makesName" value="@makesName" hidden />
+
+                    <input id="categoryId" type="text" name="CategoryId" value="@categoryId" hidden />
+                    <div class="col-xs-12 col-md-10">
+                        <div class="row">
+                            <span asp-validation-for="BasicSearchViewModel.CategoryId"></span>
+                            <div class="col-xs-2">
+                                @{ categoryId = categories.Where(x => x.CategoryName.ToUpper().Contains("PICKUP"))?.FirstOrDefault()?.CategoriesId ?? 0; }
+                                <input asp-for="BasicSearchViewModel.CategoryId" id="type1" type="radio" name="CategoryId" onchange="getProducts(@makesId, @categoryId);" onclick="getProducts(@makesId, @categoryId);" value="@categoryId" />
+                                <label for="type1" class="b-search__main-type-svg">
+                                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                         viewBox="47.6 310.9 500 220" enable-background="new 47.6 310.9 500 220" xml:space="preserve">
+                                    <g>
+                                    <path d="M258.3,343.6H277v41.2h-25.2l7.8-40.8L258.3,343.6L258.3,343.6z M295.4,343.6h39.4c18.3,1.8,33,8.7,47.2,19.7
+												    c-1.4,0.5-2.7,1.4-4.1,2.3v0.5c-3.7,3.7-5.5,13.3-5.5,18.8h-76.9V343.6L295.4,343.6z" />
+
+                                    <path d="M107.6,476.4c-20.6,0-46.2-7.8-47.6-8.2l-2.7-1.4v-39.8l2.3-1.4c1.8-1.8,6.9-7.3,6.9-11v-7.8c0.5-5.5,0.5-11.9,0.9-17.4
+												    c0-3.7,6-11,11.9-13.3l1.8-0.5h146.5l7.3-38.9c1.4-6.9,6.9-11.4,14.2-11.4h86.5c27.5,2.3,43.5,15.6,61.4,29.8
+												    c8.2,6.4,16.5,15.1,26.1,21.1c4.1,0.5,10.5,0.5,17.9,0.9c43.5,1.8,83.3,4.6,87.5,24.3l4.1,34.8c2.7,1.8,6.4,5.5,6.4,10.5v15.1
+												    c0,4.1-0.5,6.4-4.1,9.2c-6.9,4.1-14.7,6-30.7,6h-6.4v-9.2h6.9c13.7,0,20.1-0.9,25.2-4.1c0,0,0,0.5,0-1.4V447c0-1.4-2.3-2.7-3.2-3.2
+												    l-2.7-0.9l-4.6-39.4c-3.2-13.3-54-15.1-78.3-16c-8.2-0.5-15.1-0.5-19.7-0.9l-1.8-0.5c-10.5-6.4-19.7-16-27.9-22.9
+												    c-16.9-13.7-31.6-25.6-55.4-27.5h-87.5c-2.3,0-4.1,0.9-4.6,3.2l-8.7,47.2H81.5c-2.7,1.4-5,4.1-5.5,5c0,4.6-0.5,11.4-0.5,16.9v7.3
+												    c0,6.9-6.4,13.3-9.2,16v28.4c7.3,2.7,26.6,8.7,41.7,8.2h8.7v9.2h-8.2C108.1,476.4,108.1,476.4,107.6,476.4L107.6,476.4z
+												    M423.6,476.4H185.5v-9.2h238.1V476.4L423.6,476.4z" />
+
+                                    <polygon points="529.3,444.3 523.4,407.7 515.1,407.7 515.1,444.3 	" />
+
+                                    <polygon points="327.4,398.5 304.5,398.5 304.5,393.9 327.4,393.9 	" />
+
+                                    <path d="M70.5,412.2h5c9.6,0,22.4-5.5,22.9-14.2v-8.7H72.3C72.3,397.6,71,406.3,70.5,412.2L70.5,412.2z" />
+
+                                    <path d="M381,368.7L381,368.7c-2.7,2.7-4.1,12.4-4.1,16c0,1.4,0.5,2.3,1.4,3.2c0.9,0.9,1.8,1.4,3.2,1.4H392c11.4,0-1.8-20.1-6-21.5
+												    C384.2,366.9,382.4,367.4,381,368.7L381,368.7z" />
+                                        
+                                    <polygon points="222.1,443.4 222.1,453.5 394.3,453.5 	" />
+
+                                    <path d="M405.2,471.8h-4.6v-12.4c0-33.4,25.6-60.4,59.1-60.4s60,27,60,60.4v12.4h-4.6v-13.3c0-29.8-25.6-53.1-55.4-53.1
+												    c-29.8,0-54.5,24.3-54.5,54V471.8L405.2,471.8z" />
+
+                                    <path d="M460.7,457.1c-6,0-10.5,4.6-10.5,10.5s4.6,10.5,10.5,10.5c6,0,10.5-4.6,10.5-10.5S466.6,457.1,460.7,457.1L460.7,457.1z" />
+
+                                    <path d="M210.2,471.8h-6.4v-12.4c0-29.8-23.8-54-53.6-54s-51.7,24.3-51.7,54v12.4h-9.2V459c0-33.4,27-60,60.4-60
+												    s62.7,25.6,62.7,59.1L210.2,471.8L210.2,471.8z" />
+
+                                    <path d="M460.7,413.2L460.7,413.2c12.8,0,24.3,5,32.5,13.7h-0.9c8.2,8.2,13.7,19.7,13.7,32.5v14.2v3.2h-4.6H500
+												    c-2.3,7.8-6.9,15.1-12.8,20.1c-6.9,6-16,11.4-26.1,11.4s-19.2-3.7-26.1-9.6V497c-6-5-10.5-12.4-12.8-20.1h-2.3h-5v-4.6v-12.4
+												    c0-12.8,5-24.3,13.7-32.5h0.5C436.8,418.2,448.3,413.2,460.7,413.2L460.7,413.2L460.7,413.2z M460.7,440.6c-14.7,0-27,11.9-27,27
+												    c0,14.7,11.9,27,27,27c14.7,0,27-11.9,27-27C487.7,452.5,475.8,440.6,460.7,440.6L460.7,440.6L460.7,440.6z M152,440.6
+												    c-14.7,0-27,11.9-27,27c0,14.7,11.9,27,27,27c14.7,0,27-11.9,27-27C179,452.5,166.7,440.6,152,440.6L152,440.6L152,440.6z
+												    M152,413.2L152,413.2c12.8,0,24.3,5,32.5,13.7h0.9c8.2,8.2,13.7,19.7,13.7,32.5v14.2v3.2h-4.6h-3.7c-2.3,7.8-6.9,15.1-12.8,20.1
+												    c-6.9,6-16,11.4-26.1,11.4c-10.1,0-19.2-5.5-26.1-11.4c-6-5-10.5-12.4-12.8-20.1h-2.3h-3.2v-4.6v-12.4c0-12.8,5-24.3,13.7-32.5
+												    C129.6,418.2,139.2,413.2,152,413.2L152,413.2z" />
+
+                                    <path d="M152,457.1c-6,0-10.5,4.6-10.5,10.5s4.6,10.5,10.5,10.5c6,0,10.5-4.6,10.5-10.5S158,457.1,152,457.1L152,457.1z" />
+
+										    </g>
+									    </svg>
+                                </label>
+                                <h5><label for="type1">Pickup</label></h5>
+                            </div>
+                            <div class="col-xs-2">
+                                @{ categoryId = categories.Where(x => x.CategoryName.ToUpper().Contains("SUV"))?.FirstOrDefault()?.CategoriesId ?? 0; }
+                                <input asp-for="BasicSearchViewModel.CategoryId" id="type2" type="radio" name="CategoryId" onclick="getProducts(@makesId, @categoryId);" onchange="getProducts(@makesId, @categoryId);" value="@categoryId" />
+                                <label for="type2" class="b-search__main-type-svg">
+                                    <svg version="1.1" id="Layer_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                         viewBox="47.6 310.9 500 220" enable-background="new 47.6 310.9 500 220" xml:space="preserve">
+                                    <g>
+                                    <path d="M199.2,342.6h95.7c23.8,2.3,47.2,17.4,68.7,31.1c-0.5,0.5-0.9,0.9-1.4,1.4l0,0c-3.7,3.2-5.5,7.8-5.5,12.4
+												    c0,0.5,0,0.9,0,1.4l-218.4-8.2C161.2,361.9,174.9,342.6,199.2,342.6L199.2,342.6z" />
+
+                                    <path d="M115.4,475.4c-21.5,0-33.4-11.4-33.9-11.9l-1.4-1.4v-28.4l0.5-0.9c0.9-1.8,3.2-7.3,3.2-11.9c0-4.1,0.5-10.5,0.5-16.9v-11
+												    c0.5-7.3,27.5-36.6,36.6-44.9v-9.6l4.6-2.7c18.8-4.1,55.4-6.4,80.6-6.4h89.3c33.4,2.7,64.6,22.9,92,40.3c5,3.2,9.6,7.8,14.2,10.5
+												    c2.3,0,4.6,0.5,8.2,0.9c51.7,5,100.3,11.9,104.9,32.1v62.3l-3.7,2.7c-6.9,1.4-13.3,2.3-27.9,2.3h-13.7v-9.2h14.2
+												    c11.9,0,17.9-0.5,22.4-1.4v-56.3c-2.3-9.6-34.8-17.9-96.2-23.8c-3.7-0.5-6.9-0.5-9.6-0.9l-1.8-0.5c-5-3.2-10.1-8.2-15.6-11.4
+												    c-27.9-17.9-56.8-36.2-87.5-38.5h-89.7c-22.9,0-55.9,1.8-75.1,5.5v8.2l-4.1,1.8c-4.6,2.7-30.7,34.3-32.5,40.3v10.5
+												    c0,6.4-0.9,12.8-0.9,16.9c0,6.4-1.8,12.8-3.7,15.6v19.7c3.2,2.7,12.4,10.5,26.6,10.1h5.5v9.2L115.4,475.4
+												    C114.5,475.4,115.9,475.4,115.4,475.4L115.4,475.4z M396.1,475.4H194.6v-9.2h201.5V475.4L396.1,475.4z" />
+
+                                    <path d="M365.4,378.4L365.4,378.4c-2.7,2.7-4.1,6-4.1,9.6c0,1.4,0.5,2.7,1.4,3.7c0.9,0.9,1.8,1.4,3.2,1.4h10.5
+												    c1.8,0,3.2-0.9,4.1-2.3c0.9-1.4,0.9-3.7,0-5c-1.8-3.2-5-6.4-10.1-8.2C368.6,376.5,366.8,377,365.4,378.4L365.4,378.4z" />
+
+                                    <path d="M367.2,390.7c-0.9,0-1.8-0.5-2.7-1.4l-6-8.2c-0.9-1.4-0.9-3.2,0.9-4.6c1.4-0.9,3.2-0.9,4.6,0.9l6,8.2
+												    c0.9,1.4,0.9,3.2-0.9,4.6C368.2,390.3,367.7,390.7,367.2,390.7L367.2,390.7z" />
+
+                                    <path d="M90.2,406.7h8.2c7.8,0,17.9-5.5,18.3-12.4v-6H92.5C92.5,394.8,90.2,400.3,90.2,406.7L90.2,406.7z" />
+
+                                    <path d="M478.1,402.2l11,20.1c3.7-2.3,9.2-4.1,13.3-4.1l0,0l0,0l0,0l0,0l0,0l0,0c2.7,0,5.5-1.8,8.7-1.8c0-8.2,0.9-8.7-6.4-14.2
+												    H478.1L478.1,402.2z" />
+
+                                    <polygon points="299.9,406.7 277,406.7 277,402.2 299.9,402.2 	" />
+
+                                    <polygon points="194.6,402.2 171.7,402.2 171.7,397.6 194.6,397.6 	" />
+
+                                    <polygon points="222.1,450.7 222.1,457.1 371.4,457.1 	" />
+
+                                    <path d="M508.7,436.1c-6.9,0-10.1,0-16.9,0c-3.7,3.7-3.7,8.2-3.7,12.8c6.9,0,13.7,0,20.6,0C508.7,444.8,508.7,440.2,508.7,436.1
+												    L508.7,436.1z" />
+
+                                    <path d="M488.6,457.1c-1.4-2.7-1.4-6.4-1.4-9.2c6.9,0,7.3,0.5,14.2,0.5v8.7H488.6L488.6,457.1z" />
+
+                                    <path d="M138.3,347.7l-44.4,38.9v-8.7c9.2-12.4,28.4-33.4,32.1-35.7L138.3,347.7L138.3,347.7z" />
+
+                                    <path d="M126.8,500.2c-6-5-10.5-12.4-12.8-20.1h-2.3h-3.7v-4.6v-16c0-12.8,5-24.3,13.7-32.5c8.2-8.2,18.8-13.7,31.6-13.7l0,0
+												    c12.8,0,24.3,5,32.5,13.7h0.5c8.2,8.2,13.7,19.7,13.7,32.5v14.2v6.9h-4.6h-2.7c-2.3,7.8-6.9,15.1-12.8,20.1c-6.9,6-16,7.8-26.1,7.8
+												    s-19.2-3.7-26.1-9.6v1.4H126.8z M427.2,440.6c-14.7,0-27,11.9-27,27c0,14.7,11.9,27,27,27c14.7,0,27-11.9,27-27
+												    C453.8,452.5,441.9,440.6,427.2,440.6L427.2,440.6L427.2,440.6z M152.9,440.6c-14.7,0-27,11.9-27,27c0,14.7,11.9,27,27,27
+												    c14.7,0,27-11.9,27-27C179.5,452.5,167.6,440.6,152.9,440.6L152.9,440.6L152.9,440.6z M427.2,413.2L427.2,413.2
+												    c12.8,0,24.3,5,32.5,13.7h0.9c8.2,8.2,13.7,19.7,13.7,32.5v14.2v6.9h-4.6h-3.2c-2.3,7.8-6.9,15.1-12.8,20.1c-6.9,6-16,7.8-26.1,7.8
+												    s-19.2-3.7-26.1-9.6v1.8c-6-5-10.5-12.4-12.8-20.1h-2.3h-3.7v-4.6v-16c0-12.8,5-24.3,13.7-32.5
+												    C404.3,418.2,414.4,413.2,427.2,413.2L427.2,413.2L427.2,413.2z M427.2,457.1c6,0,10.5,4.6,10.5,10.5s-4.6,10.5-10.5,10.5
+												    c-6,0-10.5-4.6-10.5-10.5S421.3,457.1,427.2,457.1L427.2,457.1L427.2,457.1z M152.9,457.1c-6,0-10.5,4.6-10.5,10.5
+												    s4.6,10.5,10.5,10.5c6,0,10.5-4.6,10.5-10.5C163,461.7,158.4,457.1,152.9,457.1L152.9,457.1z" />
+
+										    </g>
+									    </svg>
+                                </label>
+                                <h5><label for="type2">Suv/Crossovers</label></h5>
+                            </div>
+                            <div class="col-xs-2">
+                                @{ categoryId = categories.Where(x => x.CategoryName.ToUpper().Contains("PERFORMANCE"))?.FirstOrDefault()?.CategoriesId ?? 0; }
+                                <input asp-for="BasicSearchViewModel.CategoryId" id="type3" type="radio" name="CategoryId" onclick="getProducts(@makesId, @categoryId);" onchange="getProducts(@makesId, @categoryId);" value="@categoryId" />
+                                <label for="type3" class="b-search__main-type-svg">
+                                    <svg version="1.1" id="Layer_3" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                         viewBox="47.6 310.9 500 220" enable-background="new 47.6 310.9 500 220" xml:space="preserve">
+                                    <g>
+                                    <path d="M198.7,492.4v-9.2h21.1c65.9,0,134.2-0.5,198.7,0v9.2c-64.6,0-132.8,0-198.7,0H198.7L198.7,492.4z M152.9,493.8
+												    c-20.6-2.7-57.2-13.7-69.1-22.4l-4.1-1.4v-25.6l1.4-1.4c1.8-1.8,6-8.2,6-12.8l4.1-18.3L86.5,393l22,2.7h37.5
+												    c3.7-1.4,8.7-3.7,14.2-6c29.3-11.9,56.8-21.5,68.7-21.5h78.8c1.4,0,2.3,0,3.7,0.5c23.8,6.9,45.3,18.8,70.5,33.4h0.5
+												    c70.1,2.7,111.3,8.2,125.5,16.5l2.3,1.4v14.7l5.5,4.6v2.3c0,17.9-7.8,25.2-12.4,29.3c0,0.5-0.5,0.9,0,0.9c1.4,2.7,2.3,5,2.3,7.8
+												    v3.2l-5,1.4c-11,4.6-22.4,7.3-36.2,8.7v-9.6c11-0.9,21.1-3.2,30.2-6.4c0-0.5,0.9-0.5,0.9-0.9c-0.9-2.3-1.8-4.1-1.8-6v-2.3l0.9-0.9
+												    c0.9-0.9,1.4-1.4,2.3-2.3c4.1-3.7,9.2-7.8,9.6-20.1l-5.5-4.6v-16c-11-5-40.3-11-118.1-14.2h-3.7l-0.9-0.5
+												    c-24.7-14.7-46.2-24.7-69.1-31.1c-0.5,0-0.9,0-0.9,0H229c-10.5,0-44.9,13.7-65,22c-6.4,2.3-11.4,4.1-15.6,5.5l-1.4,0.5h-39.4h-8.2
+												    l1.4,5.5l-4.6,20.6c0,6.4-5,13.7-7.8,16.5v16.9c12.4,7.3,46.2,16.9,64.1,19.2v9.2H152.9z" />
+
+                                    <path d="M243.6,385.2c0.5,8.2,1.4,16,1.8,24.3c-12.4-2.7-25.2-5.5-37.5-8.7C223,390.7,225.7,385.2,243.6,385.2L243.6,385.2
+												    L243.6,385.2z M253.2,385.2c17.9,0,36.2,0,54,0c12.8,3.7,25.2,9.2,37.5,15.1l-0.5,0.5l0,0c-2.7,2.7-4.6,6.4-5.5,10.1
+												    c-9.2,0-19.7,0-30.7,0c-17.4,0-35.3,0-52.7,0C254.6,402.6,254.1,393.9,253.2,385.2L253.2,385.2z" />
+
+                                    <path d="M424.9,503.4c-4.6-2.3-8.2-6-11.4-10.1l-3.2-0.5c-1.8-0.5-5-0.9-6.9-0.9l-3.7-0.9v-3.7V475c0-11.9,2.7-22.4,10.5-30.2h1.4
+												    c6.4-6.4,16-10.5,30.2-10.5c13.7,0,23.4,4.1,30.2,10.5l0,0c7.8,7.8,10.5,18.3,10.5,30.2v7.8v4.1l-4.1,0.5c-1.4,0.5-2.7,0.5-4.1,0.9
+												    l0,0l-1.4,0.5c-2.7,5.5-6.4,10.1-11.4,13.7c-5.5,3.7-12.4,6-19.7,6C435.9,507.9,430,506.1,424.9,503.4L424.9,503.4L424.9,503.4
+												    L424.9,503.4z M441.9,449.3c-13.3,0-23.8,10.5-23.8,23.8s10.5,23.8,23.8,23.8c13.3,0,23.8-10.5,23.8-23.8
+												    C465.7,460.3,455.2,449.3,441.9,449.3L441.9,449.3L441.9,449.3z M174.5,449.3c-13.3,0-23.8,10.5-23.8,23.8s10.5,23.8,23.8,23.8
+												    c13.3,0,23.8-10.5,23.8-23.8C198.3,460.3,187.7,449.3,174.5,449.3L174.5,449.3L174.5,449.3z M145.2,444.3h-0.5
+												    c6.4-6.4,16-10.5,30.2-10.5c13.7,0,23.4,4.1,30.2,10.5h1.8c7.8,7.8,10.5,18.3,10.5,30.2v15.1v2.7h-4.6h-11.4
+												    c-2.7,3.7-6.4,6.9-11,9.2c-5,2.7-10.5,6-16,6c-6,0-11.9-1.4-16.5-4.6c-4.6-2.3-8.2-6-11.4-10.1l-3.2-0.5c-1.8-0.5-3.2-0.9-5-1.4
+												    l-3.7-0.9v-3.7v-12.4C134.6,462.6,137.4,452.1,145.2,444.3L145.2,444.3z" />
+
+                                    <path d="M174.5,464.9c-5,0-8.7,3.7-8.7,8.7c0,4.6,3.7,8.7,8.7,8.7c4.6,0,8.7-4.1,8.7-8.7C183.2,468.6,179,464.9,174.5,464.9
+												    L174.5,464.9z" />
+
+                                    <polygon points="281.2,423.7 258.3,423.7 258.3,419.1 281.2,419.1 	" />
+
+                                    <polygon points="230.8,465.4 230.8,474.1 388.8,474.1 	" />
+
+                                    <path d="M441.9,464.9c-4.6,0-8.7,3.7-8.7,8.7c0,4.6,3.7,8.7,8.7,8.7s8.7-4.1,8.7-8.7C450.6,468.6,446.5,464.9,441.9,464.9
+												    L441.9,464.9z" />
+
+                                    <path d="M464.3,396.2h-49.9l-21.1,9.2v2.3c21.5,1.4,47.6,3.2,71,6V396.2L464.3,396.2z" />
+
+                                    <path d="M347.1,404.5L347.1,404.5c-2.7,2.7-4.1,6-4.1,9.6c0,1.4,0.5,2.7,1.4,4.1c0.9,0.9,1.8,1.4,3.2,1.4h10.5
+												    c1.8,0,3.2-0.9,4.1-2.3c0.9-1.4,0.9-3.7,0-5c-1.8-3.2-5-6.4-10.1-8.2C350.3,402.6,348.5,403.1,347.1,404.5L347.1,404.5z" />
+
+                                    <path d="M355.8,423.7c-0.9,0-1.8-0.5-2.7-1.4l-6-8.2c-0.9-1.4-0.9-3.2,0.9-4.6c1.4-0.9,3.2-0.9,4.6,0.5l6,8.2
+												    c0.9,1.4,0.9,3.2-0.5,4.6C357.2,423.2,356.7,423.7,355.8,423.7L355.8,423.7z" />
+
+										    </g>
+									    </svg>
+                                </label>
+                                <h5><label for="type3">Performance</label></h5>
+                            </div>
+                            <div class="col-xs-2">
+                                @{ categoryId = categories.Where(x => x.CategoryName.ToUpper().Contains("CONVERTIBLE"))?.FirstOrDefault()?.CategoriesId ?? 0; }
+                                <input asp-for="BasicSearchViewModel.CategoryId" id="type4" type="radio" name="CategoryId" onclick="getProducts(@makesId, @categoryId);" onchange="getProducts(@makesId, @categoryId);" value="@categoryId" />
+                                <label for="type4" class="b-search__main-type-svg">
+                                    <svg version="1.1" id="Layer_4" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                         viewBox="47.6 310.9 500 220" enable-background="new 47.6 310.9 500 220" xml:space="preserve">
+                                    <g>
+                                    <path d="M249.1,378.4h-0.9c-4.1,0.5-6,4.1-7.3,8.2l-2.3,8.7c-4.1,12.8,19.2,12.8,18.8,1.8v-11.4
+												    C256.9,381.1,253.7,377.9,249.1,378.4L249.1,378.4z" />
+
+                                    <path d="M142,488.3c-21.1,0-41.7-14.2-42.6-14.7l-2.3-1.4v-32.1l2.3-1.4c0.9-1.8,2.3-7.3,2.3-11.9v-30.2l58.6-3.7
+												    c25.2-1.4,40.8,1.4,58.2,4.1c9.6,1.4,19.7,3.2,31.6,4.1h95.2c5.5,0,11-0.9,16.9-1.4c6-0.9,11.9-1.8,18.3-1.8
+												    c0.9,0,38.9,4.1,69.6,11.9c33,8.2,44,21.5,45.3,27.5l2.7,47.2l-4.1,0.9c-7.8,1.8-14.2,2.7-31.1,2.7h-18.3v-9.2h16
+												    c12.8,0,19.7-0.5,25.2-1.8v-2.7v-35.7c-0.5-1.4-9.6-11.9-38-19.2c-29.8-7.8-67.3-11.9-67.8-11.9c-5,0-10.5,0.5-16.5,1.4
+												    c-6,0.9-11.9,1.8-18.3,1.8h-95.7c-12.8-0.9-22.9-2.7-33-4.1c-16.5-2.7-31.6-4.6-55.9-3.7l-49.9,2.7v21.5c0,6.4-3.2,12.8-4.6,15.6
+												    v23.8c6,3.7,22.9,12.4,38,11.9h12.4v9.2h-14.2C142,488.3,142.4,488.3,142,488.3L142,488.3z M394.7,488.3H207v-9.2h187.7V488.3
+												    L394.7,488.3z" />
+                                    <path d="M106.2,415.9c0,4.6-1.8,9.6-1.8,12.4h6.4c7.8,0,17.9-6,18.3-12.4v-6h-22.9V415.9L106.2,415.9L106.2,415.9z" />
+
+                                    <path d="M458.8,433.3l9.2,16.5c3.2-1.8,7.3-2.7,11-2.7l0,0l0,0l0,0l0,0l0,0l0,0c4.6,0,9.6,0,14.2,0v-0.9c-0.5-1.4-5-9.2-9.6-12.8
+												    C475.3,433.3,467.1,433.3,458.8,433.3L458.8,433.3z" />
+
+                                    <path d="M213.4,488.3c-1.8,3.7-4.1,6.9-6.9,9.6l0,0c-6.4,6.4-14.7,10.1-24.3,10.1s-17.9-4.1-24.3-10.1c-2.7-2.7-5-6-6.9-9.6h-4.6
+												    h-3.7v-4.6v-12.4c0-11,4.6-21.5,11.9-28.8c7.3-7.3,16.5-11.9,27.5-11.9l0,0c11,0,21.1,4.1,28.8,11.4l0,0h2.3
+												    c7.3,7.3,11.9,17.4,11.9,28.8v12.4v4.6h-4.6h-7.3V488.3L213.4,488.3z M420.4,449.3c-13.3,0-23.8,10.5-23.8,23.8
+												    s10.5,23.8,23.8,23.8c13.3,0,23.8-10.5,23.8-23.8C444.6,460.3,433.6,449.3,420.4,449.3L420.4,449.3L420.4,449.3z M182.2,449.3
+												    c-13.3,0-23.8,10.5-23.8,23.8S169,497,182.2,497s23.8-10.5,23.8-23.8C206.5,460.3,195.5,449.3,182.2,449.3L182.2,449.3L182.2,449.3
+												    z M420.4,431L420.4,431c11,0,21.1,4.1,28.8,11.4l0,0h2.3c7.3,7.3,11.9,17.4,11.9,28.8v12.4v4.6h-4.6h-7.3c-1.8,3.7-4.1,6.9-6.9,9.6
+												    c-6.4,6.4-14.7,10.1-24.3,10.1c-9.6,0-17.9-3.7-24.3-10.1l0,0c-2.7-2.7-5-6-6.9-9.6h-4.6H381v-4.6v-12.4c0-11,4.6-21.1,11.9-28.8
+												    H392l0,0C399.3,435.6,409.4,431,420.4,431L420.4,431z" />
+
+                                    <path d="M420.4,464.9c-4.6,0-8.7,3.7-8.7,8.7c0,4.6,4.1,8.7,8.7,8.7s8.7-3.7,8.7-8.7C429.1,468.6,425.4,464.9,420.4,464.9
+												    L420.4,464.9z" />
+
+                                    <polygon points="266.5,424.2 243.6,424.2 243.6,419.6 266.5,419.6 	" />
+
+                                    <path d="M182.2,464.9c-5,0-8.7,3.7-8.7,8.7c0,4.6,3.7,8.7,8.7,8.7c4.6,0,8.7-3.7,8.7-8.7C190.9,468.6,187.3,464.9,182.2,464.9
+												    L182.2,464.9z" />
+
+                                    <polygon points="234.4,464 234.4,469.9 367.7,469.9 	" />
+
+                                    <polygon points="490.9,469.9 481.7,469.9 481.7,465.4 490.9,465.4 	" />
+
+                                    <path d="M483.1,460.8h-6.9c-1.8,0-3.2,1.8-3.2,3.7v2.3c0,1.8,1.4,3.2,3.2,3.2h6.9c1.8,0,3.2-1.4,3.2-3.2v-2.3
+												    C486.3,462.2,484.9,460.8,483.1,460.8L483.1,460.8z" />
+
+                                    <path d="M101.7,465.4v13.3h36.6v-0.9C123.6,476.4,107.6,469,101.7,465.4L101.7,465.4z" />
+
+                                    <path d="M185,376.1L185,376.1c-4.1,0.5-6,4.1-6.9,8.2l-2.7,8.7c-0.5,0.9-0.5,1.4-0.5,1.8c6.4,0.5,11.9,0.9,18.3,1.4
+												    c0-0.5,0-0.9,0-1.4v-11.4C192.8,378.8,189.6,375.6,185,376.1L185,376.1z" />
+
+                                    <path d="M383.3,398.5c0,0-46.7-28.4-65.9-34.3c-2.3-0.9-4.6-1.4-6.9-1.8l0,0c-2.3-0.5-5-0.9-7.8-1.4l-1.8,9.2
+												    c24.3,6,33.9,21.1,54.9,33.9c3.2,1.8,19.2,0.9,22.4,2.7L383.3,398.5L383.3,398.5z" />
+
+                                    <path d="M337.5,400.8L337.5,400.8c-2.7,2.7-4.1,6-4.1,9.6c0,1.4,0.5,2.3,1.4,3.2c0.9,0.9,1.8,1.4,3.2,1.4H348
+												    c1.8,0,3.2-0.9,4.1-2.3c0.9-1.4,0.9-3.2,0-4.6c-1.8-3.2-5-6.4-10.1-8.2C340.2,399,338.4,399.4,337.5,400.8L337.5,400.8z" />
+
+                                    <path d="M345.7,412.7c-0.9,0-1.8-0.5-2.7-1.4l-6-8.2c-0.9-1.4-0.9-3.2,0.5-4.6c1.4-0.9,3.2-0.9,4.6,0.9l6,8.2
+												    c0.9,1.4,0.9,3.2-0.9,4.6C347.1,412.7,346.6,412.7,345.7,412.7L345.7,412.7z" />
+
+										    </g>
+									    </svg>
+                                </label>
+                                <h5><label for="type4">Convertible</label></h5>
+                            </div>
+                            <div class="col-xs-2">
+                                @{ categoryId = categories.Where(x => x.CategoryName.ToUpper().Contains("SEDÁN"))?.FirstOrDefault()?.CategoriesId ?? 0; }
+                                <input asp-for="BasicSearchViewModel.CategoryId" id="type5" type="radio" name="CategoryId" onclick="getProducts(@makesId, @categoryId);" onchange="getProducts(@makesId, @categoryId);" value="@categoryId" />
+                                <label for="type5" class="b-search__main-type-svg">
+                                    <svg version="1.1" id="Layer_5" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                         viewBox="47.6 310.9 500 220" enable-background="new 47.6 310.9 500 220" xml:space="preserve">
+                                    <g>
+                                    <path d="M207.9,399.4c-9.2,0-34.8-2.3-48.1-9.6c20.6-11,57.2-23.8,76-23.8c16.5,0,36.6,0,52.7,0c25.2,0,46.2,9.2,66.9,20.6
+												    c-3.2,3.2-5,6.4-5.5,11.4c0,0.5,0,0.9,0,1.4H207.9L207.9,399.4z" />
+
+                                    <path d="M134.6,486.4c-21.1,0-45.3-12.4-46.7-12.8l-2.3-1.4v-32.1l-1.4-0.9c0.9-1.8,6-7.3,6-11.9v-29.8l17.9-4.1
+												    c24.3-11.4,90.7-34.3,134.6-34.3h54.9c12.4,0.9,22.9,3.2,32.1,5.5c17.9,5.5,58.6,30.2,65,34.3c6.4,0.9,40.3,5,67.8,11.9
+												    c33,8.2,44,21.5,45.3,27.5l2.7,47.2l-4.1-0.9c-7.8,1.8-14.2,2.7-31.1,2.7h-18.8v-9.2h13.7c12.8,0,22-0.5,27.5-1.8v-0.9v-35.7
+												    c-0.5-1.4-9.6-11.9-38-19.2c-29.8-7.8-66.9-11.9-67.3-11.9l-1.8-0.5c-0.5-0.5-45.8-28.8-64.1-34.3c-8.2-2.3-18.3-4.1-29.3-5.5h-54
+												    c-42.6,0-104.4,22.9-127.8,33.9l-4.6,1.4l-11,2.3v22c0,6.4-3.2,12.8-4.6,15.6v22.9c6,3.7,22.9,12.4,38,11.9h12.4v9.2h-12.4
+												    C132.8,486.4,135.1,486.4,134.6,486.4L134.6,486.4z M402,486.4H200.6v-9.2H402V486.4L402,486.4z" />
+
+                                    <path d="M99.8,414.1c0,4.6-2.3,9.6-2.7,12.4h6.9c7.8,0,17.9-6,18.3-12.4v-6H99.4L99.8,414.1L99.8,414.1L99.8,414.1z" />
+
+                                    <path d="M471.6,433.3l9.2,16.5c2.7-1.8,7.3-2.7,11-2.7l0,0l0,0l0,0l0,0l0,0l0,0c4.6,0,9.6,0,14.2,0v-0.9c-0.5-1.4-5-9.2-9.6-12.8
+												    C487.7,433.3,479.9,433.3,471.6,433.3L471.6,433.3z" />
+
+                                    <polygon points="310.5,426.9 287.6,426.9 287.6,422.3 310.5,422.3 	" />
+
+                                    <polygon points="214.3,426.9 191.4,426.9 191.4,422.3 214.3,422.3 	" />
+
+                                    <polygon points="232.6,459.9 232.6,468.1 381.9,468.1 	" />
+
+                                    <polygon points="502.8,468.1 493.6,468.1 493.6,463.5 502.8,463.5 	" />
+
+                                    <path d="M494.5,463.5h-6.9c-1.8,0-3.2-0.9-3.2,0.9v4.6c0,1.8,1.4,3.2,3.2,3.2h6.9c1.8,0,3.2-1.4,3.2-3.2v-2.3
+												    C498.2,464.9,496.8,463.5,494.5,463.5L494.5,463.5z" />
+
+                                    <path d="M359,396.2L359,396.2c-2.7,2.7-4.1,6-4.1,9.6c0,1.4,0.5,0.5,1.4,1.4c0.9,0.9,1.8,1.4,3.2,1.4H370c1.8,0,3.2-0.9,4.1-2.3
+												    c0.9-1.4,0.9-0.9,0-2.7c-1.8-3.2-5-6.4-10.1-8.2C362.2,394.4,360.4,394.8,359,396.2L359,396.2z" />
+
+                                    <path d="M367.7,415.5c-0.9,0-1.8-0.5-2.7-1.4l-6-8.2c-0.9-1.4-0.9-3.2,0.9-4.6c1.4-0.9,3.2-0.9,4.6,0.9l6,8.2
+												    c0.9,1.4,0.9,3.2-0.9,4.6C369.1,415,368.6,415.5,367.7,415.5L367.7,415.5z" />
+
+                                    <path d="M95.2,463.5v13.3h35.3l-0.5-0.9C115.4,474.5,101.2,467.2,95.2,463.5L95.2,463.5z" />
+
+                                    <path d="M175.4,431L175.4,431c11,0,21.1,4.6,28.8,11.9l0,0h-1.4c7.3,7.3,11.9,17.4,11.9,28.8v11.9v2.7h-4.6h-8.7
+												    c2.7-4.6,4.1-9.6,4.1-14.7c0-16-13.3-27.5-29.3-27.5s-29.3,11-29.3,27.5c0,5.5,1.4,10.5,4.1,14.7h-10.5h-3.2v-4.6v-10.5
+												    c0-11,4.6-21.1,11.9-28.8h-1.8l0,0C153.9,435.6,163.9,431,175.4,431L175.4,431z" />
+
+                                    <path d="M151.1,449.3c6.4-6.4,14.7-10.1,24.3-10.1c9.6,0,17.9,3.7,24.3,10.1l0,0c6.4,6.4,10.1,14.7,10.1,24.3
+												    c0,9.6-3.7,17.9-10.1,24.3l0,0c-6.4,6.4-14.7,10.1-24.3,10.1c-9.6,0-17.9-3.7-24.3-10.1c-6.4-6.4-10.1-14.7-10.1-24.3
+												    C141,464,144.7,455.3,151.1,449.3L151.1,449.3L151.1,449.3L151.1,449.3z M175.4,449.3c-13.3,0-23.8,10.5-23.8,23.8
+												    s10.5,23.8,23.8,23.8c13.3,0,23.8-10.5,23.8-23.8C199.2,460.3,188.7,449.3,175.4,449.3L175.4,449.3z" />
+
+                                    <path d="M175.4,464.9c-5,0-8.7,4.1-8.7,8.7c0,5,3.7,8.7,8.7,8.7c4.6,0,8.7-3.7,8.7-8.7C184.1,468.6,180,464.9,175.4,464.9
+												    L175.4,464.9z" />
+                                    <path d="M432.7,431L432.7,431c11,0,21.1,4.6,28.8,11.9l0,0h1.8c7.3,7.3,11.9,17.4,11.9,28.8v11.9v2.7h-4.6h-11.9
+												    c2.7-4.6,4.1-9.6,4.1-14.7c0-16-13.3-27.5-29.3-27.5s-29.3,11-29.3,27.5c0,5.5,1.4,10.5,4.1,14.7h-10.5h-4.6v-4.6v-10.5
+												    c0-11,4.6-21.1,11.9-28.8h-0.5l0,0C411.7,435.6,421.7,431,432.7,431L432.7,431z" />
+
+                                    <path d="M408.5,449.3c6.4-6.4,14.7-10.1,24.3-10.1c9.6,0,17.9,3.7,24.3,10.1l0,0c6.4,6.4,10.1,14.7,10.1,24.3
+												    c0,9.6-3.7,17.9-10.1,24.3l0,0c-6.4,6.4-14.7,10.1-24.3,10.1c-9.6,0-17.9-3.7-24.3-10.1c-6.4-6.4-10.1-14.7-10.1-24.3
+												    C398.8,464,402.5,455.3,408.5,449.3L408.5,449.3L408.5,449.3L408.5,449.3z M432.7,449.3c-13.3,0-23.8,10.5-23.8,23.8
+												    s10.5,23.8,23.8,23.8c13.3,0,23.8-10.5,23.8-23.8C457,460.3,446,449.3,432.7,449.3L432.7,449.3z" />
+
+                                    <path d="M432.7,464.9c-4.6,0-8.7,4.1-8.7,8.7c0,5,3.7,8.7,8.7,8.7c4.6,0,8.7-3.7,8.7-8.7C441.9,468.6,437.8,464.9,432.7,464.9
+												    L432.7,464.9z" />
+										    </g>
+									    </svg>
+                                </label>
+                                <h5><label for="type5">Sedan</label></h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="b-search__main-form wow zoomInUp" data-wow-delay="0.1s">
+                    <div class="row" id="search">
+                        <div class="col-xs-12 col-md-12" style="margin:2.5rem;">
+                            <div class="m-firstSelects">
+                                <div class="col-xs-6">
+                                    <select asp-for="BasicSearchViewModel.ModelId" name="ModelId" id="idModels">
+                                        <option value=0 selected>Selecciona Modelo</option>
+                                        @if (isSearch && modelsForCategory != null)
+                                        {
+                                            @foreach (var item in modelsForCategory)
+                                            {
+                                                @if (item.ModelsId == modelId)
+                                                {
+                                                    <option value=@item.ModelsId selected>@item.ModelName</option>
+                                                }
+                                                else
+                                                {
+                                                    <option value=@item.ModelsId>@item.ModelName</option>
+                                                }
+                                            }
+                                        }
+                                    </select>
+                                    <span class="fa fa-caret-down"></span>
+                                    <p><b>2. MODELO</b></p>
+                                </div>
+                                <div class="col-xs-3">
+                                    <select name="YearMin" asp-for="BasicSearchViewModel.YearMin" id="fordMinYearId" asp-items="ViewBag.YearList" onchange='document.querySelector("#fordMaxYearId").value = this.value'>
+                                        <option value="0" selected>Cualquier año</option>
+                                    </select>
+                                    <span class="fa fa-caret-down"></span>
+                                    <p><b>3. AÑO MIN.</b></p>
+                                </div>
+                                <div class="col-xs-3">
+                                    <select name="YearMax" asp-for="BasicSearchViewModel.YearMax" id="fordMaxYearId" asp-items="ViewBag.YearList">
+                                        <option value="0" selected>Cualquier año</option>
+                                    </select>
+                                    <span class="fa fa-caret-down"></span>
+                                    <p><b>4. AÑO MÁX.</b></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-8 col-xs-12 text-left s-noPadding">
+                                <div class="b-search__main-form-range">
+                                    <label>5. RANGO DE PRECIOS (EN MILLONES)</label>
+                                    <div class="slider" style="width:90%"></div>
+                                    <input type="hidden" asp-for="BasicSearchViewModel.PriceRangeMin" name="PriceRangeMin" value="0" id="fordPriceMinId" class="j-min" style="width:90%;" />
+                                    <input type="hidden" asp-for="BasicSearchViewModel.PriceRangeMax" name="PriceRangeMax" value="300" id="fordPriceMaxId" class="j-max" style="width:90%;" />
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-xs-12 text-left s-noPadding" id="backDivId">
+                                <div class="b-search__main-form-submit">
+                                    <button type="button" id="btnSearch" class="btn m-btn">Buscar vehículo<span class="fa fa-angle-right"></span></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+</div><!--b-infoBar-->
+
+<div class="b-items">
+    <div class="container" style="margin-top:-3.5em;">
+        <div class="row">
+            <div class="col-lg-6 col-xs-6">
+                <div class="b-infoBar__select wow zoomInUp" data-wow-delay="0.5s">
+                    <form asp-action="Index" asp-controller="Ford" method="POST">
+                        <div class="b-infoBar__select-one">
+                            <span class="b-infoBar__select-one-title">ORDENAR POR</span>
+                            <select asp-items="Html.GetEnumSelectList<SortBy>()" name="select2" id="fordSortById" class="m-select" onchange="recordsPerPage()">
+                            </select>
+                            <span class="fa fa-caret-down"></span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-6 col-xs-6">
+                <div class="b-infoBar__select wow zoomInUp" data-wow-delay="0.5s">
+                    <div class="b-infoBar__select-one">
+                        <span class="b-infoBar__select-one-title">REGISTROS POR PÁGINA</span>
+                        <select asp-items="Html.GetEnumSelectList<RecordsPerPage>()" id="dropDownListRecordsPerPage" class="m-select" onchange="recordsPerPage()">
+                        </select>
+                        <span class="fa fa-caret-down"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-sm-12 col-xs-12">
+                <div class="b-items__cars">
+                    @if (Model.ProductAndMakeBases.Count > 0)
+                    {
+                        <div id="itemRecordsDisplay">
+                            @foreach (var item in Model.ProductAndMakeBases)
+                            {
+                                <div class="b-items__cars-one wow zoomInUp" data-wow-delay="0.25s">
+                                    <div class="b-items__cars-one-img">
+                                        <img src="@Url.Content($"~/{item.PictureUrl}")" alt='@item.ProductName' style="max-width:270px; max-height:230px;" />
+                                        @if (item.IsFeatured)
+                                        {
+                                            <span class="b-items__cars-one-img-type m-premium">DESTACADO</span>
+                                        }
+
+                                        @if (!string.IsNullOrEmpty(item.YoutubeUrl))
+                                        {
+                                            <a data-toggle="modal" data-target="#idDetailsModal" href="#" onclick="getYoutubeVideoPartial('@item.YoutubeUrl')" class="b-items__cars-one-img-video"><span class="fa fa-film"></span>VIDEO</a>
+                                        }
+                                    </div>
+                                    <div class="b-items__cars-one-info">
+                                        <h2>@item.ProductName</h2>
+                                        <div class="row s-noRightMargin">
+                                            <div class="col-md-9 col-xs-12">
+                                                <p>@item.ProductDescription</p>
+                                                <div class="m-width row m-smallPadding">
+                                                    <div class="col-xs-6">
+                                                        <div class="row m-smallPadding">
+                                                            <div class="col-xs-6">
+                                                                <span class="b-items__cars-one-info-title">Tipo:</span>
+                                                                <span class="b-items__cars-one-info-title">Kilometraje:</span>
+                                                                <span class="b-items__cars-one-info-title">Trasmisión:</span>
+                                                            </div>
+                                                            <div class="col-xs-6">
+                                                                <span class="b-items__cars-one-info-value">@item.CategoryName</span>
+                                                                <span class="b-items__cars-one-info-value">0 KM</span>
+                                                                <span class="b-items__cars-one-info-value">@item.TransmissionName</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-6">
+                                                        <div class="row m-smallPadding">
+                                                            <div class="col-xs-5">
+                                                                <span class="b-items__cars-one-info-title">Caballos de fuerza:</span>
+                                                                <span class="b-items__cars-one-info-title">Modelo:</span>
+                                                                <span class="b-items__cars-one-info-title">Especs.:</span>
+                                                            </div>
+                                                            <div class="col-xs-7">
+                                                                <span class="b-items__cars-one-info-value">@item.HorsePower.ToString() Hp</span>
+                                                                <span class="b-items__cars-one-info-value">@item.Year</span>
+                                                                <span class="b-items__cars-one-info-value">@item.Passengers.ToString()-Pasajeros, @item.PassengersDoors.ToString()-Puertas</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 col-xs-12">
+                                                <div class="b-items__cars-one-info-price">
+                                                    <div class="pull-right">
+                                                        <h4>Precio Venta:</h4>
+                                                        <h4>@item.SalesPrice.ToString("C")</h4>
+                                                        <span class="b-items__cars-one-info-title ">Inventario</span>
+                                                    </div>
+                                                    <a asp-action="ProductInventory" asp-controller="Ford" asp-route-productId="@item.ProductId" class="btn m-btn pull-right">VER STOCK<span class="fa fa-angle-right"></span></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    }
+                    else
+                    {
+                        <div id="itemRecordsDisplay">
+                            <div class="alert alert-info text-center wow zoomInUp" role="alert" data-wow-delay="0.5s">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <strong>No hay registros para mostrar</strong> &#128577;
+                            </div>
+                        </div>
+                    }
+                    <form>
+                        <div>
+                            <div class="b-items__pagination wow zoomInUp" data-wow-delay="0.5s">
+                                <div class="b-items__pagination-main" id="paginationDivId">
+                                    <a href="javascript:;" onclick="paginationRecords(1, '@makesName')" class="m-left"><span class="fa fa-angle-left"></span></a>
+                                    <span class="m-active"><a href="#" onclick="paginationRecords(1, '@makesName')">1</a></span>
+                                    @for (int i = 2; i <= ViewBag.PagesCount; i++)
+                                    {
+                                        <span><a href="javascript:;" onclick="paginationRecords(@i, '@makesName')">@i</a></span>
+                                    }
+
+                                    <a href="javascript:;" onclick="paginationRecords(@ViewBag.PagesCount, '@makesName')" class="m-right"><span class="fa fa-angle-right"></span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12" style="margin:3rem;">
+                <p class="text-center wow zoomInUp" data-wow-delay="0.25s">*Los precios anunciados son precios sugeridos por Motovalle. No obstante estos precios pueden estar sujetos a variaciones según el modelo, especificaciones y el plan comercial vigente aplicable a cada vehículo. Para mayor información, consulta directamente con nuestros asesores.</p>
+                <p class="text-center wow zoomInUp" data-wow-delay="0.25s" style="margin-bottom:2em;">**Algunas imágenes o características pueden variar con respecto a las versiones que se comercializan en Colombia.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!--b-items-->
+
+
+@section scripts {
+    <script type="text/javascript">
+        const btn = document.getElementById("btnSearch");
+        btn.addEventListener('click', () => {
+            //Set values
+            document.getElementById("recordsPerPageId").value = document.getElementById("dropDownListRecordsPerPage").value;
+            if (document.getElementById("pageNumberSelectedId") == null) {
+                document.getElementById("pageNumberId").value = 1
+            } else {
+                document.getElementById("pageNumberId").value = document.getElementById("pageNumberSelectedId").value;
+            };
+
+            if (!$("#frmMainSearch").valid()) {
+                return;
+            }
+
+            recordsPerPage();
+        });  
+
+        window.addEventListener('DOMContentLoaded', (event) => {
+            setTimeout(async () => {
+                const heroRequest = await fetch('/Home/GetHeroComponent/Ford');
+                if (heroRequest.ok) {
+                    const heroResponse = await heroRequest.text();
+                    const $bslider = document.querySelector(".b-slider");
+                    if (heroResponse.length > 10) {
+                        $bslider.innerHTML = heroResponse;
+                        setInterval(() => {
+                            document.querySelector("#idNextSlider").click();
+                        }, 8000);
+                    } else {
+                        $bslider.innerHTML = `<section class="b-pageHeader ford">
+                                                <div class="container">
+                                                    <h1>Ford</h1>
+                                                </div>
+                                            </section>`;
+                    }
+
+                    const $navBar = document.querySelector(".b-nav");
+                    const $heroSlider = document.querySelector(".slide.carousel.carousel-fade");
+                    if ($heroSlider) {
+                        $navBar.addEventListener("mouseover", () => {
+                            $heroSlider.style.zIndex = "-1";
+                        });
+
+                        $navBar.addEventListener("mouseout", () => {
+                            $heroSlider.style.zIndex = "auto";
+                        });
+                    }
+                }
+            }, 1800)
+        });
+    </script>
+    <partial name="_ValidationScriptsPartial" />
+}
+
+@section Styles{ 
+    <style>
+        select:focus, select:active {
+            border-color: rgba(126, 239, 104, 0.8);
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(126, 239, 104, 0.6);
+            outline: 0 none;
+        }
+    </style>
+}

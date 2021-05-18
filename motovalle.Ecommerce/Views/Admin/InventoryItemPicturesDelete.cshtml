@@ -1,0 +1,83 @@
+﻿@model Ecommerce.Models.Entities.InventoryItemPictures
+@{
+    ViewData["Title"] = "InventoryItemPicturesDelete";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<section class="content">
+    <div class="container">
+        <div>
+            <div class="col-12 text-center">
+                <h1 class="m-0 text-dark">Eliminar</h1>
+            </div>
+            <div class="text-left">
+                <p>
+                    <a asp-action="InventoryItemPictures" asp-controller="Admin" asp-route-inventoryItemId="@Model.FkInventoryItemsId" class="btn btn-md btn-dark"><span class="fa fa-arrow-circle-left"></span> Volver</a>
+                </p>
+            </div>
+            <div class="col-12 text-center">
+                <h2 class="m-0 text-dark"><b>¿Estás seguro de querer eliminar este registro?</b></h2>
+            </div>
+
+            @if (ViewBag.Message != null)
+            {
+                <div class="alert alert-danger text-center wow zoomInUp" role="alert" data-wow-delay="0.5s">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <strong>¡Ups!..</strong> @ViewBag.Message &#128577;
+                </div>
+            }
+        </div>
+        <hr />
+        <div class="col-lg-offset-3">
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.PictureName)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.PictureName)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.PictureUrl)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.PictureUrl)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.PictureWidth)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.PictureWidth)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.PictureHeight)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.PictureHeight)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.AlternateText)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.AlternateText)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.FkInventoryItems)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.FkInventoryItems.InventoryItemsId)
+                </dd>
+            </dl>
+            <hr />
+            <form method="post" asp-action="InventoryItemPicturesDeleteConfirmed" asp-controller="Admin">
+                @Html.AntiForgeryToken()
+                <input type="hidden" asp-for="InventoryItemPicturesId" />
+                <input type="submit" value="Eliminar" class="btn btn-danger" />
+            </form>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

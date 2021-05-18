@@ -1,0 +1,443 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head prefix="og: http://ogp.me/ns#">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <!-- Render Meta general Meta Tags -->
+    @await Html.PartialAsync("_MetaTags")
+
+    <link rel="shortcut icon" type="image/x-icon" href="~/favicon.ico" />
+
+    <!-- START: StyleSheets declarations -->
+    <link href="~/css/master.css" rel="stylesheet">
+
+    <!-- CUSTOM FONT -->
+    <link href="~/css/font-ford.css" rel="stylesheet" asp-append-version="true" />
+
+    <!-- SWITCHER -->
+    <link rel="stylesheet" type="text/css" href="~/assets/switcher/css/color3.css" title="color3" media="all" data-default-color="true" />
+
+    <link href="~/css/site.css" rel="stylesheet" asp-append-version="true" />
+
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!--Syncfusion Stuff-->
+    <!-- Syncfusion Essential JS 2 Styles -->
+    <link rel="stylesheet" href="https://cdn.syncfusion.com/ej2/material.css" />
+
+    <!-- END: StyleSheets declarations -->
+    <!-- Render General Analyzers -->
+    @await Html.PartialAsync("_Analyzers")
+
+    @RenderSection("Styles", required: false)
+    <!-- IBM Chat bot -->
+    <style type="text/css">
+        @@keyframes slideInRight {
+            from {
+                transform: translate3d(100%, 0, 0);
+                visibility: visible;
+            }
+
+            to {
+                transform: translate3d(0, 0, 0);
+            }
+        }
+
+        button.chatLauncher {
+            animation-duration: 0.5s;
+            transition-duration: 0.5s;
+            position: fixed;
+            bottom: 32px;
+            left: 32px;
+            z-index: 9999;
+            border: 4px solid #0056CB;
+            padding: 5px;
+            border-radius: 0px;
+            margin: 0;
+            text-decoration: none;
+            background-color: #0056CB;
+            color: #ffffff;
+            font-family: sans-serif;
+            font-size: 0.8rem;
+            cursor: pointer;
+            text-align: left;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            width: 185px;
+            opacity: 0;
+        }
+
+        button.chatLauncher.open {
+            animation-name: slideInRight;
+            opacity: 1;
+        }
+
+        button.chatLauncher:hover,
+        button.chatLauncher:focus {
+            background-color: #E5E5E5;
+            border: 4px solid #CDCDCD;
+        }
+
+        button.chatLauncher:focus {
+            outline: 1px solid #CDCDCD;
+            outline-offset: -4px;
+        }
+
+        .rejilla {
+            display: grid;
+            grid-template-columns: 45px 125px;
+            align-items: start;
+        }
+
+        .chatElement {
+            height: 600px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="m-index" data-scrolling-animations="true" data-equal-height=".b-auto__main-item">
+    <!-- Render Body Analyzers -->
+    @await Html.PartialAsync("_AnalyzersBody")
+    <!-- Loader -->
+    <div id="page-preloader"><span class="spinner"></span></div>
+    <!-- Loader end -->
+    <!-- Start main Header -->
+    <header class="b-topBar wow slideInDown" data-wow-delay="0.7s">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-xs-3 text-center">
+                    <div class="b-topBar__tel">
+                        <div class="dropdown lang">
+                            <a href="https://wa.me/573113769946?text=%C2%A1Hola!%2C%20Quiero%20obtener%20m%C3%A1s%20informaci%C3%B3n." aria-expanded="false" style="text-decoration: none;" target="_blank" rel="noreferrer"><span class="fa fa-whatsapp"></span>Contact center</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-9 col-xs-9">
+                    <nav class="b-topBar__nav">
+                        @{ await Html.RenderPartialAsync("_LoginPartial"); }
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header><!--b-topBar-->
+    <!-- End main Header -->
+    <!-- Start Nav bar render -->
+    @{ await Html.RenderPartialAsync("~/Views/Shared/NavBars/_MainNavBar.cshtml", "Ford"); }
+    <!-- Start Nav bar render -->
+    <!-- Start Render body content -->
+    @RenderBody()
+    @{ await Html.RenderPartialAsync("_CookieConsentPartial"); }
+    <!-- End Render body content -->
+    <!-- Start pre-footer content -->
+    <div class="b-features">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9 col-md-offset-3 col-xs-4 col-xs-offset-7">
+                    <ul class="b-features__items">
+                        <li class="wow zoomInUp" data-wow-delay="0.3s" data-wow-offset="100">Precios competitivos</li>
+                        <li class="wow zoomInUp" data-wow-delay="0.3s" data-wow-offset="100">Excelencia y calidad de servicio</li>
+                        <li class="wow zoomInUp" data-wow-delay="0.3s" data-wow-offset="100">Agilidad</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div><!--b-features-->
+    <!-- End pre-footer content -->
+    <!-- Start pre-footer info -->
+    <div class="b-info">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-xs-6">
+                    <aside class="b-info__aside wow zoomInLeft" data-wow-delay="0.3s">
+                        <article class="b-info__aside-article">
+                            <h3>Nuestras sedes</h3>
+                            @await Component.InvokeAsync("OurHeadquarters", "Ford")
+                            <a asp-action="Sedes" asp-controller="Info" class="btn m-btn">Más información<span class="fa fa-angle-right"></span></a>
+                        </article>
+
+                        <article class="b-info__aside-article">
+                            <h3>Acerca de nosotros</h3>
+                            <p class="text-justify">
+                                Motovalle S.A.S, es una de las mayores empresas del sector Automotor en Colombia,
+                                somos sinónimo de buen servicio, agilidad y competitividad.
+                            </p>
+                            <br />
+                            <a asp-action="Index" asp-controller="Info" class="btn m-btn">Más información<span class="fa fa-angle-right"></span></a>
+                        </article>
+                    </aside>
+                </div>
+                <div class="col-md-5 col-xs-6">
+                    @await Component.InvokeAsync("LatestPostShared", "Ford")
+                </div>
+                <div class="col-md-4 col-xs-6">
+                    <address class="b-info__contacts wow zoomInUp" data-wow-delay="0.3s">
+                        <p>Contáctenos</p>
+                        <div class="b-info__contacts-item">
+                            <span class="fa fa-map-marker"></span>
+                            <em>
+                                CL 26 1-71, Cali,
+                                Valle del Cauca, Colombia
+                            </em>
+                        </div>
+                        @*<div class="b-info__contacts-item">
+                                <span class="fa fa-phone"></span>
+                                <em>Teléfono:  (+57) 2 4899907</em>
+                            </div>
+                            <div class="b-info__contacts-item">
+                                <span class="fa fa-fax"></span>
+                                <em>FAX:  (+57) 2 4883000</em>
+                            </div>*@
+                        <div class="b-info__contacts-item">
+                            <span class="fa fa-envelope"></span>
+                            <em>Email:  info@tiendamotovalle.com</em>
+                        </div>
+                        <div class="b-info__contacts-item">
+                            <span class="fa fa-question"></span>
+                            <em><a asp-action="ContactUs" asp-controller="Info">¿Preguntas?, contáctenos.</a></em>
+                        </div>
+                    </address>
+                </div>
+            </div>
+        </div>
+    </div><!--b-info-->
+    <!-- End pre-footer info -->
+    <!-- Strart Footer -->
+    <footer class="b-footer">
+        <a id="to-top" href="#this-is-top"><i class="fa fa-chevron-up"></i></a>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-3">
+                    <div class="b-footer__company wow fadeInLeft" data-wow-delay="0.3s">
+                        <a class="navbar-brand" asp-action="Index" asp-controller="Home"><img src="~/media/brands/motovalle-logo.png" style="width:210px; height:40px;" alt="Motovalle-logo65"></a>
+                    </div>
+                </div>
+                <div class="col-xs-4">
+                    <p class="text-justify" style="color:#555; margin-top:1.2em;">&copy; Todos los derechos reservados - Motores del Valle S.A.S @DateTime.Now.Year.ToString() Powered by: <a href="http://innovamarketingsystems.com/" target="_blank" rel="noreferrer">Innova Marketing Systems</a>.</p>
+                </div>
+                <div class="col-xs-5">
+                    <div class="b-footer__content wow fadeInRight" data-wow-delay="0.3s">
+                        <div class="b-footer__content-social">
+                            <a href="https://web.facebook.com/motovalle/" target="_blank" rel="noreferrer"><span class="fa fa-facebook-square"></span></a>
+                            <a href="https://twitter.com/motovalle_col" target="_blank" rel="noreferrer"><span class="fa fa-twitter-square"></span></a>
+                            <a href="https://www.instagram.com/motovalle_oficial/" target="_blank" rel="noreferrer"><span class="fa fa-instagram"></span></a>
+                            <a href="https://www.youtube.com/channel/UC_0MawhV4cWPrz1pIPdrSVA" target="_blank" rel="noreferrer"><span class="fa fa-youtube-square"></span></a>
+                        </div>
+                        <nav class="b-footer__content-nav">
+                            <ul>
+                                <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                                <li>@Html.ActionLink("Acerca de nosotros", "Index", "Info")</li>
+                                <li>@Html.ActionLink("Blog", "Index", "Blog")</li>
+                                <li>@Html.ActionLink("Privacidad", "Privacy", "Home")</li>
+                                <li>@Html.ActionLink("Contáctenos", "ContactUs", "Info")</li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer><!--b-footer-->
+    <!-- End Footer -->
+    <!-- Partial View -->
+    @{ await Html.RenderPartialAsync("_ProductVideo"); }
+    @{ await Html.RenderPartialAsync("_MoreInfo", "ford"); }
+    <!-- Partial View -->
+    <!-- Start Scripts section -->
+    <!--JivoChat -->
+    <script src="//code.jivosite.com/widget/zQCYoMifqg" async></script>
+    <!--JivoChat -->
+    <!--Main-->
+    <script src="~/js/jquery-1.11.3.min.js"></script>
+    <script src="~/js/jquery-ui.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/modernizr.custom.js"></script>
+
+    <!--Owl Carousel-->
+    <script src="~/assets/owl-carousel/owl.carousel.min.js"></script>
+
+    <!--bxSlider-->
+    <script src="~/assets/bxslider/jquery.bxslider.js" asp-append-version="true"></script>
+
+    <!-- jQuery UI Slider -->
+    <script src="~/assets/slider/jquery.ui-slider.js"></script>
+
+    <!--Theme-->
+    <script src="~/js/jquery.smooth-scroll.js"></script>
+    <script src="~/js/wow.min.js"></script>
+    <script src="~/js/jquery.placeholder.min.js"></script>
+    <script src="~/js/theme.js" asp-append-version="true"></script>
+    <script src="~/js/ecommerce-functions.js" asp-append-version="true"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <!--360 -->
+    <script src="https://cdn.scaleflex.it/plugins/js-cloudimage-360-view/2/js-cloudimage-360-view.min.js"></script>
+    <!--360 -->
+    <!-- MercadoPago -->
+    <script src="https://secure.mlstatic.com/sdk/javascript/v1/mercadopago.js"></script>
+    <!--MercadoPago -->
+    <!-- Sweet Alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
+    <!-- IBM Chat Bot -->
+    <script type="text/javascript">
+        var datos;
+        // Manejo del evento, y creación del formulario
+        function handleFormularioTemplate(event) {
+            //Creación div para el formulario  y atributos
+            const element = document.createElement('div');
+            element.setAttribute('style', 'width:100%; height:100%; padding: 24px;');
+            element.setAttribute('name', 'prueba');
+            // Creación de de elementos del formulario, con sus propios estilos
+            element.innerHTML = `
+      <!--Genreo-->
+      <label style='color: #000; font-weight:bold;font-size: 12px;font-family:Arial, Helvetica;'>Sexo:</label>
+      <input type="radio" id="Masculino" name="gender" value="M">
+      <label for="male">Masculino</label>
+      <input type="radio" id="Femenino" name="gender" value="F">
+      <label for="female">Femenino</label><br><br>
+      <!--Estado civil-->
+      <div>
+      <label style='color: #000; font-weight:bold;font-size: 12px;font-family:Arial, Helvetica;'>Estado civil:</label><br>
+      <select id="civil" name="civil" style='background-color: rgba(255, 255, 255, 0.4);-webkit-appearance: button;-webkit-border-radius: 5px;-webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);-webkit-padding-end: 153px;-webkit-padding-start: 2px;-webkit-user-select: none;background-image: url(images/select-arrow.png);background-position: center right;background-repeat: no-repeat;border: 1px solid rgba(43, 8, 241, 0.15);color: #555;font-size: inherit;margin: 0;overflow: hidden;padding-top: 5px;padding-bottom: 5px;text-overflow: ellipsis;white-space: nowrap;' >
+      <option value="Soltero">Soltero/a</option>  <option value="Casado">Casado/a</option>
+      <option value="Unión libre">Union libre</option>
+      <option value="Divorciado">Divorciado</option>
+      <option value="Viudo">Viudo/a</option>
+      </select><br><br>
+      </div>
+      <!--Ocupación-->
+      <label style='color: #000; font-weight:bold;font-size: 12px;font-family:Arial, Helvetica;'>Ocupacion:</label><br>
+      <select id="ocupacion" name="ocupacion" style='background-color: rgba(255, 255, 255, 0.4);-webkit-appearance: button;-webkit-border-radius: 5px;-webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);-webkit-padding-end: 130px;-webkit-padding-start: 2px;-webkit-user-select: none;background-position: center right;background-repeat: no-repeat;border: 1px solid rgba(43, 8, 241, 0.15);color: #555;font-size: inherit;margin: 0;overflow: hidden;padding-top: 5px;padding-bottom: 5px;text-overflow: ellipsis;white-space: nowrap;'>
+      <option value="Empleado">Empleado</option>
+      <option value="Pensionado">Pensionado</option>
+      <option value="Independiente">Independiente</option>
+      <option value="Estudiante">Estudiante</option>
+      <option value="Ama de casa">Ama de casa</option>
+      <option value="Rentista">Rentista</option>
+      </select><br><br>
+      <!--Contrato-->
+      <label style='color: #000; font-weight:bold;font-size: 12px;font-family:Arial, Helvetica;'>Tipo de contrato</label><br>
+      <select id="Contrato" name="Contrato" style='background-color: rgba(255, 255, 255, 0.4);-webkit-appearance: button;-webkit-border-radius: 5px;-webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);-webkit-padding-end: 40px;-webkit-padding-start: 2px;-webkit-user-select: none;background-position: center right;background-repeat: no-repeat;border: 1px solid rgba(43, 8, 241, 0.15);color: #555;font-size: inherit;margin: 0;overflow: hidden;padding-top: 5px;padding-bottom: 5px;text-overflow: ellipsis;white-space: nowrap;'>
+      <option value="EMPLEADO A TERMINO INDEFINIDO">Empleado termino indefinido</option>
+      <option value="EMPLEADO A TERMINO FIJO">Empleado a termino fijo</option>
+      <option value="Contrato De Obra">Contrato De Obra</option>
+      <option value="Otro">Otro</option>
+      </select><br><br>
+      <!--Tipo vivienda-->
+      <label style='color: #000; font-weight:bold;font-size: 12px;font-family:Arial, Helvetica;'>Tipo de vivienda</label><br>
+      <select id="vivienda" name="vivienda" style='background-color: rgba(255, 255, 255, 0.4);-webkit-appearance: button;-webkit-border-radius: 5px;-webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);-webkit-padding-end: 165px;-webkit-padding-start: 2px;-webkit-user-select: none;background-position: center right;background-repeat: no-repeat;border: 1px solid rgba(43, 8, 241, 0.15);color: #555;font-size: inherit;margin: 0;overflow: hidden;padding-top: 5px;padding-bottom: 5px;text-overflow: ellipsis;white-space: nowrap;'>
+      <option value="PROPIA">Propia</option>
+      <option value="Alquilada / Arrendada">Arriendo</option>
+      <option value="Familiar">Familiar</option>
+      </select><br><br>
+      <!--Edad-->
+      <label style='color: #000; font-weight:bold;font-size: 12px;font-family:Arial, Helvetica;'>Edad:</label>
+      <p></p>
+      <input type="number" name="edad" style='background-color: rgba(255, 255, 255, 0.4); -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);border: 1px solid rgba(43, 8, 241, 0.15); padding: 7px; font-family: Keffeesatz, Arial; color: #4b4b4b; font-size: 14px; -webkit-border-radius: 5px; margin-bottom: 15px; margin-top: -10px;'/><br>
+      <!--Ingresos-->
+      <label style='color: #000; font-weight:bold;font-size: 12px;font-family:Arial, Helvetica;'>Ingresos mesuales</label>
+      <p></p>
+      <input type="number" name="ingresos" style='background-color: rgba(255, 255, 255, 0.4); border: 1px solid rgba(43, 8, 241, 0.15); padding: 7px; font-family: Keffeesatz, Arial; color: #4b4b4b; font-size: 14px; -webkit-border-radius: 5px; margin-bottom: 15px; margin-top: -10px;' /><br>
+      <!--Gastos-->
+      <label style='color: #000; font-weight:bold;font-size: 12px;font-family:Arial, Helvetica;'>Gastos apróximados</label>
+      <p></p>
+      <input type="number" name="gastos" style='background-color: rgba(255, 255, 255, 0.4);-webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1); border: 1px solid rgba(43, 8, 241, 0.15); padding: 7px; font-family: Keffeesatz, Arial; color: #4b4b4b; font-size: 14px; -webkit-border-radius: 5px; margin-bottom: 15px; margin-top: -10px;' /><br>
+      <!--Personas a cargo-->
+      <label style='color: #000; font-weight:bold;font-size: 12px;font-family:Arial, Helvetica;'>Número de personas a cargo</label>
+      <p></p>
+      <input type="number" name="personas a" style='background-color: rgba(255, 255, 255, 0.4); -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1); border: 1px solid rgba(43, 8, 241, 0.15); padding: 7px; font-family: Keffeesatz, Arial; color: #4b4b4b; font-size: 14px; -webkit-border-radius: 5px; margin-bottom: 15px; margin-top: -10px;'/>
+      <br><button style='background: #4b8df9; font-weight: bold; font-size: 14px; color: #fbf7f7;'>Enviar</button>
+
+      `;
+            //recolección y asignación de variable que será enviada al asistete virtual
+            element.querySelector('button').addEventListener('click', function addBackgroundColor(e) {
+                datos = {
+                    eCivil: element.querySelectorAll('select')[0].value,
+                    sexo: element.querySelectorAll('input')[0].value,
+                    ocupacion: element.querySelectorAll('select')[1].value,
+                    contrato: element.querySelectorAll('select')[2].value,
+                    vivienda: element.querySelectorAll('select')[3].value,
+                    edad: element.querySelectorAll('input')[2].value,
+                    ingresos: element.querySelectorAll('input')[3].value,
+                    capacidad: element.querySelectorAll('input')[3].value - element.querySelectorAll('input')[4].value,
+                    nPersonas: element.querySelectorAll('input')[5].value
+                }
+            });
+            event.data.element.appendChild(element);
+        }
+
+        function TEMPORARY_convertToUserDefinedResponse(event) {
+            if (event.data.output.user_defined && event.data.output.user_defined.template_name) {
+                // Map over all items in the output array.
+                event.data.output.generic = event.data.output.generic.map(function (item) {
+                    // If we find one that matches our convention to transform to user_defined response type, make the transformation.
+                    if (item.response_type === 'text' && item.text === 'replace with user_defined') {
+                        item.response_type = 'user_defined';
+                        item.user_defined = event.data.output.user_defined;
+                        delete item.text;
+                    }
+                    return item;
+                });
+            }
+        }
+
+
+        function preSendhandler(event) {
+            //Envío de datos al asistente
+            event.data.context.skills['main skill'] = event.data.context.skills['main skill'] || { user_defined: {} };
+            event.data.context.skills['main skill'].user_defined.resultado = datos;
+        }
+
+
+        function customResponseHandler(event) {
+            //Manejo de evento y direccionamiento del evento
+            const { message } = event.data;
+            switch (message.user_defined.template_name) {
+                case 'formulario':
+                    handleFormularioTemplate(event);
+                    break;
+                default:
+                    console.error('Unhandled response type.');
+            }
+        }
+        const element = document.querySelector('.chatElement');
+        window.watsonAssistantChatOptions = {
+
+            integrationID: "537b9602-979a-4d3d-8ee7-a37a4aee3694",
+            region: "us-south",
+            serviceInstanceID: "24addc4c-175b-4230-a140-b1f1b54eb1b5",
+            // Hide the default launcher.
+            showLauncher: false,
+            // Provide the custom element.
+            element: element,
+
+            onLoad: function (instance) {
+                const button = document.querySelector('.chatLauncher');
+
+                // Add the event listener to open your web chat.
+                button.addEventListener('click', function clickListener() {
+                    instance.openWindow();
+                });
+
+                instance.updateLocale('es').then(function () { instance.render().then(function () { button.style.display = 'block'; button.classList.add('open'); }); });
+
+                // Temporary: Subscribe to the "pre:receive" event to convert to the user_defined response_type.
+                instance.on({ type: 'pre:receive', handler: TEMPORARY_convertToUserDefinedResponse });
+
+                // Subscribe to the "pre:send" event.
+                instance.on({ type: "pre:send", handler: preSendhandler });
+
+                // Watch for the customResponse event to handle the user defined response type.
+                instance.on({ type: 'customResponse', handler: customResponseHandler });
+
+            }
+        };
+
+        setTimeout(function () { const t = document.createElement('script'); t.src = 'https://web-chat.global.assistant.watson.appdomain.cloud/loadWatsonAssistantChat.js'; document.head.appendChild(t); });
+    </script>
+
+    @RenderSection("Scripts", required: false)
+    <!-- End Scripts section -->
+</body>
+</html>

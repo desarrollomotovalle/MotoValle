@@ -1,0 +1,113 @@
+﻿@model List<InventoryForProduct>
+
+@{
+    ViewData["Title"] = "ProductInventory";
+    Layout = "~/Views/Shared/_LayoutFord.cshtml";
+    var productId = Model?.FirstOrDefault()?.ProductId ?? 0;
+}
+
+<section class="b-pageHeader">
+    <div class="container">
+        <h1 class=" wow zoomInLeft" data-wow-delay="0.5s">Lista de vehículos (Inventario)</h1>
+    </div>
+</section>
+<!--b-pageHeader-->
+
+<div class="b-breadCumbs s-shadow">
+    <div class="container wow zoomInUp" data-wow-delay="0.5s">
+        <a asp-action="Index" asp-controller="Home" class="b-breadCumbs__page">Home</a><span class="fa fa-angle-right"></span><a asp-action="Index" asp-controller="Ford" class="b-breadCumbs__page m-active">Tienda (Ford)</a><span class="fa fa-angle-right"></span><a asp-action="ProductInventory" asp-controller="Ford" asp-route-productId="@productId" class="b-breadCumbs__page m-active">Producto (Stock)</a>
+    </div>
+    @if (ViewBag.Message != null)
+    {
+        <div class="alert alert-danger text-center wow zoomInUp" role="alert" data-wow-delay="0.5s">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <strong>¡Ups!..</strong> @ViewBag.Message &#128577;
+        </div>
+    }
+</div>
+<!--b-breadCumbs-->
+
+<div class="b-items">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="text-center">
+                    <h2 class="wow zoomInRight">Producto (Stock)</h2>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="text-center wow zoomInUp" data-wow-delay="0.3s" style="padding-bottom:2em;">
+                    <a class="btn btn-default" asp-action="Index" asp-controller="Ford"><span class="fa fa-arrow-left"></span> Seguir buscando</a>
+                </div>
+            </div>
+            <div class="col-lg-12 col-sm-12 col-xs-12">
+                <div class="row">
+                    @if (Model.Count > 0)
+                    {
+                        @foreach (var item in Model)
+                        {
+                            <div class="col-lg-3 col-md-6 col-xs-12">
+                                <div class="b-items__cell wow zoomInUp" data-wow-delay="0.3s">
+                                    <div class="b-items__cell-info">
+                                        <div class="b-items__cars-one-img">
+                                            <img class='img-responsive' src="@Url.Content($@"~/{item.CoverPictureUrl}")" alt='@item.ProductName' style="max-width:230px; max-height:230px;" />
+                                            @if (item.IsFeatured)
+                                            {
+                                                <span class="b-items__cars-one-img-type m-premium">Destacado</span>
+                                            }
+                                        </div>
+                                        <div class="s-lineDownLeft b-items__cell-info-title">
+                                            @*style="margin-top:-0.01em;"*@
+                                            &nbsp;
+                                            <h2>@item.ProductName</h2>
+                                        </div>
+                                        @*<p>@item.ProductDescription</p>*@
+                                        <div class="row m-smallPadding">
+                                            <div class="col-xs-8">
+                                                <ul>
+                                                    <li>Color @item.ColorName</li>
+                                                    <li>Nuevo</li>
+                                                    <li>@item.TransmissionName</li>
+                                                    <li>@item.Year</li>
+                                                </ul>
+                                                <h5 class="b-items__cell-info-price">@item.SalesPriceInventory.ToString("C")</h5>
+                                            </div>
+                                            <div class="col-xs-4">
+                                                <div class="b-items__cell-info-km">
+                                                    <span class="fa fa-tachometer"></span>
+                                                    <p>@item.Millage KM</p>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-12 col-md-12 col-xs-12 text-right">
+                                                    <a asp-action="ProductDetails" asp-controller="Ford" asp-route-productId="@item.ProductId" asp-route-inventoryItemsId="@item.InventoryItemsId" class="btn m-btn" style="margin-top:0.3em;">VER DETALLES<span class="fa fa-angle-right"></span></a>
+                                                </div>
+                                                <div class="col-lg-12 col-md-12 col-xs-12 text-right">
+                                                    <a onclick="addToCart(@item.ProductId, @item.InventoryItemsId, 1)" class="btn m-btn" style="margin-top:0.2em;">AGREGAR AL CARRITO<span class="fa fa-shopping-cart"></span></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <div class="alert alert-info text-center wow zoomInUp" role="alert" data-wow-delay="0.5s">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <strong>No hay registros para mostrar</strong> &#128577;
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="text-center wow zoomInUp" data-wow-delay="0.3s" style="padding-bottom:2em;">
+            <a class="btn btn-default" asp-action="Index" asp-controller="Ford"><span class="fa fa-arrow-left"></span> Seguir buscando</a>
+        </div>
+    </div>
+</div>

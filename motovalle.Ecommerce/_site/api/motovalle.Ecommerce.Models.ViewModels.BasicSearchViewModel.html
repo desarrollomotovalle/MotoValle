@@ -1,0 +1,437 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class BasicSearchViewModel
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class BasicSearchViewModel
+   ">
+    <meta name="generator" content="docfx 2.56.6.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="motovalle.Ecommerce.Models.ViewModels.BasicSearchViewModel">
+  
+  
+  <h1 id="motovalle_Ecommerce_Models_ViewModels_BasicSearchViewModel" data-uid="motovalle.Ecommerce.Models.ViewModels.BasicSearchViewModel" class="text-break">Class BasicSearchViewModel
+  </h1>
+  <div class="markdown level0 summary"><p>Basic Search View Model</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">BasicSearchViewModel</span></div>
+      <div class="level2"><a class="xref" href="motovalle.Ecommerce.Models.ViewModels.AdvancedSearchViewModel.html">AdvancedSearchViewModel</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="motovalle.Ecommerce.Models.ViewModels.html">motovalle.Ecommerce.Models.ViewModels</a></h6>
+  <h6><strong>Assembly</strong>: motovalle.Ecommerce.dll</h6>
+  <h5 id="motovalle_Ecommerce_Models_ViewModels_BasicSearchViewModel_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class BasicSearchViewModel</code></pre>
+  </div>
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="motovalle_Ecommerce_Models_ViewModels_BasicSearchViewModel_CategoryId_" data-uid="motovalle.Ecommerce.Models.ViewModels.BasicSearchViewModel.CategoryId*"></a>
+  <h4 id="motovalle_Ecommerce_Models_ViewModels_BasicSearchViewModel_CategoryId" data-uid="motovalle.Ecommerce.Models.ViewModels.BasicSearchViewModel.CategoryId">CategoryId</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the category identifier.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Required(ErrorMessage = &quot;Seleccione el tipo de veh&#237;culo&quot;)]
+[Range(1, Infinity, ErrorMessage = &quot;Seleccione el tipo de veh&#237;culo&quot;)]
+public int CategoryId { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><p>The category identifier.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Models_ViewModels_BasicSearchViewModel_MakeId_" data-uid="motovalle.Ecommerce.Models.ViewModels.BasicSearchViewModel.MakeId*"></a>
+  <h4 id="motovalle_Ecommerce_Models_ViewModels_BasicSearchViewModel_MakeId" data-uid="motovalle.Ecommerce.Models.ViewModels.BasicSearchViewModel.MakeId">MakeId</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the make identifier.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Required(ErrorMessage = &quot;Seleccione la marca de veh&#237;culo&quot;)]
+[Range(0, Infinity, ErrorMessage = &quot;Seleccione la marca de veh&#237;culo&quot;)]
+public int MakeId { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><p>The make identifier.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Models_ViewModels_BasicSearchViewModel_ModelId_" data-uid="motovalle.Ecommerce.Models.ViewModels.BasicSearchViewModel.ModelId*"></a>
+  <h4 id="motovalle_Ecommerce_Models_ViewModels_BasicSearchViewModel_ModelId" data-uid="motovalle.Ecommerce.Models.ViewModels.BasicSearchViewModel.ModelId">ModelId</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the model identifier.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Required(ErrorMessage = &quot;Seleccione el modelo de veh&#237;culo&quot;)]
+[Range(0, Infinity, ErrorMessage = &quot;Seleccione el modelo de veh&#237;culo&quot;)]
+public int ModelId { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><p>The model identifier.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Models_ViewModels_BasicSearchViewModel_PageNumber_" data-uid="motovalle.Ecommerce.Models.ViewModels.BasicSearchViewModel.PageNumber*"></a>
+  <h4 id="motovalle_Ecommerce_Models_ViewModels_BasicSearchViewModel_PageNumber" data-uid="motovalle.Ecommerce.Models.ViewModels.BasicSearchViewModel.PageNumber">PageNumber</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the page number.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int PageNumber { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><p>The page number.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Models_ViewModels_BasicSearchViewModel_PriceRangeMax_" data-uid="motovalle.Ecommerce.Models.ViewModels.BasicSearchViewModel.PriceRangeMax*"></a>
+  <h4 id="motovalle_Ecommerce_Models_ViewModels_BasicSearchViewModel_PriceRangeMax" data-uid="motovalle.Ecommerce.Models.ViewModels.BasicSearchViewModel.PriceRangeMax">PriceRangeMax</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the price range maximum.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Required(ErrorMessage = &quot;Seleccione el rango m&#225;ximo de precios&quot;)]
+[Range(0, Infinity, ErrorMessage = &quot;El rango de precio m&#225;ximo debe ser mayor a 0&quot;)]
+public decimal PriceRangeMax { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Decimal</span></td>
+        <td><p>The price range maximum.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Models_ViewModels_BasicSearchViewModel_PriceRangeMin_" data-uid="motovalle.Ecommerce.Models.ViewModels.BasicSearchViewModel.PriceRangeMin*"></a>
+  <h4 id="motovalle_Ecommerce_Models_ViewModels_BasicSearchViewModel_PriceRangeMin" data-uid="motovalle.Ecommerce.Models.ViewModels.BasicSearchViewModel.PriceRangeMin">PriceRangeMin</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the price range minimum.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Required(ErrorMessage = &quot;Seleccione el rango m&#237;nimo de precios&quot;)]
+[Range(0, Infinity, ErrorMessage = &quot;El rango de precio m&#237;nimo debe ser mayor a 0&quot;)]
+public decimal PriceRangeMin { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Decimal</span></td>
+        <td><p>The price range minimum.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Models_ViewModels_BasicSearchViewModel_RecordsPerPage_" data-uid="motovalle.Ecommerce.Models.ViewModels.BasicSearchViewModel.RecordsPerPage*"></a>
+  <h4 id="motovalle_Ecommerce_Models_ViewModels_BasicSearchViewModel_RecordsPerPage" data-uid="motovalle.Ecommerce.Models.ViewModels.BasicSearchViewModel.RecordsPerPage">RecordsPerPage</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the records per page.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int RecordsPerPage { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><p>The records per page.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Models_ViewModels_BasicSearchViewModel_SortBy_" data-uid="motovalle.Ecommerce.Models.ViewModels.BasicSearchViewModel.SortBy*"></a>
+  <h4 id="motovalle_Ecommerce_Models_ViewModels_BasicSearchViewModel_SortBy" data-uid="motovalle.Ecommerce.Models.ViewModels.BasicSearchViewModel.SortBy">SortBy</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the sort by.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int SortBy { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><p>The sort by.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Models_ViewModels_BasicSearchViewModel_YearMax_" data-uid="motovalle.Ecommerce.Models.ViewModels.BasicSearchViewModel.YearMax*"></a>
+  <h4 id="motovalle_Ecommerce_Models_ViewModels_BasicSearchViewModel_YearMax" data-uid="motovalle.Ecommerce.Models.ViewModels.BasicSearchViewModel.YearMax">YearMax</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the year maximum.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Required(ErrorMessage = &quot;Debe ingersar el a&#241;o m&#225;ximo de tu veh&#237;culo.&quot;)]
+[Range(0, Infinity, ErrorMessage = &quot;Debe ingersar el a&#241;o m&#225;ximo de tu veh&#237;culo.&quot;)]
+public int YearMax { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><p>The year maximum.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Models_ViewModels_BasicSearchViewModel_YearMin_" data-uid="motovalle.Ecommerce.Models.ViewModels.BasicSearchViewModel.YearMin*"></a>
+  <h4 id="motovalle_Ecommerce_Models_ViewModels_BasicSearchViewModel_YearMin" data-uid="motovalle.Ecommerce.Models.ViewModels.BasicSearchViewModel.YearMin">YearMin</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the year minimum.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Required(ErrorMessage = &quot;Debe ingersar el a&#241;o m&#237;nimo de tu veh&#237;culo.&quot;)]
+[Range(0, Infinity, ErrorMessage = &quot;Debe ingersar el a&#241;o m&#225;ximo de tu veh&#237;culo.&quot;)]
+public int YearMin { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><p>The year minimum.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

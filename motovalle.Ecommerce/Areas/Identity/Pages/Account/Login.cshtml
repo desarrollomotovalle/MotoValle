@@ -1,0 +1,111 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Log in";
+}
+
+<section class="b-pageHeader identity">
+    <div class="container">
+        <h1 class="wow zoomInLeft" data-wow-delay="0.5s">Inicio de sesión</h1>
+        <div class="b-pageHeader__search wow zoomInRight" data-wow-delay="0.5s">
+            <h3>Identifícate</h3>
+        </div>
+    </div>
+</section>
+
+
+<div class="b-breadCumbs s-shadow wow zoomInUp" data-wow-delay="0.5s">
+    <div class="container">
+        <a asp-controller="Home" asp-action="Index" class="b-breadCumbs__page">Home</a><span class="fa fa-angle-right"></span><a asp-area="Identity" asp-page="/Account/Login" class="b-breadCumbs__page m-active">Inicio de sesión</a>
+    </div>
+</div>
+
+<section class="b-breadCumbs wow zoomInUp" data-wow-delay="0.5s">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <section>
+                    <form id="frmLogin" method="post">
+                        <h4>Inicio de sesión</h4>
+                        <hr />
+                        <div asp-validation-summary="All" class="text-danger"></div>
+                        <div class="form-group">
+                            <label asp-for="Input.Email"></label>
+                            <input asp-for="Input.Email" class="form-control" />
+                            <span asp-validation-for="Input.Email" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Input.Password"></label>
+                            <input asp-for="Input.Password" class="form-control" />
+                            <span asp-validation-for="Input.Password" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <div class="checkbox">
+                                <label asp-for="Input.RememberMe">
+                                    <input asp-for="Input.RememberMe" />
+                                    @Html.DisplayNameFor(m => m.Input.RememberMe)
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-default">Ingresar</button>
+                        </div>
+                        <div class="form-group">
+                            <p>
+                                <a id="forgot-password" asp-page="./ForgotPassword">¿Olvidaste tu contraseña?</a>
+                            </p>
+                            <p>
+                                <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Registrarse como nuevo usuario</a>
+                            </p>
+                            <p>
+                                <button type="submit" asp-page-handler="SendVerificationEmail" class="btn-link" style="padding:0px;margin:0px;border:0px">Reenviar correo de confirmación</button>
+                            </p>
+                        </div>
+                    </form>
+                </section>
+            </div>
+        </div>
+        @{ await Html.RenderPartialAsync("_ContactUs"); }
+    </div>
+    <br />
+    <br />
+</section>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script type="text/javascript">
+        const $frmLogin = document.querySelector("#frmLogin");
+        $frmLogin.addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (!$(e.target).valid()) {
+                return;
+            }
+
+            const cookieConsent = getCookie("MotovalleCookieConsent");
+            if (!cookieConsent) {
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 6000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.addEventListener('mouseenter', Swal.stopTimer)
+                        toast.addEventListener('mouseleave', Swal.resumeTimer)
+                    }
+                })
+
+                Toast.fire({
+                    icon: 'error',
+                    title: 'Debes aceptar el consentimiento de Cookies'
+                });
+
+                return;
+            }
+
+            e.target.submit();
+        })
+    </script>
+}

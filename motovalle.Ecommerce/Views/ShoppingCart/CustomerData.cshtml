@@ -1,0 +1,333 @@
+﻿@model motovalle.Ecommerce.Models.ViewModels.Checkout.CheckoutCustomerDataViewModel
+
+@{
+    ViewData["Title"] = "Checkout";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<section class="b-pageHeader checkout">
+    <div class="container">
+        <h1 class=" wow zoomInLeft" data-wow-delay="0.5s">Compras</h1>
+        <div class="b-pageHeader__search wow zoomInRight" data-wow-delay="0.5s">
+            <h3>Bolsa de compras</h3>
+        </div>
+    </div>
+</section><!--b-pageHeader-->
+
+<div class="b-breadCumbs s-shadow">
+    <div class="container wow zoomInUp" data-wow-delay="0.5s">
+        <a asp-action="Index" asp-controller="Home" class="b-breadCumbs__page">Home</a>
+        <span class="fa fa-angle-right"></span><a asp-action="Index" asp-controller="ShoppigCart" class="b-breadCumbs__page m-active">Compras</a>
+        <span class="fa fa-angle-right"></span><a asp-action="Checkout" asp-controller="ShoppigCart" class="b-breadCumbs__page m-active">Información de compra</a>
+    </div>
+    @if (ViewBag.Message != null)
+    {
+        <div class="alert alert-danger text-center wow zoomInUp" role="alert" data-wow-delay="0.5s">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <strong>¡Ups!..</strong> @ViewBag.Message &#128577;
+        </div>
+    }
+</div><!--b-breadCumbs-->
+
+<div class="b-submit">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding: 1rem; border: 1px solid rgb(238, 238, 238); margin: 0rem 0 2rem 0;">
+                @await Component.InvokeAsync("ShoppingCartSummaryCheckout")
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-5 col-xs-6">
+                @{ await Html.RenderPartialAsync("~/Views/Shared/ShoppingCart/_ShoppingCartStepsPartial.cshtml", 2); }
+            </div>
+            <div class="col-lg-9 col-md-8 col-sm-7 col-xs-6">
+                <div class="b-submit__main">
+                    <header class="s-headerSubmit s-lineDownLeft wow zoomInUp" data-wow-delay="0.2s">
+                        <h2 class="">Información del cliente</h2>
+                    </header>
+                    <form class="s-submit clearfix wow zoomInUp" data-wow-delay="0.2s" asp-action="PaymentWays" asp-controller="ShoppingCart" method="GET" id="frmBaseData">
+                        <div class="b-detail__main-info-text wow zoomInUp" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: zoomInUp;">
+                            <div class="b-detail__main-aside-about-form-links">
+                                <a href="#" class="j-tab m-active s-lineDownCenter" data-to="#info1" id="tab1">Datos comprador</a>
+                                <a href="#" class="j-tab" data-to="#info2" id="tab2">Direcciones</a>
+                            </div>
+                            <!-- Basic Data -->
+                            <div id="info1">
+                                <div class="panel panel-default" id="baseInfo">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            Datos básicos
+                                        </h4>
+                                    </div>
+
+                                    <div class="panel-body">
+                                        @*General Data*@
+                                        <div class="col-lg-12 col-md-12 col-xs-12">
+                                            <div class="b-submit__main-element">
+                                                <label asp-for="Email">@Html.DisplayNameFor(x => x.Email)<span class="text-danger">*</span></label>
+                                                <div class='s-relative'>
+                                                    @if (User.Identity.IsAuthenticated)
+                                                    {
+                                                        <input asp-for="Email" disabled />
+                                                        <input asp-for="Email" type="hidden" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input asp-for="Email" />
+                                                    }
+
+                                                    <span asp-validation-for="Email" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-xs-12">
+                                            <div class="b-submit__main-element">
+                                                <label asp-for="FristName">@Html.DisplayNameFor(x => x.FristName)<span class="text-danger">*</span></label>
+                                                <div class='s-relative'>
+                                                    @if (User.Identity.IsAuthenticated)
+                                                    {
+                                                        <input asp-for="FristName" disabled />
+                                                        <input asp-for="FristName" type="hidden" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input asp-for="FristName" />
+                                                    }
+                                                    <span asp-validation-for="FristName" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-xs-12">
+                                            <div class="b-submit__main-element">
+                                                <label asp-for="LastName">@Html.DisplayNameFor(x => x.LastName)<span class="text-danger">*</span></label>
+                                                <div class='s-relative'>
+                                                    @if (User.Identity.IsAuthenticated)
+                                                    {
+                                                        <input asp-for="LastName" disabled />
+                                                        <input asp-for="LastName" type="hidden" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input asp-for="LastName" />
+                                                    }
+                                                    <span asp-validation-for="LastName" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-xs-6">
+                                            <div class="b-submit__main-element">
+                                                <label>@Html.DisplayNameFor(x => x.IDType) <span>*</span></label>
+                                                <div class='s-relative'>
+                                                    <select class="m-select" asp-for="IDType" asp-items="Html.GetEnumSelectList<IDTypes>()"></select>
+                                                    <span class="fa fa-caret-down"></span>
+                                                    <span asp-validation-for="IDType" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        @*Specific Data*@
+                                        <div class="col-lg-6 col-md-6 col-xs-6">
+                                            <div class="b-submit__main-element">
+                                                <label asp-for="IDNumber">@Html.DisplayNameFor(x => x.IDNumber)<span class="text-danger">*</span></label>
+                                                <div class='s-relative'>
+                                                    <input asp-for="IDNumber" />
+                                                    <span asp-validation-for="IDNumber" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-xs-6">
+                                            <div class="b-submit__main-element">
+                                                <label asp-for="PhoneNumber">@Html.DisplayNameFor(x => x.PhoneNumber)<span class="text-danger">*</span></label>
+                                                <div class='s-relative'>
+                                                    <input asp-for="PhoneNumber" />
+                                                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-xs-6">
+                                            <div class="b-submit__main-element">
+                                                <label asp-for="AlternateNumber"></label>
+                                                <div class='s-relative'>
+                                                    <input asp-for="AlternateNumber" />
+                                                    <span asp-validation-for="AlternateNumber" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 col-md-12 col-xs-12">
+                                            <div class="b-submit__main-element">
+                                                <label asp-for="CompanyName"></label>
+                                                <div class='s-relative'>
+                                                    <input asp-for="CompanyName" />
+                                                    <span asp-validation-for="CompanyName" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="panel-footer">
+                                        <div class="text-center">
+                                            <a onclick="goToTab2()" class="btn btn-default btn-block" style="padding: 1rem 0; border-radius:25px;"><b>Siguiente página </b><span class="fa fa-arrow-circle-right"></span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Addresses -->
+                            <div id="info2" class="fadeInRight">
+                                <div class="panel panel-default" id="addressInfo">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            Direcciones
+                                        </h4>
+                                    </div>
+
+                                    <div class="panel-body">
+                                        @*Addreses Data*@
+                                        <div class="col-lg-12 col-md-12 col-xs-12">
+                                            <div class="b-submit__main-element">
+                                                <label asp-for="AddressesData.Country">@Html.DisplayNameFor(x => x.AddressesData.Country)<span class="text-danger">*</span></label>
+                                                <div class='s-relative'>
+                                                    @if (User.Identity.IsAuthenticated)
+                                                    {
+                                                        <input asp-for="AddressesData.Country" disabled />
+                                                        <input asp-for="AddressesData.Country" type="hidden" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input asp-for="AddressesData.Country" />
+                                                    }
+
+                                                    <span asp-validation-for="AddressesData.Country" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-6 col-md-12 col-xs-12">
+                                                    <header class="s-headerSubmit s-lineDownLeft">
+                                                        <h4 class="">Dirección de Envío</h4>
+                                                    </header>
+                                                    <div class="b-submit__main-element">
+                                                        <label asp-for="AddressesData.State">@Html.DisplayNameFor(x => x.AddressesData.State)<span class="text-danger">*</span></label>
+                                                        <div class='s-relative'>
+                                                            <input asp-for="AddressesData.State" />
+                                                            <span asp-validation-for="AddressesData.State" class="text-danger"></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="b-submit__main-element">
+                                                        <label asp-for="AddressesData.City">@Html.DisplayNameFor(x => x.AddressesData.City)<span class="text-danger">*</span></label>
+                                                        <div class='s-relative'>
+                                                            <input asp-for="AddressesData.City" />
+                                                            <span asp-validation-for="AddressesData.City" class="text-danger"></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="b-submit__main-element">
+                                                        <label asp-for="AddressesData.Address">@Html.DisplayNameFor(x => x.AddressesData.Address)<span class="text-danger">*</span></label>
+                                                        <div class='s-relative'>
+                                                            <input asp-for="AddressesData.Address" />
+                                                            <span asp-validation-for="AddressesData.Address" class="text-danger"></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="b-submit__main-element">
+                                                        <label asp-for="AddressesData.ZipCode">@Html.DisplayNameFor(x => x.AddressesData.ZipCode)<span class="text-danger">*</span></label>
+                                                        <div class='s-relative'>
+                                                            <input asp-for="AddressesData.ZipCode" />
+                                                            <span asp-validation-for="AddressesData.ZipCode" class="text-danger"></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="b-submit__main-element">
+                                                        <label><input type="checkbox" id="sameAddresses" style="width: 18px; height: 18px; visibility:visible; position: relative;" /> Usar misma dirección de envío</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 col-md-12 col-xs-12">
+                                                    <header class="s-headerSubmit s-lineDownLeft">
+                                                        <h4 class="">Dirección de Facturación</h4>
+                                                    </header>
+                                                    <div class="b-submit__main-element">
+                                                        <label asp-for="AddressesData.BillState">@Html.DisplayNameFor(x => x.AddressesData.BillState)<span class="text-danger">*</span></label>
+                                                        <div class='s-relative'>
+                                                            <input asp-for="AddressesData.BillState" />
+                                                            <span asp-validation-for="AddressesData.BillState" class="text-danger"></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="b-submit__main-element">
+                                                        <label asp-for="AddressesData.BillCity">@Html.DisplayNameFor(x => x.AddressesData.BillCity)<span class="text-danger">*</span></label>
+                                                        <div class='s-relative'>
+                                                            <input asp-for="AddressesData.BillCity" />
+                                                            <span asp-validation-for="AddressesData.BillCity" class="text-danger"></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="b-submit__main-element">
+                                                        <label asp-for="AddressesData.BillAddress">@Html.DisplayNameFor(x => x.AddressesData.BillAddress)<span class="text-danger">*</span></label>
+                                                        <div class='s-relative'>
+                                                            <input asp-for="AddressesData.BillAddress" />
+                                                            <span asp-validation-for="AddressesData.BillAddress" class="text-danger"></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="b-submit__main-element">
+                                                        <label asp-for="AddressesData.BillZipCode">@Html.DisplayNameFor(x => x.AddressesData.BillZipCode)<span class="text-danger">*</span></label>
+                                                        <div class='s-relative'>
+                                                            <input asp-for="AddressesData.BillZipCode" />
+                                                            <span asp-validation-for="AddressesData.BillZipCode" class="text-danger"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="panel-footer">
+                                        <button type="submit" class="btn m-btn btn-block wow zoomInUp" style="margin:0; padding: 1rem 0;">Continuar <span class="fa fa-angle-right"></span></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!--b-submit-->
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+    <script type="text/javascript">
+        (() => {
+            const $bSubmit = document.querySelector(".b-submit");
+            const $sameAddresses = document.querySelector("#sameAddresses");
+            const $dataTabs = document.querySelector(".b-detail__main-aside-about-form-links");
+
+            $sameAddresses.addEventListener('click', (e) => {
+                document.querySelector("#AddressesData_BillState").value = e.target.checked ? document.querySelector("#AddressesData_State").value : '';
+                document.querySelector("#AddressesData_BillCity").value = e.target.checked ? document.querySelector("#AddressesData_City").value : '';
+                document.querySelector("#AddressesData_BillAddress").value = e.target.checked ? document.querySelector("#AddressesData_Address").value : '';
+                document.querySelector("#AddressesData_BillZipCode").value = e.target.checked ? document.querySelector("#AddressesData_ZipCode").value : '';
+            });
+
+            $dataTabs.querySelectorAll('a').forEach(a => a.addEventListener('click', e => {
+                const $frmBaseData = document.querySelector("#frmBaseData");
+                if (!$($frmBaseData).valid()) {
+                    e.stopImmediatePropagation();
+                    e.preventDefault();
+                    return;
+                }
+            }));
+
+            setTimeout(() => {
+                const offsetTop = $bSubmit.offsetTop;
+                scroll({
+                    top: offsetTop,
+                    behavior: "smooth"
+                });
+            }, 530);
+        })();
+
+        function goToTab2() {
+            const $tab2 = document.getElementById('tab2');
+            $tab2.click();
+            const offsetTop = $tab2.offsetTop + 500;
+            scroll({
+                top: offsetTop,
+                behavior: "smooth"
+            });
+        }
+    </script>
+}
+

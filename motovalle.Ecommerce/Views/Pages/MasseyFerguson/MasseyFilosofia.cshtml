@@ -1,0 +1,71 @@
+﻿
+@{
+    ViewData["Title"] = "MasseyQuienesSomos";
+    Layout = "~/Views/Shared/_LayoutMasseyFerguson.cshtml";
+}
+
+<section class="b-pageHeader massey">
+</section><!--b-pageHeader-->
+
+<div class="b-breadCumbs s-shadow">
+    <div class="container wow zoomInUp" data-wow-delay="0.5s">
+        <a class="b-breadCumbs__page" href="/">Home</a><span class="fa fa-angle-right"></span>
+        <a asp-action="Index" asp-controller="MasseyFerguson" class="b-breadCumbs__page">Massey Ferguson</a><span class="fa fa-angle-right"></span>
+        <a class="b-breadCumbs__page m-active" href="#">¿Quiénes somos?</a>
+    </div>
+</div><!--b-breadCumbs-->
+
+<section class="b-article">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 col-xs-12">
+                <div id="masseyPhilosophy" class="row wow zoomInLeft" data-wow-delay="0.55s">
+                    <header class="b-contacts__form-header s-lineDownLeft wow zoomInUp" data-wow-delay="0.5s">
+                        <h1 class="s-titleDet text-center" style="font-size:18px;">
+                            Filosofía
+                        </h1>
+                    </header>
+                    <div class="col-md-8 col-xs-12">
+                        <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                            <span style="color:#C21B2F"><b>Misión</b></span>
+                        </p>
+                        <br />
+                        <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                            Proyectar equipos agrícolas modernos y de alto desempeño, con foco en los productores rurales y en los más diversos cultivos alrededor del mundo.
+                        </p>
+                        <br />
+                        <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                            <span style="color:#C21B2F"><b>Visión</b></span>
+                        </p>
+                        <br />
+                        <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                            <b>Ser la marca más elegida</b> en maquinaria agrícola por productores rurales experimentados y profesionales de todo el mundo.
+                        </p>
+                        <br />
+                        <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                            <span style="color:#C21B2F"><b>Posicionamiento de la marca</b></span>
+                        </p>
+                        <br />
+                        <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                            <b>Para los agricultores de hoy que se dedican a la tierra, Massey Ferguson</b> tiene maquinarias agrícolas que proporcionan facilidad de uso y óptima confiabilidad. Ninguna otra marca tiene experiencia con más cultivos, más condiciones, más lugares, por más años y con más agricultores que Massey Ferguson.
+                        </p>
+                        <br />
+                        <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                            <span style="color:#C21B2F"><b>Slogan</b></span>
+                        </p>
+                        <br />
+                        <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                            <b>UN MUNDO DE EXPERIENCIAS. TRABAJANDO CON USTED.</b>
+                        </p>
+                    </div>
+                    <div class="col-md-4 col-xs-12">
+                        <img src="~/massey_ferguson/home/carro-1.png" class="img-responsive center-block" width="90%" alt="Tractor" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-xs-12">
+                @await Html.PartialAsync("_NavCategoryMassey")
+            </div>
+        </div>
+    </div>
+</section><!--b-article-->

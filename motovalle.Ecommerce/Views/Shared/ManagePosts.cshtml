@@ -1,0 +1,210 @@
+﻿@model inventek_blog.Models.Entities.Posts
+
+@{
+    var postObject = Model;
+
+    ViewData["Title"] = "ManagePosts";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    var asyncSettings = new Syncfusion.EJ2.Inputs.UploaderAsyncSettings
+    {
+        SaveUrl = @Url.Content("~/Blog/UploadFile"),
+        RemoveUrl = @Url.Content("~/Blog/RemoveFile")
+    };
+
+    var tools = new[] { "Bold", "Italic", "Underline", "StrikeThrough",
+                "FontName", "FontSize", "FontColor", "BackgroundColor",
+                "LowerCase", "UpperCase", "SuperScript", "SubScript", "|",
+                "Formats", "Alignments", "OrderedList", "UnorderedList",
+                "Outdent", "Indent", "|",
+                "CreateTable", "CreateLink", "|", "ClearFormat", "Print",
+                "SourceCode", "FullScreen", "|", "Undo", "Redo" };
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 text-center">
+                @if (Model.PostsId == 0)
+                {
+                    <h2>Nuevo Post</h2>
+                }
+                else
+                {
+                    <h2>@Model.Title</h2>
+                }
+            </div>
+
+            <div class="col-md-12">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input id="txtPostID" type="hidden" asp-for="PostsId" />
+                    <div class="form-group">
+                        <label asp-for="Title" class="control-label">Título</label>
+                        <input id="txtTitle" asp-for="Title" class="form-control" />
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ShortDescription" class="control-label">Descripción Corta</label>
+                        <input id="txtShortDescription" asp-for="ShortDescription" class="form-control" />
+                        <span asp-validation-for="ShortDescription" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ImageURL" class="control-label">URL Imagen</label>
+                        <input id="txtImageURL" asp-for="ImageURL" class="form-control" />
+                        <span asp-validation-for="ImageURL" class="text-danger"></span>
+                        <ejs-uploader id="uploadFiles" asyncSettings="@asyncSettings" autoUpload="true" allowedExtensions=".jpg,.png,.jpeg"></ejs-uploader>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="FkAuthorsId" class="control-label">Autor</label>
+                        <select id="txtFKAuthorsID" asp-for="FkAuthorsId" class="form-control" asp-items="ViewBag.FkAuthorsId"></select>
+                        <span asp-validation-for="FkAuthorsId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="FkCategoriesId" class="control-label">Categoria</label>
+                        <select id="txtFKCategoriesID" asp-for="FkCategoriesId" class="form-control" asp-items="ViewBag.FkCategoriesId"></select>
+                        <span asp-validation-for="FkCategoriesId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group form-check">
+                        <label class="form-check-label">
+                            @if (Model.IsPublished)
+                            {
+                                <input id="IsPublished" class="form-check-input" asp-for="IsPublished" checked /> @Html.DisplayNameFor(model => model.IsPublished)
+                            }
+                            else
+                            {
+                                <input id="IsPublished" class="form-check-input" asp-for="IsPublished" /> @Html.DisplayNameFor(model => model.IsPublished)
+                            }
+                        </label>
+                    </div>
+                </form>
+            </div>
+
+
+            <ejs-richtexteditor id="defaultRTE">
+                <e-richtexteditor-insertimagesettings saveUrl="/Blog/SaveFile" path="/img/blog/"></e-richtexteditor-insertimagesettings>
+                <e-content-template>
+                    @Model.Description
+                </e-content-template>
+                <e-richtexteditor-toolbarsettings items="@tools"></e-richtexteditor-toolbarsettings>
+            </ejs-richtexteditor>
+
+
+            <div class="col-12 text-center">
+                <button id="btnAddPost" class="btn btn-success" onclick="saveBlogPost()">Guardar Contenido</button>
+                <a class="btn btn-outline-dark" asp-controller="Admin" asp-action="BlogAdmin">Cancelar</a>
+                <button class="btn btn-danger" onclick="deletePost(@Model.PostsId)">Eliminar</button>
+            </div>
+            <br />
+            <br />
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/mode/css/css.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/mode/xml/xml.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/mode/htmlmixed/htmlmixed.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var rteObj, myCodeMirror, textArea;
+        function created() {
+            rteObj = this;
+            textArea = rteObj.contentModule.getEditPanel();
+        }
+        function mirrorConversion(e) {
+            var id = rteObj.getID() + 'mirror-view';
+            var mirrorView = rteObj.element.querySelector('#' + id);
+            var charCount = rteObj.element.querySelector('.e-rte-character-count');
+            if (e.targetItem === 'Preview') {
+                textArea.style.display = 'block';
+                mirrorView.style.display = 'none';
+                textArea.innerHTML = myCodeMirror.getValue();
+                charCount.style.display = 'block';
+            }
+            else {
+                if (!mirrorView) {
+                    mirrorView = ej.base.createElement('div', { className: 'e-content' });
+                    mirrorView.id = id;
+                    textArea.parentNode.appendChild(mirrorView);
+                }
+                else {
+                    mirrorView.innerHTML = '';
+                }
+                textArea.style.display = 'none';
+                mirrorView.style.display = 'block';
+                renderCodeMirror(mirrorView, defaultRTE.value);
+                charCount.style.display = 'none';
+            }
+        }
+        function renderCodeMirror(mirrorView, content) {
+            myCodeMirror = CodeMirror(mirrorView, {
+                value: content,
+                lineNumbers: true,
+                mode: 'text/html',
+                lineWrapping: true,
+            });
+        }
+        function handleFullScreen(e) {
+            var sbCntEle = document.querySelector('.sb-content.e-view');
+            var sbHdrEle = document.querySelector('.sb-header.e-view');
+            if (e.targetItem === 'Maximize') {
+                if (ej.base.Browser.isDevice && ej.base.Browser.isIos) {
+                    ej.base.addClass([sbCntEle, sbHdrEle], ['hide-header']);
+                }
+            }
+            else if (e.targetItem === 'Minimize') {
+                if (ej.base.Browser.isDevice && ej.base.Browser.isIos) {
+                    ej.base.removeClass([sbCntEle, sbHdrEle], ['hide-header']);
+                }
+            }
+        }
+        function actionCompleteHandler(e) {
+            if (e.targetItem && (e.targetItem === 'SourceCode' || e.targetItem === 'Preview')) {
+                this.sourceCodeModule.getPanel().style.display = 'none';
+                mirrorConversion(e);
+            }
+            else {
+                setTimeout(function () { rteObj.toolbarModule.refreshToolbarOverflow(); }, 400);
+            }
+        }
+    </script>
+}
+
+<style>
+    .e-code-mirror::before {
+        content: '\e345';
+    }
+
+    .e-html-preview::before {
+        content: '\e350';
+    }
+
+    .CodeMirror-linenumber,
+    .CodeMirror-gutters {
+        display: none;
+    }
+
+    .sb-header {
+        z-index: 100;
+    }
+
+    .sb-content.e-view.hide-header {
+        top: 0 !important;
+    }
+
+    .sb-header.e-view.hide-header {
+        display: none;
+    }
+
+    .e-richtexteditor .e-rte-content .e-content pre {
+        padding: 10px;
+        background: #F4F5F7;
+    }
+
+    .highcontrast .e-richtexteditor .e-rte-content .e-content pre {
+        padding: 10px;
+        background: #303030;
+    }
+</style>

@@ -1,0 +1,46 @@
+﻿<ul class="navbar-nav-menu">
+    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+    <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle='dropdown' href="#">Tiendas <span class="fa fa-caret-down"></span></a>
+        <ul class="dropdown-menu h-nav">
+            <li>@Html.ActionLink("Ford", "Index", "Ford")</li>
+            <li>@Html.ActionLink("Mazda", "Index", "Mazda")</li>
+            <li>@Html.ActionLink("Massey Ferguson", "Index", "MasseyFerguson")</li>
+            <li>@Html.ActionLink("Carshow - Vehículos usados", "Index", "Carshow")</li>
+            <li>@Html.ActionLink("Repuestos", "Index", "Repuestos")</li>
+        </ul>
+    </li>
+    <li>@Html.ActionLink("Blog", "Index", "Blog")</li>
+    <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle='dropdown' href="#">Massey Ferguson <span class="fa fa-caret-down"></span></a>
+        <ul class="dropdown-menu h-nav">
+            <li>@Html.ActionLink("¿Quiénes somos?", "MasseyQuienesSomos", "Pages")</li>
+            <li>@Html.ActionLink("Filosofía", "MasseyFilosofia", "Pages")</li>
+            <li>@Html.ActionLink("Valores", "MasseyValores", "Pages")</li>
+            <li>@Html.ActionLink("Club de operadores", "MasseyClubOperadores", "Pages")</li>
+        </ul>
+    </li>
+    <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle='dropdown' asp-action="Index" asp-controller="Info">Acerca de nosotros <span class="fa fa-caret-down"></span></a>
+        <ul class="dropdown-menu h-nav">
+            <li>@Html.ActionLink("Bienvenidos a Motovalle", "Index", "Info")</li>
+            <li>@Html.ActionLink("Sedes", "Sedes", "Info")</li>
+            <li>@Html.ActionLink("Trabaja con nosotros", "TrabajeConNosotros", "Info")</li>
+            <li><a asp-action="Privacy" asp-controller="Home" rel="noreferrer">Aviso de privacidad</a></li>
+            <li><a asp-action="LegalInformation" asp-controller="Home" rel="noreferrer">Políticas e información legal</a></li>
+            <li><a href="~/files/POLITICA DATOS PERSONALES MOTOVALLE[2336].pdf" rel="noreferrer" target="_blank">Política de Tratamiento de Datos</a></li>
+        </ul>
+    </li>
+    <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle='dropdown' asp-action="ContactUs" asp-controller="Info">Contáctenos <span class="fa fa-caret-down"></span></a>
+        <ul class="dropdown-menu h-nav">
+            <li>@Html.ActionLink("Contáctenos", "ContactUs", "Info")</li>
+            <li><a href="https://sgi.almeraim.com/sgi/secciones/tramites/diligenciarTramite.php?instance=0b0fa7ce3c8454de2aa2a23fb027dbef&tipoId=1&token=779340d4ea45d6b6f1d02c1528aa324e" target="_blank" rel="noreferrer">PQRS</a></li>
+            <li><a href="~/files/Formato Reclamacion.pdf" target="_blank" rel="noreferrer">Reclamación tratamiento de datos</a></li>
+        </ul>
+    </li>
+    @if (User.Identity.IsAuthenticated && (User.IsInRole("ADMIN") || User.IsInRole("BLOGADMIN")))
+    {
+        <li>@Html.ActionLink("Admin", "Index", "Admin")</li>
+    }
+</ul>

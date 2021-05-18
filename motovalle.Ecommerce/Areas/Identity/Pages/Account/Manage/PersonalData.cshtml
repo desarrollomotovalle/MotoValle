@@ -1,0 +1,39 @@
+﻿@page
+@model PersonalDataModel
+@{
+    ViewData["Title"] = "Personal Data";
+    Layout = "/Areas/Identity/Pages/Account/Manage/_Layout.cshtml";
+    ViewData["ActivePage"] = ManageNavPages.PersonalData;
+}
+
+
+
+<section class="b-breadCumbs wow zoomInUp" data-wow-delay="0.5s">
+    <div class="container">
+        <div class="row">
+            <h4>Datos  personales</h4>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <p>Su cuenta contiene datos personales que nos ha proporcionado. En esta sección se permite descargar o eliminar estos datos.</p>
+                    <p>
+                        <strong>Eliminar estos datos eliminará permanentemente su cuenta, y esto no se podrá recuperar.</strong>
+                    </p>
+                    <form asp-page="DownloadPersonalData" method="post" class="form-group">
+                        <button class="btn btn-default" type="submit">Descargar</button>
+                    </form>
+                    @*<p>
+                        <a asp-page="DeletePersonalData" class="btn btn-default">Eliminar</a>
+                    </p>*@
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <br />
+</section>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

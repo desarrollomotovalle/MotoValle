@@ -1,0 +1,55 @@
+﻿@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+
+
+<section class="b-pageHeader identity">
+    <div class="container">
+        <h1 class="wow zoomInLeft" data-wow-delay="0.5s">Tu cuenta</h1>
+        <div class="b-pageHeader__search wow zoomInRight" data-wow-delay="0.5s">
+            <h3>Administra tus datos</h3>
+        </div>
+    </div>
+</section>
+
+
+<div class="b-breadCumbs s-shadow wow zoomInUp" data-wow-delay="0.5s">
+    <div class="container">
+        <a asp-controller="Home" asp-action="Index" class="b-breadCumbs__page">Home</a><span class="fa fa-angle-right"></span><a asp-area="Identity" asp-page="/Account/Manage/Index" class="b-breadCumbs__page m-active">Administración de cuenta de usuario</a>
+    </div>
+</div>
+
+
+<section class="b-breadCumbs wow zoomInUp" data-wow-delay="0.5s">
+    <div class="container">
+        <div class="row">
+            <h2>Administra tu cuenta</h2>
+
+            <div>
+                <h4>Cambia la configuración de tu cuenta</h4>
+                <hr />
+                <div class="row">
+                    <div class="col-md-3">
+                        <partial name="_ManageNav" />
+                    </div>
+                    <div class="col-md-9">
+                        @RenderBody()
+                    </div>
+                </div>
+            </div>
+            @{ await Html.RenderPartialAsync("_ContactUs"); }
+        </div>
+    </div>
+    <br />
+    <br />
+</section>
+
+
+@section Styles {
+    @RenderSection("Styles", required: false)
+}
+
+
+@section Scripts {
+    @RenderSection("Scripts", required: false)
+}

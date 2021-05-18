@@ -1,0 +1,46 @@
+﻿@model UserRolesViewModel
+
+@{
+    ViewData["Title"] = "SetUserRole";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    var isEdit = (bool?)ViewBag.IsEdit ?? false;
+}
+
+<section class="content">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-12 text-center">
+                <a asp-action="UserManager" asp-controller="Admin" class="btn btn-dark" style="width: 34%;"><span class="fa fa-arrow-alt-circle-left"></span> Voler al administrador de usuarios</a>
+            </div>
+        </div>
+
+        @using (Html.BeginForm("SetUserRole", "Admin", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-horizontal">
+                <div class="form-group">
+                    @Html.TextBoxFor(x => x.IdUser, htmlAttributes: new { @hidden = "hidden" })
+                    <div class="col-md-12">
+                        <label class="control-label">Nombe del Role</label>
+                    </div>
+                    <div class="col-md-12">
+                        @Html.DropDownListFor(x => x.IdRole, new SelectList(Model.Roles, "Id", "Name"), "Select a role", htmlAttributes: new { @class = "form-control", @id = "idSelectRole" })
+
+                        <br />
+                        <div class="text-center">
+                            @if (isEdit)
+                            {
+                                <input type="button" value="Guardar" onclick="setUserRole('@Html.ValueFor(x => x.IdUser)', '@Html.ValueFor(x => x.IdRole)', document.getElementById('idSelectRole').value)" class="btn btn-success" style="width:33%;" />
+                            }
+                            else
+                            {
+                                <input type="button" value="Guardar" onclick="setUserRole('@Html.ValueFor(x => x.IdUser)', '', document.getElementById('idSelectRole').value)" class="btn btn-success" style="width:33%;" />
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</section>

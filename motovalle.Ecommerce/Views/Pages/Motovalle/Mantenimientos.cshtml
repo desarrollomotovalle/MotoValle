@@ -1,0 +1,153 @@
+﻿@model string
+@{
+    ViewData["Title"] = "Mantenimientos";
+    var fillColor = string.Empty;
+    switch (Model.ToLower())
+    {
+        case "ford":
+        default:
+            fillColor = "#228dcb";
+            Layout = "~/Views/Shared/_LayoutFord.cshtml";
+            break;
+        case "mazda":
+            fillColor = "#de483d";
+            Layout = "~/Views/Shared/_LayoutMazda.cshtml";
+            break;
+        case "carshow":
+            fillColor = "#f76d2b";
+            Layout = "~/Views/Shared/_LayoutCarshow.cshtml";
+            break;
+        case "massey":
+            fillColor = "#C21B2F";
+            Layout = "~/Views/Shared/_LayoutMasseyFerguson.cshtml";
+            break;
+        case "repuestos":
+            fillColor = "#0191CA";
+            Layout = "~/Views/Shared/_LayoutRepuestos.cshtml";
+            break;
+    }
+
+}
+
+<section class="b-pageHeader @Model.ToLower()">
+    <div class="container">
+        <h1 class="wow zoomInLeft" data-wow-delay="0.7s">Precios de mantenimiento</h1>
+        <div class="b-pageHeader__search wow zoomInRight" data-wow-delay="0.7s">
+
+        </div>
+    </div>
+</section><!--b-pageHeader-->
+
+<div class="b-breadCumbs s-shadow">
+    <div class="container wow zoomInUp" data-wow-delay="0.5s">
+        <a class="b-breadCumbs__page" href="/">Home</a><span class="fa fa-angle-right"></span>
+        <a asp-action="Index" asp-controller="@Model" class="b-breadCumbs__page">@Model</a><span class="fa fa-angle-right"></span>
+        <a class="b-breadCumbs__page m-active" href="#">Precios de mantenimiento</a>
+    </div>
+</div><!--b-breadCumbs-->
+
+<section class="b-article">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 col-xs-12">
+                <div class="row wow zoomInUp">
+                    <header class="s-headerSubmit s-lineDownLeft">
+                        <h2>Precios de mantenimiento</h2>
+                    </header>
+                    <div class="col-md-12 col-xs-12">
+                        <div class="s-submit custom">
+                            <div class="b-submit__main-element">
+                                <label>Seleccione vehículo<span class="text-danger">*</span></label>
+                                <div class='s-relative'>
+                                    <select class="m-select" id="ProductMaintenance" asp-items="ViewBag.Products">
+                                        <option value="0">Seleccione un vehículo</option>
+                                    </select>
+                                    <span class="fa fa-caret-down"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 col-xs-12" id="renderMaintenances" style="margin: 1em 0;">
+                    <div class="wow zoomInLeft">
+                        <img class="img-responsive" src="~/media/brands/motovalle-logo65-squre-black.png" alt="Motovalle" loading="lazy" width="80%" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-xs-12">
+                @switch (Model.ToLower())
+                {
+                    case "ford":
+                    default:
+                        @await Html.PartialAsync("_NavCategoryFord", 0)
+                        break;
+                    case "mazda":
+                        @await Html.PartialAsync("_NavCategoryMazda")
+                        break;
+                    case "massey":
+                        @await Html.PartialAsync("_NavCategoryMassey")
+                        break;
+                }
+            </div>
+        </div>
+    </div>
+</section><!--b-article-->
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+    <script type="text/javascript">
+        const $productMaintenance = document.querySelector("#ProductMaintenance");
+        const $renderMaintenances = document.querySelector("#renderMaintenances");
+        $productMaintenance.addEventListener('change', async (e) => {
+            if (e.currentTarget.value == 0) {
+                $renderMaintenances.innerHTML = `<div class="text-center"><i class="fa fa-circle-o-notch fa-spin fa-5x fa-fw"></i><br /><span class="h2">Consultando...</span></div>`;
+                setTimeout(() => {
+                    const offsetTop = $renderMaintenances.offsetTop + 100;
+                    scroll({
+                        top: offsetTop,
+                        behavior: "smooth"
+                    });
+
+                    $renderMaintenances.innerHTML = '<div class="wow zoomInLeft"><img class="img-responsive" src="/media/brands/motovalle-logo65-squre-black.png" alt="Motovalle" loading="lazy" width="80%" /></div>';
+                }, 250);
+
+                return;
+            }
+
+            $renderMaintenances.innerHTML = `<div class="text-center"><i class="fa fa-circle-o-notch fa-spin fa-5x fa-fw"></i><br /><span class="h2">Consultando...</span></div>`;
+            const productMaintenanceRequest = await fetch(`/pages/MaintenancesByProduct/${e.currentTarget.value}`);
+            if (productMaintenanceRequest.ok) {
+                setTimeout(async () => {
+                    const offsetTop = $renderMaintenances.offsetTop + 100;
+                    scroll({
+                        top: offsetTop,
+                        behavior: "smooth"
+                    });
+
+                    $renderMaintenances.innerHTML = await productMaintenanceRequest.text();
+                }, 500);
+            }
+        });
+    </script>
+}
+
+@section Styles{
+    <style>
+        .panel-heading.custom .accordion-toggle:after {
+            /*symbol for "opening" panels */
+            font-family: 'Glyphicons Halflings';
+            content: "\e114";
+            float: right;
+            color: grey;
+        }
+
+        .panel-heading.custom .accordion-toggle.collapsed:after {
+            /*symbol for "collapsed" panels */
+            content: "\e080";
+        }
+
+        .s-submit.custom select:focus {
+            border-color: @fillColor !important;
+        }
+    </style>
+}

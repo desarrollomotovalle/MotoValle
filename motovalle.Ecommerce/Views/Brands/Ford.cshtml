@@ -1,0 +1,1473 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using motovalle.Ecommerce.Models.Entities.Identity
+
+@inject UserManager<ApplicationUser> UserManager
+@model FordBrandViewModel
+@{
+    ViewData["Title"] = "Ford";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var userName = string.Empty;
+    var userEmail = string.Empty;
+    var userPhone = string.Empty;
+
+    if (User.Identity.IsAuthenticated)
+    {
+        var user = await UserManager.GetUserAsync(User);
+        userName = user.FullName;
+        userEmail = user.Email;
+        userPhone = user.PhoneNumber;
+    }
+}
+
+
+<section class="b-pageHeader">
+    <div class="container">
+        <h1 class="wow zoomInLeft" data-wow-delay="0.5s">MOTOVALLE - FORD</h1>
+        @*Issue 1: 04/08/2020 Diego - Remove Motovalle Park for Octavio's request*@
+        @*<div class="b-pageHeader__search wow zoomInRight" data-wow-delay="0.5s">
+                <h3>Encuentra el vehículo de tus sueños</h3>
+            </div>*@
+    </div>
+</section><!--b-pageHeader-->
+
+<div class="b-breadCumbs s-shadow wow zoomInUp" data-wow-delay="0.5s">
+    <div class="container">
+        <a asp-action="Index" asp-controller="Home" class="b-breadCumbs__page">Home</a><span class="fa fa-angle-right"></span><a asp-action="Ford" asp-controller="Brands" class="b-breadCumbs__page m-active">Marca (Ford)</a>
+    </div>
+    @if (ViewBag.Message != null)
+    {
+        <div class="alert alert-danger text-center wow zoomInUp" role="alert" data-wow-delay="0.5s">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <strong>¡Ups!..</strong> @ViewBag.Message &#128577;
+        </div>
+    }
+</div><!--b-breadCumbs-->
+
+
+<section class="b-slider">
+    <div class="container wow zoomInRight" data-wow-delay="0.55s">
+        <div id="carousel" class="slide carousel carousel-fade">
+            <div class="carousel-inner">
+                <div class="item active">
+                    <img src="~/media/brand-sliders/ford/MVmar2020_bnnr-escape_1-100.jpg" alt="MVmar2020_bnnr-escape_1-100" class="img-responsive" />
+                </div>
+                <div class="item">
+                    <img src="~/media/brand-sliders/ford/mv-web-ford-ecosport-feb_v1-1.jpg" alt="mv-web-ford-ecosport-feb_v1-1" class="img-responsive" />
+                </div>
+                <div class="item">
+                    <img src="~/media/brand-sliders/ford/MV_bnnr-fusion1.jpg" alt="MV_bnnr-fusion1" class="img-responsive" />
+                </div>
+                <div class="item">
+                    <img src="~/media/brand-sliders/ford/2020-ford-edge.jpg" alt="2020-ford-edge" class="img-responsive" />
+                </div>
+                <div class="item">
+                    <img src="~/media/brand-sliders/ford/2020-ford-fusion.jpg" alt="2020-ford-fusion" class="img-responsive" />
+                </div>
+                <div class="item">
+                    <img src="~/media/brand-sliders/ford/mv_home_fordranger1.jpg" alt="mv_home_fordranger1" class="img-responsive" />
+                </div>
+                <div class="item">
+                    <img src="~/media/brand-sliders/ford/mv_home_fordST1.jpg" alt="mv_home_fordST1" class="img-responsive" />
+                </div>
+                <div class="item">
+                    <img src="~/media/brand-sliders/ford/2020-ford-ecosport.jpg" alt="2020-ford-ecosport" class="img-responsive" />
+                </div>
+                <div class="item">
+                    <img src="~/media/brand-sliders/ford/MV_bnnr_escapeST1.jpg" alt="MV_bnnr_escapeST1" class="img-responsive" />
+                </div>
+                <div class="item">
+                    <img src="~/media/brand-sliders/ford/mv_home_ford4a.jpg" alt="mv_home_ford4a" class="img-responsive" />
+                </div>
+                <div class="item">
+                    <img src="~/media/brand-sliders/ford/2020-ford-scape.jpg" alt="2020-ford-scape" class="img-responsive" />
+                </div>
+            </div>
+            <a class="carousel-control right" href="#carousel" data-slide="next" id="idNextSlider">
+                <span class="fa fa-angle-right m-control-right"></span>
+            </a>
+            <a class="carousel-control left" href="#carousel" data-slide="prev">
+                <span class="fa fa-angle-left m-control-left"></span>
+            </a>
+        </div>
+    </div>
+</section><!--b-slider-->
+
+<div class="b-article s-shadow">
+    <div class="row">
+        <div class="col-md-10 col-xs-12">
+            <section class="b-detail">
+                @if (ViewBag.Error != null)
+                {
+                    <div class="container">
+                        @if (ViewBag.Error == false)
+                        {
+                            <div class="alert alert-success text-center wow zoomInUp" role="alert" data-wow-delay="0.5s">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <strong>¡Perfecto!..</strong> Se ha envíado tu solicitud correctamente &#128512;
+                            </div>
+                        }
+
+                        @if (ViewBag.Error == true)
+                        {
+                            if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+                            {
+                                <div class="alert alert-danger text-center wow zoomInUp" role="alert" data-wow-delay="0.5s">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <strong>¡Ups!..</strong> @ViewBag.ErrorMessage
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="alert alert-danger text-center wow zoomInUp" role="alert" data-wow-delay="0.5s">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <strong>¡Ups!..</strong> Lo sentimos. Algo salió mal, por favor intenta nuevamente &#128577;
+                                </div>
+                            }
+                        }
+                    </div>
+                }
+                <div class="container" id="fordContentId">
+                    <!--Home-->
+                    <div id="fordHomeId" class="text-center wow zoomInLeft" data-wow-delay="0.55s" style="margin-top:-2em; display:block;">
+                        <h2>Un vehículo para cada <span style="color:#228dcb">estilo de vida</span></h2>
+                        <h3>Conoce nuestra línea completa de vehículos y encuentra el que mejor se adapte a tí</h3>
+                        <div class="container">
+                            <p class="text text-muted">
+                                *Los precios están sujetos a cambios sin previo aviso del concesionario. Los precios anunciados son sugeridos y pueden estar sujetos a <br />
+                                variaciones según el modelo, especificaciones y el plan comercial vigente aplicable a cada vehículo.<br />
+                                El precio exacto debe ser consultado con un asesor del concesionario. <br />
+                                El precio de referencia es sobre la versión básica de menor valor, dentro de las expuestas en esta página. <br />
+                                **Algunas imágenes o características pueden variar con respecto a las versiones que se comercializan en Colombia.
+                            </p>
+                        </div>
+                    </div>
+                    <!--Integral Service-->
+                    <div id="fordIntegralServiceId" class="row wow zoomInLeft" data-wow-delay="0.55s" style="display:none;">
+                        <div class="col-md-12 col-xs-12 text-center">
+                            <img class="img-responsive center-block" src="~/ford/home/servicio-integral-header.jpg" width="90%" alt="Integral_service" />
+                        </div>
+                        <div class="col-md-12 col-xs-12">
+                            <br />
+                            <header class="b-contacts__form-header s-lineDownLeft wow zoomInUp" data-wow-delay="0.5s">
+                                <h2 class="s-titleDet text-center">
+                                    Servicio Integral
+                                </h2>
+                            </header>
+                            <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                <b>La experiencia de los Concesionarios Ford Certificados por el Programa SERVICIO INTEGRAL</b> demuestra que la aplicación de este nuevo concepto de mejora de procesos incrementa considerablemente la Satisfacción del Cliente, en comparación con los métodos tradicionales de funcionamiento del taller
+                            </p>
+                            <br />
+                            <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                Los satisfactorios resultados del Programa SERVICIO INTEGRAL tienen sus fundamentos en:<br />
+                                Un sistema de citas que le permite al Cliente la posibilidad de tener la revisión de su vehículo el día y hora acordados previamente con su Concesionario Ford.
+                            </p>
+                            <br />
+                            <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                Una inspección del vehículo más completa y fiable que le permite al Cliente conocer con anticipación cuál es el trabajo que requiere la unidad y el costo del mismo. Todo esto en su presencia para una mejor comprensión de las necesidades de mantenimiento y de los servicios que serán ejecutados en el vehículo.
+                            </p>
+                            <br />
+                            <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                Los procesos internos son más eficientes, sobre todo los de planificación de taller, reserva de repuestos y promesa de entrega del vehículo.
+                            </p>
+                            <br />
+                            <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                Motovalle le informa que nuestro Servicio de taller está dividido en las siguientes etapas:
+                            </p>
+                            <br />
+                            <ul class="s-list" style="padding-left:3em;">
+                                <li style="font-size:14px;"><span class="fa fa-check"></span>Agendamiento para ingreso al Taller </li>
+                                <li style="font-size:14px;"><span class="fa fa-check"></span>Recepción </li>
+                                <li style="font-size:14px;"><span class="fa fa-check"></span>Diagnóstico </li>
+                                <li style="font-size:14px;"><span class="fa fa-check"></span>Cotización </li>
+                                <li style="font-size:14px;"><span class="fa fa-check"></span>Autorización </li>
+                                <li style="font-size:14px;"><span class="fa fa-check"></span>Aprovisionamiento </li>
+                                <li style="font-size:14px;"><span class="fa fa-check"></span>Reparación </li>
+                                <li style="font-size:14px;"><span class="fa fa-check"></span>Control de calidad </li>
+                                <li style="font-size:14px;"><span class="fa fa-check"></span>Agendamiento de entrega </li>
+                                <li style="font-size:14px;"><span class="fa fa-check"></span>Entrega y explicación de las trabajos y cargos generados </li>
+                                <li style="font-size:14px;"><span class="fa fa-check"></span>Encuesta de satisfacción </li>
+                            </ul>
+                            <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                Motovalle y/o Ford Colombia una vez concluido el servicio solicitado, le harán una encuesta de satisfacción vía telefónica y/o e-mail la cual agradecemos responder por ser vital para continuar mejorando.
+                            </p>
+                        </div>
+                        <div class="col-md-12 col-xs-12">
+                            <header class="b-contacts__form-header s-lineDownLeft wow zoomInUp" data-wow-delay="0.5s">
+                                <h2 class="s-titleDet text-center">
+                                    Video
+                                </h2>
+                            </header>
+                            <br />
+                            <div class="embed-responsive embed-responsive-16by9">
+                                <iframe src="https://www.youtube-nocookie.com/embed/xOSQ36wvg2M" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Operators Club-->
+                    <div id="fordTestDriveId" class="row wow zoomInLeft" data-wow-delay="0.55s" style="display:none; margin-top:-4em;">
+                        <div class="col-md-12 col-xs-12 text-center">
+                            <img class="img-responsive center-block" src="~/ford/home/ford_test_drive.jpg" width="90%" alt="Test_drive_Ford" />
+                        </div>
+                        <div class="col-md-12 col-xs-12">
+                            <div>
+                                <br />
+                                <header class="b-contacts__form-header s-lineDownLeft wow zoomInUp" data-wow-delay="0.5s">
+                                    <h2 class="s-titleDet text-center">
+                                        Test <span style="color:#228dcb">Drive</span>
+                                    </h2>
+                                </header>
+                                <p class="text-center wow zoomInUp" data-wow-delay="0.5s">
+                                    <b>Agenda tu prueba de manejo para el Ford de tu preferencia.</b> Un asesor de Motovalle te contactará.
+                                </p>
+                                <form asp-action="FordTestDrive" asp-controller="Brands" method="post" class="wow zoomInUp" data-wow-delay="0.5s" style="padding: 0% 10% 0% 10%">
+                                    @Html.AntiForgeryToken()
+                                    @Html.ValidationSummary(false, string.Empty, htmlAttributes: new { @class = "text-danger" })
+                                    <div class="row">
+                                        <div class="col-md-12 col-xs-12">
+                                            <div class="form-group">
+                                                <input asp-for="@Model.TestDriveFordViewModel.FullName" class="form-control" placeholder="Nombres*" />
+                                                <span asp-validation-for="@Model.TestDriveFordViewModel.FullName" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <input asp-for="@Model.TestDriveFordViewModel.Email" class="form-control" placeholder="Email" />
+                                                <span asp-validation-for="@Model.TestDriveFordViewModel.Email" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <input asp-for="@Model.TestDriveFordViewModel.PhoneNumber" class="form-control" placeholder="Celular" />
+                                                <span asp-validation-for="@Model.TestDriveFordViewModel.PhoneNumber" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <select asp-for="@Model.TestDriveFordViewModel.Headquarter" class="form-control" asp-items="ViewBag.Headquarters">
+                                                    <option value="">Seleccione una sede</option>
+                                                </select>
+                                                <span asp-validation-for="@Model.TestDriveFordViewModel.Headquarter" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <select asp-for="@Model.TestDriveFordViewModel.Product" class="form-control" asp-items="ViewBag.Products">
+                                                    <option value="">Seleccione un vehículo</option>
+                                                </select>
+                                                <span asp-validation-for="@Model.TestDriveFordViewModel.Product" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-xs-6">
+                                            <div class="form-group">
+                                                <label asp-for="@Model.TestDriveFordViewModel.Date" class="control-label"></label>
+                                                <input asp-for="@Model.TestDriveFordViewModel.Date" class="form-control" />
+                                                <span asp-validation-for="@Model.TestDriveFordViewModel.Date" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        @*<div class="col-md-6 col-xs-6">
+                                            <div class="form-group">
+                                                <label asp-for="@Model.TestDriveFordViewModel.Hour" class="control-label"></label>
+                                                <input asp-for="@Model.TestDriveFordViewModel.Hour" class="form-control" />
+                                                <span asp-validation-for="@Model.TestDriveFordViewModel.Hour" class="text-danger"></span>
+                                            </div>
+                                        </div>*@
+                                    </div>
+                                    @*<div class="row">
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <span asp-validation-for="@Model.TestDriveFordViewModel.DataTreatment" class="error text-danger"></span>
+                                                <label><input type="checkbox" asp-for="@Model.TestDriveFordViewModel.DataTreatment" id="user-dataTreatmentId" /><a asp-action="Privacy" asp-controller="Home" target="_blank"> Conozco y acepto</a> las políticas de tratamiento de datos de Motovalle y lo autorizo a contactarme</label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-6 col-xs-12">
+                                                <span asp-validation-for="@Model.TestDriveFordViewModel.TermsAndConditions" class="error text-danger"></span>
+                                                <label><input type="checkbox" asp-for="@Model.TestDriveFordViewModel.TermsAndConditions" id="user-termsconditions-id" /><a asp-action="Privacy" asp-controller="Home" target="_blank"> Acepto los términos</a> y condiciones</label>
+                                            </div>
+                                        </div>
+                                    </div>*@
+                                    <br />
+                                    <div class="form-group text-center">
+                                        <input type="submit" value="Suscribrirme ahora" class="btn btn-primary" />
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+            </section><!--b-detail-->
+        </div>
+        <div class="col-md-2 col-xs-12">
+            <aside class="b-blog__aside">
+                <div class="b-blog__aside-categories wow zoomInUp" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: zoomInUp;">
+                    <header class="s-lineDownLeft">
+                        <h2 class="s-titleDet">Más de acerca de nosotros</h2>
+                    </header>
+                    <nav>
+                        <ul class="b-blog__aside-categories-list">
+                            <li class="m-active"><a onclick="getFordInfo('Home')"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+                            <li><a onclick="getFordInfo('IntegralService')">Servicio integral</a></li>
+                            <li><a href="https://motorcraft.com.co/inicio" target="_blank">Motorcraft</a></li>
+                            <li><a onclick="getFordInfo('TestDrive')">Test Drive</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </aside>
+        </div>
+    </div>
+    <div class="wow zoomInLeft" data-wow-delay="0.55s">
+        <div class="col-sm-4 col-xs-12">
+            <h2 style="margin-left:2em;"><span style="color:#228dcb;">Categorías</span></h2>
+        </div>
+        <div class="col-sm-8 col-xs-12 pull-right">
+            <ul class="nav nav-tabs">
+                <li class="active">
+                    <a href="#todos" class="tabmap" data-toggle="tab" aria-expanded="true">
+                        <h4>TODOS</h4>
+                    </a>
+                </li>
+
+                @if (ViewBag.Categories != null)
+                {
+                    foreach (var category in ViewBag.Categories)
+                    {
+                        <li>
+                            <a href="@($"#category{category[0]}")" class="tabmap" data-toggle="tab" aria-expanded="false">
+                                <h4>@category[1]</h4>
+                            </a>
+                        </li>
+                    }
+                }
+            </ul>
+            <!--nav nav-tabs nav-justified-->
+        </div>
+    </div>
+</div>
+
+<section class="b-related m-home">
+    <div class="container">
+        <h5 class="s-titleBg wow zoomInUp" data-wow-delay="0.5s">ENCUENTRA EL AUTO DE TUS SUEÑOS</h5><br />
+        <h2 class="s-title wow zoomInUp" data-wow-delay="0.5s">VEHÍCULOS</h2>
+        <div class="panel-body">
+            <div class="tab-content">
+                <div class="tab-pane fade active in" id="todos">
+                    <div class="row">
+                        @foreach (var item in Model.ProductsAndMakeBase)
+                        {
+                            <div class="col-lg-4 col-md-4 col-xs-6" style="margin-bottom:2em;">
+                                <div class="b-auto__main-item wow zoomInRight" data-wow-delay="0.5s">
+                                    <img class="img-responsive center-block" src="@Url.Content($"~/{item.PictureUrl}")" alt="@item.ModelName" style="width:270px; height:230px;" />
+                                    <div class="b-world__item-val">
+                                        <span class="b-world__item-val-title">CATEGORÍA <span>@item.CategoryName</span></span>
+                                    </div>
+                                    <h2><a href="/Ford/Product/@item.ProductId/Inventory">@item.ProductName</a></h2>
+                                    <div class="b-auto__main-item-info s-lineDownLeft">
+                                        <span class="m-price">
+                                            @item.SalesPrice.ToString("C")
+                                        </span>
+                                        <span class="m-number">
+                                            <span class="fa fa-tachometer"></span>0 KM
+                                        </span>
+                                    </div>
+                                    <div class="b-featured__item-links m-auto">
+                                        <a href="#">Nuevo</a>
+                                        <a href="#">@item.Year</a>
+                                        <a href="#">@item.HorsePower HP</a>
+                                        <a href="#">@item.TransmissionName</a>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            @if (User.Identity.IsAuthenticated)
+                                            {
+                                                <a onclick="jivo_api.setContactInfo({ name: '@userName', email: '@userEmail', phone: '@userPhone', description: '@item.ProductName' }); jivo_api.setCustomData({ 'Asunto': 'Quiero saber más sobre: @item.ProductName' }); jivo_api.open({ start: 'chat' });">Pregunta por él aquí <span class="fa fa-comments"></span></a>
+                                            }
+                                            else
+                                            {
+                                                <a onclick="jivo_api.setCustomData({ 'Asunto': 'Quiero saber más sobre: @item.ProductName' }); jivo_api.open({ start: 'chat' });">Pregunta por él aquí <span class="fa fa-comments"></span></a>
+                                            }
+                                        </div>
+                                        ó
+                                        <div class="col-xs-12">
+                                            <a href="/Ford/Product/@item.ProductId/Inventory">Compralo en nuestra tienda <span class="fa fa-shopping-cart"></span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+                @if (ViewBag.Categories != null)
+                {
+                    @foreach (var category in ViewBag.Categories)
+                    {
+                        <div class="tab-pane fade" id="@($"category{category[0]}")">
+                            <div class="row">
+                                @foreach (var item in Model.ProductsAndMakeBase.Where(x => x.CategoriesId.ToString() == category[0]).ToList())
+                                {
+                                    <div class="col-lg-4 col-md-4 col-xs-6" style="margin-bottom:2em;">
+                                        <div class="b-auto__main-item">
+                                            <img class="img-responsive center-block" src="@Url.Content($"~/{item.PictureUrl}")" alt="@item.ModelName" style="width:270px; height:230px;"/>
+                                            <div class="b-world__item-val">
+                                                <span class="b-world__item-val-title">CATEGORÍA <span>@item.CategoryName</span></span>
+                                            </div>
+                                            <h2><a href="/Ford/Product/@item.ProductId/Inventory">@item.ProductName</a></h2>
+                                            <div class="b-auto__main-item-info s-lineDownLeft">
+                                                <span class="m-price">
+                                                    @item.SalesPrice.ToString("C")
+                                                </span>
+                                                <span class="m-number">
+                                                    <span class="fa fa-tachometer"></span>0 KM
+                                                </span>
+                                            </div>
+                                            <div class="b-featured__item-links m-auto">
+                                                <a href="#">Nuevo</a>
+                                                <a href="#">@item.Year</a>
+                                                <a href="#">@item.HorsePower HP</a>
+                                                <a href="#">@item.TransmissionName</a>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-12">
+                                                    @if (User.Identity.IsAuthenticated)
+                                                    {
+                                                        <a onclick="jivo_api.setContactInfo({ name: '@userName', email: '@userEmail', phone: '@userPhone', description: '@item.ProductName' }); jivo_api.setCustomData({ 'Asunto': 'Quiero saber más sobre: @item.ProductName' }); jivo_api.open({ start: 'chat' });">Pregunta por él aquí <span class="fa fa-comments"></span></a>
+                                                    }
+                                                    else
+                                                    {
+                                                        <a onclick="jivo_api.setCustomData({ 'Asunto': 'Quiero saber más sobre: @item.ProductName' }); jivo_api.open({ start: 'chat' });">Pregunta por él aquí <span class="fa fa-comments"></span></a>
+                                                    }
+                                                </div>
+                                                ó
+                                                <div class="col-xs-12">
+                                                    <a href="/Ford/Product/@item.ProductId/Inventory">Compralo en nuestra tienda <span class="fa fa-shopping-cart"></span></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+    <br />
+    <br />
+</section><!--"b-related-->
+
+<div class="b-map wow zoomInUp" data-wow-delay="0.5s">
+    <div class="container wow zoomInLeft" data-wow-delay="0.55s">
+        <div class="col-sm-6 col-xs-12">
+            <h2 style="margin-left:2em;">Nuestras <span style="color:#228dcb;">sedes</span></h2>
+        </div>
+        <div class="col-sm-6 col-xs-12 pull-right">
+            <ul class="nav nav-tabs">
+                <li class="active">
+                    <a href="#mapa1" class="tabmap" data-toggle="tab" aria-expanded="true"><h3>BOGOTÁ</h3></a>
+                </li>
+                <li>
+                    <a href="#mapa2" class="tabmap" data-toggle="tab" aria-expanded="true"><h3>CALI</h3></a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+    <div class="panel with-nav-tabs-maps">
+        <div class="panel-body">
+            <div class="tab-content">
+                <div class="tab-pane fade in active" id="mapa1">
+                    <div>
+                        <div class="wpgmp_map_container wpgmp-map-4" rel="map4"><div class="wpgmp_map " style="width:100%; height:680px;" id="map4"></div></div>
+                    </div>
+
+                </div>
+                <div class="tab-pane fade" id="mapa2">
+                    <div>
+                        <div class="wpgmp_map_container wpgmp-map-1" rel="map1"><div class="wpgmp_map " style="width:100%; height:680px;" id="map1"></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .wpgmp-map-1, .wpgmp-map-1 .wpgmp_tabs_container, .wpgmp-map-1, .wpgmp-map-4, .wpgmp-map-4 .wpgmp_tabs_container, .wpgmp-map-4 .wpgmp_listing_container {
+        font-size: 16px !important;
+    }
+</style>
+
+@section scripts{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+    <script type="text/javascript">
+        window.onload = () => {
+            setInterval(() => {
+                document.querySelector("#idNextSlider").click();
+            }, 10000);
+        };
+
+        $('.b-blog__aside-categories-list li').click(function () {
+            $('.b-blog__aside-categories-list li').removeClass('m-active');
+            $(this).addClass('m-active');
+        });
+
+        // extend jquery range validator to work for required checkboxes
+        var defaultRangeValidator = $.validator.methods.range;
+        $.validator.methods.range = function (value, element, param) {
+            if (element.type === 'checkbox') {
+                // if it's a checkbox return true if it is checked
+                return element.checked;
+            } else {
+                // otherwise run the default validation function
+                return defaultRangeValidator.call(this, value, element, param);
+            }
+        }
+    </script>
+
+    <section class="scripts">
+        <script type="text/javascript" src="~/js/maps.js"></script>
+        <script type='text/javascript' src='https://maps.google.com/maps/api/js?key=AIzaSyBVJ03UjRxywFn8ch5YseSPn2tZ_FsFOgQ&#038;libraries=geometry%2Cplaces%2Cweather%2Cpanoramio%2Cdrawing&#038;language=es&#038;ver=5.2.5'></script>
+        <script>
+            jQuery(document).ready(function ($) {
+                var map4 = $("#map4").maps({
+                    "map_options": {
+                        "center_lat": "4.626299",
+                        "center_lng": "-74.10585600000002",
+                        "zoom": 15,
+                        "map_type_id": "ROADMAP",
+                        "center_by_nearest": true,
+                        "center_circle_fillcolor": "#8CAEF2",
+                        "center_circle_fillopacity": ".5",
+                        "center_circle_strokecolor": "#8CAEF2",
+                        "center_circle_strokeopacity": ".5",
+                        "center_circle_radius": "5",
+                        "show_center_circle": false,
+                        "show_center_marker": false,
+                        "center_marker_icon": "https://unpkg.com/leaflet@1.3.3/dist/images/marker-icon.png",
+                        "center_marker_infowindow": "",
+                        "center_circle_strokeweight": "1",
+                        "draggable": true,
+                        "scroll_wheel": false,
+                        "display_45_imagery": "",
+                        "marker_default_icon": "/images/maps/pointers/pointer.png",
+                        "infowindow_setting": `<div class="fc-main"><div class="fc-item-title">{marker_title} <span class="fc-badge info">{marker_category}</span></div><div class="fc-item-featured_image">{marker_image} </div><p>{marker_message}</p><address><b>Address : </b>{marker_address}</address></div><div><a href="https://www.google.com/maps/dir/?api=1&destination={address_map}&travelmode=traffic" target="_blank">Ver ruta en Google Maps</a></div>`,
+                        "infowindow_geotags_setting": `<div class="fc-main"><div class="fc-item-title">{post_title} <span class="fc-badge info">{post_categories}</span></div><div class="fc-item-featured_image">{post_featured_image} </div><p>{post_excerpt}</p><address><b>Address : </b>{marker_address}</address><p><a target="_blank"  class="fc-btn fc-btn-small fc-btn-red" href="{post_link}">Read More...</a></div>`,
+                        "infowindow_bounce_animation": "",
+                        "infowindow_drop_animation": false,
+                        "close_infowindow_on_map_click": false,
+                        "default_infowindow_open": false,
+                        "infowindow_open_event": "click",
+                        "infowindow_filter_only": false,
+                        "infowindow_click_change_zoom": 0,
+                        "infowindow_click_change_center": false,
+                        "full_screen_control": true,
+                        "search_control": true,
+                        "zoom_control": true,
+                        "map_type_control": true,
+                        "street_view_control": true,
+                        "zoom_mobile": 0,
+                        "draggable_mobile": true,
+                        "scroll_wheel_mobile": true,
+                        "full_screen_control_position": "TOP_RIGHT",
+                        "search_control_position": "TOP_LEFT",
+                        "zoom_control_position": "TOP_LEFT",
+                        "map_type_control_position": "TOP_LEFT",
+                        "map_type_control_style": "HORIZONTAL_BAR",
+                        "street_view_control_position": "TOP_LEFT",
+                        "map_control": true,
+                        "map_control_settings": [],
+                        "screens": {
+                            "smartphones": {
+                                "map_width_mobile": "",
+                                "map_height_mobile": "380px",
+                                "map_zoom_level_mobile": "17"
+                            },
+                            "ipads": {
+                                "map_width_mobile": "",
+                                "map_height_mobile": "440px",
+                                "map_zoom_level_mobile": "17"
+                            },
+                            "large-screens": {
+                                "map_width_mobile": "",
+                                "map_height_mobile": "680px",
+                                "map_zoom_level_mobile": "17"
+                            }
+                        },
+                        "map_infowindow_customisations": false,
+                        "infowindow_border_color": "rgba(0, 0, 0, 0.0980392)",
+                        "infowindow_bg_color": "#fff",
+                        "show_infowindow_header": false,
+                        "width": "",
+                        "height": "680"
+                    },
+                    "places": [
+                        {
+                            "id": "2",
+                            "title": "Motovalle Bogotá",
+                            "address": "Calle 13 # 49 - 91 Puente Aranda",
+                            "source": "manual",
+                            "content": "Motovalle Bogotá",
+                            "location": {
+                                "icon": `${window.location.origin}/images/maps/pointers/ford1.png`,
+                                "lat": "4.626103",
+                                "lng": "-74.105714",
+                                "city": "Bogotá",
+                                "state": "Bogotá",
+                                "country": "Colombia",
+                                "onclick_action": "marker",
+                                "redirect_custom_link": "",
+                                "marker_image": "",
+                                "open_new_tab": "yes",
+                                "postal_code": "111611",
+                                "draggable": false,
+                                "infowindow_default_open": false,
+                                "animation": "BOUNCE",
+                                "infowindow_disable": true,
+                                "zoom": 5,
+                                "extra_fields": {
+                                    "address_map": "Ford+Motovalle,+Cl.+13+%23%2349+-+91,+Bogotá,+Cundinamarca",
+                                    "listorder": 0
+                                }
+                            },
+                            "categories": [
+                                {
+                                    "id": "5",
+                                    "name": "Corporativo Ford",
+                                    "type": "category",
+                                    "extension_fields": {
+                                        "cat_order": "0"
+                                    },
+                                    "icon": `${window.location.origin}/images/maps/pointers/ford1.png`
+                                }
+                            ],
+                            "custom_filters": []
+                        }
+                    ],
+                    "styles": [
+                        {
+                            "featureType": "all",
+                            "elementType": "geometry",
+                            "stylers": [
+                                {
+                                    "visibility": "on"
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "all",
+                            "elementType": "labels",
+                            "stylers": [
+                                {
+                                    "visibility": "on"
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "all",
+                            "elementType": "labels.text",
+                            "stylers": [
+                                {
+                                    "visibility": "on"
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "all",
+                            "elementType": "labels.text.fill",
+                            "stylers": [
+                                {
+                                    "color": "#7d7e92"
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "all",
+                            "elementType": "labels.icon",
+                            "stylers": [
+                                {
+                                    "visibility": "on"
+                                },
+                                {
+                                    "hue": "#ff0000"
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "administrative",
+                            "elementType": "labels.text.fill",
+                            "stylers": [
+                                {
+                                    "color": "#444444"
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "landscape",
+                            "elementType": "geometry.fill",
+                            "stylers": [
+                                {
+                                    "visibility": "on"
+                                },
+                                {
+                                    "color": "#e0e1e6"
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "landscape",
+                            "elementType": "geometry.stroke",
+                            "stylers": [
+                                {
+                                    "visibility": "off"
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "poi",
+                            "elementType": "all",
+                            "stylers": [
+                                {
+                                    "visibility": "off"
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "poi",
+                            "elementType": "geometry",
+                            "stylers": [
+                                {
+                                    "visibility": "off"
+                                },
+                                {
+                                    "color": "#c71313"
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "poi",
+                            "elementType": "geometry.fill",
+                            "stylers": [
+                                {
+                                    "visibility": "on"
+                                },
+                                {
+                                    "color": "#7c7d91"
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "poi",
+                            "elementType": "geometry.stroke",
+                            "stylers": [
+                                {
+                                    "visibility": "off"
+                                },
+                                {
+                                    "color": "#a12222"
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "poi",
+                            "elementType": "labels",
+                            "stylers": [
+                                {
+                                    "visibility": "on"
+                                },
+                                {
+                                    "hue": "#000fff"
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "poi",
+                            "elementType": "labels.text",
+                            "stylers": [
+                                {
+                                    "visibility": "on"
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "poi",
+                            "elementType": "labels.icon",
+                            "stylers": [
+                                {
+                                    "hue": "#0054ff"
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "poi.business",
+                            "elementType": "labels.icon",
+                            "stylers": [
+                                {
+                                    "visibility": "on"
+                                },
+                                {
+                                    "hue": "#007aff"
+                                },
+                                {
+                                    "weight": "10.00"
+                                },
+                                {
+                                    "saturation": "-100"
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "poi.government",
+                            "elementType": "labels.icon",
+                            "stylers": [
+                                {
+                                    "visibility": "off"
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "poi.medical",
+                            "elementType": "all",
+                            "stylers": [
+                                {
+                                    "visibility": "off"
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "poi.place_of_worship",
+                            "elementType": "labels.icon",
+                            "stylers": [
+                                {
+                                    "visibility": "off"
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "poi.school",
+                            "elementType": "labels.icon",
+                            "stylers": [
+                                {
+                                    "visibility": "off"
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "poi.sports_complex",
+                            "elementType": "labels.icon",
+                            "stylers": [
+                                {
+                                    "visibility": "off"
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "road",
+                            "elementType": "all",
+                            "stylers": [
+                                {
+                                    "saturation": -100
+                                },
+                                {
+                                    "lightness": 45
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "road.highway",
+                            "elementType": "all",
+                            "stylers": [
+                                {
+                                    "visibility": "simplified"
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "road.highway",
+                            "elementType": "geometry.fill",
+                            "stylers": [
+                                {
+                                    "visibility": "on"
+                                },
+                                {
+                                    "color": "#dedee6"
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "road.highway",
+                            "elementType": "geometry.stroke",
+                            "stylers": [
+                                {
+                                    "visibility": "on"
+                                },
+                                {
+                                    "color": "#7c7d91"
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "road.highway",
+                            "elementType": "labels.text.stroke",
+                            "stylers": [
+                                {
+                                    "visibility": "off"
+                                },
+                                {
+                                    "hue": "#ff0000"
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "road.arterial",
+                            "elementType": "labels.icon",
+                            "stylers": [
+                                {
+                                    "visibility": "off"
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "transit",
+                            "elementType": "all",
+                            "stylers": [
+                                {
+                                    "visibility": "off"
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "water",
+                            "elementType": "all",
+                            "stylers": [
+                                {
+                                    "color": "#46bcec"
+                                },
+                                {
+                                    "visibility": "on"
+                                }
+                            ]
+                        }
+                    ],
+                    "street_view": null,
+                    "routes": null,
+                    "marker_cluster": null,
+                    "overlay_setting": null,
+                    "panning_control": null,
+                    "map_tabs": {
+                        "category_tab": null,
+                        "direction_tab": null,
+                        "nearby_tab": null,
+                        "route_tab": null
+                    },
+                    "listing": null,
+                    "map_property": {
+                        "map_id": "4"
+                    },
+                    "shapes": {
+                        "drawing_editable": false
+                    },
+                    "filters": {
+                        "custom_filters": [],
+                        "filters_container": `[data-container="wpgmp- filters - container"]`
+                    }
+                }).data("wpgmp_maps");
+            });
+        </script>
+        <script>
+            jQuery(document).ready(function ($) {
+                var map1 = $("#map1").maps({
+                    "map_options": {
+                        "center_lat": "3.440317",
+                        "center_lng": "-76.528622",
+                        "zoom": 11,
+                        "map_type_id": "ROADMAP",
+                        "center_by_nearest": true,
+                        "center_circle_fillcolor": "#8CAEF2",
+                        "center_circle_fillopacity": ".5",
+                        "center_circle_strokecolor": "#8CAEF2",
+                        "center_circle_strokeopacity": ".5",
+                        "center_circle_radius": "5",
+                        "show_center_circle": false,
+                        "show_center_marker": false,
+                        "center_marker_icon": "https://unpkg.com/leaflet@1.3.3/dist/images/marker-icon.png",
+                        "center_marker_infowindow": "",
+                        "center_circle_strokeweight": "1",
+                        "draggable": true,
+                        "scroll_wheel": false,
+                        "display_45_imagery": "",
+                        "marker_default_icon": "/images/maps/pointers/pointer.png",
+                        "infowindow_setting": `<div class="fc- main"><div class="fc - item - title">{marker_title} <span class="fc - badge info">{marker_category}</span></div><div class="fc - item - featured_image">{marker_image} </div><p>{marker_message}</p><address><b>Address : </b>{marker_address}</address></div><div><a href="https://www.google.com/maps/dir/?api=1&destination={address_map}&travelmode=traffic" target="_blank">Ver ruta en Google Maps</a></div>`,
+                        "infowindow_geotags_setting": `<div class="fc- main"><div class="fc - item - title">{post_title} <span class="fc - badge info">{post_categories}</span></div><div class="fc - item - featured_image">{post_featured_image} </div><p>{post_excerpt}</p><address><b>Address : </b>{marker_address}</address><p><a target="_blank"  class="fc - btn fc - btn - small fc - btn - red" href="{ post_link }">Read More...</a></div>`,
+                        "infowindow_bounce_animation": "",
+                        "infowindow_drop_animation": false,
+                        "close_infowindow_on_map_click": false,
+                        "default_infowindow_open": false,
+                        "infowindow_open_event": "click",
+                        "infowindow_filter_only": false,
+                        "infowindow_click_change_zoom": 0,
+                        "infowindow_click_change_center": false,
+                        "full_screen_control": true,
+                        "search_control": true,
+                        "zoom_control": true,
+                        "map_type_control": true,
+                        "street_view_control": true,
+                        "zoom_mobile": 0,
+                        "draggable_mobile": true,
+                        "scroll_wheel_mobile": true,
+                        "full_screen_control_position": "TOP_RIGHT",
+                        "search_control_position": "TOP_LEFT",
+                        "zoom_control_position": "TOP_LEFT",
+                        "map_type_control_position": "TOP_LEFT",
+                        "map_type_control_style": "HORIZONTAL_BAR",
+                        "street_view_control_position": "TOP_LEFT",
+                        "map_control": true,
+                        "map_control_settings": [],
+                        "screens": {
+                            "smartphones": {
+                                "map_width_mobile": "",
+                                "map_height_mobile": "380px",
+                                "map_zoom_level_mobile": "13"
+                            },
+                            "ipads": {
+                                "map_width_mobile": "",
+                                "map_height_mobile": "440px",
+                                "map_zoom_level_mobile": "13"
+                            },
+                            "large-screens": {
+                                "map_width_mobile": "",
+                                "map_height_mobile": "680px",
+                                "map_zoom_level_mobile": "13"
+                            }
+                        },
+                        "map_infowindow_customisations": false,
+                        "infowindow_border_color": "rgba(0, 0, 0, 0.0980392)",
+                        "infowindow_bg_color": "#fff",
+                        "show_infowindow_header": false,
+                        "width": "",
+                        "height": "680"
+                    },
+                    "places": [
+                        {
+                            "id": "1",
+                            "title": "Motovalle Ford Cali Sede Sur",
+                            "address": "Motovalle Ford Sede Sur - Calle 9, Cali - Valle del Cauca, Colombia",
+                            "source": "manual",
+                            "content": "Motovalle Ford Cali Sede Sur",
+                            "location": {
+                                "icon": "/images/maps/pointers/Motovalle-Pointers-236.png",
+                                "lat": "3.4157506",
+                                "lng": "-76.53864020000003",
+                                "city": "Cali",
+                                "state": "Valle del Cauca",
+                                "country": "Colombia",
+                                "onclick_action": "marker",
+                                "redirect_custom_link": "",
+                                "marker_image": "",
+                                "open_new_tab": "yes",
+                                "postal_code": "760036",
+                                "draggable": false,
+                                "infowindow_default_open": false,
+                                "animation": "BOUNCE",
+                                "infowindow_disable": true,
+                                "zoom": 5,
+                                "extra_fields": {
+                                    "address_map": "Motovalle+Vitrina+Sur,+Calle+9,+Cali,+Valle+del+Cauca",
+                                    "listorder": 0
+                                }
+                            },
+                            "categories": [
+                                {
+                                    "id": "3",
+                                    "name": "Sede Sur",
+                                    "type": "category",
+                                    "extension_fields": {
+                                        "cat_order": "0"
+                                    },
+                                    "icon": "/images/maps/pointers/Motovalle-Pointers-236.png"
+                                }
+                            ],
+                            "custom_filters": []
+                        },
+                        {
+                            "id": "3",
+                            "title": "Motovalle Ford Cali Sede Norte",
+                            "address": "Motovalle Cali, Calle 26 #1 - 71, Santiago de Cali, Valle del Cauca, Colombia",
+                            "source": "manual",
+                            "content": "Motovalle Ford Cali Sede Norte",
+                            "location": {
+                                "icon": "/images/maps/pointers/Motovalle-Pointers-235.png",
+                                "lat": "3.460392",
+                                "lng": "-76.52010000000001",
+                                "city": "Cali",
+                                "state": "Valle del Cauca",
+                                "country": "Colombia",
+                                "onclick_action": "marker",
+                                "redirect_custom_link": "",
+                                "marker_image": `<img src='${window.location.origin}/images/maps/pointers/Motovalle-Pointers-235.png' class='wpgmp_marker_image' />`,
+                                "open_new_tab": "yes",
+                                "postal_code": "760003",
+                                "draggable": false,
+                                "infowindow_default_open": false,
+                                "animation": "BOUNCE",
+                                "infowindow_disable": true,
+                                "zoom": 5,
+                                "extra_fields": {
+                                    "address_map": "MOTOVALLE+Vitrina+Norte,+Calle+26,+Cali,+Valle+del+Cauca",
+                                    "listorder": 0
+                                }
+                            },
+                            "categories": [
+                                {
+                                    "id": "4",
+                                    "name": "Sede Norte",
+                                    "type": "category",
+                                    "extension_fields": {
+                                        "cat_order": "0"
+                                    },
+                                    "icon": "/images/maps/pointers/Motovalle-Pointers-235.png"
+                                }
+                            ],
+                            "custom_filters": []
+                        }
+                    ],
+                    "styles": [
+                        {
+                            "featureType": "all",
+                            "elementType": "geometry",
+                            "stylers": [
+                                {
+                                    "visibility": "on"
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "all",
+                            "elementType": "labels",
+                            "stylers": [
+                                {
+                                    "visibility": "on"
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "all",
+                            "elementType": "labels.text",
+                            "stylers": [
+                                {
+                                    "visibility": "on"
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "all",
+                            "elementType": "labels.text.fill",
+                            "stylers": [
+                                {
+                                    "color": "#7d7e92"
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "all",
+                            "elementType": "labels.icon",
+                            "stylers": [
+                                {
+                                    "visibility": "on"
+                                },
+                                {
+                                    "hue": "#ff0000"
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "administrative",
+                            "elementType": "labels.text.fill",
+                            "stylers": [
+                                {
+                                    "color": "#444444"
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "landscape",
+                            "elementType": "geometry.fill",
+                            "stylers": [
+                                {
+                                    "visibility": "on"
+                                },
+                                {
+                                    "color": "#e0e1e6"
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "landscape",
+                            "elementType": "geometry.stroke",
+                            "stylers": [
+                                {
+                                    "visibility": "off"
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "poi",
+                            "elementType": "all",
+                            "stylers": [
+                                {
+                                    "visibility": "off"
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "poi",
+                            "elementType": "geometry",
+                            "stylers": [
+                                {
+                                    "visibility": "off"
+                                },
+                                {
+                                    "color": "#c71313"
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "poi",
+                            "elementType": "geometry.fill",
+                            "stylers": [
+                                {
+                                    "visibility": "on"
+                                },
+                                {
+                                    "color": "#7c7d91"
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "poi",
+                            "elementType": "geometry.stroke",
+                            "stylers": [
+                                {
+                                    "visibility": "off"
+                                },
+                                {
+                                    "color": "#a12222"
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "poi",
+                            "elementType": "labels",
+                            "stylers": [
+                                {
+                                    "visibility": "on"
+                                },
+                                {
+                                    "hue": "#000fff"
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "poi",
+                            "elementType": "labels.text",
+                            "stylers": [
+                                {
+                                    "visibility": "on"
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "poi",
+                            "elementType": "labels.icon",
+                            "stylers": [
+                                {
+                                    "hue": "#0054ff"
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "poi.business",
+                            "elementType": "labels.icon",
+                            "stylers": [
+                                {
+                                    "visibility": "on"
+                                },
+                                {
+                                    "hue": "#007aff"
+                                },
+                                {
+                                    "weight": "10.00"
+                                },
+                                {
+                                    "saturation": " - 100"
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "poi.government",
+                            "elementType": "labels.icon",
+                            "stylers": [
+                                {
+                                    "visibility": "off"
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "poi.medical",
+                            "elementType": "all",
+                            "stylers": [
+                                {
+                                    "visibility": "off"
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "poi.place_of_worship",
+                            "elementType": "labels.icon",
+                            "stylers": [
+                                {
+                                    "visibility": "off"
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "poi.school",
+                            "elementType": "labels.icon",
+                            "stylers": [
+                                {
+                                    "visibility": "off"
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "poi.sports_complex",
+                            "elementType": "labels.icon",
+                            "stylers": [
+                                {
+                                    "visibility": "off"
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "road",
+                            "elementType": "all",
+                            "stylers": [
+                                {
+                                    "saturation": -100
+                                },
+                                {
+                                    "lightness": 45
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "road.highway",
+                            "elementType": "all",
+                            "stylers": [
+                                {
+                                    "visibility": "simplified"
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "road.highway",
+                            "elementType": "geometry.fill",
+                            "stylers": [
+                                {
+                                    "visibility": "on"
+                                },
+                                {
+                                    "color": "#dedee6"
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "road.highway",
+                            "elementType": "geometry.stroke",
+                            "stylers": [
+                                {
+                                    "visibility": "on"
+                                },
+                                {
+                                    "color": "#7c7d91"
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "road.highway",
+                            "elementType": "labels.text.stroke",
+                            "stylers": [
+                                {
+                                    "visibility": "off"
+                                },
+                                {
+                                    "hue": "#ff0000"
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "road.arterial",
+                            "elementType": "labels.icon",
+                            "stylers": [
+                                {
+                                    "visibility": "off"
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "transit",
+                            "elementType": "all",
+                            "stylers": [
+                                {
+                                    "visibility": "off"
+                                }
+                            ]
+                        },
+                        {
+                            "featureType": "water",
+                            "elementType": "all",
+                            "stylers": [
+                                {
+                                    "color": "#46bcec"
+                                },
+                                {
+                                    "visibility": "on"
+                                }
+                            ]
+                        }
+                    ],
+                    "street_view": null,
+                    "routes": null,
+                    "marker_cluster": null,
+                    "overlay_setting": null,
+                    "panning_control": null,
+                    "map_tabs": {
+                        "category_tab": null,
+                        "direction_tab": null,
+                        "nearby_tab": null,
+                        "route_tab": null
+                    },
+                    "listing": null,
+                    "map_property": {
+                        "map_id": "1"
+                    },
+                    "shapes": {
+                        "drawing_editable": false
+                    },
+                    "filters": {
+                        "custom_filters": [],
+                        "filters_container": `[data-container="wpgmp- filters - container"]`
+                    }
+                }).data("wpgmp_maps");
+            });
+        </script>
+    </section>
+}

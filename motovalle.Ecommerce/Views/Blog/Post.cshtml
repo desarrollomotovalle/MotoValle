@@ -1,0 +1,73 @@
+﻿@model inventek_blog.Models.Entities.Posts
+
+@{
+    ViewData["Title"] = Model.Title;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="b-article">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 col-xs-12">
+                <div class="b-article__main">
+                    <div class="b-blog__posts-one">
+                        <div class="row m-noBlockPadding">
+                            <div class="col-sm-1 col-xs-2">
+                                @*<div class="b-blog__posts-one-author wow zoomInUp" data-wow-delay="0.5s">
+                                    <div class="b-blog__posts-one-share s-lineDownCenter">COMPARTIR</div>
+                                    <div class="b-blog__posts-one-social">
+                                        <div>
+                                            <a href="#"><span class="fa fa-google-plus-square "></span></a>
+                                            <a href="#"><span class="fa  fa-facebook-square"></span></a>
+                                        </div>
+                                        <div>
+                                            <a href="#"><span class="fa fa-twitter-square "></span></a>
+                                            <a href="#"><span class="fa fa-pinterest-square"></span></a>
+                                        </div>
+                                    </div>
+                                </div>*@
+                            </div>
+                            <div class="col-sm-11 col-xs-10">
+                                <div class="b-blog__posts-one-body">
+                                    <header class="b-blog__posts-one-body-head wow zoomInUp" data-wow-delay="0.5s">
+                                        <h1 class="s-titleDet">@Model.Title</h1>
+                                        <div class="b-blog__posts-one-body-head-notes">
+                                            <span class="b-blog__posts-one-body-head-notes-note"><span class="fa fa-user"></span>Motovalle</span>
+                                            <span class="b-blog__posts-one-body-head-notes-note"><span class="fa fa-calendar-o"></span>@Model.PostedOn</span>
+                                            <span class="b-blog__posts-one-body-head-notes-note"><span class="fa fa-pencil"></span>@Model.FkCategories.CategoryName</span>
+                                        </div>
+                                    </header>
+                                    <div class="b-blog__posts-one-body-main wow zoomInUp" data-wow-delay="0.5s">
+                                        <div class="b-blog__posts-one-body-main-img">
+                                            <img loading="lazy" class="img-responsive" src="@Model.ImageURL" alt="@Model.Title" />
+                                        </div>
+                                        @Html.Raw(@Model.Description)
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="col-md-3 col-xs-12">
+                <aside class="b-blog__aside">
+                    @*<form class="b-blog__aside-search wow zoomInUp" data-wow-delay="0.5s" action="/" method="post">
+                        <div>
+                            @{ await Html.RenderPartialAsync("_Search"); }
+                        </div>
+                    </form>*@
+                    <div class="b-blog__aside-categories wow zoomInUp" data-wow-delay="0.5s">
+                        <header class="s-lineDownLeft">
+                            <h2 class="s-titleDet">CATEGORIES</h2>
+                        </header>
+                        <nav>
+                            @await Component.InvokeAsync("CategoryList")
+                        </nav>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </div>
+</section><!--b-article-->

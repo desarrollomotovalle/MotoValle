@@ -1,0 +1,175 @@
+﻿@model TestDriveFordViewModel
+@{
+    ViewData["Title"] = "Ford Serivicio Intengral";
+    Layout = "~/Views/Shared/_LayoutFord.cshtml";
+}
+
+<section class="b-pageHeader ford">
+</section><!--b-pageHeader-->
+
+<div class="b-breadCumbs s-shadow">
+    <div class="container wow zoomInUp" data-wow-delay="0.5s">
+        <a class="b-breadCumbs__page" href="/">Home</a><span class="fa fa-angle-right"></span>
+        <a asp-action="Index" asp-controller="Ford" class="b-breadCumbs__page">Ford</a><span class="fa fa-angle-right"></span>
+        <a class="b-breadCumbs__page m-active" href="#">Servicio Integral</a>
+    </div>
+
+    @if (ViewBag.Message != null)
+    {
+        <div class="alert alert-danger text-center wow zoomInUp" role="alert" data-wow-delay="0.5s">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <strong>¡Ups!..</strong> @ViewBag.Message &#128577;
+        </div>
+    }
+</div><!--b-breadCumbs-->
+
+<section class="b-article">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 col-xs-12">
+                <div id="fordTestDriveId" class="row wow zoomInLeft" data-wow-delay="0.55s">
+                    <div class="col-md-12 col-xs-12">
+                        <div>
+                            <header class="b-contacts__form-header s-lineDownLeft wow zoomInUp" data-wow-delay="0.5s">
+                                <h2 class="s-titleDet text-center">
+                                    Test <span style="color:#228dcb">Drive</span>
+                                </h2>
+                            </header>
+                            <div class="panel panel-default">
+                                <div class="panel-heading text-center"><b>Agenda tu prueba de manejo para el Ford de tu preferencia.</b> Un asesor de Motovalle te contactará.</div>
+                                <div class="panel-body">
+                                    <form class="wow zoomInUp" data-wow-delay="0.1s" id="frmTestDriveFord">
+                                        @Html.AntiForgeryToken()
+                                        <div class="row">
+                                            <div class="col-md-12 col-xs-12">
+                                                <div class="form-group">
+                                                    <input asp-for="FullName" class="form-control" placeholder="Nombres*" />
+                                                    <span asp-validation-for="FullName" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-xs-12">
+                                                <div class="form-group">
+                                                    <input asp-for="Email" class="form-control" placeholder="Email" />
+                                                    <span asp-validation-for="Email" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-xs-12">
+                                                <div class="form-group">
+                                                    <input asp-for="PhoneNumber" class="form-control" placeholder="Celular" />
+                                                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-xs-12">
+                                                <div class="form-group">
+                                                    <select asp-for="Headquarter" class="form-control" asp-items="ViewBag.Headquarters">
+                                                        <option value="">Seleccione una sede</option>
+                                                    </select>
+                                                    <span asp-validation-for="Headquarter" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-xs-12">
+                                                <div class="form-group">
+                                                    <select asp-for="Product" class="form-control" asp-items="ViewBag.Products">
+                                                        <option value="">Seleccione un vehículo</option>
+                                                    </select>
+                                                    <span asp-validation-for="Product" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 col-xs-6">
+                                                <div class="form-group">
+                                                    <label asp-for="Date" class="control-label"></label>
+                                                    <input asp-for="Date" class="form-control" min="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss")"/>
+                                                    <span asp-validation-for="Date" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 col-xs-12">
+                                                <div class="form-group">
+                                                    <input type="checkbox" asp-for="HabeasData" required style="width: 20px; height: 20px;">
+                                                    <label asp-for="HabeasData"> Acepto las <a href="~/files/POLITICA DATOS PERSONALES MOTOVALLE[2336].pdf" rel="noreferrer" target="_blank"> políticas de privacidad</a></label>
+                                                    <span asp-validation-for="HabeasData" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 col-xs-12">
+                                                <div class="b-submit__main-element" style="margin-left: 1em;">
+                                                    @{ await Html.RenderPartialAsync("_Recaptcha"); }
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <div class="form-group text-center">
+                                            <input type="submit" value="Suscribrirme ahora" class="btn btn-primary" />
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-xs-12">
+                @await Html.PartialAsync("_NavCategoryFord", 3)
+            </div>
+        </div>
+    </div>
+</section><!--b-article-->
+
+@section Scripts{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+    <script type="text/javascript">
+        const $frmTestDriveFord = document.querySelector("#frmTestDriveFord");
+        $frmTestDriveFord.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            debugger;
+            if (!$(e.target).valid()) {
+                return;
+            }
+
+            const gResponse = grecaptcha.getResponse();
+            if (!gResponse) {
+                await Swal.fire({
+                    icon: 'error',
+                    title: 'Verifica los datos ingresados',
+                    text: 'Por favor valida el reCaptcha',
+                    footer: '<b><a href="/Info/ContactUs">Por favor infórmanos</a></b>',
+                    allowOutsideClick: false,
+                    allowEscapeKey: false
+                });
+
+                return;
+            }
+
+            const request = await fetch('/Pages/FordTestDrive', {
+                method: "POST",
+                body: new FormData(e.target)
+            });
+
+            if (request.ok) {
+                Swal.fire({
+                    title: '¡Información envíada exitosamente!',
+                    text: 'En breve nos comunicaremos contigo',
+                    position: 'top-end',
+                    icon: 'success',
+                    showConfirmButton: false,
+                    timer: 6000,
+                    allowOutsideClick: false,
+                    allowEscapeKey: false,
+                    timerProgressBar: true
+                });
+
+                grecaptcha.reset();
+                e.target.reset();
+            } else {
+                await Swal.fire({
+                    icon: 'error',
+                    title: 'Algo salió mal :(',
+                    text: 'Lo sentimos.',
+                    footer: '<b><a href="/Info/ContactUs">Por favor infórmanos</a></b>',
+                    allowOutsideClick: false,
+                    allowEscapeKey: false
+                });
+            }
+        });
+    </script>
+}

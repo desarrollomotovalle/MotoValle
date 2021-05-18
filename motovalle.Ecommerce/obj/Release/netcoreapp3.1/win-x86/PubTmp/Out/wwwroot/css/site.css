@@ -1,0 +1,327 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+.btn-a {
+    background-color: #228dcb !important;
+    fill: #228dcb !important;
+    color: white !important;
+}
+
+.btn-a span.fa {
+    background-color: #565656 !important;
+    fill: #565656 !important;
+    color: white !important;
+}
+
+.btn-a:hover {
+    background-color: #565656 !important;
+    fill: #565656 !important;
+    color: white !important;
+}
+
+.btn-a:hover span.fa {
+    background-color: #228dcb !important;
+    fill: #228dcb !important;
+    color: white !important;
+}
+
+.sliderButton {
+    margin: 24em 0 0 20em;
+    background-color: rgb(255, 255, 255);
+    opacity: 0; /* Opacidad 60% */
+    width: 820px;
+    height:250px;
+}
+
+.sliderButton2 {
+    margin: 24em 0 0 20em;
+    background-color: rgb(255, 255, 255);
+    opacity: 0; /* Opacidad 60% */
+    width: 820px;
+    height: 250px;
+}
+
+@media only screen and (max-width: 1921px) {
+    .sliderButton {
+        margin: 17em 0 0 12em;
+        position: relative;
+        width: calc(100% - 600px);
+        min-width: 700px;
+        max-width: 700px;
+        height: 200px;
+    }
+
+    .sliderButton2 {
+        margin: 21em 0 0 2em;
+        position: relative;
+        width: calc(100% - 900px);
+        min-width: 1200px;
+        max-width: 1200px;
+        height: 240px;
+    }
+}
+
+
+@media only screen and (max-width: 1501px) {
+    .sliderButton {
+        margin: 12.3em 0 0 9em;
+        position: relative;
+        width: calc(100% - 600px);
+        min-width: 600px;
+        max-width: 600px;
+        height: 170px;
+    }
+
+    .sliderButton2 {
+        margin: 15em 0 0 2em;
+        position: relative;
+        width: calc(100% - 600px);
+        min-width: 900px;
+        max-width: 900px;
+        height: 200px;
+    }
+}
+
+@media only screen and (max-width: 1150px) {
+    .sliderButton {
+        margin: 10em 0 0 7em;
+        position: relative;
+        width: calc(100% - 360px);
+        min-width: 360px;
+        max-width: 360px;
+        height: 120px;
+    }
+
+    .sliderButton2 {
+        margin: 15em 0 0 0em;
+        position: relative;
+        width: calc(100% - 600px);
+        min-width: 700px;
+        max-width: 700px;
+        height: 120px;
+    }
+}
+
+
+@media only screen and (max-width: 769px) {
+    .sliderButton {
+        margin: 9em 0 0 6em;
+        position: relative;
+        width: calc(100% - 250px);
+        min-width: 250px;
+        max-width: 250px;
+        height: 100px;
+    }
+
+    .sliderButton2 {
+        margin: 11em 0 0 9em;
+        position: relative;
+        width: calc(100% - 250px);
+        min-width: 250px;
+        max-width: 250px;
+        height: 100px;
+    }
+
+    .b-pageHeader .container h1{
+        display:none;
+    }
+
+    .navbar-nav-menu .dropdown-backdrop {
+        display: none;
+    }
+
+    .b-pageHeader, .b-pageHeader.massey, .b-pageHeader.carshow, .b-pageHeader.mazda {
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+}
+
+/*@media only screen and (max-width: 600px) {
+    .sliderButton {
+        margin: 6.5em 0 0 3em;
+        position: relative;
+        width: calc(100% - 170px);
+        min-width: 170px;
+        max-width: 170px;
+        height: 50px;
+    }
+}*/
+
+@media only screen and (max-width: 600px) {
+    .sliderButton {
+        margin: 8.5em 0 0 5em;
+        position: relative;
+        width: calc(100% - 170px);
+        min-width: 170px;
+        max-width: 170px;
+        height: 50px;
+    }
+
+    .sliderButton2 {
+        margin: 9em 0 0 6.5em;
+        position: relative;
+        width: calc(100% - 170px);
+        min-width: 170px;
+        max-width: 170px;
+        height: 90px;
+    }
+}
+
+
+@media only screen and (max-width: 441px) {
+    .sliderButton {
+        margin: 5em 0 0 3.5em;
+        position: relative;
+        width: calc(100% - 170px);
+        min-width: 170px;
+        max-width: 170px;
+        height: 50px;
+    }
+
+    .sliderButton2 {
+        margin: 7.5em 0 0 3em;
+        position: relative;
+        width: calc(100% - 170px);
+        min-width: 170px;
+        max-width: 170px;
+        height: 40px;
+    }
+}
+
+
+@media only screen and (max-width: 376px) {
+    .sliderButton {
+        margin: 4.5em 0 0 2.5em;
+        position: relative;
+        width: calc(100% - 150px);
+        min-width: 150px;
+        max-width: 150px;
+        height: 50px;
+    }
+
+    .sliderButton2 {
+        margin: 6.5em 0 0 2em;
+        position: relative;
+        width: calc(100% - 170px);
+        min-width: 170px;
+        max-width: 170px;
+        height: 40px;
+    }
+}
+
+
+@media only screen and (max-width: 321px) {
+    .sliderButton {
+        margin: 4em 0 0 2.5em;
+        position: relative;
+        width: calc(100% - 120px);
+        min-width: 120px;
+        max-width: 120px;
+        height: 40px;
+    }
+
+    .sliderButton2 {
+        margin: 6em 0 0 1em;
+        position: relative;
+        width: calc(100% - 170px);
+        min-width: 170px;
+        max-width: 170px;
+        height: 30px;
+    }
+}
+
+.panel-title {
+    position: relative;
+}
+
+.panel-title a:after {
+    color: #333;
+    top: -2px;
+    right: 0px;
+    position: absolute;
+    font-family: 'Glyphicons Halflings';
+    content: "\e114";  
+}
+
+.panel-title a[aria-expanded="true"]:after{
+    content: "\e080"; 
+}
+
+.more-info {
+    position: fixed; /* Hacemos que la posición en pantalla sea fija para que siempre se muestre en pantalla*/
+    left: 0; /* Establecemos la barra en la izquierda */
+    top: 35%; /* Bajamos la barra 200px de arriba a abajo */
+    z-index: 2000; /* Utilizamos la propiedad z-index para que no se superponga algún otro elemento como sliders, galerías, etc */
+}
+
+.more-info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.more-info ul li a {
+    border-radius: 0 40% 40% 0%;
+    display: inline-block;
+    color: #fff;
+    background: #000;
+    padding: 10px 15px;
+    text-decoration: none;
+    -webkit-transition: all 500ms ease;
+    -o-transition: all 500ms ease;
+    transition: all 500ms ease; /* Establecemos una transición a todas las propiedades */
+}
+
+.more-info ul li .info-financiera {
+    background: #272727;
+}
+
+.more-info ul li a:hover.info-financiera {
+    background: #000; /*Cambiamos el fondo cuando el usuario pase el mouse */
+    padding: 15px 20px; /*Hacemos mas grande el espacio cuando el usuario pase el mouse */
+}
+
+.finacieras-box {
+    display: none;
+    float: left;
+    overflow: hidden;
+    background: #2E2E2E;
+    position: fixed;
+    top: 170px;
+    left: 70px;
+    z-index: 2001;
+    color: white;
+}
+/* Add padding and border to inner content
+for better animation effect */
+.financieras-box-inner {
+    width: auto;
+    padding: 10px;
+}
+
+.financieras-box-svg-top {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 35%;
+}
+
+.financieras-box-svg-bottom {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width : 35%
+}
+
+@media only screen and (max-width: 768px) {
+    .more-info, .finacieras-box {
+        top: 150px;
+    }
+
+    .finacieras-box {
+        max-width: 70%;
+    }
+
+    .financieras-box-svg-top, .financieras-box-svg-bottom {
+        width: 50%;
+    }
+}

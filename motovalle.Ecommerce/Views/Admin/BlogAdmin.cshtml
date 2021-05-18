@@ -1,0 +1,100 @@
+﻿
+@{
+    ViewData["Title"] = "BlogAdmin";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearfix">
+                <div class="col-12 text-center">
+                    <h1 class="m-0 text-dark">Administrador del Blog</h1>
+                </div>
+                <div class="text-left">
+                    <button id="btnAddPost" class="btn btn-md  btn-dark">Crear Post Nuevo <span class="fa fa-plus-square"></span></button>
+                </div>
+                <br />
+                <div id="ej2Tab" class="row">
+                    <div class="e-tab-header">
+                        <div>Posts </div>
+                        <div>Categories </div>
+                        <div>Authors </div>
+                    </div>
+                    <div class="e-content">
+                        <div>
+                            <ejs-grid id="grdPosts" rowSelected="rowSelected" allowPaging="false" allowSorting="false" allowFiltering="false" allowSelection="true">
+                                <e-data-manager url="/api/APIPosts" adaptor="WebApiAdaptor" crossdomain="true"></e-data-manager>
+                                <e-grid-pagesettings pageSize="10"></e-grid-pagesettings>
+                                <e-grid-editSettings allowAdding="true" allowDeleting="true" allowEditing="true" mode="Dialog" showDeleteConfirmDialog="true"></e-grid-editSettings>
+                                <e-grid-columns>
+                                    <e-grid-column field="PostsID" headerText="ID" textAlign="Right" width="120" isPrimaryKey="true" visible="false"></e-grid-column>
+                                    <e-grid-column field="Title" headerText="Titulo" width="150"></e-grid-column>
+                                    <e-grid-column field="ShortDescription" headerText="Descripción" textAlign="Left" width="250"></e-grid-column>
+                                    <e-grid-column field="IsPublished" headerText="Publicado" textAlign="Center" width="150"></e-grid-column>
+                                    <e-grid-column field="PostedOn" headerText="Fecha" textAlign="Center" width="150"></e-grid-column>
+                                </e-grid-columns>
+                            </ejs-grid>
+                        </div>
+                        <div>
+                            <ejs-grid id="grdCategories" allowPaging="false" allowSorting="false" allowFiltering="false" allowSelection="true" toolbar="@(new List<string>() { "Add", "Edit", "Delete" })">
+                                <e-data-manager url="/api/APICategories" adaptor="WebApiAdaptor" crossdomain="true"></e-data-manager>
+                                <e-grid-pagesettings pageSize="10"></e-grid-pagesettings>
+                                <e-grid-editSettings allowAdding="true" allowDeleting="true" allowEditing="true" mode="Dialog" showDeleteConfirmDialog="true"></e-grid-editSettings>
+                                <e-grid-columns>
+                                    <e-grid-column field="CategoriesID" headerText="ID" textAlign="Right" width="120" isPrimaryKey="true" visible="false"></e-grid-column>
+                                    <e-grid-column field="CategoryName" headerText="Categoria" width="150"></e-grid-column>
+                                    <e-grid-column field="Description" headerText="Descripción" textAlign="Left" width="250"></e-grid-column>
+                                    <e-grid-column field="URLSlug" headerText="URL Slug" textAlign="Right" width="150"></e-grid-column>
+                                </e-grid-columns>
+                            </ejs-grid>
+                        </div>
+                        <div>
+                            <ejs-grid id="grdAuthors" allowPaging="false" allowSorting="false" allowFiltering="false" allowSelection="true" toolbar="@(new List<string>() { "Add", "Edit", "Delete" })">
+                                <e-data-manager url="/api/APIAuthors" adaptor="WebApiAdaptor" crossdomain="true"></e-data-manager>
+                                <e-grid-pagesettings pageSize="10"></e-grid-pagesettings>
+                                <e-grid-editSettings allowAdding="true" allowDeleting="true" allowEditing="true" mode="Dialog" showDeleteConfirmDialog="true"></e-grid-editSettings>
+                                <e-grid-columns>
+                                    <e-grid-column field="AuthorsID" headerText="ID" textAlign="Right" width="120" isPrimaryKey="true" visible="false"></e-grid-column>
+                                    <e-grid-column field="AuthorName" headerText="Nombre de Autor" width="150"></e-grid-column>
+                                    <e-grid-column field="PictureURL" headerText="URL Foto" textAlign="Left" width="250"></e-grid-column>
+                                </e-grid-columns>
+                            </ejs-grid>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<style>
+    .e-content .e-item {
+        font-size: 12px;
+        padding: 10px;
+        text-align: justify;
+    }
+</style>
+
+@section Scripts{
+    <script type="text/javascript">
+        var tabObj = new ej.navigations.Tab({
+            heightAdjustMode: "Content"
+        });
+        tabObj.appendTo('#ej2Tab');
+
+        function rowSelected(args) {
+            var stringData = args.data["PostsID"];
+            var url = `/api/APIPosts/${stringData}`;
+            window.location.href = url;
+        }
+
+        document.getElementById('btnAddPost').addEventListener('click', function () {
+            var url = "/api/APIPosts/0";
+            window.location.href = url;
+        });
+    </script>
+}
+
+

@@ -1,0 +1,20 @@
+﻿@model IList<inventek_blog.Models.Entities.Posts>
+
+<div class="sidebar">
+
+    @if (Model.Count > 0)
+    {
+        @foreach (var post in Model)
+        {
+            <div class="b-blog__aside-popular-posts-one">
+                <img class="img-responsive" src="@post.ImageURL" alt="merc" />
+                <h4><a asp-controller="Blog" asp-action="Post" asp-route-id="@post.PostsId">@post.Title</a></h4>
+                <div class="b-blog__aside-popular-posts-one-date"><span class="fa fa-calendar-o"></span>@post.PostedOn</div>
+            </div>
+        }
+    }
+    else
+    {
+        <p>No posts found!</p>
+    }
+</div>

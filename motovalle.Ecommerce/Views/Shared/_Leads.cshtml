@@ -1,0 +1,70 @@
+﻿@model InterestedCustomerViewModel
+
+<div class="b-detail__main-aside-payment wow zoomInUp" data-wow-delay="0.5s">
+    <h2 class="s-titleDet">@Html.Raw(ViewBag.Make != null && ViewBag.Make == "Massey Ferguson" ? "ESTOY INTERESADO EN ESTE EQUIPO" : "ESTOY INTERESADO EN ESTE VEHÍCULO")</h2>
+    <div class="b-detail__main-aside-about-seller">
+        <p style="font-size:12px;">Déjanos tus datos <span style="font-size:14px;">¡Nos comunicaremos contigo para brindarte toda la información que requieras!</span></p>
+    </div>
+    <div class="b-detail__main-aside-payment-form">
+        <form id="frmInventoryLeads">
+            @Html.AntiForgeryToken()
+            <div><input asp-for="Name" class="mb-4" placeholder="Nombre Completo"><span asp-validation-for="Name"></span></div>
+            <div><input asp-for="Email" class="mb-4" placeholder="Tu correo"><span asp-validation-for="Email"></span></div>
+            <div><input asp-for="PhoneNumber" id="phoneInterestedId" class="mb-4" placeholder="Tu número de contacto"><span asp-validation-for="PhoneNumber"></span></div>
+            <div>
+                <select id="cmbRetakeInterestedId" class="mb-4" onchange="enableRetakeCarName()">
+                    @if (ViewBag.Make != null && ViewBag.Make == "Massey Ferguson")
+                    {
+                        <option value="0" selected>¿Te interesa otro equipo?</option>
+                    }
+                    else
+                    {
+                        <option value="0" selected>¿Te interesa un retoma?</option>
+                    }
+                    <option value="1">Sí</option>
+                    <option value="0">No</option>
+                </select>
+            </div>
+            <div>
+                @if (ViewBag.Make != null && ViewBag.Make == "Massey Ferguson")
+                {
+                    <input asp-for="Retake" class="mb-4" placeholder="En qué equipo está interesado" disabled>
+                    <span asp-validation-for="Retake"></span>
+
+                }
+                else
+                {
+                    <input asp-for="Retake" class="mb-4" placeholder="Vehículo a retomar" disabled>
+                    <span asp-validation-for="Retake"></span>
+                }
+            </div>
+            <div>
+                <select asp-for="Headquarter" asp-items="@ViewBag.Headquarters" class="mb-4">
+                    @if (ViewBag.Make != null && ViewBag.Make == "Massey Ferguson")
+                    {
+                        <option value="0" selected>¿Dónde estás ubicado?</option>
+                    }
+                    else
+                    {
+                        <option value="0" selected>¿Dónde quisieras que te atendieramos?</option>
+                    }
+                </select>
+                <span asp-validation-for="Headquarter"></span>
+            </div>
+            <input asp-for="FkInventoryItemsId" type="hidden" value="@Model.FkInventoryItemsId" />
+            <div class="form-group">
+                <div class="form-check">
+                    @Html.CheckBoxFor(model => model.HabeasData, new { @class = "form-check-input", @required = "required" })
+                    <label class="form-check-label">
+                        Acepto las <a href="~/files/POLITICA DATOS PERSONALES MOTOVALLE[2336].pdf" rel="noreferrer" target="_blank" class="p-0 m-0">políticas de privacidad</a>
+                    </label>
+                </div>
+                <span asp-validation-for="HabeasData" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn m-btn">ENVIAR<span class="fa fa-angle-right"></span></button>
+        </form>
+    </div>
+</div>
+@section Scripts{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

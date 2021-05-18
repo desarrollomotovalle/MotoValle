@@ -1,0 +1,50 @@
+﻿@model IEnumerable<ShoppingCartCheckoutViewModel>
+
+@{
+    var subTotal = (decimal)ViewBag.Subtotal;
+    var TotalTaxes = (List<TaxesTotalViewModel>)ViewBag.TotalTaxes;
+    var shipping = (decimal)ViewBag.Shipping;
+    var total = (decimal)ViewBag.Total;
+    var customersId = Model.FirstOrDefault()?.CustomersId ?? 0;
+}
+
+<div id="shoppingItemRecordsSummaryDisplayId">
+    <div class="wow zoomInLeft" data-wow-delay="0.1s">
+        <header class="b-items__cars-one-info-header s-lineDownLeft">
+            <h2>
+                Resumen
+            </h2>
+            <p>
+                &nbsp;
+            </p>
+        </header>
+
+        <input type="hidden" name="name" value="@total" id="amountMainId" />
+
+        <table style="width: 100%;" class="table-borderless">
+            <tbody>
+                <tr class="text-right">
+                    <td style="width: 360px;"><h5>Subtotal</h5></td>
+                    <td style="width: 360px;">@subTotal.ToString("C")</td>
+                </tr>
+
+                @foreach (var item in TotalTaxes)
+                {
+                    <tr class="text-right">
+                        <td style="width: 360px;"><h5>@item.TaxName</h5></td>
+                        <td style="width: 360px;">@item.TaxTotal.ToString("C")</td>
+                    </tr>
+                }
+
+                <tr class="text-right">
+                    <td style="width: 360px;"><h5>Envío y manipulación</h5></td>
+                    <td style="width: 360px;">@shipping.ToString("C")</td>
+                </tr>
+                <tr class="bg-info">
+                    <td class="text-right" style="width: 360px;"><h4 style="margin-top:0.5em;">TOTAL:</h4></td>
+                    <td class="text-center" style="width: 360px;"><h4 style="margin-top:0.5em;"><b>@total.ToString("C")</b></h4></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

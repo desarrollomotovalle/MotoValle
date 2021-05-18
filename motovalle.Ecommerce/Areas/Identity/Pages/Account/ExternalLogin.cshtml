@@ -1,0 +1,61 @@
+﻿@page
+@model ExternalLoginModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+
+<section class="b-pageHeader identity">
+    <div class="container">
+        <h1 class="wow zoomInLeft" data-wow-delay="0.5s">Registro externo</h1>
+        <div class="b-pageHeader__search wow zoomInRight" data-wow-delay="0.5s">
+            <h3>Usa tus redes sociales para registrarte</h3>
+        </div>
+    </div>
+</section>
+
+
+<div class="b-breadCumbs s-shadow wow zoomInUp" data-wow-delay="0.5s">
+    <div class="container">
+        <a asp-controller="Home" asp-action="Index" class="b-breadCumbs__page">Home</a><span class="fa fa-angle-right"></span><a asp-area="Identity" asp-page="/Account/ExternalLogin" class="b-breadCumbs__page m-active">Registro externo</a>
+    </div>
+</div>
+
+
+<section class="b-breadCumbs wow zoomInUp" data-wow-delay="0.5s">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h2>Registro externo</h2>
+                <h4>Asocia tu cuenta con el proveedor @Model.LoginProvider.</h4>
+                <hr />
+
+                <p class="text-info">
+                    Te has autenticado correctamente con el proveedor <strong>@Model.LoginProvider</strong>.
+                    Por favor ingresa una dirección de correco electrónico para este sitio y haz clic en el botón registrarse para finalizar el proceso e iniciar sesión.
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-page-handler="Confirmation" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Input.Email"></label>
+                        <input asp-for="Input.Email" class="form-control" />
+                        <span asp-validation-for="Input.Email" class="text-danger"></span>
+                    </div>
+                    <button type="submit" class="btn btn-default">Registrarse</button>
+                </form>
+            </div>
+        </div>
+        @{ await Html.RenderPartialAsync("_ContactUs"); }
+    </div>
+    <br />
+    <br />
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+

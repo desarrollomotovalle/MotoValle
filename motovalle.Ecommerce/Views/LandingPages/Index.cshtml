@@ -1,0 +1,175 @@
+﻿@model IEnumerable<Inventek.ERP.Models.Entities.Ecommerce.EcommerceCustomPages>
+
+@{
+    ViewData["Title"] = "Custom Page Admin";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearfix">
+                <div class="col-12 text-center">
+                    <h1 class="m-0 text-dark">Administrador de Custom Pages</h1>
+                </div>
+                <div class="text-left">
+                    <button id="btnAddPage" onclick="AddEditPage(0)" class="btn btn-secondary">Add New Page</button>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="table">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    @try
+                                    {
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.PageTitle)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.PageDescription)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.pageKeywords)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.FkEcommerceCustomMenuID)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.URL)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.SliderImage)
+                                        </th>
+                                        <th></th>
+                                    }
+                                    catch
+                                    {
+
+                                    }
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @try
+                                {
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.PageTitle)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.PageDescription)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.pageKeywords)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.FkEcommerceCustomMenuID)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.URL)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.SliderImage)
+                                            </td>
+                                            <td>
+                                                <a href="javascript:;" onclick="AddEditPage(@item.EcommerceCustomPagesId)">Edit</a> |
+                                                <a href="javascript:;" onclick="DeleteElement(@item.EcommerceCustomPagesId)">Delete</a> |
+                                                <a asp-action="Page" asp-route-page=@item.URL>View</a>
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                                catch
+                                {
+
+                                }
+
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<style>
+    .e-content .e-item {
+        font-size: 12px;
+        padding: 10px;
+        text-align: justify;
+    }
+</style>
+
+@section Scripts{
+    <script type="text/javascript">
+        var AddEditPage = function (itemId) {
+            var url;
+            if (itemId > 0)
+                url = "/LandingPages/Edit/" + itemId;
+            else
+                url = "/LandingPages/Create";
+
+            window.location.href = url;
+        }
+
+        var DeleteElement = async function (itemId) {
+            let ans = await Swal.fire({
+                title: `Do you want to delete item: "${itemId}". Are you sure?`,
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!',
+                allowOutsideClick: false,
+                allowEscapeKey: false,
+                focusCancel: true
+            });
+
+            if (ans.isConfirmed) {
+                await Swal.fire({
+                    title: 'Deleted!',
+                    text: 'Your record has been deleted.',
+                    icon: 'success',
+                    timer: 5000,
+                    timerProgressBar: true
+                });
+
+                window.location.href = '/LandingPages/Delete/' + itemId;
+            }
+        }
+        //var DeleteElement = async function (item) {
+        //    let ans = await Swal.fire({
+        //        title: `Do you want to delete the selected item?`,
+        //        text: "You won't be able to revert this!",
+        //        icon: 'warning',
+        //        showCancelButton: true,
+        //        confirmButtonColor: '#3085d6',
+        //        cancelButtonColor: '#d33',
+        //        confirmButtonText: 'Yes, delete it!',
+        //        allowOutsideClick: false,
+        //        allowEscapeKey: false,
+        //        focusCancel: true
+        //    });
+
+        //    if (ans.isConfirmed) {
+        //        await Swal.fire({
+        //            title: 'Deleted!',
+        //            text: 'Your record has been deleted.',
+        //            icon: 'success',
+        //            timer: 5000,
+        //            timerProgressBar: true
+        //        });
+
+        //        window.location.href = '/' + ItemClass + '/Delete/' + itemId;
+        //    }
+    </script>
+}
+
+

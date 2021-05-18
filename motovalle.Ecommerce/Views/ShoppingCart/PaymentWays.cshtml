@@ -1,0 +1,272 @@
+﻿@using motovalle.Ecommerce.Helpers
+@model motovalle.Ecommerce.Models.ViewModels.Checkout.CheckoutDataViewModel
+@{
+    ViewData["Title"] = "PaymentWays";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="b-pageHeader checkout">
+    <div class="container">
+        <h1 class=" wow zoomInLeft" data-wow-delay="0.5s">Compras</h1>
+        <div class="b-pageHeader__search wow zoomInRight" data-wow-delay="0.5s">
+            <h3>Bolsa de compras</h3>
+        </div>
+    </div>
+</section><!--b-pageHeader-->
+
+<div class="b-breadCumbs s-shadow">
+    <div class="container wow zoomInUp" data-wow-delay="0.5s">
+        <a asp-action="Index" asp-controller="Home" class="b-breadCumbs__page">Home</a>
+        <span class="fa fa-angle-right"></span><a asp-action="Index" asp-controller="ShoppigCart" class="b-breadCumbs__page m-active">Compras</a>
+        <span class="fa fa-angle-right"></span><a asp-action="Checkout" asp-controller="ShoppigCart" class="b-breadCumbs__page m-active">Información client</a>
+        <span class="fa fa-angle-right"></span><a asp-action="Addresses" asp-controller="ShoppigCart" class="b-breadCumbs__page m-active">Direcciones</a>
+    </div>
+    @if (ViewBag.Message != null)
+    {
+        <div class="alert alert-danger text-center wow zoomInUp" role="alert" data-wow-delay="0.5s">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <strong>¡Ups!..</strong> @ViewBag.Message &#128577;
+        </div>
+    }
+</div><!--b-breadCumbs-->
+
+<div class="b-submit">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding: 1rem; border: 1px solid rgb(238, 238, 238); margin: 0rem 0 2rem 0;">
+                @await Component.InvokeAsync("ShoppingCartSummaryCheckout")
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-5 col-xs-12">
+                @{ await Html.RenderPartialAsync("~/Views/Shared/ShoppingCart/_ShoppingCartStepsPartial.cshtml", 3); }
+            </div>
+            <div class="col-lg-9 col-md-8 col-sm-7 col-xs-12">
+                <div class="b-submit__main">
+                    <header class="s-headerSubmit s-lineDownLeft wow zoomInUp" data-wow-delay="0.1s">
+                        <h2 class="">Forma de pago</h2>
+                    </header>
+                    <form class="s-submit clearfix" asp-action="PaymentWays" asp-controller="ShoppingCart" method="POST">
+                        <!--Step 2 Info-->
+                        <div>
+                            <input asp-for="CustomerData.Email" type="hidden" />
+                            <input asp-for="CustomerData.FristName" type="hidden" />
+                            <input asp-for="CustomerData.LastName" type="hidden" />
+                            <input asp-for="CustomerData.IDType" type="hidden" />
+                            <input asp-for="CustomerData.IDNumber" type="hidden" />
+                            <input asp-for="CustomerData.PhoneNumber" type="hidden" />
+                            <input asp-for="CustomerData.AlternateNumber" type="hidden" />
+                            <input asp-for="CustomerData.CompanyName" type="hidden" />
+                        </div>
+                        <!--Step 3 Info-->
+                        <div>
+                            <input asp-for="CustomerData.AddressesData.Country" type="hidden" />
+                            <input asp-for="CustomerData.AddressesData.State" type="hidden" />
+                            <input asp-for="CustomerData.AddressesData.City" type="hidden" />
+                            <input asp-for="CustomerData.AddressesData.Address" type="hidden" />
+                            <input asp-for="CustomerData.AddressesData.ZipCode" type="hidden" />
+                            <input asp-for="CustomerData.AddressesData.BillState" type="hidden" />
+                            <input asp-for="CustomerData.AddressesData.BillCity" type="hidden" />
+                            <input asp-for="CustomerData.AddressesData.BillAddress" type="hidden" />
+                            <input asp-for="CustomerData.AddressesData.BillZipCode" type="hidden" />
+                        </div>
+
+                        <!-- Payment way Options -->
+                        <div class="col-lg-12 col-md-12 col-xs-12 wow zoomInUp">
+                            <input asp-for="PaymentWayData.TotalAmount" type="hidden" />
+                            <!-- One -->
+                            <div class="row">
+                                <p class="h5"><b>1</b> Seleccione forma de pago</p>
+                                <div class="b-submit__main-element">
+                                    <div class="col-sm-3">
+                                        <label class="h5">
+                                            <input asp-for="PaymentWayData.PaymentWayOption" type="radio" class="rdb-custom" value="@PaymentWaysOptions.FullPay" checked />
+                                            @PaymentWaysOptions.FullPay.GetDisplayName()
+                                        </label>
+                                    </div>
+                                    <div class="col-sm-5">
+                                        <label class="h6">
+                                            <input asp-for="PaymentWayData.PaymentWayOption" type="radio" class="rdb-custom" value="@PaymentWaysOptions.PartialPay" />
+                                            @PaymentWaysOptions.PartialPay.GetDisplayName() - Separa tu vehículo <br /> (Desde $ 1'000.000)
+                                        </label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <label class="h6">
+                                            <input asp-for="PaymentWayData.PaymentWayOption" type="radio" class="rdb-custom" value="@PaymentWaysOptions.FundingRequest" />
+                                            @PaymentWaysOptions.FundingRequest.GetDisplayName() <br /> (Pago Completo)
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Two-->
+                            <div>
+                                <!-- Two (First) -->
+                                <div class="row fadeInRight" id="stepTwoGatewaySection">
+                                    <p class="h5"><b>2.</b> Seleccione pasarela de pago</p>
+                                    <div class="col-sm-12">
+                                        <label asp-for="PaymentWayData.GatewayPayment"></label>
+                                        <div class='s-relative'>
+                                            <select asp-for="PaymentWayData.GatewayPayment" asp-items="@Html.GetEnumSelectList<GatewayPayments>()" class="m-select"></select>
+                                            <span class="fa fa-caret-down"></span>
+                                            <span asp-validation-for="PaymentWayData.GatewayPayment" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Two (Second) -->
+                                <div class="row fadeInRight" id="stepTwoFundingRequestSection">
+                                    <p class="h5"><b>2.</b> Seleccione banco para solicitud</p>
+                                    <div class="col-sm-12">
+                                        <label asp-for="PaymentWayData.FundingRequestInstitution"></label>
+                                        <div class='s-relative'>
+                                            <select asp-for="PaymentWayData.FundingRequestInstitution" asp-items="@Html.GetEnumSelectList<FundingRequestInstitutions>()" class="m-select"></select>
+                                            <span class="fa fa-caret-down"></span>
+                                            <span asp-validation-for="PaymentWayData.FundingRequestInstitution" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Three -->
+                            <div class="row fadeInRight" style="display:none; padding-top:1rem;" id="stepThreePartialAmount">
+                                <p class="h5"><b>3.</b> Ingrese monto parcial (Debe ser mayor a $ 1'000.000)</p>
+                                <div class="col-sm-12">
+                                    <div class="b-submit__main-element">
+                                        <label asp-for="PaymentWayData.PartialAmount"></label>
+                                        <div class='s-relative'>
+                                            <input asp-for="PaymentWayData.PartialAmount" type="hidden" value="1000000" />
+                                            <input class="currency-mask partial-amount" type="text" data-main="PaymentWayData_PartialAmount" data-min-amount="1000000" value="1000000" />
+                                            <span asp-validation-for="PaymentWayData.PartialAmount" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn m-btn btn-block wow zoomInUp" style="margin-top: 1rem; padding: 1rem 0;">Continuar <span class="fa fa-angle-right"></span></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!--b-submit-->
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+    <script type="text/javascript">
+        (() => {
+            const $bSubmit = document.querySelector(".b-submit");
+            const $rdbCustoms = document.querySelectorAll(".rdb-custom");
+
+            $rdbCustoms.forEach(x => x.checked ? RdbChange(x.value) : null);
+
+            setTimeout(() => {
+                const offsetTop = $bSubmit.offsetTop;
+                scroll({
+                    top: offsetTop,
+                    behavior: "smooth"
+                });
+            }, 530);
+
+            /*Listeners*/
+            $rdbCustoms.forEach(rdbCustom => {
+                rdbCustom.addEventListener('click', e => RdbChange(e.target.value));
+            });
+
+            /**
+             * Radio Button group Changes
+             * @@param {string} value
+             */
+            function RdbChange(value) {
+                debugger;
+                /*Delcare and Initialize variables*/
+                const $gatewayPayments = document.querySelector("#PaymentWayData_GatewayPayment");
+                const $financialIntitutions = document.querySelector("#PaymentWayData_FundingRequestInstitution");
+                const $partialAmount = document.querySelector("#PaymentWayData_PartialAmount");
+                const $partialAmountshow = document.querySelector(".partial-amount");
+                const $stepThreePartialAmount = document.querySelector("#stepThreePartialAmount");
+                const $stepTwoGatewaySection = document.querySelector("#stepTwoGatewaySection");
+                const $stepTwoFundingRequestSection = document.querySelector("#stepTwoFundingRequestSection");
+                const $paymentWayDataTotalAmount = document.querySelector("#PaymentWayData_TotalAmount");
+                const totalAmount = document.querySelector("#amountMainId").value;
+                $paymentWayDataTotalAmount.value = totalAmount;
+
+                /*Set base logic for selects */
+                $gatewayPayments.disabled = false;
+                $gatewayPayments.style.cursor = "pointer";
+                $gatewayPayments.required = true;
+                if ($gatewayPayments.querySelector('option[value="null"]')) {
+                    $gatewayPayments.removeChild($gatewayPayments.querySelector('option[value="null"]'));
+                }
+
+                $partialAmountshow.required = false;
+                $partialAmount.required = false;
+
+                /*Set props for financial Intitutions select input */
+                $financialIntitutions.required = false;
+                $financialIntitutions.style.cursor = 'pointer';
+                $financialIntitutions.value = 1;
+
+                /*Hide sections */
+                $stepTwoGatewaySection.style.display = "none";
+                $stepTwoFundingRequestSection.style.display = "none";
+                $stepThreePartialAmount.style.display = "none";
+
+                switch (value) {
+                    case "@PaymentWaysOptions.FullPay.ToString()":
+                    default:
+                        /*Hide or shwo sections */
+                        $stepTwoGatewaySection.style.display = "block";
+                        $stepTwoFundingRequestSection.style.display = "none";
+                        $stepThreePartialAmount.style.display = "none";
+
+                        /*Set props for gatewayPayments select input */
+                        $gatewayPayments.value = 1;
+                        /*Set props for partial amount*/
+                        $partialAmount.value = '1000000';
+                        break;
+                    case "@PaymentWaysOptions.PartialPay.ToString()":
+                        /*Hide or shwo sections */
+                        $stepTwoGatewaySection.style.display = "block";
+                        $stepTwoFundingRequestSection.style.display = "none";
+                        $stepThreePartialAmount.style.display = "block";
+
+                        /*Set props for partial amount*/
+                        $partialAmount.required = true;
+                        $partialAmountshow.required = true;
+                        $partialAmount.setAttribute("max", totalAmount);
+                        /*Set props for gatewayPayments select input */
+                        $gatewayPayments.value = 1;
+                        break;
+
+                    case "@PaymentWaysOptions.FundingRequest.ToString()":
+                        /*Hide or shwo sections */
+                        $stepTwoGatewaySection.style.display = "none";
+                        $stepTwoFundingRequestSection.style.display = "block";
+                        $stepThreePartialAmount.style.display = "none";
+
+                        /*Set props for gatewayPayments select input */
+                        $gatewayPayments.required = false;
+                        $stepTwoGatewaySection.style.display = "none";
+
+                        /*Set props for partial amount*/
+                        $partialAmount.value = '1000000';
+                        /*Set props for financial Intitutions select input */
+                        $financialIntitutions.required = true;
+                        $financialIntitutions.style.display = "block";
+                        break;
+                }
+            }
+        })();
+    </script>
+}
+
+
+@section Styles{
+    <style type="text/css">
+        .rdb-custom {
+            visibility: visible !important;
+            position: relative !important;
+            height: 16px;
+            width: 16px;
+        }
+    </style>
+}

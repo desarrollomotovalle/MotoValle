@@ -1,0 +1,145 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Profile";
+    ViewData["ActivePage"] = ManageNavPages.Index;
+    Layout = "/Areas/Identity/Pages/Account/Manage/_Layout.cshtml";
+}
+
+
+<section class="b-breadCumbs wow zoomInUp" data-wow-delay="0.5s">
+    <div class="container">
+        <div class="row">
+            <h4>Perfil</h4>
+            <partial name="_StatusMessage" model="Model.StatusMessage" />
+            <div class="row">
+                <div class="col-md-9">
+                    <form id="profile-form" method="post">
+                        <div asp-validation-summary="All" class="text-danger"></div>
+                        <div class="b-detail__main-info-text wow zoomInUp" data-wow-delay="0.5s">
+                            <div class="b-detail__main-aside-about-form-links">
+                                <a href="#" class="j-tab m-active s-lineDownCenter" data-to='#info1'>Datos personales</a>
+                                <a href="#" class="j-tab" data-to='#info2'>Direcciones</a>
+                            </div>
+                            <div id="info1">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-xs-6">
+                                        <div class="form-group">
+                                            <label asp-for="Input.Name"></label>
+                                            <input asp-for="Input.Name" class="form-control" />
+                                            <span asp-validation-for="Input.Name" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-xs-6">
+                                        <div class="form-group">
+                                            <label asp-for="Input.LastName"></label>
+                                            <input asp-for="Input.LastName" class="form-control" />
+                                            <span asp-validation-for="Input.LastName" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-xs-6">
+                                        <div class="form-group">
+                                            <label asp-for="Input.PhoneNumber"></label>
+                                            <input asp-for="Input.PhoneNumber" class="form-control" />
+                                            <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-xs-6">
+                                        <div class="form-group">
+                                            <label asp-for="Input.AlternateNumber"></label>
+                                            <input asp-for="Input.AlternateNumber" class="form-control" />
+                                            <span asp-validation-for="Input.AlternateNumber" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12 col-xs-12">
+                                        <div class="form-group">
+                                            <label asp-for="Input.CompanyName"></label>
+                                            <input asp-for="Input.CompanyName" class="form-control" />
+                                            <span asp-validation-for="Input.CompanyName" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="info2">
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-xs-12">
+                                        <h4 class="text-center">
+                                            Datos generales
+                                        </h4>
+                                        <div class="form-group">
+                                            <label asp-for="Input.Country"></label>
+                                            <input asp-for="Input.Country" class="form-control" />
+                                            <span asp-validation-for="Input.Country" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-xs-6">
+                                        <h4>
+                                            Dirrección de despacho
+                                        </h4>
+                                        <div class="form-group">
+                                            <label asp-for="Input.State"></label>
+                                            <input asp-for="Input.State" class="form-control" />
+                                            <span asp-validation-for="Input.State" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label asp-for="Input.City"></label>
+                                            <input asp-for="Input.City" class="form-control" />
+                                            <span asp-validation-for="Input.City" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label asp-for="Input.Address"></label>
+                                            <input asp-for="Input.Address" class="form-control" />
+                                            <span asp-validation-for="Input.Address" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label asp-for="Input.ZipCode"></label>
+                                            <input asp-for="Input.ZipCode" class="form-control" />
+                                            <span asp-validation-for="Input.ZipCode" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-xs-6">
+                                        <h4>
+                                            Dirección de facturación
+                                        </h4>
+                                        <div class="form-group">
+                                            <label asp-for="Input.BillState"></label>
+                                            <input asp-for="Input.BillState" class="form-control" />
+                                            <span asp-validation-for="Input.BillState" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label asp-for="Input.BillCity"></label>
+                                            <input asp-for="Input.BillCity" class="form-control" />
+                                            <span asp-validation-for="Input.BillCity" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label asp-for="Input.BillAddress"></label>
+                                            <input asp-for="Input.BillAddress" class="form-control" />
+                                            <span asp-validation-for="Input.BillAddress" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label asp-for="Input.BillZipCode"></label>
+                                            <input asp-for="Input.BillZipCode" class="form-control" />
+                                            <span asp-validation-for="Input.BillZipCode" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <button id="update-profile-button" type="submit" class="btn btn-default">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <br />
+</section>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

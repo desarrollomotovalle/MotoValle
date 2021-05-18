@@ -1,0 +1,35 @@
+﻿@page
+@model Disable2faModel
+@{
+    ViewData["Title"] = "Disable two-factor authentication (2FA)";
+    ViewData["ActivePage"] = ManageNavPages.TwoFactorAuthentication;
+    Layout = "/Areas/Identity/Pages/Account/Manage/_Layout.cshtml";
+}
+
+<section class="b-breadCumbs wow zoomInUp" data-wow-delay="0.5s">
+    <div class="container">
+        <div class="row">
+            <partial name="_StatusMessage" for="StatusMessage" />
+            <h2>@ViewData["Title"]</h2>
+
+            <div class="alert alert-warning" role="alert">
+                <p>
+                    <span class="glyphicon glyphicon-warning-sign"></span>
+                    <strong>Esta sección solo deshabilita la autenticación en dos pasos</strong>
+                </p>
+                <p>
+                    Deshabilitar la autenticación en dos pasos (2FA) no cambia las claves usadas en las aplicaciones de autenticación. 
+                    Si desea cambiar la clave usada en una aplicación de atenticación, debe <a asp-page="./ResetAuthenticator">reiniciar las claves del autenticador.</a>
+                </p>
+            </div>
+
+            <div>
+                <form method="post" class="form-group">
+                    <button class="btn btn-danger" type="submit">Deshabilitar 2FA</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br />
+    <br />
+</section>

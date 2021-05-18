@@ -1,0 +1,174 @@
+﻿@using motovalle.Ecommerce.Models.ViewModels;
+@model SubscriptionViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!--Hero Main-->
+@await Component.InvokeAsync("HeroImageWithBrandsHome")
+
+<section class="b-world">
+    <div class="container">
+        <h6 class="wow zoomInLeft" data-wow-delay="0.3s" data-wow-offset="100">TODO LO QUE NECESITAS SABER</h6><br />
+        <h2 class="s-title wow zoomInRight" data-wow-delay="0.s" data-wow-offset="100">EL MUNDO DE LOS AUTOS</h2>
+        <div id="latestPostHome">
+            <div class="text-center">
+                <i class="fa fa-circle-o-notch fa-spin fa-5x fa-fw"></i>
+                <span class="h2">Cargando artículos...</span>
+            </div>
+        </div>
+    </div>
+</section><!--b-world-->
+
+
+<section class="b-count">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-11 col-xs-12 percent-blocks m-main" data-waypoint-scroll="true">
+                <div class="row">
+                    <div class="col-sm-3 col-xs-6">
+                        <div class="b-count__item">
+                            <div class="b-count__item-circle">
+                                <span class="fa fa-car"></span>
+                            </div>
+                            <div class="chart" data-percent="1257">
+                                <h2 class="percent">1257</h2>
+                            </div>
+                            <h5>Vehículos en stock</h5>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 col-xs-6">
+                        <div class="b-count__item">
+                            <div class="b-count__item-circle">
+                                <span class="fa fa-users"></span>
+                            </div>
+                            <div class="chart" data-percent="3150">
+                                <h2 class="percent">3150+</h2>
+                            </div>
+                            <h5>CLIENTES SATISFECHOS</h5>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 col-xs-6">
+                        <div class="b-count__item">
+                            <div class="b-count__item-circle">
+                                <span class="fa fa-building-o"></span>
+                            </div>
+                            <div class="chart" data-percent="10">
+                                <h2 class="percent">10+</h2>
+                            </div>
+                            <h5>SEDES FÍSICAS</h5>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 col-xs-6">
+                        <div class="b-count__item j-last">
+                            <div class="b-count__item-circle">
+                                <span class="fa fa-suitcase"></span>
+                            </div>
+                            <div class="chart" data-percent="547">
+                                <h2 class="percent">547</h2>
+                            </div>
+                            <h5>OBSEQUIOS ENTREGADOS</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!--b-count-->
+
+<section class="b-contact">
+    <div class="container">
+        <div class="row wow zoomInLeft" data-wow-delay="0.1s" data-wow-offset="100">
+            <div class="col-xs-3">
+                <div class="b-contact-title">
+                    <h5>ÚLTIMAS NOTICIAS</h5><br />
+                    <h2>REGISTRÁTE</h2>
+                </div>
+            </div>
+            <div class="col-xs-9">
+                <div class="b-contact__form">
+                    <p>ENVIAMOS GRANDES OFERTAS Y ÚLTIMAS NOTICIAS A NUESTROS USUARIOS SUSCRITOS. ¡Subscríbete hoy!</p>
+                    <form asp-action="Index" asp-controller="Home" method="POST" id="frmSubscription" novalidate>
+                        @Html.AntiForgeryToken()
+                        <div><span class="fa fa-user"></span>@Html.TextBoxFor(x => x.Name, new { placeholder = "Tu nombre", @required = "required" })</div>
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                        <div><span class="fa fa-envelope"></span>@Html.TextBoxFor(x => x.Email, new { placeholder = "Tu correo", @required = "required" })</div>
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                        <button id="btnSubscription" type="submit"><span class="fa fa-angle-right"></span></button>
+                        <div class="form-group">
+                            <div class="form-check">
+                                @Html.CheckBoxFor(model => model.HabeasData, new { @class = "form-check-input", @required = "required" })
+                                <label class="form-check-label">
+                                    Acepto las <a href="~/files/POLITICA DATOS PERSONALES MOTOVALLE[2336].pdf" class="p-0 m-0" target="_blank" rel="noreferrer"> políticas de privacidad</a>
+                                </label>
+                            </div>
+                            <span asp-validation-for="HabeasData" class="text-danger"></span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!--b-contact-->
+
+<section class="b-review">
+    <div class="container">
+        <div class="col-sm-10 col-sm-offset-1 col-xs-12">
+            <div id="carousel-small-rev" class="owl-carousel enable-owl-carousel" data-items="1" data-navigation="true" data-auto-play="true" data-stop-on-hover="true" data-items-desktop="1" data-items-desktop-small="1" data-items-tablet="1" data-items-tablet-small="1">
+                <div class="b-review__main">
+                    <div class="b-review__main-person">
+                        <div class="b-review__main-person-inside">
+                        </div>
+                    </div>
+                    <h5><span>DIEGO ARENAS TANGARIFE</span>, Cliente, Mazda CX-3<em>"</em></h5>
+                    <p>
+                        Tuve una excelente experiencia adquiriendo mi camioneta. El servicio ofrecido por la tienda online fue de primera clase, profesional, ágil y fácil. Recomiendo a <b>Tienda Motovalle</b> ciegamente.
+                    </p>
+                </div>
+                <div class="b-review__main">
+                    <div class="b-review__main-person">
+                        <div class="b-review__main-person-inside-2">
+                        </div>
+                    </div>
+                    <h5><span>JAIME MARULANDA</span>, Cliente, Mustang GT Premium Convertible<em>"</em></h5>
+                    <p>
+                        Estoy satisfecho completamente con la facilidad de compra de mi carro. Una vez más <b>Motovalle</b> por medio de su tienda virtual me brindó un servicio de excelencia.
+                    </p>
+                </div>
+                <div class="b-review__main">
+                    <div class="b-review__main-person">
+                        <div class="b-review__main-person-inside-3">
+                        </div>
+                    </div>
+                    <h5><span>JOSE GAVIRIA</span>, Cliente, Mazda MX-5<em>"</em></h5>
+                    <p>
+                        La compra fue totalmente intuitiva por medio de la <b>Tienda Motovalle</b>. Encontré fácilmente el carro que tanto soñé y gracias al acompañamiento en la compra, no dudé en adquirirlo.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <img src="~/images/backgrounds/1599x456review2.jpg" alt="secure" class="img-responsive center-block" style="margin-top:1.5em; margin-bottom:-4em;" />
+</section><!--b-review-->
+
+@section Scripts{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+
+    <script type="text/javascript">
+        window.addEventListener('DOMContentLoaded', async (event) => {
+            setTimeout(async () => {
+                const postHomeRequest = await fetch('Home/GetLatestPostHomeComponent');
+                if (postHomeRequest.ok) {
+                    const postHomeResponse = await postHomeRequest.text();
+                    const $latestPostHome = document.querySelector("#latestPostHome");
+                    $latestPostHome.innerHTML = postHomeResponse;
+                }
+            }, 4000);
+        });
+
+        //setTimeout(() => {
+        //    getOnLoadPicture("#MotovalleEnCasa", "/images/banners/motovalle-en-casa2.jpg");
+        //}, 3500);
+    </script>
+}

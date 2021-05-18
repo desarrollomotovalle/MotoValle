@@ -1,0 +1,107 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <Authors>Innova Marketing Systems</Authors>
+    <Company>Innova Marketing Systems S.A.S</Company>
+    <PackageTags>MotoValle, Ecommerce</PackageTags>
+    <Copyright>All rights reserved</Copyright>
+    <UserSecretsId>9c388eb0-3a4f-4e59-99ef-53bfc9e52967</UserSecretsId>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>motovalle.Ecommerce.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="wwwroot\landingAssets\landing-v2\**" />
+    <Content Remove="wwwroot\landingAssets\landing-v2\**" />
+    <EmbeddedResource Remove="wwwroot\landingAssets\landing-v2\**" />
+    <None Remove="wwwroot\landingAssets\landing-v2\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\js\site.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="docfx.console" Version="2.56.6">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="EPPlus" Version="4.5.3.2" />
+    <PackageReference Include="Lexim.MercadoPago.Sdk" Version="3.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.10" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.10" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.10" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="3.1.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.10">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.1.10" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
+    <PackageReference Include="MySql.Data.EntityFrameworkCore" Version="8.0.19" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="3.2.4" />
+    <PackageReference Include="reCAPTCHA.AspNetCore" Version="2.2.5" />
+    <PackageReference Include="RestSharp" Version="106.10.1" />
+    <PackageReference Include="Syncfusion.EJ2.AspNet.Core" Version="18.2.0.55" />
+    <PackageReference Include="Syncfusion.HtmlToPdfConverter.QtWebKit.Net.Core" Version="17.4.0.46" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Resources\StaticResources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>StaticResources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\StaticResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>StaticResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Models\DTO\Services\FundingRequests\WestBank\" />
+    <Folder Include="Views\Pages\RepuestosMotovalle\" />
+    <Folder Include="wwwroot\img\" />
+    <Folder Include="wwwroot\invoice_backup\" />
+    <Folder Include="wwwroot\landingAssets\landing-mazda\assets\img\campaings\experience\" />
+    <Folder Include="wwwroot\landingAssets\landing-mazda\assets\img\campaings\bogota\" />
+    <Folder Include="wwwroot\media\main-slider\hero-images\" />
+    <Folder Include="wwwroot\media\pdf_files\" />
+    <Folder Include="wwwroot\files\" />
+    <Folder Include="wwwroot\external_assemblies\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Innova.MotoValle.Ecommerce.DAL\Ecommerce.DAL.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Inventek.CMS.DAL">
+      <HintPath>wwwroot\external_assemblies\Inventek.CMS.DAL.dll</HintPath>
+    </Reference>
+    <Reference Include="Inventek.ERP.DAL">
+      <HintPath>wwwroot\external_assemblies\Inventek.ERP.DAL.dll</HintPath>
+    </Reference>
+    <Reference Include="Inventek.ERP.Models">
+      <HintPath>wwwroot\external_assemblies\Inventek.ERP.Models.dll</HintPath>
+    </Reference>
+    <Reference Include="inventek_blog.DAL">
+      <HintPath>wwwroot\external_assemblies\inventek_blog.DAL.dll</HintPath>
+    </Reference>
+    <Reference Include="inventek_blog.Models">
+      <HintPath>wwwroot\external_assemblies\inventek_blog.Models.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
+
+</Project>

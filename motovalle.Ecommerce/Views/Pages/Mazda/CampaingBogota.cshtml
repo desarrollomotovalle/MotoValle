@@ -1,0 +1,904 @@
+﻿@model motovalle.Ecommerce.Models.ViewModels.Landing.ContactViewModel
+@{
+    ViewData["Title"] = "CampaingSantaFe";
+    Layout = "~/Views/Shared/Landing/_LayoutLandingMazda.cshtml";
+}
+
+@section Styles{
+    <style type="text/css">
+        :root {
+            --mazdaColor: #A81E30;
+            --mazdaColorHover: #8e1928;
+        }
+
+        #hero {
+            background: url("@Url.Content($"~/landingAssets/landing-mazda/assets/img/campaings/bogota/bogota-mazdalandng.png?v={Guid.NewGuid()}")") top center no-repeat;
+            background-size: cover;
+            background-repeat: no-repeat;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            height: 100vh;
+            width: 100%;
+            position: relative;
+            border-bottom: 1px solid #222;
+            background-color: black
+        }
+
+        .cotizacion {
+            position: fixed; /* Hacemos que la posición en pantalla sea fija para que siempre se muestre en pantalla*/
+            right: 0; /* Establecemos la barra en la izquierda */
+            padding: 0;
+            top: 200px; /* Bajamos la barra 200px de arriba a abajo */
+            z-index: 2000; /* Utilizamos la propiedad z-index para que no se superponga algún otro elemento como sliders, galerías, etc */
+        }
+
+        .cotizacion ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            writing-mode: vertical-lr;
+            text-orientation: sideways-right;
+        }
+
+        .cotizacion ul li a {
+            display: inline-block;
+            color: #fff;
+            background: var(--mazdaColor);
+            padding: 1.2em 1.2em;
+            font-size: 22px;
+            text-decoration: none;
+            -webkit-transition: all 500ms ease;
+            -o-transition: all 500ms ease;
+            transition: all 500ms ease; /* Establecemos una transición a todas las propiedades */
+        }
+
+        .cotizacion ul li .info-campania {
+            background: var(--mazdaColor);
+        }
+
+        .cotizacion ul li a:hover.info-campania {
+            background: var(--mazdaColorHover); /*Cambiamos el fondo cuando el usuario pase el mouse */
+            padding: 1.6em 1.6em; /*Hacemos mas grande el espacio cuando el usuario pase el mouse */
+        }
+
+        .cotizacion-box {
+            display: none;
+            float: left;
+            overflow: hidden;
+            background: #2E2E2E;
+            position: fixed;
+            z-index: 2001;
+            color: white;
+        }
+
+        /* Add padding and border to inner content
+        for better animation effect */
+        .cotizacion-box-inner {
+            width: auto;
+            padding: 0px;
+        }
+
+        .wpp-contact {
+            width: 60%;
+        }
+
+        .btn.btn-mazda {
+            background-color: var(--mazdaColor);
+        }
+
+        .btn.btn-mazda:hover {
+            background-color: var(--mazdaColorHover);
+        }
+
+        @@media (max-width: 768px) {
+            #hero {
+                background: url('@Url.Content("~/landingAssets/landing-mazda/assets/img/campaings/bogota/bogota-landing-responsive.png")') top center no-repeat;
+                height: 83.3vh;
+                background-size: contain;
+                background-repeat: no-repeat;
+                -webkit-background-size: contain;
+                -moz-background-size: contain;
+                -o-background-size: contain;
+                position: relative;
+                background-color: black;
+            }
+
+            .cotizacion-box {
+                width: 80%;
+            }
+
+            .cotizacion ul li a {
+                padding: 0.8em 0.8em;
+                font-size: 18px;
+            }
+
+            .cotizacion ul li a:hover.info-campania {
+                background: var(--mazdaColorHover); /*Cambiamos el fondo cuando el usuario pase el mouse */
+                padding: 1em 1em; /*Hacemos mas grande el espacio cuando el usuario pase el mouse */
+            }
+
+            .card-header > h4 {
+                font-size: 18px;
+            }
+
+            .wpp-contact {
+                width: 140%;
+            }
+
+            .custom-size {
+                font-size: 12px;
+            }
+        }
+
+        .video-container {
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+        }
+
+        .video-container::after {
+            padding-top: 56.25%;
+            display: block;
+            content: '';
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+
+    <style>
+        .wpgmp-map-12, .wpgmp-map-12 .wpgmp_tabs_container, .wpgmp-map-12 .wpgmp_listing_container {
+            font-size: 16px !important;
+        }
+    </style>
+}
+
+<!-- ======= Cotizacion Section ======= -->
+<div class="cotizacion">
+    <ul>
+        <li><a href="javascript:;" title="Solicita tu Crédito en Linea Ya" class="info-campania"><i class="icofont-ui-edit"></i> Solicita tu Crédito en Linea Ya</a></li>
+    </ul>
+</div>
+
+<!-- ======= Hero Section ======= -->
+<section id="hero">
+    <div class="hero-container">
+        <a href="#features" class="scrollto"><i class='bx bxs-chevrons-down bx-flashing bx-big-size'></i></a>
+    </div>
+    <div class="cotizacion-box">
+        <div class="cotizacion-box-inner">
+            <div class="p-3" id="formCardMazda">
+                <div>
+                    <!-- form user info -->
+                    <div class="card" style="background-color:#191919; color:white;">
+                        <div class="card-header">
+                            <button type="button" class="close text-white" aria-label="Close" onclick="toggleForm()">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                            <h4 class="mb-0">Solicita tu Crédito en Linea Ya</h4>
+                        </div>
+                        <div class="card-body">
+                            <!-- Form -->
+                            <form method="post" action="/Pages/@TempData["Controller"]" id="frmMazdaCotizar">
+                                @Html.AntiForgeryToken()
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                <input asp-for="CampaingNumber" hidden />
+                                <!-- Heading -->
+
+                                <div class="form-group form-group-sm">
+                                    <input asp-for="FullName" class="form-control form-control-sm" placeholder="@Html.DisplayNameFor(m => m.FullName)" />
+                                    <span asp-validation-for="FullName" class="text-danger"></span>
+                                </div>
+                                <div class="form-group form-group-sm">
+                                    <input asp-for="Email" class="form-control form-control-sm" placeholder="@Html.DisplayNameFor(m => m.Email)" />
+                                    <span asp-validation-for="Email" class="text-danger"></span>
+                                </div>
+                                <div class="form-group form-group-sm">
+                                    <input asp-for="City" class="form-control form-control-sm" placeholder="@Html.DisplayNameFor(m => m.City)" />
+                                    <span asp-validation-for="City" class="text-danger"></span>
+                                </div>
+                                <div class="form-group form-group-sm">
+                                    <input asp-for="PhoneNumber" class="form-control form-control-sm" placeholder="@Html.DisplayNameFor(m => m.PhoneNumber)" />
+                                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                                </div>
+                                <div class="form-group form-group-sm">
+                                    @Html.TextAreaFor(x => x.Message, 3, 1, new { @class = "form-control form-control-sm", @placeholder = @Html.DisplayNameFor(m => m.Message) })
+                                    <span asp-validation-for="Message" class="text-danger"></span>
+                                </div>
+                                <div class="form-group form-group-sm">
+                                    <div class="form-check">
+                                        @Html.CheckBoxFor(model => model.HabeasData, new { @class = "form-check-input", @required = "required" })
+                                        <label class="form-check-label">
+                                            Acepto las <a href="~/files/POLITICA DATOS PERSONALES MOTOVALLE[2336].pdf" rel="noreferrer" target="_blank"> políticas de privacidad</a>
+                                        </label>
+                                    </div>
+                                    <span asp-validation-for="HabeasData" class="text-danger"></span>
+                                </div>
+
+                                <div class="text-center">
+                                    <input type="submit" class="btn btn-secondary" value="¡Cotiza ya!" />
+                                </div>
+                            </form>
+                            <!-- Form -->
+                        </div>
+                    </div>
+                    <!-- /form user info -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Hero -->
+<!-- ======= Header ======= -->
+<header id="header" class="d-flex align-items-center">
+    <div class="container d-flex align-items-center">
+        <div class="col-md-4">
+            <div class="logo">
+                <a href="#" class="go-home"><img src="~/media/brands/mv65_1b.png" alt="" class="img-fluid"></a>
+            </div>
+        </div>
+        <div class="col-md-5 pl-0 pr-4">
+            <a href="https://api.whatsapp.com/send?phone=573113769946&text=Quiero%20Cotizar%20con%20%20Motovalle%20el%20Mazda%20%20de%20%20mis%20%20sue%C3%B1os%20&&&source=&data=&app_absent=" target="_blank" rel="noreferrer">
+                <img src="~/landingAssets/landing-mazda/assets/img/add/cotizar-wpp.png" alt="wpp-Contact" class="wpp-contact" />
+            </a>
+        </div>
+        <div class="col-md-3 ml-2 pr-0">
+            <a href="https://www.asmseguros.com/" target="_blank" rel="noreferrer" class="btn btn-mazda p-lg-3 p-0">
+                <i class="text-wrap text-white custom-size">PROTEJA SU VEHÍCULO</i>
+            </a>
+        </div>
+    </div>
+</header><!-- End Header -->
+
+<main id="main">
+    <!-- ======= Features Section ======= -->
+    <section id="features" class="features pb-2">
+        <div class="container">
+            <div class="owl-carousel exhibition-cars-carousel">
+                <div class="exhibition-cars-item">
+                    <img src="~/landingAssets/landing-mazda/assets/img/add/Mazda-2-Sport.JPG" class="img-fluid" alt="mazda 2 sport">
+                    <h5 class="text-center">MAZDA 2 SPORT</h5>
+                </div>
+                <div class="exhibition-cars-item">
+                    <img src="~/landingAssets/landing-mazda/assets/img/add/Mazda-3-7G-Sedan.JPG" class="img-fluid" alt="mazda 2 sedan">
+                    <h5 class="text-center">MAZDA 2 SEDÁN</h5>
+                </div>
+                <div class="exhibition-cars-item">
+                    <img src="~/landingAssets/landing-mazda/assets/img/add/Mazda-2-Sedan.JPG" class="img-fluid" alt="mazda 3 sedan">
+                    <h5 class="text-center">MAZDA 3 SEDÁN</h5>
+                </div>
+                <div class="exhibition-cars-item">
+                    <img src="~/landingAssets/landing-mazda/assets/img/add/Mazda-CX3.JPG" class="img-fluid" alt="mazda cx-3">
+                    <h5 class="text-center">MAZDA CX-3</h5>
+                </div>
+                <div class="exhibition-cars-item">
+                    <img src="~/landingAssets/landing-mazda/assets/img/add/Mazda-CX30.JPG" class="testimonial-img" alt="Mazda cx-30">
+                    <h5 class="text-center">MAZDA CX-30</h5>
+                </div>
+                <div class="exhibition-cars-item">
+                    <img src="~/landingAssets/landing-mazda/assets/img/add/Mazda-Cx5.JPG" class="testimonial-img" alt="mazda cx-5">
+                    <h5 class="text-center">MAZDA CX-5</h5>
+                </div>
+            </div>
+        </div>
+    </section><!-- End Features Section -->
+
+    <section id="features" class="features pb-0 m-0">
+        <div class="container">
+            <h1>Mazda CX-5 2021, Mucho más para Experimentar</h1><p>La SUV Mazda CX-5 con todos sus galardones y virtudes en su modelo 2021 trae mejoras inigualables en su equipamiento, con tecnología única en su clase para vivir la experiencia de su refinado diseño enfocado en las personas.</p><p>Mazda CX-5 2021 llega con cuatro versiones Touring 2L, Grand Touring 2.5L, Grand Touring LX 2.5L y el lujoso y potente Grand Touring Signature 2.5L con Turbo de presión dinámica. Todos con motores Skyactive-G y caja automática de 6 velocidades.</p><p>Todo es armonía y confort en el Mazda CX-5 2021. Pantalla TFT de 8”, Sistema de info-entretenimiento Mazda Connect dotado con Botón Multicomando en la consola central para facilitar su operación e integrado con Android y IPhone, mayor aislamiento acústico y control de cambios en el volante, además de sus asientos especialmente diseñados para reducir fatiga y favorecer la postura, conforman un entorno envolvente para todos los ocupantes.</p><p>Este ambiente que circunda el Mazda CX-5 2021 lo complementa el paquete de asistencias i-Activsense con modernos sensores para apoyar al conductor, cuyos controles e instrumentos están localizados estratégicamente para facilitar su operación y lectura. El paquete incluye:</p><p>•	Mitigación de Vuelco (ROM)</p><p>•	Reducción Colisión Secundaria (SCR).</p><p>•	Sistema Inteligente de iluminación frontal a través del cual se activan o desactivan las luces LED dependiendo de la luz de los vehículos en la vía.</p><p>•	Asistente de permanencia en carril (LKA-LAS)</p><p>•	Asistencia inteligente de frenado en ciudad delantero y trasero (SCBS) que advierte al conductor cuando la distancia con el vehículo adelante puede ser riesgosa y en caso que el conductor no reaccione ante la señal de aviso acciona automáticamente los frenos, incluso a velocidades entre 10 y 80 km/h el sistema detecta peatones.  El frenado trasero actúa en operaciones de parqueo y reversa.</p><p>•	Alerta de Atención del Conductor (DAA) con base en el comportamiento habitual del conductor puede detectar estados de fatiga o disminución de atención y emite advertencia visual y sonora</p><p>•	Sistema avanzado de monitoreo de punto ciego (BSM)</p><p>•	Monitor vista 360° que proyecta en la pantalla táctil una visión del vehículo en todas las direcciones.</p><p>•	Señal de parada de emergencia (ESS)</p><p>•	Asistencia de arranque en pendiente (HLA)</p><p>Los Mazda CX-5 2021 equipados con i-Activ AWD se les ha adicionado la función “Off road” la cual permite un mejor comportamiento al arrancar en terrenos resbaladizos o situaciones con poco contacto de alguna de las ruedas con el suelo.</p><p>Las versiones Mazda CX-5 2021 Grand Touring, Grand Tourin LX y SIgnature traen los novedosos espejos retrovisores con desempañador.</p>
+        </div>
+    </section>
+
+    <div id="youtubeVideo">
+        <div class="container text-center">
+            <div class="my-2" id="video-container">
+                @*¡¡¡¡¡OJO!!!!! SE DEBE AÑADIR ESTE PARAMETRO AL LINK PARA PODER ACCEDER AL API DE YOUTUBE ==> ?enablejsapi=1 (SAMPLE https://www.youtube.com/embed/SxR4igmb_s0?enablejsapi=1)*@
+                <iframe id="yt-video" src="https://www.youtube.com/embed/2Ru2ntbyqfo?enablejsapi=1" width="560" height="315" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- ======= Contact Us Section ======= -->
+    <section id="contact" class="contact p-0">
+        <div class="container">
+            <div class="section-title">
+                <h3>En Motovalle Nos sumamos a la reactivación del país</h3>
+            </div>
+            <div class="section-title">
+                <span>¿Dónde estámos?</span>
+                <h2>¿Dónde estámos?</h2>
+            </div>
+            <div class="row justify-content-center pb-5">
+                <div class="col-lg-6 col-md-6">
+                    <div class="info-box">
+                        <i class="bx bx-map"></i>
+                        <h3>Vitrina Bogotá</h3>
+                        <p>Avenida 19 #127 – 05 La Calleja</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 mt-4 mt-lg-0">
+                    <div class="info-box">
+                        <i class="bx bx-phone-call"></i>
+                        <h3>Comunícate con nosotos</h3>
+                        <p>311 376 9946 - 743 10 46 Opción 1</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="wpgmp_map_container wpgmp-map-12" rel="map12"><div class="wpgmp_map " style="width: 100%; height: 680px; position: relative; overflow: hidden;" id="map12"></div></div>
+        </div>
+
+    </section><!-- End Contact Us Section -->
+</main>
+
+@*@{ await Html.RenderPartialAsync("/Views/Shared/Landing/_ContactFormMazdaModal.cshtml"); }*@
+
+@section Scripts{
+    @*Imports*@
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+    <script src="~/landingAssets/landing-mazda/assets/js/lading-mazda.js" type="text/javascript" asp-append-version="true"></script>
+    <script type="text/javascript" src="~/js/maps.js"></script>
+    <script type='text/javascript' src='https://maps.google.com/maps/api/js?key=AIzaSyBVJ03UjRxywFn8ch5YseSPn2tZ_FsFOgQ&#038;libraries=geometry%2Cplaces%2Cweather%2Cpanoramio%2Cdrawing&#038;language=es&#038;ver=5.2.5'></script>
+
+    @*YOUTUBE API*@
+    <script src='https://www.youtube.com/iframe_api' async></script>
+    <script type="text/javascript">
+        var player;
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('yt-video', {
+                events: {}
+            });
+        }
+
+        const $youtubeVideo = document.querySelector("#youtubeVideo");
+        const observer = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) {
+                player.playVideo();
+            } else {
+                player.pauseVideo();
+            }
+        }, { threshold: 0.4 });
+
+        observer.observe($youtubeVideo);
+    </script>
+
+    @*Maps*@
+    <script>
+        $(document).ready(function ($) {
+            var map12 = $("#map12").maps({
+                "map_options": {
+                    "center_lat": "4.73242",
+                    "center_lng": "-74.053604",
+                    "zoom": 12,
+                    "map_type_id": "ROADMAP",
+                    "center_by_nearest": true,
+                    "center_circle_fillcolor": "#8CAEF2",
+                    "center_circle_fillopacity": ".5",
+                    "center_circle_strokecolor": "#8CAEF2",
+                    "center_circle_strokeopacity": ".5",
+                    "center_circle_radius": "5",
+                    "show_center_circle": false,
+                    "show_center_marker": false,
+                    "center_marker_icon": "https://unpkg.com/leaflet@1.3.3/dist/images/marker-icon.png",
+                    "center_marker_infowindow": "",
+                    "center_circle_strokeweight": "1",
+                    "draggable": true,
+                    "scroll_wheel": true,
+                    "navigationControl": true,
+                    "display_45_imagery": "",
+                    "marker_default_icon": `${window.location.origin}/images/maps/pointers/pointer.png`,
+                    "infowindow_setting": `<div class="fc-main"><div class="fc-item-title">{marker_title} <span class="fc-badge info">{marker_category}</span></div><div class="fc-item-featured_image">{marker_image} </div><p>{marker_message}</p><address><b>Address : </b>{marker_address}</address></div><div><a href="https://www.google.com/maps/dir/?api=1&destination={address_map}&travelmode=traffic" target="_blank">Ver ruta en Google Maps</a></div>`,
+                    "infowindow_geotags_setting": `<div class="fc-main"><div class="fc-item-title">{post_title} <span class="fc-badge info">{post_categories}</span></div><div class="fc-item-featured_image">{post_featured_image} </div><p>{post_excerpt}</p><address><b>Address : </b>{marker_address}</address><p><a target="_blank"  class="fc-btn fc-btn-small fc-btn-red" href="{post_link}">Read More...</a></div>`,
+                    "infowindow_bounce_animation": "",
+                    "infowindow_drop_animation": true,
+                    "close_infowindow_on_map_click": false,
+                    "default_infowindow_open": false,
+                    "infowindow_open_event": "click",
+                    "infowindow_filter_only": false,
+                    "infowindow_click_change_zoom": 0,
+                    "infowindow_click_change_center": false,
+                    "full_screen_control": false,
+                    "search_control": true,
+                    "zoom_control": true,
+                    "map_type_control": false,
+                    "street_view_control": false,
+                    "zoom_mobile": 0,
+                    "draggable_mobile": true,
+                    "scroll_wheel_mobile": true,
+                    "full_screen_control_position": "TOP_RIGHT",
+                    "search_control_position": "TOP_LEFT",
+                    "zoom_control_position": "TOP_LEFT",
+                    "map_type_control_position": "TOP_LEFT",
+                    "map_type_control_style": "HORIZONTAL_BAR",
+                    "street_view_control_position": "TOP_LEFT",
+                    "map_control": true,
+                    "map_control_settings": [
+
+                    ],
+                    "screens": {
+                        "smartphones": {
+                            "map_width_mobile": "",
+                            "map_height_mobile": "680px",
+                            "map_zoom_level_mobile": "10"
+                        },
+                        "ipads": {
+                            "map_width_mobile": "",
+                            "map_height_mobile": "640px",
+                            "map_zoom_level_mobile": "10"
+                        },
+                        "large-screens": {
+                            "map_width_mobile": "",
+                            "map_height_mobile": "680px",
+                            "map_zoom_level_mobile": "12"
+                        }
+                    },
+                    "map_infowindow_customisations": false,
+                    "infowindow_border_color": "rgba(0, 0, 0, 0.0980392)",
+                    "infowindow_bg_color": "#fff",
+                    "show_infowindow_header": false,
+                    "width": "",
+                    "height": "680px"
+                },
+                "places": [
+                    {
+                        "id": "4",
+                        "title": "MotoValle Mazda Bogotá",
+                        "address": "Avenida 19 #127 - 05 La Calleja",
+                        "source": "manual",
+                        "content": "MotoValle Mazda Bogotá",
+                        "location": {
+                            "icon": `${window.location.origin}/images/maps/pointers/mazda1.png`,
+                            "lat": "4.705731599999999",
+                            "lng": "-74.048969",
+                            "city": "Bogotá",
+                            "state": "Cundinamarca",
+                            "country": "Colombia",
+                            "onclick_action": "marker",
+                            "redirect_custom_link": "",
+                            "marker_image": "",
+                            "open_new_tab": "yes",
+                            "postal_code": "110121",
+                            "draggable": false,
+                            "infowindow_default_open": false,
+                            "animation": "BOUNCE",
+                            "infowindow_disable": true,
+                            "zoom": 5,
+                            "extra_fields": {
+                                "address_map": "Mazda+Motovalle,+Ak.+19+%23127-5,+Bogotá,+Cundinamarca",
+                                "listorder": 0
+                            }
+                        },
+                        "categories": [
+                            {
+                                "id": "8",
+                                "name": "Motovalle mazda",
+                                "type": "category",
+                                "extension_fields": {
+                                    "cat_order": "0"
+                                },
+                                "icon": `${window.location.origin}/images/maps/pointers/mazda1.png`
+                            }
+                        ],
+                        "custom_filters": [
+
+                        ]
+                    },
+                    {
+                        "id": "23",
+                        "title": "MotoValle Mazda Bogotá - Centro de Servicios",
+                        "address": "Calle 171 #22a30, Cundinamarca, Colombia",
+                        "source": "manual",
+                        "content": "MotoValle Mazda Bogotá - Centro de Servicios",
+                        "location": {
+                            "icon": `${window.location.origin}/images/maps/pointers/mazda1.png`,
+                            "lat": "4.752078",
+                            "lng": "-74.04515400000003",
+                            "city": "Bogotá",
+                            "state": "Bogotá",
+                            "country": "Colombia",
+                            "onclick_action": "marker",
+                            "redirect_custom_link": "",
+                            "marker_image": "",
+                            "open_new_tab": "yes",
+                            "postal_code": "110141",
+                            "draggable": false,
+                            "infowindow_default_open": false,
+                            "animation": "BOUNCE",
+                            "infowindow_disable": true,
+                            "zoom": 5,
+                            "extra_fields": {
+                                "address_map": "Calle+171+%2322a30,+Bogotá,+Cundinamarca+centro+de+servcios",
+                                "listorder": 0
+                            }
+                        },
+                        "categories": [
+                            {
+                                "id": "8",
+                                "name": "Motovalle mazda",
+                                "type": "category",
+                                "extension_fields": {
+                                    "cat_order": "0"
+                                },
+                                "icon": `${window.location.origin}/images/maps/pointers/mazda1.png`
+                            }
+                        ],
+                        "custom_filters": [
+
+                        ]
+                    }
+                ],
+                "styles": [
+                    {
+                        "featureType": "all",
+                        "elementType": "geometry",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "all",
+                        "elementType": "labels",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "all",
+                        "elementType": "labels.text",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "all",
+                        "elementType": "labels.text.fill",
+                        "stylers": [
+                            {
+                                "color": "#7d7e92"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "all",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            },
+                            {
+                                "hue": "#ff0000"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "administrative",
+                        "elementType": "labels.text.fill",
+                        "stylers": [
+                            {
+                                "color": "#444444"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "landscape",
+                        "elementType": "geometry.fill",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            },
+                            {
+                                "color": "#e0e1e6"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "landscape",
+                        "elementType": "geometry.stroke",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "geometry",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            },
+                            {
+                                "color": "#c71313"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "geometry.fill",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            },
+                            {
+                                "color": "#7c7d91"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "geometry.stroke",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            },
+                            {
+                                "color": "#a12222"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "labels",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            },
+                            {
+                                "hue": "#000fff"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "labels.text",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "hue": "#0054ff"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.business",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            },
+                            {
+                                "hue": "#007aff"
+                            },
+                            {
+                                "weight": "10.00"
+                            },
+                            {
+                                "saturation": "-100"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.government",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.medical",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.place_of_worship",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.school",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.sports_complex",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "saturation": -100
+                            },
+                            {
+                                "lightness": 45
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.highway",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "visibility": "simplified"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.highway",
+                        "elementType": "geometry.fill",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            },
+                            {
+                                "color": "#dedee6"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.highway",
+                        "elementType": "geometry.stroke",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            },
+                            {
+                                "color": "#7c7d91"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.highway",
+                        "elementType": "labels.text.stroke",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            },
+                            {
+                                "hue": "#ff0000"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.arterial",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "transit",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "water",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "color": "#46bcec"
+                            },
+                            {
+                                "visibility": "on"
+                            }
+                        ]
+                    }
+                ],
+                "street_view": null,
+                "routes": null,
+                "marker_cluster": null,
+                "overlay_setting": null,
+                "panning_control": null,
+                "map_tabs": {
+                    "category_tab": null,
+                    "direction_tab": null,
+                    "nearby_tab": null,
+                    "route_tab": null
+                },
+                "listing": null,
+                "map_property": {
+                    "map_id": "12"
+                },
+                "shapes": {
+                    "drawing_editable": false
+                },
+                "filters": {
+                    "custom_filters": [
+
+                    ],
+                    "filters_container": `[data-container="wpgmp-filters-container"]`
+                }
+            }).data("wpgmp_maps");
+        });
+    </script>
+
+    @*Toggle form*@
+    <script type="text/javascript">
+        function toggleForm() {
+            $(".cotizacion-box").animate({
+                width: "toggle",
+                height: "toggle",
+                opacity: "toggle"
+            });
+        }
+
+        function resizeIframe() {
+            const $videoContainer = document.querySelector("#video-container");
+            if (document.documentElement.clientWidth < 769) {
+                if (!$videoContainer.classList["video-container"]) {
+                    $videoContainer.classList.add("video-container");
+                }
+            } else {
+                if ($videoContainer.classList["video-container"]) {
+                    $videoContainer.classList.remove("video-container");
+                }
+            }
+        }
+
+        if (document.querySelector(".info-campania")) {
+            document.querySelector(".info-campania").addEventListener("click", toggleForm);
+        }
+
+        (() => {
+            resizeIframe();
+        })();
+
+        window.addEventListener('resize', resizeIframe);
+    </script>
+}

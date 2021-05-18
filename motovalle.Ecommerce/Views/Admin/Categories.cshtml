@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Ecommerce.Models.Entities.Categories>
+@{
+    ViewData["Title"] = "Categories";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="content">
+    <div class="container">
+        <div>
+            <div class="col-12 text-center">
+                <h1 class="m-0 text-dark">Categorías</h1>
+            </div>
+            <div class="text-left">
+                <p>
+                    <a asp-action="CategoriesCreate" asp-controller="Admin" class="btn btn-md btn-dark">Crear nuevo registro <span class="fa fa-plus-square"></span></a>
+                </p>
+            </div>
+
+            @{ await Html.RenderPartialAsync("_MessageStatus"); }
+        </div>
+
+        <div class="table">
+            <table id="dtTableDefault" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(x => x.CategoriesId)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(x => x.CategoryName)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(x => x.Description)
+                        </th>
+                        <th class="th-sm">
+                            Editar
+                        </th>
+                        <th class="th-sm">
+                            Eliminar
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.CategoriesId)</td>
+                            <td>@Html.DisplayFor(modelItem => item.CategoryName)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                            <td><a class="btn btn-info btn-block" style="width:70%" asp-action="CategoriesEdit" asp-controller="Admin" asp-route-id="@item.CategoriesId"><span class="fa fa-pencil-alt"></span></a></td>
+                            <td><a class="btn btn-danger btn-block" style="width:70%" asp-action="CategoriesDelete" asp-controller="Admin" asp-route-id="@item.CategoriesId"><span class="fa fa-times"></span></a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+
+@section Scripts{
+    <script type="text/javascript" src="~/admin/dist/js/admin-ecommerce-tables-settings-default.js"></script>
+}

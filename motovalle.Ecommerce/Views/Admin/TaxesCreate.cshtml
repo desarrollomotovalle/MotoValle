@@ -1,0 +1,60 @@
+﻿@model Ecommerce.Models.Entities.Taxes
+@{
+    ViewData["Title"] = "TaxesCreate";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="content">
+    <div class="container">
+        <div>
+            <div class="col-12 text-center">
+                <h1 class="m-0 text-dark">Crear Nuevo Registro</h1>
+            </div>
+            <div class="text-left">
+                <p>
+                    <a asp-action="Taxes" asp-controller="Admin" class="btn btn-md btn-dark"><span class="fa fa-arrow-circle-left"></span> Volver</a>
+                </p>
+            </div>
+        </div>
+
+        <div class="col-lg-offset-3 ">
+            <form method="post" asp-action="TaxesCreate" asp-controller="Admin">
+                @Html.AntiForgeryToken()
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="TaxesId" />
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label asp-for="TaxName" class="control-label"></label>
+                            <input asp-for="TaxName" class="form-control" />
+                            <span asp-validation-for="TaxName" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label asp-for="TaxPercent" class="control-label"></label>
+                            <input asp-for="TaxPercent" class="form-control" />
+                            <span asp-validation-for="TaxPercent" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label asp-for="TaxDescription" class="control-label"></label>
+                            @Html.TextAreaFor(x => x.TaxDescription, 4, 1, new { @class = "form-control" })
+                            <span asp-validation-for="TaxDescription" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Guardar cambios" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

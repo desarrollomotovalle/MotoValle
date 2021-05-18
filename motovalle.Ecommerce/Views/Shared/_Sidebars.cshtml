@@ -1,0 +1,9 @@
+﻿@model Inventek.CMS.DAL.ViewModels.WidgetViewModel
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<div id="sidebars">
+    @{ await Html.RenderPartialAsync("_Categories", Model.Categories); }
+    @{ await Html.RenderPartialAsync("_Tags", Model.Tags); }
+    @{ await Html.RenderPartialAsync("_LatestPosts", Model.LatestPosts.Take(10).ToList()); }
+</div>

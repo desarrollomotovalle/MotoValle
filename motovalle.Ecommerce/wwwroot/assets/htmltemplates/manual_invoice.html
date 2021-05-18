@@ -1,0 +1,346 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Detalle de orden</title>
+
+    <style>
+        .invoice-box {
+            /*max-width: 800px;*/
+            margin: auto;
+            padding: 30px;
+            border: 1px solid #eee;
+            box-shadow: 0 0 10px rgba(0, 0, 0, .15);
+            font-size: 16px;
+            line-height: 24px;
+            font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+            color: #555;
+        }
+
+            .invoice-box table {
+                width: 100%;
+                line-height: inherit;
+                text-align: left;
+            }
+
+                .invoice-box table td {
+                    padding: 5px;
+                    vertical-align: top;
+                }
+
+                .invoice-box table tr td:nth-child(2) {
+                    text-align: right;
+                }
+
+                .invoice-box table tr.top table td {
+                    padding-bottom: 20px;
+                }
+
+                    .invoice-box table tr.top table td.title {
+                        font-size: 45px;
+                        line-height: 45px;
+                        color: #333;
+                    }
+
+                .invoice-box table tr.information table td {
+                    padding-bottom: 40px;
+                }
+
+                .invoice-box table tr.heading td {
+                    background: #eee;
+                    border-bottom: 1px solid #ddd;
+                    font-weight: bold;
+                }
+
+                .invoice-box table tr.details td.payment {
+                    padding-bottom: 20px;
+                    width: 30%;
+                }
+
+                .invoice-box table tr.item td {
+                    border-bottom: 1px solid #eee;
+                    width: 65%;
+                }
+
+                .invoice-box table tr.heading td {
+                    border-bottom: 1px solid #eee;
+                }
+
+                    .invoice-box table tr.heading td.record {
+                        border-bottom: 1px solid #eee;
+                        text-align: left;
+                        width: 100%;
+                    }
+
+                .invoice-box table tr.item td.quantity {
+                    border-bottom: 1px solid #eee;
+                    text-align: right;
+                    width: 10%;
+                }
+
+                .invoice-box table tr.heading td.price {
+                    border-bottom: 1px solid #eee;
+                    text-align: right;
+                }
+
+                .invoice-box table tr.item td.price {
+                    border-bottom: 1px solid #eee;
+                    text-align: right;
+                }
+
+
+                .invoice-box table tr.item.last td {
+                    border-bottom: none;
+                }
+
+                .invoice-box table tr.total td:nth-child(3) {
+                    border-top: 2px solid #eee;
+                    font-weight: bold;
+                    text-align: right;
+                }
+
+                .invoice-box table tr.subtotal td:nth-child(3) {
+                    border-top: 2px solid #eee;
+                    font-weight: bold;
+                    color: #555;
+                    text-align: right;
+                }
+
+                .invoice-box table tr.taxes td:nth-child(3) {
+                    border-top: 2px solid #eee;
+                    color: #555;
+                    text-align: right;
+                }
+
+                .invoice-box table tr.shipping td:nth-child(3) {
+                    border-top: 2px solid #eee;
+                    color: #555;
+                    text-align: right;
+                }
+
+                .invoice-box table tr.discount td:nth-child(4) {
+                    border-top: 2px solid #eee;
+                    color: #555;
+                    text-align: right;
+                }
+
+                .invoice-box table tr.total td:nth-child(4) {
+                    border-top: 2px solid #eee;
+                    font-weight: bold;
+                    text-align: right;
+                }
+
+                .invoice-box table tr.subtotal td:nth-child(4) {
+                    border-top: 2px solid #eee;
+                    font-weight: bold;
+                    color: #555;
+                    text-align: right;
+                }
+
+                .invoice-box table tr.taxes td:nth-child(4) {
+                    border-top: 2px solid #eee;
+                    color: #555;
+                    text-align: right;
+                }
+
+                .invoice-box table tr.shipping td:nth-child(4) {
+                    border-top: 2px solid #eee;
+                    color: #555;
+                    text-align: right;
+                }
+
+                .invoice-box table tr.discount td:nth-child(4) {
+                    border-top: 2px solid #eee;
+                    color: #555;
+                    text-align: right;
+                }
+
+        @media only screen and (max-width: 600px) {
+            .invoice-box table tr.top table td {
+                width: 100%;
+                display: block;
+                text-align: center;
+            }
+
+            .invoice-box table tr.information table td {
+                width: 100%;
+                display: block;
+                text-align: center;
+            }
+        }
+
+        /** RTL **/
+        .rtl {
+            direction: rtl;
+            font-family: Tahoma, 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+        }
+
+            .rtl table {
+                text-align: right;
+            }
+
+                .rtl table tr td:nth-child(4) {
+                    text-align: left;
+                }
+
+        .footer {
+            clear: both;
+            margin-top: 10px;
+            text-align: center;
+            width: 100%;
+        }
+
+            .footer td,
+            .footer p,
+            .footer span,
+            .footer a {
+                color: #676767;
+                font-size: 12px;
+                text-align: center;
+            }
+    </style>
+</head>
+
+<body>
+    <div class="invoice-box">
+        <table cellpadding="0" cellspacing="0">
+            <tr class="top">
+                <td colspan="4">
+                    <table>
+                        <tr>
+                            <td class="title">
+                                <img src="${logoUrl}" style="width: 100%; max-width: 300px;">
+                            </td>
+
+                            <td>
+                                Orden #: ${orderNumber}<br />
+                                Fecha creación: ${orderDate}<br />
+                                Fecha actual: ${dateTimeNow}
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+
+            <tr class="information">
+                <td colspan="4">
+                    <table>
+                        <tr>
+                            <td>
+                                <b>Motovalle S.A.S</b><br />
+                                Cali,<br />
+                                Valle del Cauca
+                            </td>
+
+                            <td>
+                                ${name}<br />
+                                ${email}<br />
+                                ${phoneNumber}
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+
+            <tr class="heading">
+                <td class="payment">
+                    Forma de pago
+                </td>
+
+                <td>
+                    Id #
+                </td>
+
+                <td colspan="2" style="text-align:center;">
+                    Notas
+                </td>
+            </tr>
+
+            <tr class="details">
+                <td class="payment">
+                    ${paymentMethod}
+                </td>
+
+                <td>
+                    ${paymentId}
+                </td>
+
+                <td colspan="2" style="text-align:center;">
+                    ${notes}
+                </td>
+            </tr>
+
+            <tr class="heading">
+                <td>
+                    Ítem
+                </td>
+
+                <td>
+                    Cantidad
+                </td>
+
+                <td class="price" colspan="2">
+                    Precio
+                </td>
+            </tr>
+
+            ${renderBody}
+
+            <tr class="subtotal">
+                <td></td>
+                <td></td>
+                <td>Sub total:</td>
+                <td>
+                    ${subTotal}
+                </td>
+            </tr>
+
+            ${taxes}
+
+            <tr class="shipping">
+                <td></td>
+                <td></td>
+                <td>Envío y manipulación:</td>
+                <td>
+                    ${shipping}
+                </td>
+            </tr>
+
+            <!--<tr class="discount">
+        <td></td>
+        <td></td>
+        <td>Descuento:</td>
+        <td>
+            ${discount}
+        </td>
+    </tr>-->
+
+            <tr class="total">
+                <td></td>
+                <td></td>
+                <td><b>Total:</b></td>
+                <td>
+                    ${total}
+                </td>
+            </tr>
+        </table>
+        <br />
+        <br />
+        <br />
+        <div class="footer">
+            <table>
+                <tr>
+                    <td class="content-block powered-by">
+                        Powered by &copy; <a href="http://innovamarketingsystems.com/" target="_blank">Innova Marketing Systems S.A.S</a>.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        ${Date}
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,3670 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class HomeController
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class HomeController
+   ">
+    <meta name="generator" content="docfx 2.56.6.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="motovalle.Ecommerce.Controllers.HomeController">
+  
+  
+  <h1 id="motovalle_Ecommerce_Controllers_HomeController" data-uid="motovalle.Ecommerce.Controllers.HomeController" class="text-break">Class HomeController
+  </h1>
+  <div class="markdown level0 summary"><p>Home Controller</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase</span></div>
+    <div class="level2"><span class="xref">Microsoft.AspNetCore.Mvc.Controller</span></div>
+    <div class="level3"><span class="xref">HomeController</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">Microsoft.AspNetCore.Mvc.Filters.IActionFilter</span></div>
+    <div><span class="xref">Microsoft.AspNetCore.Mvc.Filters.IAsyncActionFilter</span></div>
+    <div><span class="xref">Microsoft.AspNetCore.Mvc.Filters.IFilterMetadata</span></div>
+    <div><span class="xref">System.IDisposable</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.Controller.Dispose()</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.Controller.Dispose(System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.Controller.Json(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.Controller.Json(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.Controller.OnActionExecuted(Microsoft.AspNetCore.Mvc.Filters.ActionExecutedContext)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.Controller.OnActionExecuting(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.Controller.OnActionExecutionAsync(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext, Microsoft.AspNetCore.Mvc.Filters.ActionExecutionDelegate)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.Controller.PartialView()</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.Controller.PartialView(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.Controller.PartialView(System.String)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.Controller.PartialView(System.String, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.Controller.View()</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.Controller.View(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.Controller.View(System.String)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.Controller.View(System.String, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.Controller.ViewComponent(System.String)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.Controller.ViewComponent(System.String, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.Controller.ViewComponent(System.Type)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.Controller.ViewComponent(System.Type, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.Controller.TempData</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.Controller.ViewBag</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.Controller.ViewData</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.Accepted()</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.Accepted(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.Accepted(System.String)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.Accepted(System.String, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.Accepted(System.Uri)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.Accepted(System.Uri, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.AcceptedAtAction(System.String)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.AcceptedAtAction(System.String, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.AcceptedAtAction(System.String, System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.AcceptedAtAction(System.String, System.String)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.AcceptedAtAction(System.String, System.String, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.AcceptedAtAction(System.String, System.String, System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.AcceptedAtRoute(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.AcceptedAtRoute(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.AcceptedAtRoute(System.String)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.AcceptedAtRoute(System.String, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.AcceptedAtRoute(System.String, System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.BadRequest()</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.BadRequest(Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.BadRequest(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.Challenge()</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.Challenge(Microsoft.AspNetCore.Authentication.AuthenticationProperties)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.Challenge(Microsoft.AspNetCore.Authentication.AuthenticationProperties, System.String[])</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.Challenge(System.String[])</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.Conflict()</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.Conflict(Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.Conflict(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.Content(System.String)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.Content(System.String, Microsoft.Net.Http.Headers.MediaTypeHeaderValue)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.Content(System.String, System.String)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.Content(System.String, System.String, System.Text.Encoding)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.Created(System.String, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.Created(System.Uri, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.CreatedAtAction(System.String, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.CreatedAtAction(System.String, System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.CreatedAtAction(System.String, System.String, System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.CreatedAtRoute(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.CreatedAtRoute(System.String, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.CreatedAtRoute(System.String, System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.File(System.Byte[], System.String)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.File(System.Byte[], System.String, System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.File(System.Byte[], System.String, System.Nullable&lt;System.DateTimeOffset&gt;, Microsoft.Net.Http.Headers.EntityTagHeaderValue)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.File(System.Byte[], System.String, System.Nullable&lt;System.DateTimeOffset&gt;, Microsoft.Net.Http.Headers.EntityTagHeaderValue, System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.File(System.Byte[], System.String, System.String)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.File(System.Byte[], System.String, System.String, System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.File(System.Byte[], System.String, System.String, System.Nullable&lt;System.DateTimeOffset&gt;, Microsoft.Net.Http.Headers.EntityTagHeaderValue)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.File(System.Byte[], System.String, System.String, System.Nullable&lt;System.DateTimeOffset&gt;, Microsoft.Net.Http.Headers.EntityTagHeaderValue, System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.File(System.IO.Stream, System.String)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.File(System.IO.Stream, System.String, System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.File(System.IO.Stream, System.String, System.Nullable&lt;System.DateTimeOffset&gt;, Microsoft.Net.Http.Headers.EntityTagHeaderValue)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.File(System.IO.Stream, System.String, System.Nullable&lt;System.DateTimeOffset&gt;, Microsoft.Net.Http.Headers.EntityTagHeaderValue, System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.File(System.IO.Stream, System.String, System.String)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.File(System.IO.Stream, System.String, System.String, System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.File(System.IO.Stream, System.String, System.String, System.Nullable&lt;System.DateTimeOffset&gt;, Microsoft.Net.Http.Headers.EntityTagHeaderValue)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.File(System.IO.Stream, System.String, System.String, System.Nullable&lt;System.DateTimeOffset&gt;, Microsoft.Net.Http.Headers.EntityTagHeaderValue, System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.File(System.String, System.String)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.File(System.String, System.String, System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.File(System.String, System.String, System.Nullable&lt;System.DateTimeOffset&gt;, Microsoft.Net.Http.Headers.EntityTagHeaderValue)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.File(System.String, System.String, System.Nullable&lt;System.DateTimeOffset&gt;, Microsoft.Net.Http.Headers.EntityTagHeaderValue, System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.File(System.String, System.String, System.String)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.File(System.String, System.String, System.String, System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.File(System.String, System.String, System.String, System.Nullable&lt;System.DateTimeOffset&gt;, Microsoft.Net.Http.Headers.EntityTagHeaderValue)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.File(System.String, System.String, System.String, System.Nullable&lt;System.DateTimeOffset&gt;, Microsoft.Net.Http.Headers.EntityTagHeaderValue, System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.Forbid()</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.Forbid(Microsoft.AspNetCore.Authentication.AuthenticationProperties)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.Forbid(Microsoft.AspNetCore.Authentication.AuthenticationProperties, System.String[])</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.Forbid(System.String[])</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.LocalRedirect(System.String)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.LocalRedirectPermanent(System.String)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.LocalRedirectPermanentPreserveMethod(System.String)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.LocalRedirectPreserveMethod(System.String)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.NoContent()</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.NotFound()</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.NotFound(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.Ok()</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.Ok(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.PhysicalFile(System.String, System.String)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.PhysicalFile(System.String, System.String, System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.PhysicalFile(System.String, System.String, System.Nullable&lt;System.DateTimeOffset&gt;, Microsoft.Net.Http.Headers.EntityTagHeaderValue)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.PhysicalFile(System.String, System.String, System.Nullable&lt;System.DateTimeOffset&gt;, Microsoft.Net.Http.Headers.EntityTagHeaderValue, System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.PhysicalFile(System.String, System.String, System.String)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.PhysicalFile(System.String, System.String, System.String, System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.PhysicalFile(System.String, System.String, System.String, System.Nullable&lt;System.DateTimeOffset&gt;, Microsoft.Net.Http.Headers.EntityTagHeaderValue)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.PhysicalFile(System.String, System.String, System.String, System.Nullable&lt;System.DateTimeOffset&gt;, Microsoft.Net.Http.Headers.EntityTagHeaderValue, System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.Problem(System.String, System.String, System.Nullable&lt;System.Int32&gt;, System.String, System.String)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.Redirect(System.String)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.RedirectPermanent(System.String)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.RedirectPermanentPreserveMethod(System.String)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.RedirectPreserveMethod(System.String)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.RedirectToAction()</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.RedirectToAction(System.String)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.RedirectToAction(System.String, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.RedirectToAction(System.String, System.String)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.RedirectToAction(System.String, System.String, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.RedirectToAction(System.String, System.String, System.Object, System.String)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.RedirectToAction(System.String, System.String, System.String)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.RedirectToActionPermanent(System.String)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.RedirectToActionPermanent(System.String, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.RedirectToActionPermanent(System.String, System.String)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.RedirectToActionPermanent(System.String, System.String, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.RedirectToActionPermanent(System.String, System.String, System.Object, System.String)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.RedirectToActionPermanent(System.String, System.String, System.String)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.RedirectToActionPermanentPreserveMethod(System.String, System.String, System.Object, System.String)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.RedirectToActionPreserveMethod(System.String, System.String, System.Object, System.String)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.RedirectToPage(System.String)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.RedirectToPage(System.String, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.RedirectToPage(System.String, System.String)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.RedirectToPage(System.String, System.String, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.RedirectToPage(System.String, System.String, System.Object, System.String)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.RedirectToPage(System.String, System.String, System.String)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.RedirectToPagePermanent(System.String)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.RedirectToPagePermanent(System.String, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.RedirectToPagePermanent(System.String, System.String)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.RedirectToPagePermanent(System.String, System.String, System.Object, System.String)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.RedirectToPagePermanent(System.String, System.String, System.String)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.RedirectToPagePermanentPreserveMethod(System.String, System.String, System.Object, System.String)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.RedirectToPagePreserveMethod(System.String, System.String, System.Object, System.String)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.RedirectToRoute(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.RedirectToRoute(System.String)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.RedirectToRoute(System.String, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.RedirectToRoute(System.String, System.Object, System.String)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.RedirectToRoute(System.String, System.String)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.RedirectToRoutePermanent(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.RedirectToRoutePermanent(System.String)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.RedirectToRoutePermanent(System.String, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.RedirectToRoutePermanent(System.String, System.Object, System.String)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.RedirectToRoutePermanent(System.String, System.String)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.RedirectToRoutePermanentPreserveMethod(System.String, System.Object, System.String)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.RedirectToRoutePreserveMethod(System.String, System.Object, System.String)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.SignIn(System.Security.Claims.ClaimsPrincipal, Microsoft.AspNetCore.Authentication.AuthenticationProperties, System.String)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.SignIn(System.Security.Claims.ClaimsPrincipal, System.String)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.SignOut(Microsoft.AspNetCore.Authentication.AuthenticationProperties, System.String[])</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.SignOut(System.String[])</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.StatusCode(System.Int32)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.StatusCode(System.Int32, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.TryUpdateModelAsync(System.Object, System.Type, System.String)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.TryUpdateModelAsync(System.Object, System.Type, System.String, Microsoft.AspNetCore.Mvc.ModelBinding.IValueProvider, System.Func&lt;Microsoft.AspNetCore.Mvc.ModelBinding.ModelMetadata, System.Boolean&gt;)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.TryUpdateModelAsync&lt;TModel&gt;(TModel)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.TryUpdateModelAsync&lt;TModel&gt;(TModel, System.String)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.TryUpdateModelAsync&lt;TModel&gt;(TModel, System.String, Microsoft.AspNetCore.Mvc.ModelBinding.IValueProvider)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.TryUpdateModelAsync&lt;TModel&gt;(TModel, System.String, Microsoft.AspNetCore.Mvc.ModelBinding.IValueProvider, System.Func&lt;Microsoft.AspNetCore.Mvc.ModelBinding.ModelMetadata, System.Boolean&gt;)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.TryUpdateModelAsync&lt;TModel&gt;(TModel, System.String, Microsoft.AspNetCore.Mvc.ModelBinding.IValueProvider, System.Linq.Expressions.Expression&lt;System.Func&lt;TModel, System.Object&gt;&gt;[])</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.TryUpdateModelAsync&lt;TModel&gt;(TModel, System.String, System.Func&lt;Microsoft.AspNetCore.Mvc.ModelBinding.ModelMetadata, System.Boolean&gt;)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.TryUpdateModelAsync&lt;TModel&gt;(TModel, System.String, System.Linq.Expressions.Expression&lt;System.Func&lt;TModel, System.Object&gt;&gt;[])</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.TryValidateModel(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.TryValidateModel(System.Object, System.String)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.Unauthorized()</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.Unauthorized(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.UnprocessableEntity()</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.UnprocessableEntity(Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.UnprocessableEntity(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.ValidationProblem()</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.ValidationProblem(Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.ValidationProblem(Microsoft.AspNetCore.Mvc.ValidationProblemDetails)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.ValidationProblem(System.String, System.String, System.Nullable&lt;System.Int32&gt;, System.String, System.String, Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.ControllerContext</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.HttpContext</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.MetadataProvider</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.ModelBinderFactory</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.ModelState</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.ObjectValidator</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.ProblemDetailsFactory</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.Request</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.Response</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.RouteData</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.Url</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.ControllerBase.User</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="motovalle.Ecommerce.Controllers.html">motovalle.Ecommerce.Controllers</a></h6>
+  <h6><strong>Assembly</strong>: motovalle.Ecommerce.dll</h6>
+  <h5 id="motovalle_Ecommerce_Controllers_HomeController_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[AllowAnonymous]
+public class HomeController : Controller, IActionFilter, IAsyncActionFilter, IFilterMetadata, IDisposable</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController__ctor_" data-uid="motovalle.Ecommerce.Controllers.HomeController.#ctor*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController__ctor_Microsoft_Extensions_Logging_ILogger_motovalle_Ecommerce_Controllers_HomeController__Microsoft_AspNetCore_Identity_UserManager_motovalle_Ecommerce_Models_Entities_Identity_ApplicationUser__Microsoft_AspNetCore_Identity_RoleManager_motovalle_Ecommerce_Models_Entities_Identity_ApplicationRole__Microsoft_Extensions_Configuration_IConfiguration_motovalle_Ecommerce_Helpers_EmailSender_IEmailSenderExtended_Microsoft_AspNetCore_Hosting_IWebHostEnvironment_" data-uid="motovalle.Ecommerce.Controllers.HomeController.#ctor(Microsoft.Extensions.Logging.ILogger{motovalle.Ecommerce.Controllers.HomeController},Microsoft.AspNetCore.Identity.UserManager{motovalle.Ecommerce.Models.Entities.Identity.ApplicationUser},Microsoft.AspNetCore.Identity.RoleManager{motovalle.Ecommerce.Models.Entities.Identity.ApplicationRole},Microsoft.Extensions.Configuration.IConfiguration,motovalle.Ecommerce.Helpers.EmailSender.IEmailSenderExtended,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">HomeController(ILogger&lt;HomeController&gt;, UserManager&lt;ApplicationUser&gt;, RoleManager&lt;ApplicationRole&gt;, IConfiguration, IEmailSenderExtended, IWebHostEnvironment)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="motovalle.Ecommerce.Controllers.HomeController.html">HomeController</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public HomeController(ILogger&lt;HomeController&gt; logger, UserManager&lt;ApplicationUser&gt; userManager, RoleManager&lt;ApplicationRole&gt; roleManager, IConfiguration configuration, IEmailSenderExtended emailSender, IWebHostEnvironment host)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.Extensions.Logging.ILogger</span>&lt;<a class="xref" href="motovalle.Ecommerce.Controllers.HomeController.html">HomeController</a>&gt;</td>
+        <td><span class="parametername">logger</span></td>
+        <td><p>The logger.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Identity.UserManager</span>&lt;<a class="xref" href="motovalle.Ecommerce.Models.Entities.Identity.ApplicationUser.html">ApplicationUser</a>&gt;</td>
+        <td><span class="parametername">userManager</span></td>
+        <td><p>The user manager.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Identity.RoleManager</span>&lt;<a class="xref" href="motovalle.Ecommerce.Models.Entities.Identity.ApplicationRole.html">ApplicationRole</a>&gt;</td>
+        <td><span class="parametername">roleManager</span></td>
+        <td><p>The role manager.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Microsoft.Extensions.Configuration.IConfiguration</span></td>
+        <td><span class="parametername">configuration</span></td>
+        <td><p>The configuration.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="motovalle.Ecommerce.Helpers.EmailSender.IEmailSenderExtended.html">IEmailSenderExtended</a></td>
+        <td><span class="parametername">emailSender</span></td>
+        <td><p>The email sender.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Hosting.IWebHostEnvironment</span></td>
+        <td><span class="parametername">host</span></td>
+        <td><p>The host.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_AgenciaSeguros_" data-uid="motovalle.Ecommerce.Controllers.HomeController.AgenciaSeguros*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_AgenciaSeguros" data-uid="motovalle.Ecommerce.Controllers.HomeController.AgenciaSeguros">AgenciaSeguros()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/agencia-de-seguros&quot;)]
+public IActionResult AgenciaSeguros()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_ContactCenterMotovalle_" data-uid="motovalle.Ecommerce.Controllers.HomeController.ContactCenterMotovalle*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_ContactCenterMotovalle" data-uid="motovalle.Ecommerce.Controllers.HomeController.ContactCenterMotovalle">ContactCenterMotovalle()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/contact-center-motovalle&quot;)]
+public IActionResult ContactCenterMotovalle()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_Cotizacion_" data-uid="motovalle.Ecommerce.Controllers.HomeController.Cotizacion*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_Cotizacion" data-uid="motovalle.Ecommerce.Controllers.HomeController.Cotizacion">Cotizacion()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/mazda/cotizacion&quot;)]
+public IActionResult Cotizacion()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_Error_" data-uid="motovalle.Ecommerce.Controllers.HomeController.Error*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_Error" data-uid="motovalle.Ecommerce.Controllers.HomeController.Error">Error()</h4>
+  <div class="markdown level1 summary"><p>Errors this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+public IActionResult Error()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td><p>Error View</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_FilosofiaMassey_" data-uid="motovalle.Ecommerce.Controllers.HomeController.FilosofiaMassey*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_FilosofiaMassey" data-uid="motovalle.Ecommerce.Controllers.HomeController.FilosofiaMassey">FilosofiaMassey()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/massey/massey-ferguson/filosofia-de-massey-ferguson&quot;)]
+public IActionResult FilosofiaMassey()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_FordAsesoriaEnLinea_" data-uid="motovalle.Ecommerce.Controllers.HomeController.FordAsesoriaEnLinea*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_FordAsesoriaEnLinea" data-uid="motovalle.Ecommerce.Controllers.HomeController.FordAsesoriaEnLinea">FordAsesoriaEnLinea()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/ford/asesoria-en-linea&quot;)]
+public IActionResult FordAsesoriaEnLinea()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_FordBlogNewEcosport_" data-uid="motovalle.Ecommerce.Controllers.HomeController.FordBlogNewEcosport*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_FordBlogNewEcosport" data-uid="motovalle.Ecommerce.Controllers.HomeController.FordBlogNewEcosport">FordBlogNewEcosport()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/ford-blog/llega-la-nueva-ford-ecosport-a-colombia&quot;)]
+public IActionResult FordBlogNewEcosport()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_FordCotizacion_" data-uid="motovalle.Ecommerce.Controllers.HomeController.FordCotizacion*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_FordCotizacion" data-uid="motovalle.Ecommerce.Controllers.HomeController.FordCotizacion">FordCotizacion()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/ford/solicita-tu-cotizacion&quot;)]
+public IActionResult FordCotizacion()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_FordEcosport_" data-uid="motovalle.Ecommerce.Controllers.HomeController.FordEcosport*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_FordEcosport" data-uid="motovalle.Ecommerce.Controllers.HomeController.FordEcosport">FordEcosport()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/ford-catalog/ecosport&quot;)]
+public IActionResult FordEcosport()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_FordEdgeST_" data-uid="motovalle.Ecommerce.Controllers.HomeController.FordEdgeST*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_FordEdgeST" data-uid="motovalle.Ecommerce.Controllers.HomeController.FordEdgeST">FordEdgeST()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/ford-catalog/edge-st&quot;)]
+public IActionResult FordEdgeST()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_FordEscape_" data-uid="motovalle.Ecommerce.Controllers.HomeController.FordEscape*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_FordEscape" data-uid="motovalle.Ecommerce.Controllers.HomeController.FordEscape">FordEscape()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/ford-catalog/escape&quot;)]
+public IActionResult FordEscape()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_FordEscapeHybrid_" data-uid="motovalle.Ecommerce.Controllers.HomeController.FordEscapeHybrid*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_FordEscapeHybrid" data-uid="motovalle.Ecommerce.Controllers.HomeController.FordEscapeHybrid">FordEscapeHybrid()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/ford-catalog/escape-hybrid&quot;)]
+public IActionResult FordEscapeHybrid()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_FordExpedition_" data-uid="motovalle.Ecommerce.Controllers.HomeController.FordExpedition*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_FordExpedition" data-uid="motovalle.Ecommerce.Controllers.HomeController.FordExpedition">FordExpedition()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/ford-catalog/expedition&quot;)]
+public IActionResult FordExpedition()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_FordExplorer_" data-uid="motovalle.Ecommerce.Controllers.HomeController.FordExplorer*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_FordExplorer" data-uid="motovalle.Ecommerce.Controllers.HomeController.FordExplorer">FordExplorer()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/ford-catalog/explorer&quot;)]
+public IActionResult FordExplorer()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_FordFusionHybrid_" data-uid="motovalle.Ecommerce.Controllers.HomeController.FordFusionHybrid*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_FordFusionHybrid" data-uid="motovalle.Ecommerce.Controllers.HomeController.FordFusionHybrid">FordFusionHybrid()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/ford-catalog/fusion-hybrid&quot;)]
+public IActionResult FordFusionHybrid()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_fordhome_" data-uid="motovalle.Ecommerce.Controllers.HomeController.fordhome*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_fordhome" data-uid="motovalle.Ecommerce.Controllers.HomeController.fordhome">fordhome()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/ford/home&quot;)]
+public IActionResult fordhome()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_FordMustangGTPremium_" data-uid="motovalle.Ecommerce.Controllers.HomeController.FordMustangGTPremium*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_FordMustangGTPremium" data-uid="motovalle.Ecommerce.Controllers.HomeController.FordMustangGTPremium">FordMustangGTPremium()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/ford-catalog/nuevo-mustang-gt-premium-convertible&quot;)]
+public IActionResult FordMustangGTPremium()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_FordMustangShelbyGT350_" data-uid="motovalle.Ecommerce.Controllers.HomeController.FordMustangShelbyGT350*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_FordMustangShelbyGT350" data-uid="motovalle.Ecommerce.Controllers.HomeController.FordMustangShelbyGT350">FordMustangShelbyGT350()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/ford-catalog/nuevo-ford-mustang-shelby-gt-350&quot;)]
+public IActionResult FordMustangShelbyGT350()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_FordNewEdge_" data-uid="motovalle.Ecommerce.Controllers.HomeController.FordNewEdge*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_FordNewEdge" data-uid="motovalle.Ecommerce.Controllers.HomeController.FordNewEdge">FordNewEdge()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/ford-blog/nueva-ford-edge&quot;)]
+public IActionResult FordNewEdge()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_FordNombramiento_" data-uid="motovalle.Ecommerce.Controllers.HomeController.FordNombramiento*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_FordNombramiento" data-uid="motovalle.Ecommerce.Controllers.HomeController.FordNombramiento">FordNombramiento()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/ford-blog/nombramiento&quot;)]
+public IActionResult FordNombramiento()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_FordRanger_" data-uid="motovalle.Ecommerce.Controllers.HomeController.FordRanger*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_FordRanger" data-uid="motovalle.Ecommerce.Controllers.HomeController.FordRanger">FordRanger()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/ford-catalog/ranger&quot;)]
+public IActionResult FordRanger()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_FordRaptor_" data-uid="motovalle.Ecommerce.Controllers.HomeController.FordRaptor*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_FordRaptor" data-uid="motovalle.Ecommerce.Controllers.HomeController.FordRaptor">FordRaptor()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/ford-catalog/raptor&quot;)]
+public IActionResult FordRaptor()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_FordServicioPosventa_" data-uid="motovalle.Ecommerce.Controllers.HomeController.FordServicioPosventa*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_FordServicioPosventa" data-uid="motovalle.Ecommerce.Controllers.HomeController.FordServicioPosventa">FordServicioPosventa()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/ford/servicio-posventa&quot;)]
+public IActionResult FordServicioPosventa()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_FordServicioPosventaCampanaMes_" data-uid="motovalle.Ecommerce.Controllers.HomeController.FordServicioPosventaCampanaMes*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_FordServicioPosventaCampanaMes" data-uid="motovalle.Ecommerce.Controllers.HomeController.FordServicioPosventaCampanaMes">FordServicioPosventaCampanaMes()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/ford/servicio-posventa/campana-del-mes&quot;)]
+public IActionResult FordServicioPosventaCampanaMes()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_FordServicioPosventaGarantia_" data-uid="motovalle.Ecommerce.Controllers.HomeController.FordServicioPosventaGarantia*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_FordServicioPosventaGarantia" data-uid="motovalle.Ecommerce.Controllers.HomeController.FordServicioPosventaGarantia">FordServicioPosventaGarantia()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/ford/servicio-posventa/garantia&quot;)]
+public IActionResult FordServicioPosventaGarantia()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_FordServicioPosventaServicioIntegral_" data-uid="motovalle.Ecommerce.Controllers.HomeController.FordServicioPosventaServicioIntegral*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_FordServicioPosventaServicioIntegral" data-uid="motovalle.Ecommerce.Controllers.HomeController.FordServicioPosventaServicioIntegral">FordServicioPosventaServicioIntegral()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/ford/servicio-posventa/servicio-integral&quot;)]
+public IActionResult FordServicioPosventaServicioIntegral()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_FordTecnicosDesafian_" data-uid="motovalle.Ecommerce.Controllers.HomeController.FordTecnicosDesafian*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_FordTecnicosDesafian" data-uid="motovalle.Ecommerce.Controllers.HomeController.FordTecnicosDesafian">FordTecnicosDesafian()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/ford-blog/los-tecnicos-ford-se-desafian-para-ser-los-mejores&quot;)]
+public IActionResult FordTecnicosDesafian()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_FordVehiculos_" data-uid="motovalle.Ecommerce.Controllers.HomeController.FordVehiculos*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_FordVehiculos" data-uid="motovalle.Ecommerce.Controllers.HomeController.FordVehiculos">FordVehiculos()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/ford/vehiculos&quot;)]
+public IActionResult FordVehiculos()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_GetCategoryForModel_" data-uid="motovalle.Ecommerce.Controllers.HomeController.GetCategoryForModel*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_GetCategoryForModel_System_Int64_System_Int64_" data-uid="motovalle.Ecommerce.Controllers.HomeController.GetCategoryForModel(System.Int64,System.Int64)">GetCategoryForModel(Int64, Int64)</h4>
+  <div class="markdown level1 summary"><p>Gets the models for make.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpGet]
+[Route(&quot;[controller]/make/{makesId}/models/{modelsId}/category&quot;)]
+public Task&lt;IActionResult&gt; GetCategoryForModel(long makesId, long modelsId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int64</span></td>
+        <td><span class="parametername">makesId</span></td>
+        <td><p>The makes identifier.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int64</span></td>
+        <td><span class="parametername">modelsId</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span>&gt;</td>
+        <td><p>Models for makes in Json format</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_GetHeroComponent_" data-uid="motovalle.Ecommerce.Controllers.HomeController.GetHeroComponent*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_GetHeroComponent_System_String_" data-uid="motovalle.Ecommerce.Controllers.HomeController.GetHeroComponent(System.String)">GetHeroComponent(String)</h4>
+  <div class="markdown level1 summary"><p>Gets the hero component.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpGet(&quot;[controller]/[action]/{makesName}&quot;)]
+public IActionResult GetHeroComponent(string makesName)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">makesName</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td><p>Hero Component</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_GetLatestPostHomeComponent_" data-uid="motovalle.Ecommerce.Controllers.HomeController.GetLatestPostHomeComponent*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_GetLatestPostHomeComponent" data-uid="motovalle.Ecommerce.Controllers.HomeController.GetLatestPostHomeComponent">GetLatestPostHomeComponent()</h4>
+  <div class="markdown level1 summary"><p>Gets the latest post home component.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IActionResult GetLatestPostHomeComponent()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td><p>Latest Post Home Component</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_GetModelsForMake_" data-uid="motovalle.Ecommerce.Controllers.HomeController.GetModelsForMake*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_GetModelsForMake_System_Int32_" data-uid="motovalle.Ecommerce.Controllers.HomeController.GetModelsForMake(System.Int32)">GetModelsForMake(Int32)</h4>
+  <div class="markdown level1 summary"><p>Gets the models for make.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpGet]
+[Route(&quot;[controller]/make/{makesId}/models&quot;)]
+public Task&lt;IActionResult&gt; GetModelsForMake(int makesId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">makesId</span></td>
+        <td><p>The makes identifier.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span>&gt;</td>
+        <td><p>Models for makes in Json format</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_GetModelsForMakeAndCategory_" data-uid="motovalle.Ecommerce.Controllers.HomeController.GetModelsForMakeAndCategory*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_GetModelsForMakeAndCategory_System_Int32_System_Int32_" data-uid="motovalle.Ecommerce.Controllers.HomeController.GetModelsForMakeAndCategory(System.Int32,System.Int32)">GetModelsForMakeAndCategory(Int32, Int32)</h4>
+  <div class="markdown level1 summary"><p>Gets the products for category.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpGet]
+[Route(&quot;[controller]/make/{makesId}/category/{categoriesId}&quot;)]
+public Task&lt;IActionResult&gt; GetModelsForMakeAndCategory(int makesId, int categoriesId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">makesId</span></td>
+        <td><p>The makes identifier.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">categoriesId</span></td>
+        <td><p>The categories identifier.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span>&gt;</td>
+        <td><p>Products for category in Json format</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_GetProductsForMake_" data-uid="motovalle.Ecommerce.Controllers.HomeController.GetProductsForMake*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_GetProductsForMake_System_Int32_" data-uid="motovalle.Ecommerce.Controllers.HomeController.GetProductsForMake(System.Int32)">GetProductsForMake(Int32)</h4>
+  <div class="markdown level1 summary"><p>Gets the products for make.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpGet]
+[Route(&quot;[controller]/make/{makesId}/products&quot;)]
+public Task&lt;IActionResult&gt; GetProductsForMake(int makesId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">makesId</span></td>
+        <td><p>The makes identifier.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span>&gt;</td>
+        <td><p>List of products for Make</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_Index_" data-uid="motovalle.Ecommerce.Controllers.HomeController.Index*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_Index" data-uid="motovalle.Ecommerce.Controllers.HomeController.Index">Index()</h4>
+  <div class="markdown level1 summary"><p>Indexes this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IActionResult Index()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td><p>Index view</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_Index_" data-uid="motovalle.Ecommerce.Controllers.HomeController.Index*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_Index_motovalle_Ecommerce_Models_ViewModels_SubscriptionViewModel_" data-uid="motovalle.Ecommerce.Controllers.HomeController.Index(motovalle.Ecommerce.Models.ViewModels.SubscriptionViewModel)">Index(SubscriptionViewModel)</h4>
+  <div class="markdown level1 summary"><p>Creates the subscription.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpPost]
+public Task&lt;IActionResult&gt; Index(SubscriptionViewModel subscriptionViewModel)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="motovalle.Ecommerce.Models.ViewModels.SubscriptionViewModel.html">SubscriptionViewModel</a></td>
+        <td><span class="parametername">subscriptionViewModel</span></td>
+        <td><p>The subscription view model.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span>&gt;</td>
+        <td><p>Index View</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_InterestedCustomers_" data-uid="motovalle.Ecommerce.Controllers.HomeController.InterestedCustomers*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_InterestedCustomers_Ecommerce_Models_Entities_InterestedCustomers_" data-uid="motovalle.Ecommerce.Controllers.HomeController.InterestedCustomers(Ecommerce.Models.Entities.InterestedCustomers)">InterestedCustomers(InterestedCustomers)</h4>
+  <div class="markdown level1 summary"><p>Creates the interested customer record.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpPost]
+public Task&lt;IActionResult&gt; InterestedCustomers(InterestedCustomers interestedCustomers)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Ecommerce.Models.Entities.InterestedCustomers</span></td>
+        <td><span class="parametername">interestedCustomers</span></td>
+        <td><p>The subscription view model.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span>&gt;</td>
+        <td><p>Index View</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_JivoChat_" data-uid="motovalle.Ecommerce.Controllers.HomeController.JivoChat*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_JivoChat" data-uid="motovalle.Ecommerce.Controllers.HomeController.JivoChat">JivoChat()</h4>
+  <div class="markdown level1 summary"><p>Jivoes the chat.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/[action]&quot;)]
+public IActionResult JivoChat()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td><p>Jivochat View</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_LegalInformation_" data-uid="motovalle.Ecommerce.Controllers.HomeController.LegalInformation*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_LegalInformation" data-uid="motovalle.Ecommerce.Controllers.HomeController.LegalInformation">LegalInformation()</h4>
+  <div class="markdown level1 summary"><p>Legals the information.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;[controller]/Privacy/politicas-e-informaci&#243;n-legal&quot;)]
+[HttpGet]
+public IActionResult LegalInformation()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td><p>View</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_Massey_" data-uid="motovalle.Ecommerce.Controllers.HomeController.Massey*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_Massey" data-uid="motovalle.Ecommerce.Controllers.HomeController.Massey">Massey()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/massey/massey-ferguson&quot;)]
+public IActionResult Massey()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_Massey1838_" data-uid="motovalle.Ecommerce.Controllers.HomeController.Massey1838*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_Massey1838" data-uid="motovalle.Ecommerce.Controllers.HomeController.Massey1838">Massey1838()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/massey-catalog/mf-1838&quot;)]
+public IActionResult Massey1838()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_Massey2013_" data-uid="motovalle.Ecommerce.Controllers.HomeController.Massey2013*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_Massey2013" data-uid="motovalle.Ecommerce.Controllers.HomeController.Massey2013">Massey2013()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/massey-catalog/mf-2013&quot;)]
+public IActionResult Massey2013()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_Massey32_" data-uid="motovalle.Ecommerce.Controllers.HomeController.Massey32*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_Massey32" data-uid="motovalle.Ecommerce.Controllers.HomeController.Massey32">Massey32()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/massey-catalog/mf-32&quot;)]
+public IActionResult Massey32()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_Massey5690_" data-uid="motovalle.Ecommerce.Controllers.HomeController.Massey5690*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_Massey5690" data-uid="motovalle.Ecommerce.Controllers.HomeController.Massey5690">Massey5690()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/massey-catalog/mf-5690&quot;)]
+public IActionResult Massey5690()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_MasseyContactenos_" data-uid="motovalle.Ecommerce.Controllers.HomeController.MasseyContactenos*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_MasseyContactenos" data-uid="motovalle.Ecommerce.Controllers.HomeController.MasseyContactenos">MasseyContactenos()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/massey/contactenos&quot;)]
+public IActionResult MasseyContactenos()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_MasseyDM255P_" data-uid="motovalle.Ecommerce.Controllers.HomeController.MasseyDM255P*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_MasseyDM255P" data-uid="motovalle.Ecommerce.Controllers.HomeController.MasseyDM255P">MasseyDM255P()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/massey-catalog/mf-dm-255-p&quot;)]
+public IActionResult MasseyDM255P()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_masseyhome_" data-uid="motovalle.Ecommerce.Controllers.HomeController.masseyhome*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_masseyhome" data-uid="motovalle.Ecommerce.Controllers.HomeController.masseyhome">masseyhome()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/massey/home&quot;)]
+public IActionResult masseyhome()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_MasseyHome_" data-uid="motovalle.Ecommerce.Controllers.HomeController.MasseyHome*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_MasseyHome" data-uid="motovalle.Ecommerce.Controllers.HomeController.MasseyHome">MasseyHome()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/massey&quot;)]
+public IActionResult MasseyHome()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_MasseyMF2600_" data-uid="motovalle.Ecommerce.Controllers.HomeController.MasseyMF2600*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_MasseyMF2600" data-uid="motovalle.Ecommerce.Controllers.HomeController.MasseyMF2600">MasseyMF2600()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/massey-catalog/mf-2625&quot;)]
+[Route(&quot;/massey-catalog/mf-2635&quot;)]
+public IActionResult MasseyMF2600()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_MasseyMF326_" data-uid="motovalle.Ecommerce.Controllers.HomeController.MasseyMF326*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_MasseyMF326" data-uid="motovalle.Ecommerce.Controllers.HomeController.MasseyMF326">MasseyMF326()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/massey-catalog/mf-326&quot;)]
+public IActionResult MasseyMF326()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_MasseyMF4220SD_" data-uid="motovalle.Ecommerce.Controllers.HomeController.MasseyMF4220SD*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_MasseyMF4220SD" data-uid="motovalle.Ecommerce.Controllers.HomeController.MasseyMF4220SD">MasseyMF4220SD()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/massey-catalog/mf-42-20-sd&quot;)]
+public IActionResult MasseyMF4220SD()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_MasseyOperatorClub_" data-uid="motovalle.Ecommerce.Controllers.HomeController.MasseyOperatorClub*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_MasseyOperatorClub" data-uid="motovalle.Ecommerce.Controllers.HomeController.MasseyOperatorClub">MasseyOperatorClub()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/massey/club-de-operadores-massey&quot;)]
+public IActionResult MasseyOperatorClub()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_MasseyQuote_" data-uid="motovalle.Ecommerce.Controllers.HomeController.MasseyQuote*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_MasseyQuote" data-uid="motovalle.Ecommerce.Controllers.HomeController.MasseyQuote">MasseyQuote()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/massey/cotizacion&quot;)]
+public IActionResult MasseyQuote()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_MasseySedes_" data-uid="motovalle.Ecommerce.Controllers.HomeController.MasseySedes*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_MasseySedes" data-uid="motovalle.Ecommerce.Controllers.HomeController.MasseySedes">MasseySedes()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/massey/sedes&quot;)]
+public IActionResult MasseySedes()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_MasseySeries200_" data-uid="motovalle.Ecommerce.Controllers.HomeController.MasseySeries200*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_MasseySeries200" data-uid="motovalle.Ecommerce.Controllers.HomeController.MasseySeries200">MasseySeries200()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/massey-catalog/mf-290&quot;)]
+[Route(&quot;/massey-catalog/mf-291&quot;)]
+public IActionResult MasseySeries200()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_MasseySeries4200_" data-uid="motovalle.Ecommerce.Controllers.HomeController.MasseySeries4200*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_MasseySeries4200" data-uid="motovalle.Ecommerce.Controllers.HomeController.MasseySeries4200">MasseySeries4200()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/massey-catalog/mf-4292&quot;)]
+[Route(&quot;/massey-catalog/mf-4297&quot;)]
+[Route(&quot;/massey-catalog/mf-4299&quot;)]
+public IActionResult MasseySeries4200()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_MasseySeries7000_" data-uid="motovalle.Ecommerce.Controllers.HomeController.MasseySeries7000*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_MasseySeries7000" data-uid="motovalle.Ecommerce.Controllers.HomeController.MasseySeries7000">MasseySeries7000()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/massey-catalog/mf-7150&quot;)]
+[Route(&quot;/massey-catalog/mf-7180&quot;)]
+[Route(&quot;/massey-catalog/mf-7618&quot;)]
+public IActionResult MasseySeries7000()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_MasseyValoresDeMarca_" data-uid="motovalle.Ecommerce.Controllers.HomeController.MasseyValoresDeMarca*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_MasseyValoresDeMarca" data-uid="motovalle.Ecommerce.Controllers.HomeController.MasseyValoresDeMarca">MasseyValoresDeMarca()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/massey/massey-ferguson/valores-de-la-marca&quot;)]
+public IActionResult MasseyValoresDeMarca()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_Mazda2Sedan_" data-uid="motovalle.Ecommerce.Controllers.HomeController.Mazda2Sedan*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_Mazda2Sedan" data-uid="motovalle.Ecommerce.Controllers.HomeController.Mazda2Sedan">Mazda2Sedan()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/mazda-catalog/mazda-2-sedan&quot;)]
+public IActionResult Mazda2Sedan()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_Mazda2Sport_" data-uid="motovalle.Ecommerce.Controllers.HomeController.Mazda2Sport*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_Mazda2Sport" data-uid="motovalle.Ecommerce.Controllers.HomeController.Mazda2Sport">Mazda2Sport()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/mazda-catalog/mazda-2&quot;)]
+public IActionResult Mazda2Sport()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_Mazda3Blog_" data-uid="motovalle.Ecommerce.Controllers.HomeController.Mazda3Blog*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_Mazda3Blog" data-uid="motovalle.Ecommerce.Controllers.HomeController.Mazda3Blog">Mazda3Blog()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/mazda-blog/mazda-3&quot;)]
+public IActionResult Mazda3Blog()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_Mazda3Sedan_" data-uid="motovalle.Ecommerce.Controllers.HomeController.Mazda3Sedan*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_Mazda3Sedan" data-uid="motovalle.Ecommerce.Controllers.HomeController.Mazda3Sedan">Mazda3Sedan()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/mazda-catalog/mazda-3-sedan-nueva-generacion&quot;)]
+public IActionResult Mazda3Sedan()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_Mazda3Sport_" data-uid="motovalle.Ecommerce.Controllers.HomeController.Mazda3Sport*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_Mazda3Sport" data-uid="motovalle.Ecommerce.Controllers.HomeController.Mazda3Sport">Mazda3Sport()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/mazda-catalog/mazda-3-sport-nueva-generacion&quot;)]
+public IActionResult Mazda3Sport()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_Mazda50anniversario_" data-uid="motovalle.Ecommerce.Controllers.HomeController.Mazda50anniversario*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_Mazda50anniversario" data-uid="motovalle.Ecommerce.Controllers.HomeController.Mazda50anniversario">Mazda50anniversario()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/mazda-blog/mazda-celebra-el-50o-aniversario-del&quot;)]
+public IActionResult Mazda50anniversario()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_Mazda6_" data-uid="motovalle.Ecommerce.Controllers.HomeController.Mazda6*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_Mazda6" data-uid="motovalle.Ecommerce.Controllers.HomeController.Mazda6">Mazda6()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/mazda-catalog/mazda-6&quot;)]
+public IActionResult Mazda6()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_Mazda6Blog_" data-uid="motovalle.Ecommerce.Controllers.HomeController.Mazda6Blog*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_Mazda6Blog" data-uid="motovalle.Ecommerce.Controllers.HomeController.Mazda6Blog">Mazda6Blog()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/mazda-blog/mazda-6&quot;)]
+public IActionResult Mazda6Blog()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_MazdaBlog_" data-uid="motovalle.Ecommerce.Controllers.HomeController.MazdaBlog*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_MazdaBlog" data-uid="motovalle.Ecommerce.Controllers.HomeController.MazdaBlog">MazdaBlog()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/mazda/blog&quot;)]
+public IActionResult MazdaBlog()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_MazdaBlogActvisence_" data-uid="motovalle.Ecommerce.Controllers.HomeController.MazdaBlogActvisence*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_MazdaBlogActvisence" data-uid="motovalle.Ecommerce.Controllers.HomeController.MazdaBlogActvisence">MazdaBlogActvisence()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/mazda-blog/sistema-de-seguridad-pro-activo-i-activsense&quot;)]
+public IActionResult MazdaBlogActvisence()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_MazdaBlogGalaronada_" data-uid="motovalle.Ecommerce.Controllers.HomeController.MazdaBlogGalaronada*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_MazdaBlogGalaronada" data-uid="motovalle.Ecommerce.Controllers.HomeController.MazdaBlogGalaronada">MazdaBlogGalaronada()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/mazda-blog/mazda-la-mas-galardonada&quot;)]
+public IActionResult MazdaBlogGalaronada()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_MazdaBlogInnovaciones_" data-uid="motovalle.Ecommerce.Controllers.HomeController.MazdaBlogInnovaciones*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_MazdaBlogInnovaciones" data-uid="motovalle.Ecommerce.Controllers.HomeController.MazdaBlogInnovaciones">MazdaBlogInnovaciones()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/mazda-blog/innovaciones&quot;)]
+public IActionResult MazdaBlogInnovaciones()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_MazdaBlogMazdaConnect_" data-uid="motovalle.Ecommerce.Controllers.HomeController.MazdaBlogMazdaConnect*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_MazdaBlogMazdaConnect" data-uid="motovalle.Ecommerce.Controllers.HomeController.MazdaBlogMazdaConnect">MazdaBlogMazdaConnect()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/mazda-blog/mazda-connect&quot;)]
+public IActionResult MazdaBlogMazdaConnect()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_MazdaBlogMX5Premio_" data-uid="motovalle.Ecommerce.Controllers.HomeController.MazdaBlogMX5Premio*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_MazdaBlogMX5Premio" data-uid="motovalle.Ecommerce.Controllers.HomeController.MazdaBlogMX5Premio">MazdaBlogMX5Premio()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/mazda-blog/mazda-mx-5-rf-recibe-el-premio&quot;)]
+public IActionResult MazdaBlogMX5Premio()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_MazdaBlogSkyactive_" data-uid="motovalle.Ecommerce.Controllers.HomeController.MazdaBlogSkyactive*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_MazdaBlogSkyactive" data-uid="motovalle.Ecommerce.Controllers.HomeController.MazdaBlogSkyactive">MazdaBlogSkyactive()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/mazda-blog/skyactiv&quot;)]
+public IActionResult MazdaBlogSkyactive()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_MazdaCampanaServicios_" data-uid="motovalle.Ecommerce.Controllers.HomeController.MazdaCampanaServicios*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_MazdaCampanaServicios" data-uid="motovalle.Ecommerce.Controllers.HomeController.MazdaCampanaServicios">MazdaCampanaServicios()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/mazda/servicios/campanas-de-servicio&quot;)]
+public IActionResult MazdaCampanaServicios()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_MazdaCitas_" data-uid="motovalle.Ecommerce.Controllers.HomeController.MazdaCitas*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_MazdaCitas" data-uid="motovalle.Ecommerce.Controllers.HomeController.MazdaCitas">MazdaCitas()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/mazda/servicios/agendamiento-de-citas&quot;)]
+public IActionResult MazdaCitas()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_MazdaCX3_" data-uid="motovalle.Ecommerce.Controllers.HomeController.MazdaCX3*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_MazdaCX3" data-uid="motovalle.Ecommerce.Controllers.HomeController.MazdaCX3">MazdaCX3()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/mazda-catalog/mazda-cx-3&quot;)]
+public IActionResult MazdaCX3()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_MazdaCX30_" data-uid="motovalle.Ecommerce.Controllers.HomeController.MazdaCX30*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_MazdaCX30" data-uid="motovalle.Ecommerce.Controllers.HomeController.MazdaCX30">MazdaCX30()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/mazda-catalog/mazda-cx-30&quot;)]
+public IActionResult MazdaCX30()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_MazdaCX3VehiculoEconomico_" data-uid="motovalle.Ecommerce.Controllers.HomeController.MazdaCX3VehiculoEconomico*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_MazdaCX3VehiculoEconomico" data-uid="motovalle.Ecommerce.Controllers.HomeController.MazdaCX3VehiculoEconomico">MazdaCX3VehiculoEconomico()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/mazda-blog/mazda-cx-3-el-vehiculo-mas-economico&quot;)]
+public IActionResult MazdaCX3VehiculoEconomico()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_MazdaCX5_" data-uid="motovalle.Ecommerce.Controllers.HomeController.MazdaCX5*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_MazdaCX5" data-uid="motovalle.Ecommerce.Controllers.HomeController.MazdaCX5">MazdaCX5()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/mazda-catalog/mazda-cx-5&quot;)]
+public IActionResult MazdaCX5()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_MazdaCX5Blog_" data-uid="motovalle.Ecommerce.Controllers.HomeController.MazdaCX5Blog*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_MazdaCX5Blog" data-uid="motovalle.Ecommerce.Controllers.HomeController.MazdaCX5Blog">MazdaCX5Blog()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/mazda-blog/nueva-mazda-cx-5&quot;)]
+public IActionResult MazdaCX5Blog()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_MazdaCX9_" data-uid="motovalle.Ecommerce.Controllers.HomeController.MazdaCX9*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_MazdaCX9" data-uid="motovalle.Ecommerce.Controllers.HomeController.MazdaCX9">MazdaCX9()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/mazda-catalog/mazda-cx-9&quot;)]
+public IActionResult MazdaCX9()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_MazdaDisenoTecnologia_" data-uid="motovalle.Ecommerce.Controllers.HomeController.MazdaDisenoTecnologia*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_MazdaDisenoTecnologia" data-uid="motovalle.Ecommerce.Controllers.HomeController.MazdaDisenoTecnologia">MazdaDisenoTecnologia()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/mazda/diseno-y-tecnologia&quot;)]
+public IActionResult MazdaDisenoTecnologia()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_mazdahome_" data-uid="motovalle.Ecommerce.Controllers.HomeController.mazdahome*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_mazdahome" data-uid="motovalle.Ecommerce.Controllers.HomeController.mazdahome">mazdahome()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/mazda/home&quot;)]
+public IActionResult mazdahome()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_MazdaMX5_" data-uid="motovalle.Ecommerce.Controllers.HomeController.MazdaMX5*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_MazdaMX5" data-uid="motovalle.Ecommerce.Controllers.HomeController.MazdaMX5">MazdaMX5()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/mazda-catalog/mazda-mx-5&quot;)]
+public IActionResult MazdaMX5()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_MazdaNoticias_" data-uid="motovalle.Ecommerce.Controllers.HomeController.MazdaNoticias*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_MazdaNoticias" data-uid="motovalle.Ecommerce.Controllers.HomeController.MazdaNoticias">MazdaNoticias()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/mazda-blog/noticias&quot;)]
+public IActionResult MazdaNoticias()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_MazdaRepuestosAccesorios_" data-uid="motovalle.Ecommerce.Controllers.HomeController.MazdaRepuestosAccesorios*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_MazdaRepuestosAccesorios" data-uid="motovalle.Ecommerce.Controllers.HomeController.MazdaRepuestosAccesorios">MazdaRepuestosAccesorios()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/mazda/servicios/repuestos-y-accesorios&quot;)]
+public IActionResult MazdaRepuestosAccesorios()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_MazdaTecnologia_" data-uid="motovalle.Ecommerce.Controllers.HomeController.MazdaTecnologia*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_MazdaTecnologia" data-uid="motovalle.Ecommerce.Controllers.HomeController.MazdaTecnologia">MazdaTecnologia()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/mazda/diseno-y-tecnologia/tecnologia&quot;)]
+public IActionResult MazdaTecnologia()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_MazdaVehiculos_" data-uid="motovalle.Ecommerce.Controllers.HomeController.MazdaVehiculos*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_MazdaVehiculos" data-uid="motovalle.Ecommerce.Controllers.HomeController.MazdaVehiculos">MazdaVehiculos()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/mazda/vehiculos&quot;)]
+public IActionResult MazdaVehiculos()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_Pagination_" data-uid="motovalle.Ecommerce.Controllers.HomeController.Pagination*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_Pagination_motovalle_Ecommerce_Models_ViewModels_BasicSearchViewModel_" data-uid="motovalle.Ecommerce.Controllers.HomeController.Pagination(motovalle.Ecommerce.Models.ViewModels.BasicSearchViewModel)">Pagination(BasicSearchViewModel)</h4>
+  <div class="markdown level1 summary"><p>Paginations the specified records per page.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpPost]
+public Task&lt;IActionResult&gt; Pagination([FromBody] BasicSearchViewModel basicSearchViewModel)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="motovalle.Ecommerce.Models.ViewModels.BasicSearchViewModel.html">BasicSearchViewModel</a></td>
+        <td><span class="parametername">basicSearchViewModel</span></td>
+        <td><p>The basic search view model.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span>&gt;</td>
+        <td><p>Records per page selected</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_Politica_" data-uid="motovalle.Ecommerce.Controllers.HomeController.Politica*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_Politica" data-uid="motovalle.Ecommerce.Controllers.HomeController.Politica">Politica()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/politica-y-manejo-de-datos&quot;)]
+public IActionResult Politica()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_Privacy_" data-uid="motovalle.Ecommerce.Controllers.HomeController.Privacy*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_Privacy" data-uid="motovalle.Ecommerce.Controllers.HomeController.Privacy">Privacy()</h4>
+  <div class="markdown level1 summary"><p>Privacies this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IActionResult Privacy()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td><p>Privacy View</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_RecordsPerPage_" data-uid="motovalle.Ecommerce.Controllers.HomeController.RecordsPerPage*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_RecordsPerPage_motovalle_Ecommerce_Models_ViewModels_BasicSearchViewModel_" data-uid="motovalle.Ecommerce.Controllers.HomeController.RecordsPerPage(motovalle.Ecommerce.Models.ViewModels.BasicSearchViewModel)">RecordsPerPage(BasicSearchViewModel)</h4>
+  <div class="markdown level1 summary"><p>Recordses the per page.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[HttpPost]
+public Task&lt;IActionResult&gt; RecordsPerPage([FromBody] BasicSearchViewModel basicSearchViewModel)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="motovalle.Ecommerce.Models.ViewModels.BasicSearchViewModel.html">BasicSearchViewModel</a></td>
+        <td><span class="parametername">basicSearchViewModel</span></td>
+        <td><p>The basic search view model.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span>&gt;</td>
+        <td><p>Records taked for make, category and model on Json format</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_Repuestos2_" data-uid="motovalle.Ecommerce.Controllers.HomeController.Repuestos2*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_Repuestos2" data-uid="motovalle.Ecommerce.Controllers.HomeController.Repuestos2">Repuestos2()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/repuestos-2&quot;)]
+public IActionResult Repuestos2()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_Sedes_" data-uid="motovalle.Ecommerce.Controllers.HomeController.Sedes*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_Sedes" data-uid="motovalle.Ecommerce.Controllers.HomeController.Sedes">Sedes()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/sobre-motovalle/sedes&quot;)]
+public IActionResult Sedes()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_Servicios_" data-uid="motovalle.Ecommerce.Controllers.HomeController.Servicios*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_Servicios" data-uid="motovalle.Ecommerce.Controllers.HomeController.Servicios">Servicios()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/mazda/servicios&quot;)]
+public IActionResult Servicios()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_ServiciosServicios_" data-uid="motovalle.Ecommerce.Controllers.HomeController.ServiciosServicios*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_ServiciosServicios" data-uid="motovalle.Ecommerce.Controllers.HomeController.ServiciosServicios">ServiciosServicios()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/mazda/servicios/servicio&quot;)]
+public IActionResult ServiciosServicios()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_sobremotovalle_" data-uid="motovalle.Ecommerce.Controllers.HomeController.sobremotovalle*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_sobremotovalle" data-uid="motovalle.Ecommerce.Controllers.HomeController.sobremotovalle">sobremotovalle()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;sobre-motovalle&quot;)]
+public IActionResult sobremotovalle()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_TestDrive_" data-uid="motovalle.Ecommerce.Controllers.HomeController.TestDrive*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_TestDrive" data-uid="motovalle.Ecommerce.Controllers.HomeController.TestDrive">TestDrive()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/mazda/test-drive&quot;)]
+public IActionResult TestDrive()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_TestPage_" data-uid="motovalle.Ecommerce.Controllers.HomeController.TestPage*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_TestPage" data-uid="motovalle.Ecommerce.Controllers.HomeController.TestPage">TestPage()</h4>
+  <div class="markdown level1 summary"><p>Privacies this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IActionResult TestPage()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td><p>Privacy View</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_TrabajeConNosotros_" data-uid="motovalle.Ecommerce.Controllers.HomeController.TrabajeConNosotros*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_TrabajeConNosotros" data-uid="motovalle.Ecommerce.Controllers.HomeController.TrabajeConNosotros">TrabajeConNosotros()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/sobre-motovalle/trabaje-con-nosotros&quot;)]
+public IActionResult TrabajeConNosotros()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_UsadosCompramosSuBVehiculo_" data-uid="motovalle.Ecommerce.Controllers.HomeController.UsadosCompramosSuBVehiculo*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_UsadosCompramosSuBVehiculo" data-uid="motovalle.Ecommerce.Controllers.HomeController.UsadosCompramosSuBVehiculo">UsadosCompramosSuBVehiculo()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/usados/compramos-su-vehiculo&quot;)]
+public IActionResult UsadosCompramosSuBVehiculo()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="motovalle_Ecommerce_Controllers_HomeController_usadoshome_" data-uid="motovalle.Ecommerce.Controllers.HomeController.usadoshome*"></a>
+  <h4 id="motovalle_Ecommerce_Controllers_HomeController_usadoshome" data-uid="motovalle.Ecommerce.Controllers.HomeController.usadoshome">usadoshome()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Route(&quot;/usados/home&quot;)]
+public IActionResult usadoshome()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Mvc.IActionResult</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.Filters.IActionFilter</span>
+  </div>
+  <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.Filters.IAsyncActionFilter</span>
+  </div>
+  <div>
+      <span class="xref">Microsoft.AspNetCore.Mvc.Filters.IFilterMetadata</span>
+  </div>
+  <div>
+      <span class="xref">System.IDisposable</span>
+  </div>
+  <h3 id="seealso">See Also</h3>
+  <div class="seealso">
+      <div><span class="xref">Microsoft.AspNetCore.Mvc.Controller</span></div>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
