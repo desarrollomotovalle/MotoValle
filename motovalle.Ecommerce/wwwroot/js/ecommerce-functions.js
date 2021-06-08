@@ -365,41 +365,6 @@ async function addToCart(productId, inventoryItemsId, quantity) {
     }
 };
 
-/**
- * Validate Stock
- * */
-async function ValidateStock() {
-    const request = await fetch('/ShoppingCart/ValidateStock');
-    if (request.ok) {
-        const result = await request.text();
-        if (result) {
-            await Swal.fire({
-                icon: 'warning',
-                title: 'Por favor verifica',
-                text: result,
-                footer: '<b>Te esperamos.</b>',
-                allowOutsideClick: false,
-                allowEscapeKey: false
-            });
-
-            return false;
-        }
-
-        return true;
-    }
-
-    await Swal.fire({
-        icon: 'error',
-        title: '¡Ups!',
-        text: 'Hubo un error validando el stock.',
-        footer: '<b>Por favor intenta nuevamente.</b>',
-        allowOutsideClick: false,
-        allowEscapeKey: false
-    });
-
-    return false;
-}
-
 //Remove Item from cart
 function removeItemFromCart(shoppingCartRecordsId) {
     let url = `/ShoppingCart/RemoveItem/${shoppingCartRecordsId}`;
@@ -485,6 +450,7 @@ function removeItemFromCart(shoppingCartRecordsId) {
             document.getElementById("idDivVC").innerHTML = htmlContentDivVC;
             setTimeout(() => {
                 Swal.close();
+                document.querySelector("#totalAmountFoundingRequestDivId").value = number_format(document.querySelector("#amountMainId").value, 2);
             }, 500);
 
 
@@ -2314,15 +2280,4 @@ function getCookie(cname) {
         }
     }
     return "";
-}
-
-/**
- * Wompi Result
- * @param {object} result
- */
-function WompirResult(result) {
-    debugger;
-    var transaction = result.transaction
-    console.log('Transaction ID: ', transaction.id)
-    console.log('Transaction object: ', transaction)
 }

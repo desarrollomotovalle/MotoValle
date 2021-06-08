@@ -228,6 +228,7 @@ E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\P
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\files\Formato Reclamacion.pdf
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\files\mazda 100 añoslanding respons.png
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\files\POLITICA DATOS PERSONALES MOTOVALLE[2336].pdf
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\files\POLITICA DATOS PERSONALES MOTOVALLE[2336]OLD.pdf
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\fonts\fontawesome-webfont.eot
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\fonts\fontawesome-webfont.svg
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\fonts\fontawesome-webfont.ttf
@@ -1878,10 +1879,12 @@ E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\P
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\media\brands\lydia.png
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\media\brands\mercLogo.png
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\media\brands\metodo-de-pago-wompi-VERTICALpng.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\media\brands\motovalle-logo.old.png
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\media\brands\motovalle-logo.png
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\media\brands\motovalle-logo64.png
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\media\brands\motovalle-logo65-squre-black.jpg
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\media\brands\motovalle-logo65-squre-black.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\media\brands\motovalle-logo65-squre-blackOLD.png
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\media\brands\motovalle-logo65.png
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\media\brands\motovalle-logo_T.png
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\media\brands\motovalle-logo_white.png

@@ -1,29 +1,8 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
-.btn-a {
-    background-color: #228dcb !important;
-    fill: #228dcb !important;
-    color: white !important;
-}
 
-.btn-a span.fa {
-    background-color: #565656 !important;
-    fill: #565656 !important;
-    color: white !important;
-}
 
-.btn-a:hover {
-    background-color: #565656 !important;
-    fill: #565656 !important;
-    color: white !important;
-}
-
-.btn-a:hover span.fa {
-    background-color: #228dcb !important;
-    fill: #228dcb !important;
-    color: white !important;
-}
 
 .sliderButton {
     margin: 24em 0 0 20em;
