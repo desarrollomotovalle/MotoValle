@@ -60,8 +60,6 @@ async function callWompiHome() {
 function setCurrencyMask() {
     const $currencyMaskInput = document.querySelector(".currency-mask");
     if ($currencyMaskInput) {
-        const minAttr = $currencyMaskInput.getAttribute("data-min-amount") ? $currencyMaskInput.getAttribute("data-min-amount") : 1;
-        const maxAttr = $currencyMaskInput.getAttribute("data-max-amount") ? $currencyMaskInput.getAttribute("data-max-amount") : null;
         var currencyMask = IMask(
             document.querySelector('.currency-mask'),
             {
@@ -71,8 +69,7 @@ function setCurrencyMask() {
                         // nested masks are available!
                         mask: Number,
                         thousandsSeparator: '.',
-                        min: minAttr,
-                        max: maxAttr
+                        min: 1
                     }
                 }
             });
@@ -83,7 +80,6 @@ function setCurrencyMask() {
             if ($mainInput) {
                 $mainInput.value = currencyMask.unmaskedValue;
             }
-
         });
     }
 }
