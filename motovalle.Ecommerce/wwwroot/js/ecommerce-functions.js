@@ -97,7 +97,6 @@ function enableRetakeCarName() {
 const $frmInventoryLeads = document.querySelector("#frmInventoryLeads");
 if ($frmInventoryLeads) {
     $frmInventoryLeads.addEventListener('submit', async (event) => {
-        debugger;
         event.preventDefault();
         const url = `/Home/InterestedCustomers/`;
         Swal.fire({

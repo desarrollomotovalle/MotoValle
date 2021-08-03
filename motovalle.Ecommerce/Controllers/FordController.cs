@@ -242,6 +242,7 @@ namespace motovalle.Ecommerce.Controllers
         {
             ViewBag.Message = this._exceptionControl ? StaticResources.NotAvailable : null;
             ViewBag.Headquarters = new SelectList(this._headquartersViewModel, "Name", "NameWithAddress");
+            //ViewBag.Modelo = this._make.
             var productDetails = new ProductWithDetails();
             try
             {
@@ -249,6 +250,7 @@ namespace motovalle.Ecommerce.Controllers
                 var productsWithDetails = await productsApi.GetInventoryAndProductBaseWithDetails(productId, inventoryItemsId, this._make.MakesId);
                 productsWithDetails = productsWithDetails.Where(x => x.QuantityInStock > 0 && x.QuantityInStockInventory > 0 && x.AllowShow > 0 && x.AllowShow > 0).ToList();
                 productDetails = productsWithDetails.FirstOrDefault();
+
             }
             catch (Exception)
             {

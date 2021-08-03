@@ -14226,6 +14226,16 @@
               <c>true</c> if [habeas data]; otherwise, <c>false</c>.
             </value>
         </member>
+        <member name="T:motovalle.Ecommerce.Models.ViewModels.RepuestosBrandViewModel">
+            <summary>
+            Este ViewModel captura la información del Modelo HeroImages
+            </summary>
+        </member>
+        <member name="P:motovalle.Ecommerce.Models.ViewModels.RepuestosBrandViewModel.UrlImage">
+            <summary>
+            Esta propiedad captura la URL de la Imagen enviada desde el controlador en forma de lista
+            </summary>
+        </member>
         <member name="T:motovalle.Ecommerce.Models.ViewModels.SantanderBankCreditOnlineViewModel">
             <summary>
             Santander Bank Credit Online View Model

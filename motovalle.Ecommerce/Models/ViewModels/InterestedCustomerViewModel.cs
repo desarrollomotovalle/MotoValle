@@ -27,5 +27,7 @@ namespace motovalle.Ecommerce.Models.ViewModels
         [Display(Name = "Acepto pólíticas de privacidad")]
         [Required(ErrorMessage = "Debes aceptar las políticas de privacidad")]
         public bool HabeasData { get; set; }
+
+        public string Modelo { get; set; }
     }
 }

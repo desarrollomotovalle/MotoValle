@@ -415,7 +415,7 @@
                                 <p><span>Estámos dispuestos a resolver todas tus dudas</span></p>
                             </div>
                         </div>
-                        @{ await Html.RenderPartialAsync("_Leads", new InterestedCustomerViewModel() { FkInventoryItemsId = Model.InventoryItemsId }); }
+                        @{ await Html.RenderPartialAsync("_Leads", new InterestedCustomerViewModel() { FkInventoryItemsId = Model.InventoryItemsId, Modelo = Model.ModelName }); }
                     </aside>
                 </div>
             </div>
