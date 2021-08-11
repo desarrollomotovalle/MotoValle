@@ -199,11 +199,9 @@
 
 }
 
-
 <script>
 
-    function enviarSalesForce() {
-        alert("Hola");
+    function enviarSalesForce() {        
         /*Captura el valor de los campos del formulario visible*/
         var nombre = document.getElementById("Nombre").value;
         var email = document.getElementById("Email").value;
@@ -211,12 +209,12 @@
         var sede = document.getElementById("sede").value;
         var modelo = document.getElementById("modelo").value;
 
-        /*Asigna el valor de las variables al formalario no visible*/
-        document.getElementById("last_name").value = nombre;
-        document.getElementById("first_name").value = nombre; // cambiar despues
+        /*Asigna el valor de las variables al formalario no visible*/        
+        document.getElementById("first_name").value = nombre; 
+        document.getElementById("last_name").value = "."; // cambiar despues
         document.getElementById("email").value = email;
         document.getElementById("mobile").value = mobile;
-        var sede = "";
+        /*var sede = "";*/
         /*Valida la sede y asigna el codigo correspondiente*/
         if (sede == "Bogota - Vitrina") {
             document.getElementById("DealerCode__c").value = "C894";
@@ -247,7 +245,6 @@
         } else if (modelo.toUpperCase().includes("F-150")) {
             document.getElementById("VehicleModelLatam__c").value = "F150 Colombia"
         }
-
         document.getElementById("frmSalesForce").submit();
         
         alert("Hola");
