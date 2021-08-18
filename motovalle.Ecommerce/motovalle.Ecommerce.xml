@@ -13801,6 +13801,11 @@
               <c>true</c> if [habeas data]; otherwise, <c>false</c>.
             </value>
         </member>
+        <member name="P:motovalle.Ecommerce.Models.ViewModels.InterestedCustomerViewModel.Modelo">
+            <summary>
+            Valida el modelo del vehiculo, en caso de ser Ford ejecuta una condicion especial en la vista
+            </summary>
+        </member>
         <member name="T:motovalle.Ecommerce.Models.ViewModels.Landing.ContactViewModel">
             <summary>
             Contact View Model

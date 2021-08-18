@@ -9,7 +9,7 @@
     <div class="b-detail__main-aside-payment-form">
 
 
-
+        @* Formulario oculto para enviar información a SalesForce *@
 
         <form id="frmSalesForce" style="display:none" target="hidden-form" method="POST" action="https://inteligenciadevendas.my.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" >
 
@@ -116,14 +116,11 @@
             </table>
         </form>
 
+        @* iframe para visualizar información del formulario oculto *@
         <iframe name="hidden-form" style="display:none" >
         </iframe>
 
-
-
-
-
-
+        @* Formulario visible para enviar informacion *@
         <form id="frmInventoryLeads">
             @Html.AntiForgeryToken()
             <div><input id="Nombre" asp-for="Name" class="mb-4" placeholder="Nombre Completo"><span asp-validation-for="Name"></span></div>
@@ -192,13 +189,12 @@
     </div>
 </div>
 
-
-<!--Hola mundo-->
 @section Scripts {
     @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
 
 }
 
+@* Script para enviar informacion a SalesForce *@
 <script>
 
     function enviarSalesForce() {        
@@ -245,10 +241,8 @@
         } else if (modelo.toUpperCase().includes("F-150")) {
             document.getElementById("VehicleModelLatam__c").value = "F150 Colombia"
         }
-        document.getElementById("frmSalesForce").submit();
+        document.getElementById("frmSalesForce").submit();       
         
-        alert("Hola");
     }
-
 
 </script>

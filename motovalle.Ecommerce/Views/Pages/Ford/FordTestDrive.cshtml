@@ -40,30 +40,145 @@
                             <div class="panel panel-default">
                                 <div class="panel-heading text-center"><b>Agenda tu prueba de manejo para el Ford de tu preferencia.</b> Un asesor de Motovalle te contactará.</div>
                                 <div class="panel-body">
+
+                                    @*Formulario oculto para envíar informacion a SalesForce*@
+                                    <form id="frmSalesForce" style="display:none" target="hidden-form" method="POST" action="https://inteligenciadevendas.my.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8">
+                                                                            
+                                        <input type=hidden name="oid" value="00D6A000001UcOT">
+                                        <input type=hidden name="retURL" value="https://motovalle.com/Ford">
+
+                                        @*----------------------------------------------------------------------
+                                            NOTE: These fields are optional debugging elements. Please uncomment
+                                            these lines if you wish to test in debug mode.*@
+                                        @*<input type="hidden" name="debug" value=1>
+                                            <input type="hidden" name="debugEmail" value="rupert@kolekto.com.br">*@
+                                        @*----------------------------------------------------------------------*@
+
+                                        <table>
+
+                                            <tr>
+                                                <td>
+                                                    <label for="first_name">Nombre:</label>
+                                                </td>
+                                                <td>
+                                                    <input id="first_name" maxlength="40" name="first_name" size="20" type="text" required="true" />
+                                                </td>
+                                            </tr>
+
+
+                                            <tr>
+                                                <td>
+                                                    <label for="last_name">Apellido:</label>
+                                                </td>
+                                                <td>
+                                                    <input id="last_name" maxlength="80" name="last_name" size="20" type="text" required="true" />
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    <label for="email">Email:</label>
+                                                </td>
+                                                <td>
+                                                    <input id="email" maxlength="80" name="email" size="20" type="text" required="true" />
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    <label for="mobile">Teléfono Móvil / Contacto:</label>
+                                                </td>
+                                                <td>
+                                                    <input id="mobile" maxlength="40" name="mobile" size="20" type="text" required="true" />
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    <label for="VehicleModelLatam__c">Vehículo de interés</label>
+                                                </td>
+                                                <td>
+                                                    <select id="VehicleModelLatam__c" name="VehicleModelLatam__c" style="width: 173px" required="true">
+                                                        <option value="">-- Nenhum --</option>
+                                                        <option value="Fusion Colombia">Fusion</option>
+                                                        <option value="Mustang Colombia">Mustang</option>
+                                                        <option value="Ecosport Colombia">Ecosport</option>
+                                                        <option value="Escape Colombia">Escape</option>
+                                                        <option value="Bronco Colombia">Bronco</option>
+                                                        <option value="Edge Colombia">Edge</option>
+                                                        <option value="Explorer Colombia">Explorer</option>
+                                                        <option value="Expedition Colombia">Expedition</option>
+                                                        <option value="Ranger Colombia">Ranger</option>
+                                                        <option value="F150 Colombia">F150</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    <label for="DealerCode__c">Nombre del Dealer</label>
+                                                </td>
+                                                <td>
+                                                    <select id="DealerCode__c" name="DealerCode__c" style="width:190px" required="true">
+                                                        <option value="">-- Nenhum --</option>
+                                                        <option value="C894">BOGOTÁ PUENTE ARANDA</option>
+                                                        <option value="C893">CALI SEDE NORTE</option>
+                                                        <option value="C893a">CALI SEDE SUR</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+
+                                            <input type="hidden" id="recordType" name="recordType" value="0122K000001QJ5O" />
+
+                                            <input type="hidden" id="MobilePhoneType__c" name="MobilePhoneType__c" value="Personal" />
+
+                                            <input type="hidden" id="LeadSubSource__c" name="LeadSubSource__c" value="Website Colombia" />
+
+                                            <input type="hidden" id="LeadSubSource2__c" name="LeadSubSource2__c" value="Organic" />
+
+                                            <input type="hidden" id="lead_source" name="lead_source" value="Dealer Digital Colombia" />
+
+                                            @*Se agrega campo ocualto para diferenciar el formulario como Test Drive*@
+                                            <input type="hidden" id="CampaignName__c" name="CampaignName__c" value="Test  Drive" />
+
+                                            <br>
+
+                                            <tr>
+                                                <td colspan="4" align="center">
+                                                    <input type="submit">
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </form>
+                                    @* iframe oculto para visualizar la informacion del formulario oculto*@
+                                    <iframe name="hidden-form" style="display:none">
+                                    </iframe>
+
+                                    @*Formulario real para captura de informacion*@
                                     <form class="wow zoomInUp" data-wow-delay="0.1s" id="frmTestDriveFord">
                                         @Html.AntiForgeryToken()
                                         <div class="row">
                                             <div class="col-md-12 col-xs-12">
                                                 <div class="form-group">
-                                                    <input asp-for="FullName" class="form-control" placeholder="Nombres*" />
+                                                    <input id="Nombre" asp-for="FullName" class="form-control" placeholder="Nombres*" />
                                                     <span asp-validation-for="FullName" class="text-danger"></span>
                                                 </div>
                                             </div>
                                             <div class="col-md-6 col-xs-12">
                                                 <div class="form-group">
-                                                    <input asp-for="Email" class="form-control" placeholder="Email" />
+                                                    <input id="Email" asp-for="Email" class="form-control" placeholder="Email" />
                                                     <span asp-validation-for="Email" class="text-danger"></span>
                                                 </div>
                                             </div>
                                             <div class="col-md-6 col-xs-12">
                                                 <div class="form-group">
-                                                    <input asp-for="PhoneNumber" class="form-control" placeholder="Celular" />
+                                                    <input id="Telefono" asp-for="PhoneNumber" class="form-control" placeholder="Celular" />
                                                     <span asp-validation-for="PhoneNumber" class="text-danger"></span>
                                                 </div>
                                             </div>
                                             <div class="col-md-6 col-xs-12">
                                                 <div class="form-group">
-                                                    <select asp-for="Headquarter" class="form-control" asp-items="ViewBag.Headquarters">
+                                                    <select id="Sede" asp-for="Headquarter" class="form-control" asp-items="@ViewBag.Headquarters">
                                                         <option value="">Seleccione una sede</option>
                                                     </select>
                                                     <span asp-validation-for="Headquarter" class="text-danger"></span>
@@ -71,7 +186,7 @@
                                             </div>
                                             <div class="col-md-6 col-xs-12">
                                                 <div class="form-group">
-                                                    <select asp-for="Product" class="form-control" asp-items="ViewBag.Products">
+                                                    <select id="Modelo" asp-for="Product" class="form-control" asp-items="@ViewBag.Products">
                                                         <option value="">Seleccione un vehículo</option>
                                                     </select>
                                                     <span asp-validation-for="Product" class="text-danger"></span>
@@ -80,7 +195,7 @@
                                             <div class="col-md-12 col-xs-6">
                                                 <div class="form-group">
                                                     <label asp-for="Date" class="control-label"></label>
-                                                    <input asp-for="Date" class="form-control" min="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss")"/>
+                                                    <input asp-for="Date" class="form-control" min="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss")" id="testDrive" />
                                                     <span asp-validation-for="Date" class="text-danger"></span>
                                                 </div>
                                             </div>
@@ -99,7 +214,7 @@
                                         </div>
                                         <br />
                                         <div class="form-group text-center">
-                                            <input type="submit" value="Suscribrirme ahora" class="btn btn-primary" />
+                                            <input type="submit" onclick="enviarSalesForce()" value="Suscribrirme ahora" class="btn btn-primary" />
                                         </div>
                                     </form>
                                 </div>
@@ -171,5 +286,58 @@
                 });
             }
         });
+
+        //Funcion para enviar información a SalesForce
+
+        function enviarSalesForce() {
+            /*Captura el valor de los campos del formulario visible*/
+            var nombre = document.getElementById("Nombre").value;
+            var email = document.getElementById("Email").value;
+            var mobile = document.getElementById("Telefono").value;
+            var sede = document.getElementById("Sede").value;
+            var modelo = document.getElementById("Modelo").value;
+            /*var testDrive = document.getElementById("testDrive").value;*/
+
+            /*Asigna el valor de las variables al formalario no visible*/
+            document.getElementById("first_name").value = nombre;
+            document.getElementById("last_name").value = "."; // cambiar despues
+            document.getElementById("email").value = email;
+            document.getElementById("mobile").value = mobile;
+            //document.getElementById("CampaignName__c").value = "Test Drive";
+            
+            /*Valida la sede y asigna el codigo correspondiente*/
+            if (sede == "Bogota - Vitrina") {
+                document.getElementById("DealerCode__c").value = "C894";
+            } else if (sede == "Cali - Sede Norte") {
+                document.getElementById("DealerCode__c").value = "C893";
+            } else if (sede == "Cali - Sede Sur") {
+                document.getElementById("DealerCode__c").value = "C893a";
+            }
+
+            if (modelo.toUpperCase().includes("RANGER")) {
+                document.getElementById("VehicleModelLatam__c").value = "Ranger Colombia"
+            } else if (modelo.toUpperCase().includes("FUSION")) {
+                document.getElementById("VehicleModelLatam__c").value = "Fusion Colombia"
+            } else if (modelo.toUpperCase().includes("ESCAPE")) {
+                document.getElementById("VehicleModelLatam__c").value = "Escape Colombia"
+            } else if (modelo.toUpperCase().includes("MUSTANG")) {
+                document.getElementById("VehicleModelLatam__c").value = "Mustang Colombia"
+            } else if (modelo.toUpperCase().includes("ECOSPORT")) {
+                document.getElementById("VehicleModelLatam__c").value = "Ecosport Colombia"
+            } else if (modelo.toUpperCase().includes("BRONCO")) {
+                document.getElementById("VehicleModelLatam__c").value = "Bronco Colombia"
+            } else if (modelo.toUpperCase().includes("EDGE")) {
+                document.getElementById("VehicleModelLatam__c").value = "Edge Colombia"
+            } else if (modelo.toUpperCase().includes("EXPLORER")) {
+                document.getElementById("VehicleModelLatam__c").value = "Explorer Colombia"
+            } else if (modelo.toUpperCase().includes("EXPEDITION")) {
+                document.getElementById("VehicleModelLatam__c").value = "Expedition Colombia"
+            } else if (modelo.toUpperCase().includes("F-150")) {
+                document.getElementById("VehicleModelLatam__c").value = "F150 Colombia"
+            }
+            document.getElementById("frmSalesForce").submit();
+            
+        }
+
     </script>
 }

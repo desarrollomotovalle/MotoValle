@@ -28,6 +28,9 @@ namespace motovalle.Ecommerce.Models.ViewModels
         [Required(ErrorMessage = "Debes aceptar las políticas de privacidad")]
         public bool HabeasData { get; set; }
 
+        /// <summary>
+        /// Valida el modelo del vehiculo, en caso de ser Ford ejecuta una condicion especial en la vista
+        /// </summary>
         public string Modelo { get; set; }
     }
 }
