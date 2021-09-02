@@ -202,7 +202,8 @@ namespace motovalle.Ecommerce
                 x.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             });
 
-            services.AddControllersWithViews();
+            //services.AddControllersWithViews();
+            services.AddControllersWithViews().AddRazorRuntimeCompilation(); // Se agrega RunTimeCompilastions para la actualización de la pagína
             services.AddRazorPages();
             services.AddMvc();
         }

@@ -10,9 +10,10 @@ E:\Desarrollos\Desarrollos de pruebas\MotoValle\Inicial (2)\Inicial\Innova.MotoV
 E:\Desarrollos\Motovalle\Innova.MotoValle.Ecommerce.Models\bin\Debug\netcoreapp3.1\Innova.MotoValle.Ecommerce.Models.deps.json
 E:\Desarrollos\Motovalle\Innova.MotoValle.Ecommerce.Models\bin\Debug\netcoreapp3.1\Innova.MotoValle.Ecommerce.Models.dll
 E:\Desarrollos\Motovalle\Innova.MotoValle.Ecommerce.Models\bin\Debug\netcoreapp3.1\Innova.MotoValle.Ecommerce.Models.pdb
-E:\Desarrollos\Motovalle\Innova.MotoValle.Ecommerce.Models\obj\Debug\netcoreapp3.1\Innova.MotoValle.Ecommerce.Models.csprojAssemblyReference.cache
 E:\Desarrollos\Motovalle\Innova.MotoValle.Ecommerce.Models\obj\Debug\netcoreapp3.1\Innova.MotoValle.Ecommerce.Models.AssemblyInfoInputs.cache
 E:\Desarrollos\Motovalle\Innova.MotoValle.Ecommerce.Models\obj\Debug\netcoreapp3.1\Innova.MotoValle.Ecommerce.Models.AssemblyInfo.cs
 E:\Desarrollos\Motovalle\Innova.MotoValle.Ecommerce.Models\obj\Debug\netcoreapp3.1\Innova.MotoValle.Ecommerce.Models.csproj.CoreCompileInputs.cache
 E:\Desarrollos\Motovalle\Innova.MotoValle.Ecommerce.Models\obj\Debug\netcoreapp3.1\Innova.MotoValle.Ecommerce.Models.dll
 E:\Desarrollos\Motovalle\Innova.MotoValle.Ecommerce.Models\obj\Debug\netcoreapp3.1\Innova.MotoValle.Ecommerce.Models.pdb
+E:\Desarrollos\Motovalle\Innova.MotoValle.Ecommerce.Models\obj\Debug\netcoreapp3.1\Innova.MotoValle.Ecommerce.Models.csproj.AssemblyReference.cache
+E:\Desarrollos\Motovalle\Innova.MotoValle.Ecommerce.Models\obj\Debug\netcoreapp3.1\Innova.MotoValle.Ecommerce.Models.GeneratedMSBuildEditorConfig.editorconfig
