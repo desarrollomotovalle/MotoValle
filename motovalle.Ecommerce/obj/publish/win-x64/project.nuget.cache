@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "wzGQd8o3ini6TquP8fyEf/I4LK3Vv+boT44Kny+Tzqu6+MQ+2ru9LO0MdIJ1q3+92rzfDVKCgDGkZ0le22dmRw==",
+  "dgSpecHash": "IiEYtidVQed0Dc73JDuVLSANqhLM15I1vrMn3Ycukh2u9TtKwvabGymp6CP7AQ4fX7U+chfo7MitjSgPgbDAhw==",
   "success": true,
   "projectFilePath": "E:\\Desarrollos\\Motovalle\\motovalle.Ecommerce\\motovalle.Ecommerce.csproj",
   "expectedPackageFiles": [
@@ -267,10 +267,7 @@
     "C:\\Users\\cariza\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
     "C:\\Users\\cariza\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
     "C:\\Users\\cariza\\.nuget\\packages\\system.xml.xpath\\4.0.1\\system.xml.xpath.4.0.1.nupkg.sha512",
-    "C:\\Users\\cariza\\.nuget\\packages\\system.xml.xpath.xmldocument\\4.0.1\\system.xml.xpath.xmldocument.4.0.1.nupkg.sha512",
-    "C:\\Users\\cariza\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\3.1.18\\microsoft.netcore.app.runtime.win-x64.3.1.18.nupkg.sha512",
-    "C:\\Users\\cariza\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\3.1.18\\microsoft.windowsdesktop.app.runtime.win-x64.3.1.18.nupkg.sha512",
-    "C:\\Users\\cariza\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\3.1.18\\microsoft.aspnetcore.app.runtime.win-x64.3.1.18.nupkg.sha512"
+    "C:\\Users\\cariza\\.nuget\\packages\\system.xml.xpath.xmldocument\\4.0.1\\system.xml.xpath.xmldocument.4.0.1.nupkg.sha512"
   ],
   "logs": []
 }

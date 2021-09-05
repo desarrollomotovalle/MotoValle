@@ -3901,6 +3901,7 @@ E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\P
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\images\maps\pointers\Motovalle-Pointers-235.png
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\images\maps\pointers\Motovalle-Pointers-236.png
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\images\maps\pointers\pointer.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\images\maps\pointers\usados1.old.png
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\images\maps\pointers\usados1.png
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\images\mazda\agendamiento.png
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\images\mazda\campanas-servicio.png
