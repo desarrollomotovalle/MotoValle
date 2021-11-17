@@ -257,6 +257,8 @@ namespace motovalle.Ecommerce.Controllers
         [HttpPost]
         public IActionResult PaymentWays(CheckoutDataViewModel checkoutDataViewModel)
         {
+            //var ase = ValidateStock();
+
             if (!ModelState.IsValid)
             {
                 return this.View(checkoutDataViewModel);
@@ -469,6 +471,8 @@ namespace motovalle.Ecommerce.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateTempOrder(CheckoutDataViewModel checkoutDataViewModel)
         {
+            
+
             if (!ModelState.IsValid || !string.IsNullOrEmpty(await this.VerifyStock()))
             {
                 return this.BadRequest("Por favor verifique la inforamción envíada o valide que haya disponibilidad de stock");
@@ -1400,7 +1404,7 @@ namespace motovalle.Ecommerce.Controllers
         /// <returns>Validate Stock</returns>
         public async Task<IActionResult> ValidateStock()
         {
-            var stockControl = await this.VerifyStock();
+            var stockControl = await this.VerifyStock();            
             return this.Content(stockControl);
         }
         #endregion

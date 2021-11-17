@@ -489,7 +489,7 @@
             document.getElementById("orderInfoIdDiv3").click();
 
             if ("@TempData["FromAppPayment"]" !== null && "@TempData["FromAppPayment"]" === "true") {
-                debugger;
+                //debugger;
                 const order = "@TempData["OrdersId"]" ?? "0"; 
                 fetch(`/Orders/GetManualInvoicePDF/${order}/Emails/true`);
                 Swal.fire({

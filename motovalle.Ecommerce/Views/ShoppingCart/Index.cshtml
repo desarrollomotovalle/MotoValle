@@ -15,7 +15,9 @@
 
 <div class="b-breadCumbs s-shadow">
     <div class="container wow zoomInUp" data-wow-delay="0.5s">
-        <a asp-action="Index" asp-controller="Home" class="b-breadCumbs__page">Home</a><span class="fa fa-angle-right"></span><a asp-action="Index" asp-controller="ShoppigCart" class="b-breadCumbs__page m-active">Compras</a>
+        <a asp-action="Index" asp-controller="Home" class="b-breadCumbs__page">Home</a>
+        <span class="fa fa-angle-right"></span>
+        <a asp-action="Index" asp-controller="ShoppigCart" class="b-breadCumbs__page m-active">Compras</a>
     </div>
     @if (ViewBag.Message != null)
     {
@@ -58,6 +60,7 @@
             const $bSubmit = document.querySelector(".b-submit");
             document.querySelector('.btn-continue').addEventListener('click', async (e) => {
                 e.preventDefault;
+               var prueba =  window.location.href = "/ShoppingCart/Cliente/";
                 const result = await ValidateStock();
                 if (result) {
                     window.location.href = "/ShoppingCart/Cliente/";

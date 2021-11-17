@@ -128,12 +128,13 @@
                     behavior: "smooth"
                 });
             }, 530);
-
+            //debugger;
             const $frmWompiWidget = document.querySelector("#frmWompiWidget");
             $frmWompiWidget.addEventListener('submit', async (e) => {
                 e.preventDefault();
                 const gResponse = grecaptcha.getResponse();
                 const $habeasData = document.querySelector("#HabeasData");
+                //debugger;
                 if (!gResponse) {
                     await Swal.fire({
                         icon: 'error',
@@ -143,7 +144,6 @@
                         allowOutsideClick: false,
                         allowEscapeKey: false
                     });
-
                     return;
                 }
 
@@ -156,7 +156,6 @@
                         allowOutsideClick: false,
                         allowEscapeKey: false
                     });
-
                     return;
                 }
 
@@ -173,13 +172,19 @@
                 });
 
                 if (areYouSure.isConfirmed) {
-                    ////Validate Stock
-                    const result = await ValidateStock();
-                    if (!result) {
-                        return;
+                    ////Validate Stock 
+                    debugger;
+                    //const result = ValidateStock();
+                    const validateRequest = await fetch('/ShoppingCart/ValidateStock', {
+                        method: "Get"
+                    });
+                    if (validateRequest.ok) {
+                        if (validateRequest.text() === "") {
+                            return;
+                        }
                     }
 
-                    debugger;
+                    //debugger;
                     const orderCreateRequest = await fetch('/ShoppingCart/CreateTempOrder/', {
                         method: "POST",
                         body: new FormData(e.target)
@@ -214,6 +219,20 @@
 
                 return;
             });
+
+            const ValidateStock = async() => {
+                const validateRequest = await fetch('/ShoppingCart/ValidateStock', {
+                    method: "Get"
+                });
+                if (validateRequest.ok) {
+                    return validateRequest.text() === "";
+                }
+                else {
+                    // logica para manejar errores
+                    alert('error');
+                }
+            }
+
         })();
     </script>
 }
