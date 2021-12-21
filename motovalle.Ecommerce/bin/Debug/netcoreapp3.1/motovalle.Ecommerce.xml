@@ -13806,6 +13806,125 @@
             Valida el modelo del vehiculo, en caso de ser Ford ejecuta una condicion especial en la vista
             </summary>
         </member>
+        <member name="T:motovalle.Ecommerce.Models.ViewModels.Landing.ContactLavadoGratisViewModel">
+            <summary>
+            Contact View Model
+            </summary>
+        </member>
+        <member name="P:motovalle.Ecommerce.Models.ViewModels.Landing.ContactLavadoGratisViewModel.FullName">
+            <summary>
+            Gets or sets the full name.
+            </summary>
+            <value>
+            The full name.
+            </value>
+        </member>
+        <member name="P:motovalle.Ecommerce.Models.ViewModels.Landing.ContactLavadoGratisViewModel.LastName">
+            <summary>
+            Gets or sets the full name.
+            </summary>
+            <value>
+            The full name.
+            </value>
+        </member>
+        <member name="P:motovalle.Ecommerce.Models.ViewModels.Landing.ContactLavadoGratisViewModel.IdentificationCard">
+            <summary>
+            Gets or sets the phone number.
+            </summary>
+            <value>
+            The phone number.
+            </value>
+        </member>
+        <member name="P:motovalle.Ecommerce.Models.ViewModels.Landing.ContactLavadoGratisViewModel.PhoneNumber">
+            <summary>
+            Gets or sets the phone number.
+            </summary>
+            <value>
+            The phone number.
+            </value>
+        </member>
+        <member name="P:motovalle.Ecommerce.Models.ViewModels.Landing.ContactLavadoGratisViewModel.Email">
+            <summary>
+            Gets or sets the email.
+            </summary>
+            <value>
+            The email.
+            </value>
+        </member>
+        <member name="P:motovalle.Ecommerce.Models.ViewModels.Landing.ContactLavadoGratisViewModel.VehicleBrand">
+            <summary>
+            Gets or sets the message.
+            </summary>
+            <value>
+            The message.
+            </value>
+        </member>
+        <member name="P:motovalle.Ecommerce.Models.ViewModels.Landing.ContactLavadoGratisViewModel.Model">
+            <summary>
+            Gets model Of vehicle
+            </summary>
+            
+        </member>
+        <member name="P:motovalle.Ecommerce.Models.ViewModels.Landing.ContactLavadoGratisViewModel.Year">
+            <summary>
+            Gets or sets the phone number.
+            </summary>
+            <value>
+            The phone number.
+            </value>
+        </member>
+        <member name="P:motovalle.Ecommerce.Models.ViewModels.Landing.ContactLavadoGratisViewModel.Plate">
+            <summary>
+            Gets or sets the phone number.
+            </summary>
+            <value>
+            The phone number.
+            </value>
+        </member>
+        <member name="P:motovalle.Ecommerce.Models.ViewModels.Landing.ContactLavadoGratisViewModel.Bill">
+            <summary>
+            Gets or sets the phone number.
+            </summary>
+            <value>
+            The phone number.
+            </value>
+        </member>
+        <member name="P:motovalle.Ecommerce.Models.ViewModels.Landing.ContactLavadoGratisViewModel.City">
+            <summary>
+            Gets or sets the full name.
+            </summary>
+            <value>
+            The full name.
+            </value>
+        </member>
+        <member name="P:motovalle.Ecommerce.Models.ViewModels.Landing.ContactLavadoGratisViewModel.Message">
+            <summary>
+            Gets or sets the message.
+            </summary>
+            <value>
+            The message.
+            </value>
+        </member>
+        <member name="P:motovalle.Ecommerce.Models.ViewModels.Landing.ContactLavadoGratisViewModel.HabeasData">
+            <summary>
+            Gets or sets a value indicating whether [habeas data].
+            </summary>
+            <value>
+              <c>true</c> if [habeas data]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:motovalle.Ecommerce.Models.ViewModels.Landing.ContactLavadoGratisViewModel.CampaingNumber">
+            <summary>
+            Gets or sets the campaing number.
+            </summary>
+            <value>
+            The campaing number.
+            </value>
+        </member>
+        <member name="P:motovalle.Ecommerce.Models.ViewModels.Landing.ContactLavadoGratisViewModel.Apellidos">
+            Propedades adicionales
+            
+        </member>
         <member name="T:motovalle.Ecommerce.Models.ViewModels.Landing.ContactViewModel">
             <summary>
             Contact View Model

@@ -4289,3 +4289,5 @@ E:\Desarrollos\Motovalle\motovalle.Ecommerce\bin\Release\netcoreapp3.1\win-x64\r
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\bin\Release\netcoreapp3.1\win-x64\Microsoft.AspNetCore.Mvc.Razor.Extensions.dll
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\bin\Release\netcoreapp3.1\win-x64\Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.dll
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\motovalle.Ecommerce.GeneratedMSBuildEditorConfig.editorconfig
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\Razor\Views\Ofertas\LavadoGratisIlimitado.cshtml.g.cs
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\Razor\Views\Shared\Landing\_ContactFormLavadoGratis.cshtml.g.cs
