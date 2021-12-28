@@ -26,7 +26,9 @@
 
 }
 
-<!--Card content-->
+
+
+   <!--Card content-->
 <div class="card-body" id="frm-contact-lading">
 
     <!-- Form -->
@@ -35,106 +37,96 @@
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <input asp-for="CampaingNumber" hidden />
         <!-- Heading -->
-        <h3 class="dark-grey-text text-center">
-            <strong>Contáctenos ahora</strong>
-        </h3>
-        <hr>
-
-        <div class="md-form">
-            <i class="fas fa-user prefix grey-text"></i>
-            <input asp-for="FullName" class="form-control" />
-            <label asp-for="FullName"></label>
-            <span asp-validation-for="FullName" class="text-danger"></span>
-        </div>
-        <div class="md-form">
-            <i class="fas fa-user prefix grey-text"></i>
-            <input asp-for="LastName" class="form-control" />
-            <label asp-for="LastName"></label>
-            <span asp-validation-for="LastName" class="text-danger"></span>
-        </div>
-        <div class="md-form">
-            <i class="fas fa-id-card prefix grey-text"></i>
-            <input asp-for="IdentificationCard" class="form-control" />
-            <label asp-for="IdentificationCard"></label>
-            <span asp-validation-for="IdentificationCard" class="text-danger"></span>
-        </div>
-        <div class="md-form">
-            <i class="fas fa-phone-alt prefix grey-text"></i>
-            <input asp-for="PhoneNumber" class="form-control" />
-            <label asp-for="PhoneNumber"></label>
-            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
-        </div>
-        <div class="md-form">
-            <i class="fas fa-envelope prefix grey-text"></i>
-            <input asp-for="Email" class="form-control" />
-            <label asp-for="Email"></label>
-            <span asp-validation-for="Email" class="text-danger"></span>
-        </div>
-        <div class="md-form">
-            <i class="fas fa-car prefix grey-text"></i>
-            <input asp-for="VehicleBrand" class="form-control" />
-            <label asp-for="VehicleBrand"></label>
-            <span asp-validation-for="VehicleBrand" class="text-danger"></span>
-        </div>
-        <div class="md-form">
-            <i class="fas fa-car prefix grey-text"></i>
-            <input asp-for="Model" class="form-control" />
-            <label asp-for="Model"></label>
-            <span asp-validation-for="Model" class="text-danger"></span>
-        </div>
-        <div class="md-form">
-            <i class="fas fa-calendar-day prefix grey-text"></i>            
-            <input asp-for="Year" class="form-control" />
-            <label asp-for="Year"></label>
-            <span asp-validation-for="Year" class="text-danger"></span>
-        </div>
-        <div class="md-form">
-            <i class="fas fa-envelope prefix grey-text"></i>
-            <input asp-for="Plate" class="form-control" />
-            <label asp-for="Plate"></label>
-            <span asp-validation-for="Plate" class="text-danger"></span>
-        </div>
-        <div class="md-form">            
-            <i class="far fa-list-alt prefix grey-text"></i>
-            <input asp-for="Bill" class="form-control" />
-            <label asp-for="Bill"></label>
+        @*<div class="input-wrapper mt-1">
+            <p> Nombre</p>
+            <input type="type" name="name" value="" />
             <span asp-validation-for="Bill" class="text-danger"></span>
-        </div>
-        <div class="md-form">            
-            <i class="far fa-calendar-alt prefix grey-text"></i>
-            <input asp-for="BillDate" class="form-control" />
-            <label asp-for="BillDate"></label>
-            <span asp-validation-for="BillDate" class="text-danger"></span>
-        </div>
-        <div class="md-form">            
-            <i class="fas fa-city prefix grey-text"></i>
-            <input asp-for="City" class="form-control" />
-            <label asp-for="City"></label>
-            <span asp-validation-for="City" class="text-danger"></span>
-        </div>
+        </div>*@
 
-        <!--<div class="md-form">
-            <i class="fas fa-pencil-alt prefix grey-text"></i>
-            @Html.TextAreaFor(x => x.Message, 4, 1, new { @class = "form-control" })
-            <label asp-for="Message"></label>
-            <span asp-validation-for="Message" class="text-danger"></span>
-        </div>-->
+        <h4 class="text-center"><strong>Regístrate para participar</strong></h4>
 
-        <div class="form-check">
-            <label>
-                <input type="checkbox" class="form-control" asp-for="HabeasData" required>
-                Acepto las<a href="~/files/POLITICA DATOS PERSONALES MOTOVALLE[2336].pdf" rel="noreferrer" target="_blank"> políticas de privacidad</a>
-            </label>
-            <div>
-                <span asp-validation-for="HabeasData" class="text-danger"></span>
+        <div class="form-row">
+            <div class="col-6">
+                <label>Nombre completo</label>
+                <input type="text" class="form-control">
+            </div>
+            <div class="col-6">
+                <label>Apellido(s)</label>
+                <input type="text" class="form-control">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-6">
+                <label>Número de cédula</label>
+                <input type="text" class="form-control">
+            </div>
+            <div class="col-6">
+                <label>Número de celular</label>
+                <input type="text" class="form-control">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-6">
+                <label>Correo electrónico</label>
+                <input type="text" class="form-control">
+            </div>
+            <div class="col-6">
+                <label>Marca del vehículo</label>
+                <input type="text" class="form-control">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-6">
+                <label>Modelo del vehículo</label>
+                <input type="text" class="form-control">
+            </div>
+            <div class="col-6">
+                <label>Modelo / año</label>
+                <input type="text" class="form-control">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-6">
+                <label>Placa</label>
+                <input type="text" class="form-control">
+            </div>
+            <div class="col-6">
+                <label>Número de factura</label>
+                <input type="text" class="form-control">
+            </div>
+
+        </div>
+        <div class="form-row">
+            <div class="col-6">
+                <label>Fecha de factura</label>
+                <input type="date" class="form-control">
+            </div>
+            <div class="col-6">
+                <label>Ciudad de residencia</label>
+                <select class="form-control">
+                    <option value="Cali">Cali</option>
+                    <option value="Bogota">Bogota</option>
+                </select>
             </div>
         </div>
 
+
+        <div class="form-check mt-2">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
+                Acepto las<a href="~/files/POLITICA DATOS PERSONALES MOTOVALLE[2336].pdf" rel="noreferrer" target="_blank"> políticas de privacidad</a>
+            </label>
+        </div>
+
+
+
+
         <div class="text-center">
-            <input type="submit" class="btn btn-indigo" value="¡Consulta ya!" />
+            @*<input type="submit" class="btn btn-light" value="¡Consulta ya!" />*@
+            <button class="btn btn-outline-primary">Envíar</button>
         </div>
 
     </form>
     <!-- Form -->
-
 </div>
+

@@ -119,6 +119,9 @@ namespace motovalle.Ecommerce.Models.ViewModels.Landing
         [DataType(DataType.PhoneNumber)]
         public string Bill { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
         [Display(Name = "Fecha de factura")]
         [Required(ErrorMessage = "{0} es obligatorio.")]
         [DataType(DataType.PhoneNumber)]

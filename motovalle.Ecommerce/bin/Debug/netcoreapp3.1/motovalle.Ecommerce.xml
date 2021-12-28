@@ -13889,6 +13889,11 @@
             The phone number.
             </value>
         </member>
+        <member name="P:motovalle.Ecommerce.Models.ViewModels.Landing.ContactLavadoGratisViewModel.BillDate">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="P:motovalle.Ecommerce.Models.ViewModels.Landing.ContactLavadoGratisViewModel.City">
             <summary>
             Gets or sets the full name.

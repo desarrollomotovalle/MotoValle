@@ -5,10 +5,10 @@
     Layout = "~/Views/Shared/Landing/_LayoutLanding.cshtml";
 }
 
-<nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
-    <div class="container">
+<!--<nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
+    <div class="container">-->
         <!-- Navbar center -->
-        <ul class="navbar-nav nav-flex-icons" style="float:none; margin:0 auto; display: block; text-align: center;">
+        <!--<ul class="navbar-nav nav-flex-icons" style="float:none; margin:0 auto; display: block; text-align: center;">
             <li class="nav-item" style="display: inline-block; float:none;">
                 <a href="https://wa.me/@TempData["Phone"]" class="nav-link waves-effect waves-light" target="_blank">
                     <img src="/landingAssets/img/svg/whatsapp-lollipop.png" width="7%" class="img-responsive center-block" alt="wpp-logo">  Contáctanos
@@ -16,22 +16,31 @@
             </li>
         </ul>
     </div>
-</nav>
+</nav>-->
 <!-- Navbar -->
 <!-- Full Page Intro -->
 <div class="view full-page-intro-carshow">
 
+    <div class="propia">
+
+                <label class="encabezados"> Nombre completo</label>
+
+                <input class="cuerpo text-black-50" type="text"/>                
+    </div>
+    
     <!-- Mask & flexbox options-->
-    <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
+    @*<div class="mask rgba-black-light d-flex justify-content-center align-items-center">*@
+    <div class="mask d-flex justify-content-center align-items-center">
 
         <!-- Content -->
         <div class="container-fluid">
 
             <!--Grid row-->
-            <div class="row wow fadeIn">
+            @*<div class="row wow fadeIn">*@
+            <div class="row justify-content-end"> @* Posicionar Card en cualquier ubicacion *@
                 <div class="">
                     <!--Card-->
-                    <div class="card">
+                    <div class="card s-form" id="fmrLavadoIlimitadoGratis">
                         @{ await Html.RenderPartialAsync("/Views/Shared/Landing/_ContactFormLavadoGratis.cshtml"); }
                     </div>
                     <!--/.Card-->
@@ -51,9 +60,9 @@
 </div>
 <!-- Full Page Intro -->
 <!--Card-->
-*<div class="card out">
+@*<div class="card out">
     @{ await Html.RenderPartialAsync("/Views/Shared/Landing/_ContactFormLavadoGratis.cshtml"); }
-</div>
+</div>*@
 <!--/.Card-->
 
 

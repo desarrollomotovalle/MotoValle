@@ -6,13 +6,13 @@ body,
 }
 
 
-/*-------------- set css for different resolutions --------------*/ 
+/*-------------- set css for different resolutions --------------*/
 .card.out {
-    display: none
+    /*display: none*/
 }
 
 
-/*-------------- set css for FORD ECOSPORT --------------*/ 
+/*-------------- set css for FORD ECOSPORT --------------*/
 .full-page-intro {
     background: url('../../landingAssets/img/main/ecosport-landingADJ.jpg') no-repeat center;
     background-size: cover;
@@ -127,8 +127,8 @@ body,
 }
 
 /*-------------- set css for Carshow --------------*/
-.full-page-intro-carshow {
-    background: url('../../landingAssets/img/main/carshow/carshow-web-tienda-julio.jpg') no-repeat center;
+/*.full-page-intro-carshow {
+    background: url('../../landingAssets/img/main/carshow/lavadoIlimitadoGatis.jpg') no-repeat center;
     background-size: cover;
     background-repeat: no-repeat;
     -webkit-background-size: cover;
@@ -138,6 +138,17 @@ body,
     height: 100%;
     width: 100%;
 }
+*/
+
+.full-page-intro-carshow {
+    background: url('../../landingAssets/img/main/carshow/lavadoIlimitadoGatis.jpg') no-repeat;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    background-size: 70% 100%;
+}
+
 
 /*-------------- set css for Ford Campaings --------------*/
 .full-page-intro-ford-camaping {
@@ -242,13 +253,13 @@ body,
         display: none;
     }
 
-    .card.out {
-        display: block;
-    }
+        .card.out {
+            display: block;
+        }
 }
 
 @media only screen and (max-width: 776px) {
-    .full-page-intro  {
+    .full-page-intro {
         height: 100%;
         background: url('../../landingAssets/img/main/ecosport-landingADJ3.jpg') no-repeat top;
         background-size: contain;
@@ -446,7 +457,7 @@ body,
         margin-top: -32em;
     }
 }
-/* -------------- End CSS -------------- */ 
+/* -------------- End CSS -------------- */
 
 
 /* Half Page Carousel itself*/
@@ -522,3 +533,51 @@ header,
         background: #1C2331 !important;
     }
 }
+
+
+/*--------------------------------------------------------------
+# Styles Landing Lavado Ilimitadoi gratis 
+--------------------------------------------------------------*/
+
+/*.input-icon {
+    position: absolute;
+    left: 5px;
+    top: calc(50% - 0.5em);*/ /* Keep icon in center of input, regardless of the input height */
+/*}
+
+input {
+    padding-left: 25px !important;
+}
+
+.input-wrapper {
+    position: relative;
+}*/
+
+#fmrLavadoIlimitadoGratis {
+    background-color: #ffffff;
+    
+}
+
+.propia {
+    width: 30%;
+    height: 100%;
+    border-color: black;
+    background-color: #ffffff;
+    opacity: 0.9;
+    float: right;
+}
+
+    .propia .encabezados {
+        width: 100%;
+        color: black;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    .propia .cuerpo {
+        width: 90%;
+        border-color: none;
+        color: black;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
