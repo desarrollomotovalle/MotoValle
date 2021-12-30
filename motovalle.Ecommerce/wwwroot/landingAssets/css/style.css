@@ -237,9 +237,9 @@ body,
         height: 100%;
     }
 
-    .full-page-intro-carshow {
+/*    .full-page-intro-carshow {
         height: 100%;
-    }
+    }*/
 
     .full-page-intro-ford-camaping {
         height: 100%;
@@ -376,7 +376,7 @@ body,
         width: 100%;
     }
 
-    .full-page-intro-carshow {
+/*    .full-page-intro-carshow {
         height: 100%;
         background: url('../../landingAssets/img/main/carshow/carshow-mobile-julio.png') no-repeat top;
         background-size: contain;
@@ -387,7 +387,20 @@ body,
         background-size: contain;
         height: 100%;
         width: 100%;
-    }
+    }*/
+
+ /*   .full-page-intro-carshow {
+        height: 100%;
+        background: url('../../landingAssets/img/main/carshow/lavadoIlimitadoGatisMobile.jpg') no-repeat top;
+        background-size: contain;
+        background-repeat: no-repeat;
+        -webkit-background-size: contain;
+        -moz-background-size: contain;
+        -o-background-size: contain;
+        background-size: contain;
+        height: 100%;
+        width: 100%;
+    }*/
 
     .full-page-intro-ford-camaping {
         background: url('../../landingAssets/img/main/ford/BANNER-MV-MOBILE-FORD-JUL.png') no-repeat top;
@@ -581,3 +594,37 @@ input {
         margin-left: 5%;
         margin-right: 5%;
     }
+
+@media(min-width:360px) and (max-width:768px) {
+    .full-page-intro-carshow {
+        background: url('../../landingAssets/img/main/carshow/lavadoIlimitadoGatisMobile.jpg') no-repeat;
+        background-repeat: no-repeat;
+        height: 100%;
+        width: 100%;
+        position: relative;
+        background-size: 100% 100%;
+    }
+    
+    .propia {
+/*        width: 100%;
+        height: 100%;*/
+        border-color: black;
+        background-color: #ffffff;
+
+    }
+
+        .propia .encabezados {
+            width: 90%;
+            color: black;
+            margin-left: 5%;
+            margin-right: 5%;
+        }
+
+        .propia .cuerpo {
+            width: 90%;
+            border-color: none;
+            color: black;
+            margin-left: 5%;
+            margin-right: 5%;
+        }
+}
