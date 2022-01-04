@@ -9,6 +9,7 @@
 
 namespace motovalle.Ecommerce.Models.ViewModels.Landing
 {
+    using System;
     using System.ComponentModel.DataAnnotations;
 
     /// <summary>
@@ -16,171 +17,70 @@ namespace motovalle.Ecommerce.Models.ViewModels.Landing
     /// </summary>
     public class ContactLavadoGratisViewModel
     {
-        /// <summary>
-        /// Gets or sets the full name.
-        /// </summary>
-        /// <value>
-        /// The full name.
-        /// </value>
-        [Display(Name = "Nombre Completo")]
-        [Required(ErrorMessage = "{0} es obligatorio.")]
-        public string FullName { get; set; }
+        [Display(Name ="Nombre(s)")]
+        [Required(ErrorMessage = "Campo requerido")]
+        [MinLength(3, ErrorMessage = "El campo debe tener al menos 3 caracteres")]
+        [MaxLength(30, ErrorMessage = "El campo no debe tener más de 30 caracteres")]
+        public string Nombres { get; set; }
 
-        /// <summary>
-        /// Gets or sets the full name.
-        /// </summary>
-        /// <value>
-        /// The full name.
-        /// </value>
         [Display(Name = "Apellido(s)")]
-        [Required(ErrorMessage = "{0} es obligatorio.")]
-        public string LastName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the phone number.
-        /// </summary>
-        /// <value>
-        /// The phone number.
-        /// </value>
-        [Display(Name = "Cédula")]
-        [Required(ErrorMessage = "{0} es obligatorio.")]
-        [DataType(DataType.PhoneNumber)]
-        public string IdentificationCard { get; set; }
-
-        /// <summary>
-        /// Gets or sets the phone number.
-        /// </summary>
-        /// <value>
-        /// The phone number.
-        /// </value>
-        [Display(Name = "Télefono / Celular")]
-        [Required(ErrorMessage = "{0} es obligatorio.")]
-        [DataType(DataType.PhoneNumber)]
-        public string PhoneNumber { get; set; }
-
-        /// <summary>
-        /// Gets or sets the email.
-        /// </summary>
-        /// <value>
-        /// The email.
-        /// </value>
-        [Display(Name = "Correo eletrónico")]
-        [Required(ErrorMessage = "{0} es obligatorio.")]
-        [DataType(DataType.EmailAddress)]
-        public string Email { get; set; }
-
-        /// <summary>
-        /// Gets or sets the message.
-        /// </summary>
-        /// <value>
-        /// The message.
-        /// </value>
-        [Display(Name = "Marca del vehículo")]
-        public string VehicleBrand { get; set; }
-
-        /// <summary>
-        /// Gets model Of vehicle
-        /// </summary>
-        /// 
-        [Display(Name = "Modelo del vehículo")]
-        public string Model { get; set; }
-
-
-        /// <summary>
-        /// Gets or sets the phone number.
-        /// </summary>
-        /// <value>
-        /// The phone number.
-        /// </value>
-        [Display(Name = "Año")]
-        [Required(ErrorMessage = "{0} es obligatorio.")]
-        [DataType(DataType.PhoneNumber)]
-        public string Year { get; set; }
-
-        /// <summary>
-        /// Gets or sets the phone number.
-        /// </summary>
-        /// <value>
-        /// The phone number.
-        /// </value>
-        [Display(Name = "Placa")]
-        [Required(ErrorMessage = "{0} es obligatorio.")]
-        [DataType(DataType.PhoneNumber)]
-        public string Plate { get; set; }
-
-        /// <summary>
-        /// Gets or sets the phone number.
-        /// </summary>
-        /// <value>
-        /// The phone number.
-        /// </value>
-        [Display(Name = "Número de factura")]
-        [Required(ErrorMessage = "{0} es obligatorio.")]
-        [DataType(DataType.PhoneNumber)]
-        public string Bill { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        [Display(Name = "Fecha de factura")]
-        [Required(ErrorMessage = "{0} es obligatorio.")]
-        [DataType(DataType.PhoneNumber)]
-        public string BillDate { get; set; }
-
-        /// <summary>
-        /// Gets or sets the full name.
-        /// </summary>
-        /// <value>
-        /// The full name.
-        /// </value>
-        [Display(Name = "Ciudad")]
-        [Required(ErrorMessage = "{0} es obligatorio.")]
-        public string City { get; set; }
-
-        /// <summary>
-        /// Gets or sets the city.
-        /// </summary>
-        /// <value>
-        /// The city.
-        /// </value>
-        //[Display(Name = "Ciudad")]
-        //[Required(ErrorMessage = "{0} es obligatorio.")]
-        //public string City { get; set; }
-
-        /// <summary>
-        /// Gets or sets the message.
-        /// </summary>
-        /// <value>
-        /// The message.
-        /// </value>
-        [Display(Name = "Comentarios")]
-        public string Message { get; set; }
-
-        /// <summary>
-        /// Gets or sets a value indicating whether [habeas data].
-        /// </summary>
-        /// <value>
-        ///   <c>true</c> if [habeas data]; otherwise, <c>false</c>.
-        /// </value>
-        [Display(Name = "Acepto pólíticas de privacidad")]
-        [Required(ErrorMessage = "Debes aceptar las políticas de privacidad")]
-        public bool HabeasData { get; set; }
-
-        /// <summary>
-        /// Gets or sets the campaing number.
-        /// </summary>
-        /// <value>
-        /// The campaing number.
-        /// </value>
-        public int? CampaingNumber { get; set; }
-
-
-        /// Propedades adicionales
-        /// 
-        [Display(Name = "Apellidos")]
-        [Required(ErrorMessage = "{0} es obligatorio.")]
+        [Required(ErrorMessage = "Campo requerido")]
+        [MinLength(3, ErrorMessage = "El campo debe tener al menos 3 caracteres")]
+        [MaxLength(30, ErrorMessage = "El campo no debe tener más de 30 caracteres")]
         public string Apellidos { get; set; }
 
+        [Display(Name = "Cédula")]
+        [Required(ErrorMessage = "Campo requerido")]
+        public string Cedula { get; set; }
 
+        [Display(Name = "N° de celular")]
+        [Required(ErrorMessage = "Campo requerido")]
+        [MinLength(10, ErrorMessage = "El campo debe tener 10 caracteres")]
+        [MaxLength(10, ErrorMessage = "El campo debe tener 10 caracteres")]
+        public string Celular { get; set; }
+
+        [Display(Name = "Correo electrónico")]
+        [Required(ErrorMessage = "Campo requerido")]
+        [DataType(DataType.EmailAddress, ErrorMessage = "El correo debe ser válido")]
+        public string Correo { get; set; }
+
+        [Display(Name = "Marca del vehículo")]
+        [Required(ErrorMessage = "Campo requerido")]
+        [MinLength(3, ErrorMessage = "El campo debe tener al menos 3 caracteres")]
+        [MaxLength(30, ErrorMessage = "El campo no debe tener más de 30 caracteres")]
+        public string MarcaVehiculo { get; set; }
+
+        [Display(Name = "Modelo")]
+        [Required(ErrorMessage = "Campo requerido")]
+        [MinLength(4, ErrorMessage = "El campo debe tener al menos 4 caracteres")]
+        [MaxLength(30, ErrorMessage = "El campo no debe tener más de 30 caracteres")]
+        public string Modelo { get; set; }
+
+        [Display(Name = "Placa")]
+        [Required(ErrorMessage = "Campo requerido")]
+        [MinLength(6, ErrorMessage = "El campo debe tener 6 caracteres")]
+        [MaxLength(30, ErrorMessage = "El campo debe tener 6 caracteres")]
+        public string Placa { get; set; }
+
+        [Display(Name = "N° de factura")]
+        [Required(ErrorMessage = "Campo requerido")]
+        [MinLength(3, ErrorMessage = "El campo debe tener al menos 3 caracteres")]
+        [MaxLength(30, ErrorMessage = "El campo no debe tener más de 30 caracteres")]
+        public string Factura { get; set; }
+
+        [Display(Name = "Fecha de factura")]
+        [Required(ErrorMessage = "Campo requerido")]
+        [DataType(DataType.Date, ErrorMessage = "El formato de fecha no es válido")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        public DateTime FechaFactura { get; set; }
+
+        [Display(Name = "Ciudad de residencia")]
+        [Required(ErrorMessage = "Campo requerido")]        
+        public string CiudadResidencia { get; set; }
+
+        [Required]
+        //[RegularExpression("True", ErrorMessage = "Debes aceptar las políticas de privacidad")]
+        [Range(typeof(bool), "true", "true", ErrorMessage = "Debes aceptar las políticas de privacidad")]
+        public bool TratamientoDatos { get; set; }
     }
 }

@@ -38,6 +38,7 @@ namespace motovalle.Ecommerce
     using Inventek.ERP.DAL.EF;
     using System.Net.Http.Headers;
     using motovalle.Ecommerce.Helpers.Services.WompiPaymentGateway;
+    using motovalle.Ecommerce.Models;
 
     public class Startup
     {
@@ -132,7 +133,11 @@ namespace motovalle.Ecommerce
 
             //Context for Custom Pages -> Inventek ERP Code
             services.AddDbContext<inventekContext>(options =>
-                options.UseMySql(this.Configuration.GetConnectionString("InventekConnection"))); 
+                options.UseMySql(this.Configuration.GetConnectionString("InventekConnection")));
+
+            // Context for Landing Page
+            services.AddDbContext<msi_ecommerceContext>(options => options
+                    .UseMySql(Configuration.GetConnectionString("DefaultConnection"))); 
             #endregion
 
             ////Configure Depedency Injection for our repositories
@@ -191,13 +196,14 @@ namespace motovalle.Ecommerce
             services.AddScoped<IGuestUserHelper, GuestUserHelper>();
             services.AddScoped<IWompiPaymentGatewayService, WompiPaymentGatewayService>();
             services.AddTransient<SEOSearchHelper>();
-            
+
             ////Recaptcha Service
             services.Configure<RecaptchaSettings>(Configuration.GetSection("RecaptchaSettings"));
             services.AddTransient<IRecaptchaService, RecaptchaService>();
 
             ////Http Clients Services
-            services.AddHttpClient("Wompi", x => {
+            services.AddHttpClient("Wompi", x =>
+            {
                 x.BaseAddress = new Uri(this.Configuration.GetSection("WompiSettings").GetValue<string>("Endpoint"));
                 x.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             });
