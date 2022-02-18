@@ -70,7 +70,7 @@
                     </div>
                     <div class="col">
                         <label class="label" asp-for="FechaFactura"></label>
-                        <input type="date" class="form-control" asp-for="FechaFactura">
+                        <input type="date" class="form-control" asp-for="FechaFactura" id="FechaFactura">
                         <span asp-validation-for="FechaFactura" class="text-danger"></span>
                     </div>
                 </div>
@@ -145,5 +145,10 @@
                 return defaultRangeValidator.call(this, value, element, param);
             }
         }
+
+        $('#FechaFactura').datepicker({
+            dateFormat: "yy-mm-dd",
+            endDate: new Date()
+        });
     </script>
 }

@@ -21,7 +21,7 @@ namespace motovalle.Ecommerce.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseMySql("Server=localhost;Database=msi_ecommerce;User ID=pos_user;Password=inventek");
+                optionsBuilder.UseMySql("Server=74.208.211.144;Database=msi_ecommerce;User ID=pos_user;Password=inventek");
             }
         }
 

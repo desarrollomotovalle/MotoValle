@@ -602,7 +602,10 @@ input {
 
     .p-6 {
         /*padding: 2rem;*/
-        padding: 0%;
+        /*padding: 0%;*/
+        padding-top:20px;
+        padding-left: 3%;
+        padding-right:3%;
     }
 }
 

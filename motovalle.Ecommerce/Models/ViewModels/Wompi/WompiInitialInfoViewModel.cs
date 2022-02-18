@@ -72,10 +72,11 @@ namespace motovalle.Ecommerce.Models.ViewModels.Wompi
         /// <value>
         /// The reference.
         /// </value>
-        [Display(Name = "Referencia de pago / Nro. Orden")]
-        [Range(1, int.MaxValue, ErrorMessage = "{0} debe ser superior a {1}")]
+        [Display(Name = "Nro. Identificación")]
+        //[Range(1, int.MaxValue, ErrorMessage = "{0} debe ser superior a {1}")]
         [Required(ErrorMessage = "{0} es requerido.")]
-        public int? Reference { get; set; }
+        //public int? Reference { get; set; }
+        public string Reference { get; set; }
 
         /// <summary>
         /// Gets or sets the redirect URL.

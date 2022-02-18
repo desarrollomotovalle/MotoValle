@@ -102,20 +102,16 @@ namespace motovalle.Ecommerce.Controllers
                 return this.View(nameof(Wompi), wompiInitialInfoViewModel);
             }
             
-            var charactersNumbers = "123456789";
-            var charactersLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-            var letters = new char[4];
-            var numbers = new char[4];
+            
+            var charactersNumbers = "1234567890";
+            var numbers = new char[6];
             var random = new Random();
 
-            for (int i = 0; i < letters.Length; i++)
+            for (int i = 0; i < numbers.Length; i++)
             {
-                letters[i] = charactersLetters[random.Next(charactersLetters.Length)];
                 numbers[i] = charactersNumbers[random.Next(charactersNumbers.Length)];
-
-            }           
-
-            var resultString2 = new String(letters) + "-" + new String(numbers);
+            }   
+            wompiInitialInfoViewModel.Reference += "-" + new String(numbers);
 
             return this.View(wompiInitialInfoViewModel);
         }

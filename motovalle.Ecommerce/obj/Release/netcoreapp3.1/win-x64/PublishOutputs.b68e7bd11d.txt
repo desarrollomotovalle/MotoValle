@@ -6124,6 +6124,8 @@ E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\P
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\landingAssets\img\main\carshow\carshow-web-tienda-julio.jpg
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\landingAssets\img\main\carshow\carshow.jpg
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\landingAssets\img\main\carshow\lavadoIlimitadoGatis.jpg
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\landingAssets\img\main\carshow\lavadoIlimitadoGatis.original.jpg
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\landingAssets\img\main\carshow\lavadoIlimitadoGatisMobile.jpg
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\landingAssets\img\main\ecosport-landingADJ.jpg
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\landingAssets\img\main\ecosport-landingADJ2.jpg
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\landingAssets\img\main\ecosport-landingADJ3.jpg
@@ -13232,7 +13234,6 @@ E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\P
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\refs\System.Xml.XmlSerializer.dll
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\refs\System.Xml.XPath.dll
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\refs\System.Xml.XPath.XDocument.dll
-E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\refs\System.Xml.XPath.XmlDocument.dll
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\refs\WindowsBase.dll
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\motovalle.Ecommerce.dll
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\motovalle.Ecommerce.runtimeconfig.json
@@ -13240,6 +13241,9 @@ E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\P
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\BouncyCastle.Crypto.dll
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\EPPlus.dll
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\Google.Protobuf.dll
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\K4os.Compression.LZ4.dll
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\K4os.Compression.LZ4.Streams.dll
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\K4os.Hash.xxHash.dll
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\Lexim.MercadoPago.dll
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\Microsoft.AspNetCore.Cryptography.Internal.dll
@@ -13302,7 +13306,9 @@ E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\P
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\MySql.Data.dll
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\Ubiety.Dns.Core.dll
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\Zstandard.Net.dll
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\MySql.Data.EntityFrameworkCore.dll
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\MySql.EntityFrameworkCore.dll
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\MySqlConnector.dll
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\Newtonsoft.Json.dll
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\Newtonsoft.Json.Bson.dll
@@ -13330,7 +13336,6 @@ E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\P
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\System.IdentityModel.Tokens.Jwt.dll
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\System.Runtime.Caching.dll
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\System.Security.Cryptography.ProtectedData.dll
-E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\System.Xml.XPath.XmlDocument.dll
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\cs\Microsoft.CodeAnalysis.resources.dll
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\de\Microsoft.CodeAnalysis.resources.dll
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\es\Microsoft.CodeAnalysis.resources.dll

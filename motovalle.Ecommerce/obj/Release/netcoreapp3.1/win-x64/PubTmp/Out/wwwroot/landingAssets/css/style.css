@@ -140,14 +140,7 @@ body,
 }
 */
 
-.full-page-intro-carshow {
-    background: url('../../landingAssets/img/main/carshow/lavadoIlimitadoGatis.jpg') no-repeat;
-    background-repeat: no-repeat;
-    height: 100%;
-    width: 100%;
-    position: relative;
-    background-size: 70% 100%;
-}
+
 
 
 /*-------------- set css for Ford Campaings --------------*/
@@ -237,9 +230,9 @@ body,
         height: 100%;
     }
 
-    .full-page-intro-carshow {
+    /*    .full-page-intro-carshow {
         height: 100%;
-    }
+    }*/
 
     .full-page-intro-ford-camaping {
         height: 100%;
@@ -376,7 +369,7 @@ body,
         width: 100%;
     }
 
-    .full-page-intro-carshow {
+    /*    .full-page-intro-carshow {
         height: 100%;
         background: url('../../landingAssets/img/main/carshow/carshow-mobile-julio.png') no-repeat top;
         background-size: contain;
@@ -387,7 +380,20 @@ body,
         background-size: contain;
         height: 100%;
         width: 100%;
-    }
+    }*/
+
+    /*   .full-page-intro-carshow {
+        height: 100%;
+        background: url('../../landingAssets/img/main/carshow/lavadoIlimitadoGatisMobile.jpg') no-repeat top;
+        background-size: contain;
+        background-repeat: no-repeat;
+        -webkit-background-size: contain;
+        -moz-background-size: contain;
+        -o-background-size: contain;
+        background-size: contain;
+        height: 100%;
+        width: 100%;
+    }*/
 
     .full-page-intro-ford-camaping {
         background: url('../../landingAssets/img/main/ford/BANNER-MV-MOBILE-FORD-JUL.png') no-repeat top;
@@ -553,12 +559,94 @@ input {
     position: relative;
 }*/
 
-#fmrLavadoIlimitadoGratis {
-    background-color: #ffffff;
-    
+/*.full-page-intro-carshow {
+    background: url('../../landingAssets/img/main/carshow/lavadoIlimitadoGatis.jpg') no-repeat center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+}
+*/
+/*.p-6 {
+    padding: 4rem 7rem;
+}
+*/
+
+.bg-image {
+    background: url('../../landingAssets/img/main/carshow/lavadoIlimitadoGatis.jpg') no-repeat;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh;
+    /*position: relative;*/
+    background-size: 100% 100%;
 }
 
-.propia {
+#fmrLavadoIlimitadoGratis {
+    background-color: #ffffff;
+}
+
+@media (max-width: 1200px) {
+
+    .bg-image {
+        background: url('../../landingAssets/img/main/carshow/lavadoIlimitadoGatis.jpg') no-repeat;
+        background-repeat: no-repeat;
+        width: 100vw;
+        height: 80vh;
+        /*position: relative;*/
+        background-size: 100% 100%;
+    }
+
+    .p-6 {
+        /*padding: 2rem;*/
+        /*padding: 0%;*/
+        padding-top:20px;
+        padding-left: 3%;
+        padding-right:3%;
+    }
+}
+
+
+/*.card {*/
+/*    width: 30%;
+    height: 100%;
+    float: right;*/
+
+/*}*/
+
+/*.form-row {
+    margin-left: 3%;
+    margin-right: 3%;
+}*/
+
+/*@media (max-width:1026px) {
+
+    .full-page-intro-carshow {
+        background: url('../../landingAssets/img/main/carshow/lavadoIlimitadoGatisMobile.jpg') no-repeat;
+        background-repeat: no-repeat;        
+        width: 100vw;
+        height: 100vh;
+        position: relative;
+        
+    }
+
+    .card {
+        width: 100%;
+        height: 100%;
+        background-color:silver;
+        border-color:red;
+    }
+
+    .form-row {
+        margin-left: 3%;
+        margin-right: 3%;
+    }
+}
+*/
+/*.propia {
     width: 30%;
     height: 100%;
     border-color: black;
@@ -580,4 +668,12 @@ input {
         color: black;
         margin-left: 5%;
         margin-right: 5%;
-    }
+    }*/
+
+
+
+
+
+
+
+

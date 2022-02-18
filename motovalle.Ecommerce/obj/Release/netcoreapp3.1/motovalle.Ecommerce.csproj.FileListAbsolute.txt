@@ -2329,7 +2329,6 @@ E:\Desarrollos\Motovalle\motovalle.Ecommerce\bin\Release\netcoreapp3.1\System.Di
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\bin\Release\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\bin\Release\netcoreapp3.1\System.Runtime.Caching.dll
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\bin\Release\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
-E:\Desarrollos\Motovalle\motovalle.Ecommerce\bin\Release\netcoreapp3.1\System.Xml.XPath.XmlDocument.dll
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\bin\Release\netcoreapp3.1\cs\Microsoft.CodeAnalysis.resources.dll
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\bin\Release\netcoreapp3.1\de\Microsoft.CodeAnalysis.resources.dll
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\bin\Release\netcoreapp3.1\es\Microsoft.CodeAnalysis.resources.dll
@@ -3039,3 +3038,8 @@ E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\motovalle
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\motovalle.Ecommerce.GeneratedMSBuildEditorConfig.editorconfig
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\Razor\Views\Ofertas\LavadoGratisIlimitado.cshtml.g.cs
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\Razor\Views\Shared\Landing\_ContactFormLavadoGratis.cshtml.g.cs
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\bin\Release\netcoreapp3.1\K4os.Compression.LZ4.dll
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\bin\Release\netcoreapp3.1\K4os.Compression.LZ4.Streams.dll
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\bin\Release\netcoreapp3.1\K4os.Hash.xxHash.dll
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\bin\Release\netcoreapp3.1\Zstandard.Net.dll
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\bin\Release\netcoreapp3.1\MySql.EntityFrameworkCore.dll

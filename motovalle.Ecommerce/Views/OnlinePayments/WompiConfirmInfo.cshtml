@@ -48,7 +48,9 @@
                             <tr>
                                 <td>@Model.CurrencyType.ToString()</td>
                                 <td>@Html.DisplayFor(x => x.AmountInPesos)</td>
-                                <td>@Html.DisplayFor(x => x.Reference)</td>
+                                @*<td>@Html.DisplayFor(x => x.Reference.Substring(x.Reference.Length-7))</td>*@
+                                @*@string stringReference =   @Html.DisplayFor(x => x.Reference).ToString();*@
+                                <td> @string.Concat(@Model.Reference.Reverse().Skip(7).Reverse())</td>
                             </tr>
                         </tbody>
                     </table>
