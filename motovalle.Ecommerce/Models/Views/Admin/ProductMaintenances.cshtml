@@ -1,0 +1,84 @@
+﻿@model IEnumerable<Ecommerce.Models.Entities.ProductMaintenances>
+
+@{
+    ViewData["Title"] = "Product Maintenances";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="content">
+    <div class="container-fluid">
+        <div>
+            <div class="col-12 text-center">
+                <h1 class="m-0 text-dark">Matenimientos por Producto (@ViewBag.FkProducts.ProductName)</h1>
+            </div>
+            <div class="text-left">
+                <p>
+                    <a asp-action="Products" asp-controller="Admin" class="btn btn-md btn-dark"><span class="fa fa-arrow-alt-circle-left"></span> Volver</a>
+                </p>
+
+                <p>
+                    <a asp-action="ProductMaintenancesCreate" asp-controller="Admin" asp-route-productsId="@ViewBag.FkProducts.ProductsId" class="btn btn-md btn-outline-dark">Crear nuevo registro <span class="fa fa-plus-square"></span></a>
+                </p>
+            </div>
+
+            @{ await Html.RenderPartialAsync("_MessageStatus"); }
+        </div>
+
+        <div class="table">
+            <table id="dtTableDefault" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th class="th-sm" width="5%">
+                            @Html.DisplayNameFor(model => model.MaintenanceIndex)
+                        </th>
+                        <th class="th-sm" width="20%">
+                            @Html.DisplayNameFor(model => model.Title)
+                        </th>
+                        <th class="th-sm" width="10%">
+                            @Html.DisplayNameFor(model => model.SalesPrice)
+                        </th>
+                        <th class="th-sm" width="50%">
+                            @Html.DisplayNameFor(model => model.Description)
+                        </th>
+                        <th class="th-sm" width="5%">
+                            @Html.DisplayNameFor(model => model.Enable)
+                        </th>
+                        <th class="th-sm" width="5%">
+                            Editar
+                        </th>
+                        <th class="th-sm" width="5%">
+                            Eliminar
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.MaintenanceIndex)</td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Title)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SalesPrice)
+                        </td>
+                        <td>
+                            @Html.Raw(item.Description)
+                        </td>
+                        <td>
+                            @Html.Raw(item.Enable ? "YES" : "NO")
+                        </td>
+                        <td><a class="btn btn-info btn-block" style="width:70%" asp-action="ProductMaintenancesEdit" asp-controller="Admin" asp-route-id="@item.ProductMaintenancesId"><span class="fa fa-pencil-alt"></span></a></td>
+                        <td><a class="btn btn-danger btn-block" style="width:70%" asp-action="ProductMaintenancesDelete" asp-controller="Admin" asp-route-id="@item.ProductMaintenancesId"><span class="fa fa-times"></span></a></td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+
+@section Scripts{
+    <script type="text/javascript" src="~/admin/dist/js/admin-ecommerce-tables-settings-default.js"></script>
+}

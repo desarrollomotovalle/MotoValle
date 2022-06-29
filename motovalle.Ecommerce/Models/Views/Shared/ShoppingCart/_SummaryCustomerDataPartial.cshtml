@@ -1,0 +1,148 @@
+﻿@model motovalle.Ecommerce.Models.ViewModels.Checkout.CheckoutDataViewModel
+<div class="panel-group" id="summaryDataAccordion">
+    <div class="panel panel-default">
+        <div class="panel-heading custom">
+            <h4 class="panel-title">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#summaryDataAccordion" href="#customerBaseData">
+                    Información del cliente
+                </a>
+            </h4>
+        </div>
+        <div id="customerBaseData" class="panel-collapse collapse in">
+            <div class="panel-body">
+                <table class="table table-striped table-responsive table-bordered">
+                    <thead class="bg-primary">
+                        <tr>
+                            <th class="text-center">@Html.DisplayNameFor(x => x.CustomerData.Email)</th>
+                            <th class="text-center">@Html.DisplayNameFor(x => x.CustomerData.FullName)</th>
+                            <th class="text-center">@Html.DisplayNameFor(x => x.CustomerData.IDType)</th>
+                            <th class="text-center">@Html.DisplayNameFor(x => x.CustomerData.IDNumber)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-center">
+                        <tr>
+                            <td>@Html.DisplayFor(x => x.CustomerData.Email)</td>
+                            <td>@Html.DisplayFor(x => x.CustomerData.FullName)</td>
+                            <td>@Html.DisplayFor(x => x.CustomerData.IDType)</td>
+                            <td>@Html.DisplayFor(x => x.CustomerData.IDNumber)</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table table-striped table-responsive table-bordered">
+                    <thead class="bg-primary">
+                        <tr>
+                            <th class="text-center">@Html.DisplayNameFor(x => x.CustomerData.PhoneNumber)</th>
+                            <th class="text-center">@Html.DisplayNameFor(x => x.CustomerData.AlternateNumber)</th>
+                            <th class="text-center">@Html.DisplayNameFor(x => x.CustomerData.CompanyName)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-center">
+                        <tr>
+                            <td>@Html.DisplayFor(x => x.CustomerData.PhoneNumber)</td>
+                            <td>@Html.DisplayFor(x => x.CustomerData.AlternateNumber)</td>
+                            <td>@Html.DisplayFor(x => x.CustomerData.CompanyName)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading custom">
+            <h4 class="panel-title">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#summaryDataAccordion" href="#customerAddressesData">
+                    Direcciones
+                </a>
+            </h4>
+        </div>
+        <div id="customerAddressesData" class="panel-collapse collapse">
+            <div class="panel-body">
+                <dl class="row" style="padding: 0 2rem;">
+                    <dt>@Html.DisplayNameFor(x => x.CustomerData.AddressesData.Country)</dt>
+                    <dd>@Html.DisplayFor(x => x.CustomerData.AddressesData.Country)</dd>
+                </dl>
+                <div class="text-center">
+                    <span class="h4">Envío</span>
+                </div>
+                <table class="table table-striped table-responsive table-bordered">
+                    <thead class="bg-primary">
+                        <tr>
+                            <th class="text-center">@Html.DisplayNameFor(x => x.CustomerData.AddressesData.State)</th>
+                            <th class="text-center">@Html.DisplayNameFor(x => x.CustomerData.AddressesData.City)</th>
+                            <th class="text-center">@Html.DisplayNameFor(x => x.CustomerData.AddressesData.Address)</th>
+                            <th class="text-center">@Html.DisplayNameFor(x => x.CustomerData.AddressesData.ZipCode)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-center">
+                        <tr>
+                            <td>@Html.DisplayFor(x => x.CustomerData.AddressesData.State)</td>
+                            <td>@Html.DisplayFor(x => x.CustomerData.AddressesData.City)</td>
+                            <td>@Html.DisplayFor(x => x.CustomerData.AddressesData.Address)</td>
+                            <td>@Html.DisplayFor(x => x.CustomerData.AddressesData.ZipCode)</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="text-center">
+                    <span class="h4">Facturación</span>
+                </div>
+                <table class="table table-striped table-responsive table-bordered">
+                    <thead class="bg-primary">
+                        <tr>
+                            <th class="text-center">@Html.DisplayNameFor(x => x.CustomerData.AddressesData.BillState)</th>
+                            <th class="text-center">@Html.DisplayNameFor(x => x.CustomerData.AddressesData.BillCity)</th>
+                            <th class="text-center">@Html.DisplayNameFor(x => x.CustomerData.AddressesData.BillAddress)</th>
+                            <th class="text-center">@Html.DisplayNameFor(x => x.CustomerData.AddressesData.BillZipCode)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-center">
+                        <tr>
+                            <td>@Html.DisplayFor(x => x.CustomerData.AddressesData.BillState)</td>
+                            <td>@Html.DisplayFor(x => x.CustomerData.AddressesData.BillCity)</td>
+                            <td>@Html.DisplayFor(x => x.CustomerData.AddressesData.BillAddress)</td>
+                            <td>@Html.DisplayFor(x => x.CustomerData.AddressesData.BillZipCode)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading custom">
+            <h4 class="panel-title">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#summaryDataAccordion" href="#paymentwayData">
+                    Información forma de pago
+                </a>
+            </h4>
+        </div>
+        <div id="paymentwayData" class="panel-collapse collapse">
+            <div class="panel-body">
+                <table class="table table-striped table-responsive table-bordered">
+                    <thead class="bg-primary">
+                        <tr>
+                            <th class="text-center">@Html.DisplayNameFor(x => x.PaymentWayData.PaymentWayOption)</th>
+                            <th class="text-center">@Html.DisplayNameFor(x => x.PaymentWayData.GatewayPayment)</th>
+                            <th class="text-center">@Html.DisplayNameFor(x => x.PaymentWayData.TotalAmount)</th>
+                            @if (Model.PaymentWayData.PaymentWayOption == PaymentWaysOptions.PartialPay)
+                            {
+                                <th class="text-center">@Html.DisplayNameFor(x => x.PaymentWayData.PartialAmount)</th>
+                            }
+                        </tr>
+                    </thead>
+                    <tbody class="text-center">
+                        <tr>
+                            <td>@Html.DisplayFor(x => x.PaymentWayData.PaymentWayOption)</td>
+                            <td>@Html.DisplayFor(x => x.PaymentWayData.GatewayPayment)</td>
+                            <td>@Html.DisplayFor(x => x.PaymentWayData.TotalAmount)</td>
+                            @if (Model.PaymentWayData.PaymentWayOption == PaymentWaysOptions.PartialPay)
+                            {
+                                <td>@Html.DisplayFor(x => x.PaymentWayData.PartialAmount)</td>
+                            }
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

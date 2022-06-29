@@ -1,0 +1,100 @@
+﻿@model List<motovalle.Ecommerce.Models.ViewModels.Admin.UserManagerViewModel>
+
+@{
+    ViewData["Title"] = "UserManager";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="content">
+    <div class="container">
+        <div>
+            <div class="col-12 text-center">
+                <h1 class="m-0 text-dark">Administrador de usuarios</h1>
+            </div>
+        </div>
+        <div class="table">
+            <table id="dtUserManagerId" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th class="th-sm">
+                            Id
+                        </th>
+                        <th class="th-sm">
+                            Nombres
+                        </th>
+                        <th class="th-sm">
+                            Correo/Usuario
+                        </th>
+                        <th class="th-sm">
+                            ¿Correo confirmado?
+                        </th>
+                        <th class="th-lg">
+                            Cuenta bloqueada hasta
+                        </th>
+                        <th class="th-lg">
+                            Role
+                        </th>
+                        <th class="th-lg">
+                            Role Manager
+                        </th>
+                        <th class="th-lg">
+                            Desbloquear cuenta
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.ApplicationUser.Id</td>
+                            <td>@item.ApplicationUser.FullName</td>
+                            <td>@item.ApplicationUser.Email</td>
+                            <td class="text-center">@(item.ApplicationUser.EmailConfirmed ? "Si" : "No")</td>
+                            <td class="text-center">@item.ApplicationUser.LockoutEnd</td>
+                            <td class="text-center">
+                                @{var content = string.Empty;}
+                                @if (item.Roles.Count > 0)
+                                {
+                                    foreach (var role in item.Roles)
+                                    {
+                                        content += string.Concat(role, ", ");
+                                    }
+
+                                    content = content.Substring(0, content.Length - 2);
+                                }
+
+                                @content
+                            </td>
+                            <td class="text-center">@Html.ActionLink("Role manager", "RoleManager", "Admin", new { userId = item.ApplicationUser.Id }, new { @class = "btn btn-success", style = "width:100%;" })</td>
+                            @if (item.ApplicationUser.LockoutEnd != null && item.ApplicationUser.LockoutEnd > DateTime.Now)
+                            {
+                                <td><button type="button" class="btn btn-info btn-block" style="width:100%" onclick="unlockoutUser('@item.ApplicationUser.Id')">Desbloquear usuario</button></td>
+                            }
+                            else
+                            {
+                                <td><button type="button" class="btn btn-info btn-block" style="width:100%" disabled onclick="unlockoutUser('@item.ApplicationUser.Id')">Desbloquear usuario</button></td>
+                            }
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $('#dtUserManagerId').DataTable({
+                "autoWidth": true,
+                "paging": true,
+                "ordering": true,
+                "scrollY": true,
+                "searching": true,
+            });
+
+            $('.dataTables_length').addClass('bs-select');
+        });
+    </script>
+}

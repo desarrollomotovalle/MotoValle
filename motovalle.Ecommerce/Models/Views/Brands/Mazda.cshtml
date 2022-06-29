@@ -1,0 +1,1536 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using motovalle.Ecommerce.Models.Entities.Identity
+
+@inject UserManager<ApplicationUser> UserManager
+@model List<ProductAndMakeBase>
+@{
+    ViewData["Title"] = "Mazda";
+    Layout = "~/Views/Shared/_LayoutMazda.cshtml";
+    var userName = string.Empty;
+    var userEmail = string.Empty;
+    var userPhone = string.Empty;
+
+    if (User.Identity.IsAuthenticated)
+    {
+        var user = await UserManager.GetUserAsync(User);
+        userName = user.FullName;
+        userEmail = user.Email;
+        userPhone = user.PhoneNumber;
+    }
+}
+
+<section class="b-pageHeader mazda">
+    <div class="container">
+        <h1 class="wow zoomInLeft" data-wow-delay="0.5s">MOTOVALLE - MAZDA</h1>
+        @*Issue 1: 04/08/2020 Diego - Remove Motovalle Park for Octavio's request*@
+        @*<div class="b-pageHeader__search wow zoomInRight" data-wow-delay="0.5s">
+                <h3>Encuentra el vehículo de tus sueños</h3>
+            </div>*@
+    </div>
+</section><!--b-pageHeader-->
+
+<div class="b-breadCumbs s-shadow wow zoomInUp" data-wow-delay="0.5s">
+    <div class="container">
+        <a asp-action="Index" asp-controller="Home" class="b-breadCumbs__page">Home</a><span class="fa fa-angle-right"></span><a asp-action="Mazda" asp-controller="Brands" class="b-breadCumbs__page m-active">Marca (Mazda)</a>
+    </div>
+    @if (ViewBag.Message != null)
+    {
+    <div class="alert alert-danger text-center wow zoomInUp" role="alert" data-wow-delay="0.5s">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <strong>¡Ups!..</strong> @ViewBag.Message &#128577;
+    </div>
+    }
+</div><!--b-breadCumbs-->
+
+
+<section class="b-slider">
+    <div class="container wow zoomInRight" data-wow-delay="0.55s">
+        <div id="carousel" class="slide carousel carousel-fade">
+            <div class="carousel-inner">
+                <div class="item active">
+                    <img src="~/media/brand-sliders/mazda/2020-mazda-cx-5.jpg" alt="2020-mazda-cx-5" class="img-responsive" />
+                </div>
+                <div class="item">
+                    <img src="~/media/brand-sliders/mazda/2020-mazda-6.jpg" alt="2020-mazda-6" class="img-responsive" />
+                </div>
+                <div class="item">
+                    <img src="~/media/brand-sliders/mazda/gallery-mazda2-1280x640.jpg" alt="gallery-mazda2-1280x640" class="img-responsive" />
+                </div>
+                <div class="item">
+                    <img src="~/media/brand-sliders/mazda/2020-mazda-cx-3.jpg" alt="2020-mazda-cx-30" class="img-responsive" />
+                </div>
+                <div class="item">
+                    <img src="~/media/brand-sliders/mazda/2020-Mazda2_M2Sport.jpg" alt="2020-Mazda2_M2Sport" class="img-responsive" />
+                </div>
+                <div class="item">
+                    <img src="~/media/brand-sliders/mazda/Mazda_CX-30_Grand_Touring.jpg" alt="Mazda_CX-30_Grand_Touring" class="img-responsive" />
+                </div>
+                <div class="item">
+                    <img src="~/media/brand-sliders/mazda/MazdaCX-9_C16.jpg" alt="MazdaCX-9_C16" class="img-responsive" />
+                </div>
+            </div>
+            <a class="carousel-control right" href="#carousel" data-slide="next" id="idNextSlider">
+                <span class="fa fa-angle-right m-control-right"></span>
+            </a>
+            <a class="carousel-control left" href="#carousel" data-slide="prev">
+                <span class="fa fa-angle-left m-control-left"></span>
+            </a>
+        </div>
+    </div>
+</section><!--b-slider-->
+
+
+<div class="b-article s-shadow">
+    <div class="row">
+        <div class="col-md-10 col-xs-12">
+            <section class="b-detail">
+                @if (ViewBag.Error != null)
+                {
+                <div class="container">
+                    @if (ViewBag.Error == false)
+                        {
+                    <div class="alert alert-success text-center wow zoomInUp" role="alert" data-wow-delay="0.5s">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <strong>¡Perfecto!..</strong> Se ha envíado tu solicitud correctamente &#128512;
+                    </div>
+                        }
+
+                    @if (ViewBag.Error == true)
+                        {
+                            if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+                            {
+                    <div class="alert alert-danger text-center wow zoomInUp" role="alert" data-wow-delay="0.5s">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <strong>¡Ups!..</strong> @ViewBag.ErrorMessage
+                    </div>
+                            }
+                            else
+                            {
+                    <div class="alert alert-danger text-center wow zoomInUp" role="alert" data-wow-delay="0.5s">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <strong>¡Ups!..</strong> Lo sentimos. Algo salió mal, por favor intenta nuevamente &#128577;
+                    </div>
+                            }
+                        }
+                </div>
+                }
+                <div class="container" id="mazdaContentId">
+                    <!--Home-->
+                    <div id="mazdaHomeId" class="text-center wow zoomInLeft" data-wow-delay="0.55s" style="margin-top:-2em; display:block;">
+                        <h2>Un vehículo para cada <span style="color:#de483d">estilo de vida</span></h2>
+                        <h3>Conoce nuestra línea completa de vehículos y encuentra el que mejor se adapte a tí</h3>
+                        <div class="container">
+                            <p class="text text-muted">
+                                *Los precios están sujetos a cambios sin previo aviso del concesionario. Los precios anunciados son sugeridos y pueden estar sujetos a <br />
+                                variaciones según el modelo, especificaciones y el plan comercial vigente aplicable a cada vehículo.<br />
+                                El precio exacto debe ser consultado con un asesor del concesionario. <br />
+                                El precio de referencia es sobre la versión básica de menor valor, dentro de las expuestas en esta página. <br />
+                                **Algunas imágenes o características pueden variar con respecto a las versiones que se comercializan en Colombia.
+                            </p>
+                        </div>
+                    </div>
+                    <!--Service-->
+                    <div id="mazdaServiceId" class="text-center wow zoomInLeft" data-wow-delay="0.55s" style="margin-top:-2em; display:none;">
+                        <div class="col-md-12 col-xs-12 text-center">
+                            <img src="~/mazda/home/header-servicio.png" class="img-responsive center-block" width="90%" alt="Mazda_service" />
+                        </div>
+                        <div class="col-md-12 col-xs-12">
+                            <br />
+                            <header class="b-contacts__form-header s-lineDownLeft wow zoomInUp" data-wow-delay="0.5s">
+                                <h2 class="s-titleDet text-center">
+                                    <span style="color:#de483d">Servicio</span>
+                                </h2>
+                            </header>
+                            <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                Experimenta nuestro completo servicio al cliente Mazda, que evoluciona continuamente para mantenerse a la altura de tus expectativas.
+                            </p>
+                            <br />
+                            <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                <span style="color:#de483d">Cuenta con nosotros incondicionalmente.</span>
+                            </p>
+                            <br />
+                            <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                Visita nuestro centro de servicio autorizado y encontrarás todos los servicios de mantenimiento y reparación que tu vehículo necesita, realizados por personal altamente calificado, utilizando tecnología de punta y herramientas especializadas para diagnosticar y reparar correctamente tu Mazda.
+                            </p>
+                            <br />
+                            <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                <span style="color:#de483d">Mantenimiento programado.</span>
+                            </p>
+                            <br />
+                            <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                Para tener siempre una experiencia de manejo placentera, es fundamental realizar periódicamente inspecciones programadas de mantenimiento, en las que se utilicen repuestos genuinos con el fin de garantizar la seguridad, comodidad y óptimo funcionamiento de tu vehículo.
+                            </p>
+                            <br />
+                            <div class="text-left">
+                                <ul class="s-list" style="padding-left:3em;">
+                                    <li style="font-size:14px;"><span class="fa fa-check"></span>Revisión del sistema eléctrico. </li>
+                                    <li style="font-size:14px;"><span class="fa fa-check"></span>Diagnóstico especializado de todo el sistema electrónico del auto: computadores y sensores (Mazda Vehicle Check-up). </li>
+                                    <li style="font-size:14px;"><span class="fa fa-check"></span>Revisión de dirección y suspensión. </li>
+                                    <li style="font-size:14px;"><span class="fa fa-check"></span>Rotación de llantas. </li>
+                                    <li style="font-size:14px;"><span class="fa fa-check"></span>Alineación y balanceo. </li>
+                                    <li style="font-size:14px;"><span class="fa fa-check"></span>Aprovisionamiento </li>
+                                    <li style="font-size:14px;"><span class="fa fa-check"></span>Revisión de frenos. </li>
+                                    <li style="font-size:14px;"><span class="fa fa-check"></span>Control de calidad </li>
+                                    <li style="font-size:14px;"><span class="fa fa-check"></span>Revisión de niveles líquidos (lubricantes, frenos, refrigerante, electrolito batería, líquido lavaparabrisas). </li>
+                                    <li style="font-size:14px;"><span class="fa fa-check"></span>Operaciones sugeridas en la guía de mantenimiento. </li>
+                                </ul>
+                            </div>
+                            <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                <span style="color:#de483d">Servicios rápidos.</span>
+                                <br /> <br />
+                                Son todos aquellos que podemos realizar en menos de 30 minutos, manteniendo siempre nuestros estándares de servicio y calidad:
+                            </p>
+                            <br />
+                            <div class="text-left">
+                                <ul class="s-list" style="padding-left:3em;">
+                                    <li style="font-size:14px;"><span class="fa fa-check"></span>Cambio de batería. </li>
+                                    <li style="font-size:14px;"><span class="fa fa-check"></span>Rotación de llantas. </li>
+                                    <li style="font-size:14px;"><span class="fa fa-check"></span>Inspección del aire acondicionado. </li>
+                                    <li style="font-size:14px;"><span class="fa fa-check"></span>Cambio de plumillas limpiaparabrisas. </li>
+                                    <li style="font-size:14px;"><span class="fa fa-check"></span>Inspección del sistema de enfriamiento. </li>
+                                </ul>
+                            </div>
+                            <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                <span style="color:#de483d">Cambio de aceite.</span>
+                            </p>
+                            <br />
+                            <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                Para sacarle el máximo provecho a tu motor y evitar reparaciones inesperadas, recomendamos hacer el cambio de aceite cada 5.000 Km (mínimo una vez al año), utilizando siempre aceite genuino Mazda. De no ser reemplazado, el aceite podría producir lodo, aumento de consumo de gasolina y mal funcionamiento del motor.
+                            </p>
+                            <br />
+                            <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                <span style="color:#de483d">Reparaciones especializadas de carrocería y pintura.</span>
+                            </p>
+                            <br />
+                            <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                Ante cualquier eventualidad, nuestros expertos están en capacidad de reparar desde pequeños rayones, hasta golpes o fuertes colisiones, entregándote el vehículo como nuevo.
+                            </p>
+                            <br />
+                            <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                <span style="color:#de483d">Reparaciones especializadas de mecánica.</span>
+                            </p>
+                            <br />
+                            <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                Nadie mejor que nuestros técnicos entrenados y capacitados para diagnosticar y reparar los sistemas más complejos de tu vehículo: <br />
+                                reparaciones de motor, reparaciones de transmisión o reparaciones de dirección y suspensión. En nuestro centro de servicio autorizado Mazda utilizamos únicamente repuestos y accesorios diseñados específicamente para cada uno de nuestros vehículos y ponemos a tu disposición al personal de servicio altamente calificado que tiene como prioridad asesorarte en todas tus necesidades e inquietudes, informándote desde el primer momento el precio de los procedimientos realizados a tu vehículo.
+                            </p>
+                        </div>
+                    </div>
+                    <!--Campaign-->
+                    <div id="mazdaCampaignId" class="text-center wow zoomInLeft" data-wow-delay="0.55s" style="margin-top:-2em; display:none;">
+                        <div class="col-md-12 col-xs-12 text-center">
+                            <img src="~/mazda/home/header-campanas.png" class="img-responsive center-block" width="90%" alt="Mazda_service" />
+                        </div>
+                        <div class="col-md-12 col-xs-12">
+                            <div>
+                                <br />
+                                <header class="b-contacts__form-header s-lineDownLeft wow zoomInUp" data-wow-delay="0.5s">
+                                    <h2 class="s-titleDet text-center">
+                                        <span style="color:#de483d">Campañas de servicio</span>
+                                    </h2>
+                                </header>
+                                <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                    Son programas implementados por MAZDA MOTOR CORPORATION y por MAZDA DE COLOMBIA S.A.S (MCOL) sin ningún costo para ti, para mejorar aspectos relacionados con comportamiento, seguridad, satisfacción, emisiones al ambiente o requerimientos especiales en los vehículos comercializados en Colombia, ensamblados o importados por La Compañía Colombiana Automotriz S.A CCA o importados por MCOL.
+                                    <br /><br />
+                                    Si al efectuar la consulta del vehículo, este se encuentra incluido dentro del programa de servicio que se esté promoviendo, es necesario que te comuniques prontamente con el concesionario o taller autorizado MAZDA que prefieras y concretes una cita para llevar tu vehículo, con el objetivo de efectuar las actividades de revisión o reparación requeridas.
+                                    <br /><br />
+                                    Estamos trabajando activamente para mejorar siempre nuestros productos y a la vez estamos comprometidos en la búsqueda permanente de valores que mejoren tu experiencia y satisfacción. El perfecto funcionamiento del vehículo es una prioridad para MAZDA. Estos programas especiales de servicio son para mejorar y actualizar una de tus más preciadas inversiones, tu MAZDA.
+                                </p>
+                                <br />
+
+                                <h4 class="s-titleDet text-center">
+                                    Por favor ingresa el código VIN o el número de motor para conocer si tu Mazda tiene alguna campaña de servicio.
+                                </h4>
+
+                                <div class="row">
+                                    <div class="col-md-4 col-xs-12">
+                                        <div class="text-center">
+                                            <img src="~/mazda/home/ejemplo-imagen.png" class="img-responsive center-block" width="90%" alt="Ejemplo_img" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8 col-xs-12">
+                                        <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                            El código VIN está compuesto por diecisiete (17) caracteres y se encuentra en la tarjeta de propiedad. También puedes consultar el manual de propietario para conocer en que parte del vehículo se encuentra. Si el VIN tiene menos de diecisiete (17) caracteres, debes consultar con el número de motor. (Ver página de MCOL)
+                                        </p>
+                                        <br />
+                                        <div class="text-center">
+                                            <h4>
+                                                <span style="color:#de483d">VIN DEL VEHÍCULO O NÚMERO DE MOTOR</span>
+                                            </h4>
+                                            <br />
+                                            <a href="http://www.mazda.com.co/servicio-al-cliente/campanas-de-servicio/" target="_blank" class="btn btn-danger">Verificar Código</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-xs-12">
+                                        <br />
+                                        <div class="text-center">
+                                            <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:22px;">
+                                                <b>En caso de que tu vehículo requiera una campaña de servicio, agenda tu cita aquí:</b>
+                                            </p>
+                                            <br />
+                                            <a href="http://capnet.ddns.net:3000/" target="_blank" class="btn btn-danger">CITAS DE SERVICIO</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Design-->
+                    <div id="mazdaDesignId" class="text-center wow zoomInLeft" data-wow-delay="0.55s" style="margin-top:-2em; display:none;">
+                        <div class="col-md-12 col-xs-12 text-center">
+                            <img src="~/mazda/home/header-diseno.jpg" class="img-responsive center-block" width="90%" alt="Mazda_design" />
+                        </div>
+                        <div class="col-md-12 col-xs-12">
+                            <div>
+                                <br />
+                                <header class="b-contacts__form-header s-lineDownLeft wow zoomInUp" data-wow-delay="0.5s">
+                                    <h2 class="s-titleDet text-center">
+                                        <span style="color:#de483d">KODO - Alma en movimiento</span>
+                                    </h2>
+                                </header>
+                                <div class="container">
+                                    <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                        Tecnología y diseño Mazda que comprende una completa reingeniería del vehículo con desarrollos innovadores.
+                                    </p>
+                                    <br />
+                                    <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                        Como resultado de esta tecnología se obtiene un vehículo ágil, con altos niveles de seguridad, estabilidad, maniobrabilidad, placentero al conducir y con menores emisiones contaminantes.
+                                    </p>
+                                    <br />
+                                    <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                        El poder y la elegancia de un animal salvaje al abalanzarse sobre su presa, esa es la esencia de la más reciente Forma del Movimiento visualizada por Mazda.
+                                    </p>
+                                    <br />
+                                    <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                        Queremos que el vehículo más que representar un metal, exprese la energía de un ser vivo, que evoque la tensión que anticipa el movimiento.
+                                    </p>
+                                    <br />
+                                    <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                        Esa es la inspiración detrás del “Alma del movimiento”
+                                    </p>
+                                    <br />
+                                    <div class="embed-responsive embed-responsive-16by9">
+                                        <iframe src="https://www.youtube-nocookie.com/embed/L-Bb9ngzlM4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Tech-->
+                    <div id="mazdaTechId" class="text-center wow zoomInLeft" data-wow-delay="0.55s" style="margin-top:-2em; display:none;">
+                        <div class="col-md-12 col-xs-12 text-center">
+                            <img src="~/mazda/home/header-tecnologia.jpg" class="img-responsive center-block" width="90%" alt="Mazda_design" />
+                        </div>
+                        <div class="col-md-12 col-xs-12">
+                            <div class="row">
+                                <br />
+                                <div class="col-md-12 col-xs-12">
+                                    <header class="b-contacts__form-header s-lineDownLeft wow zoomInUp" data-wow-delay="0.5s">
+                                        <h2 class="s-titleDet text-center">
+                                            <span style="color:#de483d">Tecnología</span>
+                                        </h2>
+                                    </header>
+                                </div>
+                                <br />
+                                <div class="col-md-4 col-xs-12">
+                                    <img src="~/mazda/home/tecnologia-0.png" class="img-responsive center-block" width="70%" alt="Mazda_tech_0" />
+                                </div>
+                                <div class="col-md-8 col-xs-12">
+                                    <br />
+                                    <br />
+                                    <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                        Tecnología y diseño Mazda que comprende una completa reingeniería del vehículo con desarrollos innovadores.
+                                    </p>
+                                    <br />
+                                    <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                        Como resultado de esta tecnología se obtiene un vehículo ágil, con altos niveles de seguridad, estabilidad, maniobrabilidad, placentero al conducir y con menores emisiones contaminantes.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Spirit-->
+                    <div id="mazdaSpiritId" class="text-center wow zoomInLeft" data-wow-delay="0.55s" style="margin-top:-2em; display:none;">
+                        <div class="col-md-12 col-xs-12 text-center">
+                            <img src="~/mazda/home/cabezote.jpg" class="img-responsive center-block" width="90%" alt="Mazda_design" />
+                        </div>
+                        <div class="col-md-12 col-xs-12">
+                            <div class="row">
+                                <br />
+                                <div class="col-md-12 col-xs-12">
+                                    <header class="b-contacts__form-header s-lineDownLeft wow zoomInUp" data-wow-delay="0.5s">
+                                        <h2 class="s-titleDet text-center">
+                                            <span style="color:#de483d">Espíritu Mazda</span>
+                                        </h2>
+                                    </header>
+                                </div>
+                                <br />
+                                <div class="col-md-4 col-xs-12">
+                                    <img src="~/mazda/home/volante.jpg" class="img-responsive center-block" width="90%" alt="Mazda_tech_0" />
+                                </div>
+                                <div class="col-md-8 col-xs-12">
+                                    <br /> <br />   <br /> <br />
+                                    <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                        A lo largo de nuestra historia nos hemos enfrentado a numerosos desafíos. <br />
+                                        Nuestra filosofía es tomar esos desafíos como oportunidades de innovación para realizar desde un diseño inspirado en la naturaleza, hasta -carros que te conectan con la carretera y el mundo que te rodea.
+                                    </p>
+                                </div>
+                                <div class="col-md-12 col-xs-12 wow zoomInRight" data-wow-delay="0.55s">
+                                    <br />
+                                    <ul class="nav nav-tabs" style="display: inline-block; list-style-type: none;">
+                                        <li class="active">
+                                            <a href="#mazdaHistoryId" class="nav" data-toggle="tab" aria-expanded="true">
+                                                <h4>Historia</h4>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#mazdaBackToDetails" class="nav" data-toggle="tab" aria-expanded="true">
+                                                <h4>Detrás de los detalles</h4>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#mazdaConvencional" class="nav" data-toggle="tab" aria-expanded="true">
+                                                <h4>Desafía lo convencional</h4>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#mazdaJinba" class="nav" data-toggle="tab" aria-expanded="true">
+                                                <h4>Jinba Ittai</h4>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#mazdaHistories" class="nav" data-toggle="tab" aria-expanded="true">
+                                                <h4>Historia Mazda</h4>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <!--nav nav-tabs nav-justified-->
+                                </div>
+                                <br />
+                                <div class="col-md-12 col-xs-12 wow zoomInRight" data-wow-delay="0.55s">
+                                    <div class="panel-body wow zoomInLeft" data-wow-delay="0.55s">
+                                        <div class="tab-content">
+                                            <div class="tab-pane fade active in" id="mazdaHistoryId">
+                                                <div class="row">
+                                                    <div class="col-md-2 col-xs-12">
+                                                        <br />
+                                                        <aside class="b-blog__aside text-left">
+                                                            <div class="b-blog__aside-categories wow zoomInUp" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: zoomInUp;">
+                                                                <nav>
+                                                                    <ul class="b-blog__aside-categories-list-sub">
+                                                                        <li class="m-active"><a onclick="getMazdaSubContent('FirstYears')">Los primeros años</a></li>
+                                                                        <li><a onclick="getMazdaSubContent('RotativeEngine')">El motor rotativo</a></li>
+                                                                        <li><a onclick="getMazdaSubContent('MX-5')">El MX-5</a></li>
+                                                                        <li><a onclick="getMazdaSubContent('LeMeansVictory')">La victoria en Le Means</a></li>
+                                                                        <li><a onclick="getMazdaSubContent('Zoom')">La generación Zoom Zoom</a></li>
+                                                                        <li><a onclick="getMazdaSubContent('Aniversary')">El 90 aniversario</a></li>
+                                                                        <li><a onclick="getMazdaSubContent('Future')">El futuro</a></li>
+                                                                    </ul>
+                                                                </nav>
+                                                            </div>
+                                                        </aside>
+                                                    </div>
+                                                    <div class="col-md-10 col-xs-12">
+                                                        <!--First Years-->
+                                                        <div id="mazdaFirstYears" class="text-center wow zoomInLeft" data-wow-delay="0.55s" style="margin-top:-2em; display:block;">
+                                                            <br />
+                                                            <br />
+                                                            <div class="row">
+                                                                <div class="col-md-5 col-xs-12">
+                                                                    <img src="~/mazda/home/tab1.jpg" width="90%" class="img-responsive center-block" alt="first-years" />
+                                                                </div>
+                                                                <div class="col-md-7 col-xs-12">
+                                                                    <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                                                        <span style="color:#de483d">Los primeros años: tres ruedas y la reconstrucción de una ciudad.</span>
+                                                                    </p>
+                                                                    <br />
+                                                                    <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                                                        El primer vehículo que fue lanzado por la marca, fue el modelo MazdaGo de tres ruedas, que se exportó a la India y China, países en los que se hizo muy popular gracias a su maniobrabilidad. Este es solo un ejemplo del planteamiento poco convencional y la actitud positiva y dinámica de Mazda, que viene de la mano del "espíritu de Hiroshima" de superar los desafíos. Aun así, la demostración definitiva del espíritu único de Mazda se produjo en 1945. Justo después del lanzamiento de la bomba atómica. Mazda desempeñó un papel esencial en la reconstrucción de Hiroshima, ya que la planta de Mazda resultó relativamente indemne en la catástrofe y se utilizó como base para organizar la reconstrucción y prestar servicios de auxilio.
+                                                                    </p>
+                                                                    <br />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!--First Years-->
+                                                        <div id="mazdaRotativeEngine" class="text-center wow zoomInLeft" data-wow-delay="0.55s" style="margin-top:-2em; display:none;">
+                                                            <br />
+                                                            <br />
+                                                            <div class="row">
+                                                                <div class="col-md-5 col-xs-12">
+                                                                    <img src="~/mazda/home/tab2.jpg" width="90%" class="img-responsive center-block" alt="first-years" />
+                                                                </div>
+                                                                <div class="col-md-7 col-xs-12">
+                                                                    <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                                                        <span style="color:#de483d">El motor rotativo: rompiendo con lo establecido.</span>
+                                                                    </p>
+                                                                    <br />
+                                                                    <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                                                        Un motor verdaderamente revolucionario, por otra parte, hace exactamente eso: revoluciona y gira. Este fue el planteamiento en torno al motor rotativo de Felix Wankel, en el que la combustión hace girar un disco plano en lugar de empujar los pistones hacia arriba y hacia abajo. Mazda adquirió esta tecnología a finales de la década de los cincuenta y es el único fabricante que sigue aplicando este concepto de motor diferente de los demás hasta la fecha. Perfecto para su uso en carros deportivos gracias a sus dimensiones reducidas y su alto nivel de revoluciones por minuto, el motor rotativo se incorporó en diversos modelos de Mazda, desde el sorprendente Cosmo 110S hasta los legendarios RX-7 y RX-8. El motor rotativo también se incluyó en los carros de carreras 787, famosos por ganar las 24 horas de Le Mans en 1991.
+                                                                    </p>
+                                                                    <br />
+                                                                    <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                                                        sus dimensiones reducidas y su alto nivel de revoluciones por minuto, el motor rotativo se incorporó en diversos modelos de Mazda, desde el sorprendente Cosmo 110S hasta los legendarios RX-7 y RX-8. El motor rotativo también se incluyó en los carros de carreras 787, famosos por ganar las 24 horas de Le Mans en 1991.
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!--MX - 5-->
+                                                        <div id="mazdaMX5" class="text-center wow zoomInLeft" data-wow-delay="0.55s" style="margin-top:-2em; display:none;">
+                                                            <br />
+                                                            <br />
+                                                            <div class="row">
+                                                                <div class="col-md-5 col-xs-12">
+                                                                    <img src="~/mazda/home/tab3.jpg" width="90%" class="img-responsive center-block" alt="first-years" />
+                                                                </div>
+                                                                <div class="col-md-7 col-xs-12">
+                                                                    <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                                                        <span style="color:#de483d">El MX-5: el roadster ha vuelto para quedarse.</span>
+                                                                    </p>
+                                                                    <br />
+                                                                    <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                                                        En la década de los ochenta, ya no se fabricaban roadsters. Su auge en la Gran Bretaña de los cincuenta y los sesenta se había acabado. Sin embargo, apareció Mazda con su planteamiento de crear un roadster deportivo para tiempos más modernos que fuera fiable y divertido de conducir, con el objetivo de romper con los planteamientos convencionales y diseñar un carro que recuperara el placer de manejar en su concepto más básico. La balanza se inclinó por el MX-5 original que, con solo 955 kilogramos, era un carro deportivo verdaderamente ligero que además, podía presumir de un diseño con motor delantero y tracción trasera con una dinámica de conducción excepcional. El roadster había vuelto a nacer. De hecho, el MX-5 era tan divertido de conducir y suponía tal placer tener uno, que se convirtió en el roadster más vendido de todos los tiempos.
+                                                                    </p>
+                                                                    <br />
+                                                                    <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                                                        955 kilogramos, era un carro deportivo verdaderamente ligero que además, podía presumir de un diseño con motor delantero y tracción trasera con una dinámica de conducción excepcional. El roadster había vuelto a nacer. De hecho, el MX-5 era tan divertido de conducir y suponía tal placer tener uno, que se convirtió en el roadster más vendido de todos los tiempos.
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!--Victory-->
+                                                        <div id="mazdaVictory" class="text-center wow zoomInLeft" data-wow-delay="0.55s" style="margin-top:-2em; display:none;">
+                                                            <br />
+                                                            <br />
+                                                            <div class="row">
+                                                                <div class="col-md-5 col-xs-12">
+                                                                    <img src="~/mazda/home/tab4.jpg" width="90%" class="img-responsive center-block" alt="first-years" />
+                                                                </div>
+                                                                <div class="col-md-7 col-xs-12">
+                                                                    <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                                                        <span style="color:#de483d">La victoria en Le Mans: una revolución en 24 horas</span>
+                                                                    </p>
+                                                                    <br />
+                                                                    <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                                                        Ningún equipo japonés había ganado nunca la competición de Le Mans...hasta 1991. Ese fue el año en que Mazda rompió definitivamente con las normas establecidas e introdujo sus carros de carreras 787 con motor rotativo en la prueba de resistencia más prestigiosa y antigua del mundo. A pesar de la falta de potencia de los 787 en la competición, contaban con la ventaja de ofrecer una mayor fiabilidad y Mazda consiguió liderar y ganar la carrera. Se trata de un hito y un récord que sigue vigente hasta la fecha, ya que Mazda es el único equipo japonés que ha ganado esta competición y es la única victoria que ha conseguido un carro con un motor cuyo diseño no es de tipo alternativo. Todo gracias a un planteamiento diferente y a nuestra determinación de romper con lo establecido.
+                                                                    </p>
+                                                                    <br />
+                                                                    <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                                                        fecha, ya que Mazda es el único equipo japonés que ha ganado esta competición y es la única victoria que ha conseguido un carro con un motor cuyo diseño no es de tipo alternativo. Todo gracias a un planteamiento diferente y a nuestra determinación de romper con lo establecido.
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!--Zoom-->
+                                                        <div id="mazdaZoom" class="text-center wow zoomInLeft" data-wow-delay="0.55s" style="margin-top:-2em; display:none;">
+                                                            <br />
+                                                            <br />
+                                                            <div class="row">
+                                                                <div class="col-md-5 col-xs-12">
+                                                                    <img src="~/mazda/home/tab5.jpg" width="90%" class="img-responsive center-block" alt="first-years" />
+                                                                </div>
+                                                                <div class="col-md-7 col-xs-12">
+                                                                    <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                                                        <span style="color:#de483d">La generación Zoom Zoom: desde el Mazda6 hasta el RX-8</span>
+                                                                    </p>
+                                                                    <br />
+                                                                    <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                                                        Un nuevo diseño acompañado de un nuevo slogan, Zoom-Zoom, representa la energía que sentíamos de niños con el movimiento. Plasmando esta idea en los automóviles, se consigue una experiencia de conducción dinámica, además de un diseño sorprendente. El Mazda 6 es la primera expresión de este planteamiento y se lanza entre grandes alabanzas en 2002. Le sigue el revolucionario e innovador RX-8 en 2003. Se trata de un carro verdaderamente orientado al conductor que incluye unas versátiles puertas "freestyle" y una interpretación moderna del motor rotativo, ganador de los galardones "Motor Internacional del Año" y "Mejor Motor Nuevo".
+                                                                    </p>
+                                                                    <br />
+                                                                    <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                                                        unas versátiles puertas "freestyle" y una interpretación moderna del motor rotativo, ganador de los galardones "Motor Internacional del Año" y "Mejor Motor Nuevo".
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!--Aniversary-->
+                                                        <div id="mazdaAniversary" class="text-center wow zoomInLeft" data-wow-delay="0.55s" style="margin-top:-2em; display:none;">
+                                                            <br />
+                                                            <br />
+                                                            <div class="row">
+                                                                <div class="col-md-5 col-xs-12">
+                                                                    <img src="~/mazda/home/tab6.jpg" width="90%" class="img-responsive center-block" alt="first-years" />
+                                                                </div>
+                                                                <div class="col-md-7 col-xs-12">
+                                                                    <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                                                        <span style="color:#de483d">EL 90 ANIVERSARIO</span>
+                                                                    </p>
+                                                                    <br />
+                                                                    <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                                                        90 años de superación gracias a 90 años de ideas fuera de lo convencional. <br /><br />
+                                                                        Si analizamos los carros que Mazda ha diseñado durante más de 90 años, observaremos fácilmente que tener planteamientos diferentes nos ha llevado a fabricar carros apasionantes, innovadores y divertidos de manejar, todo ello de la mano de un grupo único de profesionales apasionados. Desde el superventas MX-5 hasta el dinámico CX-7, Mazda ha seguido sacando el máximo partido a su tradición de ingeniería innovadora y a su espíritu revolucionario. Ahora vamos por los siguientes 90 años.
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!--Future-->
+                                                        <div id="mazdaFuture" class="text-center wow zoomInLeft" data-wow-delay="0.55s" style="margin-top:-2em; display:none;">
+                                                            <br />
+                                                            <br />
+                                                            <div class="row">
+                                                                <div class="col-md-5 col-xs-12">
+                                                                    <img src="~/mazda/home/tab7.jpg" width="90%" class="img-responsive center-block" alt="first-years" />
+                                                                </div>
+                                                                <div class="col-md-7 col-xs-12">
+                                                                    <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                                                        <span style="color:#de483d">EL FUTURO</span>
+                                                                    </p>
+                                                                    <br />
+                                                                    <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                                                        Desde el movimiento con alma hasta el diseño de motores radicalmente diferentes, el futuro se presenta emocionante para Mazda. Con un bagaje de innovación de casi un siglo, seguiremos buscando soluciones únicas para los desafíos a los que nos enfrentemos haciendo las cosas como nadie más puede soñar hacerlas. Nuestra nueva Tecnología SKYACTIV reduce el consumo de combustible al tiempo que lleva el placer de manejar a nuevos niveles y nuestro nuevo diseño "KODO - Alma del Movimiento" te acelera el corazón como nunca lo había hecho antes.
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane fade" id="mazdaBackToDetails">
+                                                <div class="row">
+                                                    <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                                        El desafío de pensar en cada detalle milimétricamente, se ve reflejado en Ryo Yanagisawa y su equipo de diseño e innovación, quienes aplicaron el lenguaje de diseño “KODO – Alma del movimiento” a un carro concepto denominado Hazumi, que luego se convirtió en la inspiración para hacer realidad el Nuevo Mazda 2, el cual hoy hace parte de la última generación de vehículos Mazda a nivel global.
+                                                    </p>
+                                                    <br />
+                                                    <img src="~/mazda/home/detalles.jpg" width="90%" class="img-responsive center-block" alt="Maazda 2 Inspiration" />
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane fade" id="mazdaConvencional">
+                                                <div class="row">
+                                                    <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                                        <span style="color:#de483d">Nos desvelamos por crear una idea brillante</span>
+                                                    </p>
+                                                    <br />
+                                                    <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                                        A lo largo de nuestra historia nos hemos enfrentado a numerosos desafíos. Nuestra filosofía es tomar esos desafíos como oportunidades de innovación para realizar desde un diseño inspirado en la naturaleza, hasta carros que te conectan con la carretera y el mundo que te rodea. No podemos evitar abordar cada desafío desde un punto de vista diferente. Eso es lo que nos convierte en lo que somos, porque rompemos con lo establecido en cada paso que damos.
+                                                    </p>
+                                                    <br />
+                                                    <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                                        Desde el espíritu de Hiroshima a las relaciones de compresión más elevadas en los motores de gasolina y diesel, se nos conoce por hacer posible lo imposible. Esto gracias a nuestra mentalidad y nuestra actitud positiva y dinámica, además de una filosofía de ingeniería que tiene como objetivo romper con lo establecido para alcanzar los mejores resultados posibles, bien sea un diseño aerodinámico sorprendente o una sensación de que tu carro y tú son uno solo cuando lo conduces.
+                                                    </p>
+                                                    <br />
+                                                    <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                                        <span style="color:#de483d">ROMPEMOS CON LO ESTABLECIDO</span>
+                                                    </p>
+                                                    <br />
+                                                    <div class="embed-responsive embed-responsive-16by9">
+                                                        <iframe src="https://www.youtube-nocookie.com/embed/NYVg-V8-7q0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                    </div>
+                                                    <br />
+                                                    <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                                        A lo largo de nuestra historia nos hemos enfrentado a numerosos desafíos. Nuestra filosofía es tomar esos desafíos como oportunidades de innovación para realizar desde un diseño inspirado en la naturaleza, hasta carros que te conectan con la carretera y el mundo que te rodea. No podemos evitar abordar cada desafío desde un punto de vista diferente. Eso es lo que nos convierte en lo que somos, porque rompemos con lo establecido en cada paso que damos.
+                                                    </p>
+                                                    <br />
+                                                    <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                                        Desde el espíritu de Hiroshima a las relaciones de compresión más elevadas en los motores de gasolina y diesel, se nos conoce por hacer posible lo imposible. Esto gracias a nuestra mentalidad y nuestra actitud positiva y dinámica, además de una filosofía de ingeniería que tiene como objetivo romper con lo establecido para alcanzar los mejores resultados posibles, bien sea un diseño aerodinámico sorprendente o una sensación de que tu carro y tú son uno solo cuando lo conduces.
+                                                    </p>
+                                                    <br />
+                                                    <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                                        <span style="color:#de483d">ESPÍRITU RETADOR</span>
+                                                    </p>
+                                                    <br />
+                                                    <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                                        Cuando se nos plantea un reto, nos proponemos vencerlo, logrando cosas con las que otros ni soñarían. Podríamos conformarnos haciendo lo que hacen los demás; pero así no es como pensamos en Mazda, nos gusta salirnos del camino establecido. Un ejemplo de esto es el motor rotativo, producido en masa únicamente por Mazda, y que en su momento fue poco más que un sueño para los demás fabricantes. Al ser compacto, ligero y poderoso, desafió el pensamiento convencional. Al combinar este motor compacto y ligero con una carrocería liviana y un diseño elegante y orgánico, rompimos con lo establecido.
+                                                    </p>
+                                                    <br />
+                                                    <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                                        En Mazda tenemos muy presente el espíritu de Hiroshima, que consiste en no rendirse en el camino hacia la perfección y mantener una actitud positiva y dinámica. Continuaremos innovando y retándonos a nosotros mismos en la búsqueda de la excelencia, para resolver problemas como el consumo de combustible. Por eso nos obsesionamos por construir motores realmente eficientes que garantizan un mejor aprovechamiento de la energía, una reducción en el consumo de combustible y menores emisiones contaminantes. Todo esto para crear un nuevo estándar de automóvil, rompiendo con lo establecido en todo lo que hacemos.
+                                                    </p>
+                                                    <br />
+                                                </div>
+                                                <hr />
+                                                <div class="row">
+                                                    <div class="col-md-4 col-xs-12">
+                                                        <img src="~/mazda/home/desafia-Hirotaka.jpg" class="img-responsive center-block" width="70%" alt="hirotaka" style="border-radius: 50%;" />
+                                                    </div>
+                                                    <div class="col-md-4 col-xs-12">
+                                                        <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                                            “Mazda es una empresa formada por apasionados de los automóviles. Independientemente del desafío al que nos enfrentemos, nuestro trabajo siempre vale la pena porque nos encantan los carros.”
+                                                            <br />
+                                                            <span style="color:#de483d">Hirotaka Takaya, Doors Development Engineer, Mazda Japón</span>
+                                                        </p>
+                                                    </div>
+                                                    <div class="col-md-4 col-xs-12">
+                                                        <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                                            “Cuando una puerta transmite estas sensaciones, dice mucho de la gente que ha construido el carro.”
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-4 col-xs-12">
+                                                        <img src="~/mazda/home/desafia-Kenichirou.jpg" class="img-responsive center-block" width="70%" alt="Kenichirou"  style="border-radius: 50%;" />
+                                                    </div>
+                                                    <div class="col-md-4 col-xs-12">
+                                                        <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                                            “Siempre aplicamos un enfoque que a otros no se les ocurriría, y creo que es justamente eso lo que motiva a nuestros diseñadores e ingenieros.”
+                                                            <br />
+                                                            <span style="color:#de483d">Kenichirou Saruwatari, Program Manager, Mazda Japón</span>
+                                                        </p>
+                                                    </div>
+                                                    <div class="col-md-4 col-xs-12">
+                                                        <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                                            “Para salir más rápido, los ciclistas siempre colocan el pedal en la posición óptima. Nosotros hacemos lo mismo con los pistones del motor.”
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-4 col-xs-12">
+                                                        <img src="~/mazda/home/desafia-Daisuke.jpg" class="img-responsive center-block" width="70%" alt="Daisuke"  style="border-radius: 50%;"  />
+                                                    </div>
+                                                    <div class="col-md-4 col-xs-12">
+                                                        <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                                            “Cuando la conducción es perfecta, sabes que es un Mazda.”
+                                                            <br />
+                                                            <span style="color:#de483d">Daisuke Umetsu, Performance Development Engineer, Mazda Japón</span>
+                                                        </p>
+                                                    </div>
+                                                    <div class="col-md-4 col-xs-12">
+                                                        <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                                            “Nos esforzamos por crear carros que sean más que un simple medio de transporte.”
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-4 col-xs-12">
+                                                        <img src="~/mazda/home/desafia-Shigeo.jpg" class="img-responsive center-block" width="70%" alt="hirotaka"  style="border-radius: 50%;"  />
+                                                    </div>
+                                                    <div class="col-md-4 col-xs-12">
+                                                        <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                                            “Nuestra debilidad por los deportivos va desde los ingenieros hasta los directivos de la empresa.”
+                                                            <br />
+                                                            <span style="color:#de483d">Shigeo Mizuno, Program Manager, Mazda Japón</span>
+                                                        </p>
+                                                    </div>
+                                                    <div class="col-md-4 col-xs-12">
+                                                        <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                                            “Un carro más liviano es más divertido de conducir”
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane fade" id="mazdaJinba">
+                                                <div class="row">
+                                                    <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                                        El concepto Jinba-Ittai viene de los arqueros montados japoneses Yabusame, un espectáculo en el que los arqueros disparan tres flechas especiales en tres blancos mientras montan un caballo en movimiento. Este espectáculo fue creado hace cientos de años para perfeccionar la habilidad de arquería de los Yabusame, y se basa completamente en la conexión entre el jinete y su caballo. En Mazda hemos reinventado el Jinba-Ittai para conectarte con tu vehículo a través de la tecnología y el diseño en nuestros vehículos, para que tu experiencia de manejo sea mucho más placentera y seas uno solo con tu Mazda recorriendo el camino.
+                                                    </p>
+                                                    <br />
+                                                    <div class="embed-responsive embed-responsive-16by9">
+                                                        <iframe src="https://www.youtube-nocookie.com/embed/NYVg-V8-7q0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane fade" id="mazdaHistories">
+                                                <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                                    Historias Mazda son los momentos más relevantes que hemos vivido y nos han caracterizado desde el nacimiento de Mazda en 1920, los cuales han sido grandes retos o anécdotas que nos motivan a ir por más.
+                                                </p>
+                                                <br />
+                                                <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                                    Estas historias se enriquecen con experiencias que nuestra comunidad vive día a día, acontecimientos que han ayudado a construir Mazda y a motivar el emblemático Zoom-Zoom que lleva al límite nuestras emociones, nuestra tecnología SKYACTIV y ¡claro! el diseño KODO que roba miradas y provoca suspiros alrededor de todo el mundo.
+                                                </p>
+                                                <br />
+                                                <div id="carousel-small" class="owl-carousel enable-owl-carousel" data-items="3" data-navigation="true" data-auto-play="true" data-stop-on-hover="true" data-items-desktop="3" data-items-desktop-small="2" data-items-tablet="2" data-items-tablet-small="2">
+                                                    <div>
+                                                        <div class="b-personal__worker wow zoomInUp" data-wow-delay="0.5s">
+                                                            <div class="b-personal__worker-img">
+                                                                <img src="~/mazda/home/historias-rojo.jpg" class="img-responsive center-block" alt="Rojo_Mistico" style="border-radius: 10px;" />
+                                                            </div>
+                                                            <h6>ROJO MÍSTICO</h6>
+                                                            <div class="b-personal__worker-name">
+                                                                <h4 class="s-titleDet">El color de la pasión de Mazda</h4>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <div class="b-personal__worker wow zoomInUp" data-wow-delay="0.5s">
+                                                            <div class="b-personal__worker-img">
+                                                                <img src="~/mazda/home/historias-modeladores.jpg" class="img-responsive center-block" alt="Moldeadores" style="border-radius: 10px; width:100%;" />
+                                                            </div>
+                                                            <h6>MODELADORES DE ARCILLA</h6>
+                                                            <div class="b-personal__worker-name">
+                                                                <h4 class="s-titleDet">Artesanos con un creativo toque humano</h4>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <div class="b-personal__worker wow zoomInUp" data-wow-delay="0.5s">
+                                                            <div class="b-personal__worker-img">
+                                                                <img src="~/mazda/home/historias-mitsuo.jpg" class="img-responsive center-block" alt="mitsuo" style="border-radius: 10px;" />
+                                                            </div>
+                                                            <h6>MITSUO HITOMI</h6>
+                                                            <div class="b-personal__worker-name">
+                                                                <h4 class="s-titleDet">Pasión y entusiasmo por la innovación</h4>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <div class="b-personal__worker wow zoomInUp" data-wow-delay="0.5s">
+                                                            <div class="b-personal__worker-img">
+                                                                <img src="~/mazda/home/historias-hiroshima.jpg" class="img-responsive center-block" alt="hiroshima" style="border-radius: 10px;" />
+                                                            </div>
+                                                            <h6>HIROSHIMA</h6>
+                                                            <div class="b-personal__worker-name">
+                                                                <h4 class="s-titleDet">El renacimiento de una ciudad</h4>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br />
+                            <hr />
+                            <div class="row">
+                                <div class="col-md-6 col-xs-12">
+                                    <div class="embed-responsive embed-responsive-16by9">
+                                        <iframe src="https://www.youtube-nocookie.com/embed/s5yJFRlnLO8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-xs-12">
+                                    <div class="embed-responsive embed-responsive-16by9">
+                                        <iframe src="https://www.youtube-nocookie.com/embed/yAXSjeqk5ss" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="col-md-2 col-xs-12">
+            <aside class="b-blog__aside">
+                <div class="b-blog__aside-categories wow zoomInUp" data-wow-delay="0.5s">
+                    <header class="s-lineDownLeft">
+                        <h2 class="s-titleDet">Más de acerca de nosotros</h2>
+                    </header>
+                    <nav>
+                        <ul class="b-blog__aside-categories-list">
+                            <li class="m-active"><a onclick="getMazdaInfo('Home')"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+                            <li><a onclick="getMazdaInfo('Service')">Servicio</a></li>
+                            <li><a onclick="getMazdaInfo('Campaign')">Campañas de servicio</a></li>
+                            <li><a onclick="getMazdaInfo('Design')">Diseño</a></li>
+                            <li><a onclick="getMazdaInfo('Tech')">Tecnología</a></li>
+                            <li><a onclick="getMazdaInfo('Spirit')">Espíritu Mazda</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </aside>
+        </div>
+        <div class="wow zoomInLeft" data-wow-delay="0.55s">
+            <div class="col-sm-4 col-xs-12">
+                <h2 style="margin-left:2em;"><span style="color:#de483d;">Categorías</span></h2>
+            </div>
+            <div class="col-sm-8 col-xs-12 pull-right">
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#todos" class="tabmap" data-toggle="tab" aria-expanded="true">
+                            <h3>TODOS</h3>
+                        </a>
+                    </li>
+
+                    @if (ViewBag.Categories != null)
+                    {
+                        foreach (var category in ViewBag.Categories)
+                        {
+                    <li class="">
+                        <a href="@($"#category{category[0]}")" class="tabmap" data-toggle="tab" aria-expanded="false">
+                            <h3>@category[1]</h3>
+                        </a>
+                    </li>
+                        }
+                    }
+                </ul>
+                <!--nav nav-tabs nav-justified-->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<section class="b-related m-home">
+    <div class="container">
+        <h5 class="s-titleBg wow zoomInUp" data-wow-delay="0.5s">ENCUENTRA EL AUTO DE TUS SUEÑOS</h5><br />
+        <h2 class="s-title wow zoomInUp" data-wow-delay="0.5s">VEHÍCULOS</h2>
+        <div class="panel-body">
+            <div class="tab-content">
+                <div class="tab-pane fade active in" id="todos">
+
+                    <div class="row">
+                        @foreach (var item in Model)
+                        {
+                        <div class="col-lg-4 col-md-4 col-xs-6" style="margin-bottom:2em;">
+                            <div class="b-auto__main-item wow zoomInRight" data-wow-delay="0.5s">
+                                <img class="img-responsive center-block" src="@Url.Content($"~/{item.PictureUrl}")" alt="@item.ModelName"  style="width:270px; height:230px;"/>
+                                <div class="b-world__item-val">
+                                    <span class="b-world__item-val-title">CATEGORÍA <span>@item.CategoryName</span></span>
+                                </div>
+                                <h2><a href="/Mazda/Product/@item.ProductId/Inventory">@item.ProductName</a></h2>
+                                <div class="b-auto__main-item-info s-lineDownLeft">
+                                    <span class="m-price">
+                                        @item.SalesPrice.ToString("C")
+                                    </span>
+                                    <span class="m-number">
+                                        <span class="fa fa-tachometer"></span>0 KM
+                                    </span>
+                                </div>
+                                <div class="b-featured__item-links m-auto">
+                                    <a href="#">Nuevo</a>
+                                    <a href="#">@item.Year</a>
+                                    <a href="#">@item.HorsePower HP</a>
+                                    <a href="#">@item.TransmissionName</a>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        @if (User.Identity.IsAuthenticated)
+                                            {
+                                        <a onclick="jivo_api.setContactInfo({ name: '@userName', email: '@userEmail', phone: '@userPhone', description: '@item.ProductName' }); jivo_api.setCustomData({ 'Asunto': 'Quiero saber más sobre: @item.ProductName' }); jivo_api.open({ start: 'chat' });">Pregunta por él aquí <span class="fa fa-comments"></span></a>
+                                            }
+                                            else
+                                            {
+                                        <a onclick="jivo_api.setCustomData({ 'Asunto': 'Quiero saber más sobre: @item.ProductName' }); jivo_api.open({ start: 'chat' });">Pregunta por él aquí <span class="fa fa-comments"></span></a>
+                                            }
+                                    </div>
+                                    ó
+                                    <div class="col-xs-12">
+                                        <a href="/Mazda/Product/@item.ProductId/Inventory">Compralo en nuestra tienda <span class="fa fa-shopping-cart"></span></a>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <br />
+                                        <br />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        }
+                    </div>
+
+                </div>
+                @if (ViewBag.Categories != null)
+                {
+                @foreach (var category in ViewBag.Categories)
+                    {
+                <div class="tab-pane fade" id="@($"category{category[0]}")">
+                    <div class="row">
+                        @foreach (var item in Model.Where(x => x.CategoriesId.ToString() == category[0]).ToList())
+                                {
+                        <div class="col-lg-4 col-md-4 col-xs-6" style="margin-bottom:2em;">
+                            <div class="b-auto__main-item">
+                                <img class="img-responsive center-block" src="@Url.Content($"~/{item.PictureUrl}")" alt="@item.ModelName" style="width:270px; height:230px;"/>
+                                <div class="b-world__item-val">
+                                    <span class="b-world__item-val-title">CATEGORÍA <span>@item.CategoryName</span></span>
+                                </div>
+                                <h2><a href="/Mazda/Product/@item.ProductId/Inventory">@item.ProductName</a></h2>
+                                <div class="b-auto__main-item-info s-lineDownLeft">
+                                    <span class="m-price">
+                                        @item.SalesPrice.ToString("C")
+                                    </span>
+                                    <span class="m-number">
+                                        <span class="fa fa-tachometer"></span>0 KM
+                                    </span>
+                                </div>
+                                <div class="b-featured__item-links m-auto">
+                                    <a href="#">Nuevo</a>
+                                    <a href="#">@item.Year</a>
+                                    <a href="#">@item.HorsePower HP</a>
+                                    <a href="#">@item.TransmissionName</a>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        @if (User.Identity.IsAuthenticated)
+                                                    {
+                                        <a onclick="jivo_api.setContactInfo({ name: '@userName', email: '@userEmail', phone: '@userPhone', description: '@item.ProductName' }); jivo_api.setCustomData({ 'Asunto': 'Quiero saber más sobre: @item.ProductName' }); jivo_api.open({ start: 'chat' });">Pregunta por él aquí <span class="fa fa-comments"></span></a>
+                                                    }
+                                                    else
+                                                    {
+                                        <a onclick="jivo_api.setCustomData({ 'Asunto': 'Quiero saber más sobre: @item.ProductName' }); jivo_api.open({ start: 'chat' });">Pregunta por él aquí <span class="fa fa-comments"></span></a>
+                                                    }
+                                    </div>
+                                    ó
+                                    <div class="col-xs-12">
+                                        <a href="/Ford/Product/@item.ProductId/Inventory">Compralo en nuestra tienda <span class="fa fa-shopping-cart"></span></a>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <br />
+                                        <br />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                                }
+                    </div>
+                </div>
+                    }
+                }
+            </div>
+        </div>
+
+    </div>
+    <br />
+    <br />
+</section><!--"b-related-->
+
+<div class="mazda-maps-container">
+    <div class="panel with-nav-tabs-maps">
+        <div class="panel-heading">
+            <div class="container">
+                <div class="col-sm-6">
+                    <h2>Nuestras <span style="color:#de483d">sedes</span></h2>
+                </div>
+                <div class="col-sm-6 text-right">
+                    <ul class="nav nav-tabs">
+                        <li class="active">
+                            <a href="#mapa1" class="tabmap" data-toggle="tab">
+                                <h3>Bogotá</h3>
+                            </a>
+                        </li>
+                    </ul>
+                    <!--nav nav-tabs nav-justified-->
+                </div>
+            </div>
+            <!--panel-heading-->
+        </div>
+        <!--container-->
+        <div class="panel-body">
+            <div class="tab-content">
+                <div class="tab-pane fade in active" id="mapa1">
+                    <div>
+                        <div class="wpgmp_map_container wpgmp-map-5" rel="map5"><div class="wpgmp_map " style="width:100%; height:680px;" id="map5"></div></div>
+                    </div>
+                    <!--container-->
+                </div>
+                <!--end class tab-pane-->
+            </div>
+            <!--panel-body-->
+        </div>
+        <!--tab-content-->
+    </div>
+
+</div><!--.maps-container-->
+
+<style>
+    .wpgmp-map-5, .wpgmp-map-5 .wpgmp_tabs_container, .wpgmp-map-5 .wpgmp_listing_container {
+        font-size: 16px !important;
+    }
+</style>
+
+@section Scripts{
+    <script type="text/javascript">
+        window.onload = () => {
+            setInterval(() => {
+                document.querySelector("#idNextSlider").click();
+            }, 10000);
+        };
+
+        $('.b-blog__aside-categories-list li').click(function () {
+            $('.b-blog__aside-categories-list li').removeClass('m-active');
+            $(this).addClass('m-active');
+        });
+
+        $('.b-blog__aside-categories-list-sub li').click(function () {
+            $('.b-blog__aside-categories-list-sub li').removeClass('m-active');
+            $(this).addClass('m-active');
+        });
+    </script>
+    <script type="text/javascript" src="~/js/maps.js"></script>
+    <script type='text/javascript' src='https://maps.google.com/maps/api/js?key=AIzaSyBVJ03UjRxywFn8ch5YseSPn2tZ_FsFOgQ&#038;libraries=geometry%2Cplaces%2Cweather%2Cpanoramio%2Cdrawing&#038;language=es&#038;ver=5.2.5'></script>
+    <script>
+        jQuery(document).ready(function ($) {
+            var map5 = $("#map5").maps({
+                "map_options": {
+                    "center_lat": "4.705731599999999",
+                    "center_lng": "-74.048969",
+                    "zoom": 2,
+                    "map_type_id": "ROADMAP",
+                    "center_by_nearest": true,
+                    "center_circle_fillcolor": "#8CAEF2",
+                    "center_circle_fillopacity": ".5",
+                    "center_circle_strokecolor": "#8CAEF2",
+                    "center_circle_strokeopacity": ".5",
+                    "center_circle_radius": "5",
+                    "show_center_circle": false,
+                    "show_center_marker": false,
+                    "center_marker_icon": "https://unpkg.com/leaflet@1.3.3/dist/images/marker-icon.png",
+                    "center_marker_infowindow": "",
+                    "center_circle_strokeweight": "1",
+                    "draggable": true,
+                    "scroll_wheel": false,
+                    "display_45_imagery": "",
+                    "marker_default_icon": "/images/maps/pointers/pointer.png",
+                    "infowindow_setting": `<div class="fc-main"><div class="fc-item-title">{marker_title} <span class="fc-badge info">{marker_category}</span></div><div class="fc-item-featured_image">{marker_image} </div><p>{marker_message}</p><address><b>Address : </b>{marker_address}</address></div><div><a href="https://www.google.com/maps/dir/?api=1&destination={address_map}&travelmode=traffic" target="_blank">Ver ruta en Google Maps</a></div>`,
+                    "infowindow_geotags_setting": `<div class="fc-main"><div class="fc-item-title">{post_title} <span class="fc-badge info">{post_categories}</span></div><div class="fc-item-featured_image">{post_featured_image} </div><p>{post_excerpt}</p><address><b>Address : </b>{marker_address}</address><p><a target="_blank"  class="fc-btn fc-btn-small fc-btn-red" href="{post_link}">Read More...</a></div>`,
+                    "infowindow_bounce_animation": "",
+                    "infowindow_drop_animation": false,
+                    "close_infowindow_on_map_click": false,
+                    "default_infowindow_open": false,
+                    "infowindow_open_event": "click",
+                    "infowindow_filter_only": false,
+                    "infowindow_click_change_zoom": 0,
+                    "infowindow_click_change_center": false,
+                    "full_screen_control": true,
+                    "search_control": true,
+                    "zoom_control": true,
+                    "map_type_control": true,
+                    "street_view_control": true,
+                    "zoom_mobile": 0,
+                    "draggable_mobile": true,
+                    "scroll_wheel_mobile": true,
+                    "full_screen_control_position": "TOP_RIGHT",
+                    "search_control_position": "TOP_LEFT",
+                    "zoom_control_position": "TOP_LEFT",
+                    "map_type_control_position": "TOP_LEFT",
+                    "map_type_control_style": "HORIZONTAL_BAR",
+                    "street_view_control_position": "TOP_LEFT",
+                    "map_control": true,
+                    "map_control_settings": [],
+                    "screens": {
+                        "smartphones": {
+                            "map_width_mobile": "",
+                            "map_height_mobile": "380px",
+                            "map_zoom_level_mobile": "17"
+                        },
+                        "ipads": {
+                            "map_width_mobile": "",
+                            "map_height_mobile": "440px",
+                            "map_zoom_level_mobile": "17"
+                        },
+                        "large-screens": {
+                            "map_width_mobile": "",
+                            "map_height_mobile": "680px",
+                            "map_zoom_level_mobile": "17"
+                        }
+                    },
+                    "map_infowindow_customisations": false,
+                    "infowindow_border_color": "rgba(0, 0, 0, 0.0980392)",
+                    "infowindow_bg_color": "#fff",
+                    "show_infowindow_header": false,
+                    "width": "",
+                    "height": "680"
+                },
+                "places": [
+                    {
+                        "id": "4",
+                        "title": "MotoValle Mazda Bogotá",
+                        "address": "Avenida 19 #127 – 05 La Calleja",
+                        "source": "manual",
+                        "content": "MotoValle Mazda Bogotá",
+                        "location": {
+                            "icon": `${window.location.origin}/images/maps/pointers/mazda1.png`,
+                            "lat": "4.705731599999999",
+                            "lng": "-74.048969",
+                            "city": "Bogotá",
+                            "state": "Cundinamarca",
+                            "country": "Colombia",
+                            "onclick_action": "marker",
+                            "redirect_custom_link": "",
+                            "marker_image": "",
+                            "open_new_tab": "yes",
+                            "postal_code": "110121",
+                            "draggable": false,
+                            "infowindow_default_open": false,
+                            "animation": "BOUNCE",
+                            "infowindow_disable": true,
+                            "zoom": 5,
+                            "extra_fields": {
+                                "address_map": "Mazda+Motovalle,+Ak.+19+%23127-5,+Bogotá,+Cundinamarca",
+                                "listorder": 0
+                            }
+                        },
+                        "categories": [
+                            {
+                                "id": "8",
+                                "name": "Motovalle mazda",
+                                "type": "category",
+                                "extension_fields": {
+                                    "cat_order": "0"
+                                },
+                                "icon": `${window.location.origin}/images/maps/pointers/mazda1.png`
+                            }
+                        ],
+                        "custom_filters": []
+                    },
+                    {
+                        "id": "23",
+                        "title": "MotoValle Mazda Bogotá - Centro de Servicios",
+                        "address": "Calle 171 #22a30, Cundinamarca, Colombia",
+                        "source": "manual",
+                        "content": "MotoValle Mazda Bogotá - Centro de Servicios",
+                        "location": {
+                            "icon": `${window.location.origin}/images/maps/pointers/mazda1.png`,
+                            "lat": "4.752078",
+                            "lng": "-74.04515400000003",
+                            "city": "Bogotá",
+                            "state": "Bogotá",
+                            "country": "Colombia",
+                            "onclick_action": "marker",
+                            "redirect_custom_link": "",
+                            "marker_image": "",
+                            "open_new_tab": "yes",
+                            "postal_code": "110141",
+                            "draggable": false,
+                            "infowindow_default_open": false,
+                            "animation": "BOUNCE",
+                            "infowindow_disable": true,
+                            "zoom": 5,
+                            "extra_fields": {
+                                "address_map": "Calle+171+%2322a30,+Bogotá,+Cundinamarca+centro+de+servcios",
+                                "listorder": 0
+                            }
+                        },
+                        "categories": [
+                            {
+                                "id": "8",
+                                "name": "Motovalle mazda",
+                                "type": "category",
+                                "extension_fields": {
+                                    "cat_order": "0"
+                                },
+                                "icon": `${window.location.origin}/images/maps/pointers/mazda1.png`
+                            }
+                        ],
+                        "custom_filters": []
+                    }
+                ],
+                "styles": [
+                    {
+                        "featureType": "all",
+                        "elementType": "geometry",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "all",
+                        "elementType": "labels",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "all",
+                        "elementType": "labels.text",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "all",
+                        "elementType": "labels.text.fill",
+                        "stylers": [
+                            {
+                                "color": "#7d7e92"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "all",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            },
+                            {
+                                "hue": "#ff0000"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "administrative",
+                        "elementType": "labels.text.fill",
+                        "stylers": [
+                            {
+                                "color": "#444444"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "landscape",
+                        "elementType": "geometry.fill",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            },
+                            {
+                                "color": "#e0e1e6"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "landscape",
+                        "elementType": "geometry.stroke",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "geometry",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            },
+                            {
+                                "color": "#c71313"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "geometry.fill",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            },
+                            {
+                                "color": "#7c7d91"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "geometry.stroke",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            },
+                            {
+                                "color": "#a12222"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "labels",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            },
+                            {
+                                "hue": "#000fff"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "labels.text",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "hue": "#0054ff"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.business",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            },
+                            {
+                                "hue": "#007aff"
+                            },
+                            {
+                                "weight": "10.00"
+                            },
+                            {
+                                "saturation": "-100"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.government",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.medical",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.place_of_worship",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.school",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.sports_complex",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "saturation": -100
+                            },
+                            {
+                                "lightness": 45
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.highway",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "visibility": "simplified"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.highway",
+                        "elementType": "geometry.fill",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            },
+                            {
+                                "color": "#dedee6"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.highway",
+                        "elementType": "geometry.stroke",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            },
+                            {
+                                "color": "#7c7d91"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.highway",
+                        "elementType": "labels.text.stroke",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            },
+                            {
+                                "hue": "#ff0000"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.arterial",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "transit",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "water",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "color": "#46bcec"
+                            },
+                            {
+                                "visibility": "on"
+                            }
+                        ]
+                    }
+                ],
+                "street_view": null,
+                "routes": null,
+                "marker_cluster": null,
+                "overlay_setting": null,
+                "panning_control": null,
+                "map_tabs": {
+                    "category_tab": null,
+                    "direction_tab": null,
+                    "nearby_tab": null,
+                    "route_tab": null
+                },
+                "listing": null,
+                "map_property": {
+                    "map_id": "5"
+                },
+                "shapes": {
+                    "drawing_editable": false
+                },
+                "filters": {
+                    "custom_filters": [],
+                    "filters_container": `[data-container="wpgmp-filters-container"]`
+                }
+            });
+        })
+    </script>
+
+}

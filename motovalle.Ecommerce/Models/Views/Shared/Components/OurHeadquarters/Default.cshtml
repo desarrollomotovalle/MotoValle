@@ -1,0 +1,21 @@
+﻿@model IEnumerable<motovalle.Ecommerce.Models.ViewModels.HeadquartersViewModel>
+@{
+    var content = string.Empty;
+}
+
+<div class="b-info__aside-article-item">
+    @foreach (var item in Model)
+    {
+        <h6>@item.Make - @item.Name</h6>
+        <p>
+            @item.Address <br />
+            @foreach (var schedule in item.Schedule)
+            {
+                content += string.Concat(schedule["Days"], ": ", schedule["Hours"], "<br />");
+            }
+            @Html.Raw(content)
+            @(content = string.Empty)
+        </p>
+        <br />
+    }
+</div>

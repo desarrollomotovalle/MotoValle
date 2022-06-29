@@ -1,0 +1,92 @@
+﻿@model motovalle.Ecommerce.Models.ViewModels.Landing.ContactViewModel
+
+@if (TempData["Error"] != null)
+{
+    if ((string)TempData["Error"] == "true")
+    {
+        <div class="alert alert-danger text-center wow zoomInUp" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <strong>¡Ups!..</strong> Ha sucedido un error <br />
+            al enviar tu información. &#128577;. <br />
+            Intenta nuevamente.
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-success text-center wow zoomInUp" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <strong>¡Perfecto!..</strong> Tu información ha sido <br>
+            enviada correctamente. &#128512;.
+        </div>
+    }
+
+}
+
+<!--Card content-->
+<div class="card-body" id="frm-contact-lading">
+
+    <!-- Form -->
+    <form method="post" asp-action="@TempData["Controller"]" asp-controller="Pages" name="frmInfo">
+        @Html.AntiForgeryToken()
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input asp-for="CampaingNumber" hidden />
+        <!-- Heading -->
+        <h3 class="dark-grey-text text-center">
+            <strong>Contáctenos ahora</strong>
+        </h3>
+        <hr>
+
+        <div class="md-form">
+            <i class="fas fa-user prefix grey-text"></i>
+            <input asp-for="FullName" class="form-control" />
+            <label asp-for="FullName"></label>
+            <span asp-validation-for="FullName" class="text-danger"></span>
+        </div>
+        <div class="md-form">
+            <i class="fas fa-envelope prefix grey-text"></i>
+            <input asp-for="Email" class="form-control" />
+            <label asp-for="Email"></label>
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+        <div class="md-form">
+            <i class="fas fa-map-marker prefix grey-text"></i>
+            <input asp-for="City" class="form-control" />
+            <label asp-for="City"></label>
+            <span asp-validation-for="City" class="text-danger"></span>
+        </div>
+        <div class="md-form">
+            <i class="fas fa-phone prefix grey-text"></i>
+            <input asp-for="PhoneNumber" class="form-control" />
+            <label asp-for="PhoneNumber"></label>
+            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+        </div>
+
+        <div class="md-form">
+            <i class="fas fa-pencil-alt prefix grey-text"></i>
+            @Html.TextAreaFor(x => x.Message, 4, 1, new { @class = "form-control" })
+            <label asp-for="Message"></label>
+            <span asp-validation-for="Message" class="text-danger"></span>
+        </div>
+
+        <div class="form-check">
+            <label>
+                <input type="checkbox" class="form-control" asp-for="HabeasData" required>
+                Acepto las<a href="~/files/POLITICA DATOS PERSONALES MOTOVALLE[2336].pdf" rel="noreferrer" target="_blank"> políticas de privacidad</a>
+            </label>
+            <div>
+                <span asp-validation-for="HabeasData" class="text-danger"></span>
+            </div>
+        </div>
+        
+        <div class="text-center">
+            <input type="submit" class="btn btn-indigo" value="¡Consulta ya!" />
+        </div>
+
+    </form>
+    <!-- Form -->
+
+</div>

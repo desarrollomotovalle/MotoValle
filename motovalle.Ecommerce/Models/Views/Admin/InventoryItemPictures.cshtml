@@ -1,0 +1,103 @@
+﻿@model IEnumerable<Ecommerce.Models.Entities.InventoryItemPictures>
+
+@{
+    ViewData["Title"] = "InventoryItemPictures";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<section class="content">
+    <div class="container-fluid">
+        <div>
+            <div class="col-12 text-center">
+                <h1 class="m-0 text-dark">Imágenes por Inventario</h1>
+            </div>
+            <div class="text-left">
+                <p>
+                    <a asp-action="InventoryItems" asp-controller="Admin" class="btn btn-md btn-dark"><span class="fa fa-arrow-alt-circle-left"></span> Volver</a>
+                </p>
+
+                <p>
+                    <a asp-action="InventoryItemPicturesCreate" asp-controller="Admin" asp-route-inventoryItemId="@ViewBag.InventoryItemId" class="btn btn-md btn-outline-dark">Crear nuevo registro <span class="fa fa-plus-square"></span></a>
+                </p>
+            </div>
+
+            @{ await Html.RenderPartialAsync("_MessageStatus"); }
+        </div>
+
+        <div class="table">
+            <table id="dtTableDefault" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th class="th-sm">
+                            Inventory Item Pictures Id
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(model => model.PictureName)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(model => model.PictureUrl)
+                        </th>
+                        <th class="th-sm">
+                            Preview
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(model => model.PictureWidth)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(model => model.PictureHeight)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(model => model.AlternateText)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(model => model.FkInventoryItems)
+                        </th>
+                        <th class="th-sm">
+                            Editar
+                        </th>
+                        <th class="th-sm">
+                            Eliminar
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.InventoryItemPicturesId)</td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PictureName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PictureUrl)
+                            </td>
+                            <td>
+                                <img class='img-responsive' src="@Url.Content($@"~/{item.PictureUrl}")" alt='@item.PictureName' style="max-height:230px; max-height:230px;" />
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PictureWidth)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PictureHeight)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.AlternateText)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FkInventoryItems.InventoryItemsId)
+                            </td>
+                            <td><a class="btn btn-info btn-block" style="width:70%" asp-action="InventoryItemPicturesEdit" asp-controller="Admin" asp-route-id="@item.InventoryItemPicturesId"><span class="fa fa-pencil-alt"></span></a></td>
+                            <td><a class="btn btn-danger btn-block" style="width:70%" asp-action="InventoryItemPicturesDelete" asp-controller="Admin" asp-route-id="@item.InventoryItemPicturesId"><span class="fa fa-times"></span></a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+
+@section Scripts{
+    <script type="text/javascript" src="~/admin/dist/js/admin-ecommerce-tables-settings-default.js"></script>
+}

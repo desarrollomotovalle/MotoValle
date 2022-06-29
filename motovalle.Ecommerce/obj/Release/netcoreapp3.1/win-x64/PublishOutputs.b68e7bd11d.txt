@@ -1286,6 +1286,7 @@ E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\P
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\css\responsive.css
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\css\site-colors.css
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\css\site.css
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\css\sitePetronas.css
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\css\start-page.css
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\css\submits.css
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\css\theme.css
@@ -1408,6 +1409,10 @@ E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\P
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\fonts\Mazda-tipografias\MazdaType-Bold.otf
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\fonts\Mazda-tipografias\MazdaType-Medium.otf
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\fonts\Mazda-tipografias\MazdaType-Regular.otf
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\fonts\Petronas-tipografias\MuseoSans-100.otf
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\fonts\Petronas-tipografias\MuseoSans-300.otf
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\fonts\Petronas-tipografias\MuseoSans_500.otf
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\fonts\Petronas-tipografias\MuseoSans_700.otf
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\fonts\revue-bt.ttf
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\ford.old\categories\Convertible_Category.png
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\ford.old\categories\Performance_Category.png
@@ -5873,6 +5878,208 @@ E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\P
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\images\vip-zone\vip-zone-kids.jpg
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\images\vip-zone\vip-zone-pet.jpeg
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\images\vip-zone\vip-zone-play.jpeg
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\acerca-detalle-consectetur.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\acerca-detalle-formula1.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\acerca-detalle-liderazgo-operacional.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\acerca-nosotros-banner-movil.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\acerca-nosotros-detalle-banner-movil.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\acerca-nosotros.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\acerda-de.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\agricola.old.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\agricola.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\automotor-comercial-banner-movil.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\automotor-comercial-banner.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\automotor-comercial-petronas-urania.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\automotor-motos-aceites.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\automotor-motos-banner-movil.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\automotor-motos-banner.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\automotor.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\banner-aceite-movil.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\banner-aceite.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\banner-agricola-movil.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\banner-agricola.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\banner-automotor-movil.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\banner-automotor.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\banner-camion-movil.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\banner-camion.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\banner-deportes-movil.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\banner-deportes-rallydakar.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\banner-deportes.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\banner-formula1-movil.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\banner-formula1.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\banner-hidraulico-movil.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\banner-hidraulico.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\banner-home-automotor-lubricantevehiculoslivianos-syntium-movil.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\banner-home-automotor-lubricantevehiculoslivianos-syntium.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\banner-home-lubricante-vehiculos-comerciales.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\banner-home-lubricante-vehiculos-livianos-movil.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\banner-home-lubricante-vehiculos-livianos.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\banner-imagen-formula1-movil.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\banner-industria-aplicacion-circulantes-movil.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\banner-industria-aplicacion-circulantes.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\banner-industria-aplicacion-engranajes-movil.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\banner-industria-aplicacion-engranajes.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\banner-industria-aplicacion-ferrocarril-movil.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\banner-industria-aplicacion-ferrocarril.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\banner-industria-aplicacion-motoragas-movil.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\banner-industria-aplicacion-motoragas.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\banner-industria-aplicacion-motosierra-movil.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\banner-industria-aplicacion-motosierra.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\banner-industria-aplicacion-transferencia-movil.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\banner-industria-aplicacion-transferencia.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\banner-industria-movil.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\banner-industria-segmento-acero-movil.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\banner-industria-segmento-acero.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\banner-industria-segmento-azucar-movil.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\banner-industria-segmento-azucar.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\banner-industria-segmento-carbon-movil.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\banner-industria-segmento-carbon.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\banner-industria-segmento-cemento-movil.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\banner-industria-segmento-cemento.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\banner-industria-segmento-ferrocarril-movil.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\banner-industria-segmento-ferrocarril.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\banner-industria-segmento-minerasubterranea-movil.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\banner-industria-segmento-minerasubterranea.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\banner-industria-segmento-mineriaacieloabierto-movil.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\banner-industria-segmento-mineriaacieloabierto.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\banner-industria-segmento-nuclear-movil.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\banner-industria-segmento-nuclear.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\banner-industria-segmento-papelycelulosa-movil.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\banner-industria-segmento-papelycelulosa.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\banner-industria.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\banner-moto-movil.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\banner-moto.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\banner-transmision-movil.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\banner-transmision.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\Captura.PNG
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\contactanos-banner-movil.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\contactanos-banner.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\deportes.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\expertos-en-banner-movil.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\expertos-en.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\formula1-aceite-sintio-petrona.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\formula1-asociacion-ganadora-movil.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\formula1-asociacion-ganadora.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\formula1-banner.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\formula1-historia.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\formula1-petronas-motorsport.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\hidraulico-banner.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\hidraulico.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\image.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\imagen-agricola-tractor.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\imagen-agricola-tractor2.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\imagen-agricola-tractor3.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\imagen-automotor-automovil.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\imagen-automotor-camion.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\imagen-automotor-motocicleta.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\imagen-catalogo1.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\imagen-catalogo2.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\imagen-catalogo3.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\imagen-deportes-f1.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\imagen-deportes-motogp.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\imagen-deportes-rallydakar-movil.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\imagen-deportes-rallydakar.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\imagen-expertos-en-gotas.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\imagen-expertos-en-productos.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\imagen-expertos-en-talleres.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\imagen-industria-aceite.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\imagen-industria-aceite2.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\imagen-titulo1.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\imagen-titulo2.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\imagen-titulo3.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\imagen-titulo4.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\imagen-transmision-aceite1.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\imagen-transmision-aceite2.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\industria-banner-aplicacion-detalle-movil.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\industria-banner-aplicacion-movil.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\industria-banner-aplicacion.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\industria-banner-movil.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\industria-banner-segmento-movil.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\industria-banner-segmento.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\industria-banner.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\industria-lubricantes-aplicacion.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\industria-portafolio.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\industria-segmento.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\industria.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\LandingQR\banner-inicio.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\LandingQR\Correo.zip
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\LandingQR\Correo\Correo\.DS_Store
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\LandingQR\Correo\Correo\correoPetronas.html
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\LandingQR\Correo\Correo\correoPetronasCorporativos.html
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\LandingQR\Correo\Correo\images\.DS_Store
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\LandingQR\Correo\Correo\images\bonomeil.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\LandingQR\Correo\Correo\images\bonootros.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\LandingQR\Correo\Correo\images\footer.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\LandingQR\Correo\Correo\images\Mapa1.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\LandingQR\Correo\Correo\images\Mapa2.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\LandingQR\Correo\Correo\images\TEL.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\LandingQR\Correo\Correo\images\wpp.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\LandingQR\Correo\__MACOSX\Correo\._.DS_Store
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\LandingQR\Correo\__MACOSX\Correo\._correoPetronas.html
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\LandingQR\Correo\__MACOSX\Correo\._correoPetronasCorporativos.html
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\LandingQR\Correo\__MACOSX\Correo\images\._.DS_Store
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\LandingQR\Correo\__MACOSX\Correo\images\._bono meil.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\LandingQR\Correo\__MACOSX\Correo\images\._bonootros.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\LandingQR\Correo\__MACOSX\Correo\images\._Recurso 2.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\LandingQR\Correo\__MACOSX\Correo\images\._sdsadasd.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\LandingQR\Correo\__MACOSX\Correo\images\._TEL.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\LandingQR\Correo\__MACOSX\Correo\images\._WhatsApp Image 2022-04-11 at 12.53.38 PM.jpeg
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\LandingQR\Correo\__MACOSX\Correo\images\._wpp.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\liderazgo.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\logo-motovalle.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\logo-petronas.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\Lubricantes\LubricanteAutomotriz\img-PETRONAS-Syntium-7000-0W-40.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\Lubricantes\LubricanteAutomotriz\img-PETRONAS-Syntium-RACER-10W-60.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\menu-portafolio.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\motogp-aceites-petronas-srinta.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\motogp-banner-movil.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\motogp-banner.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\motogp-historia.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\motogp-motosgp.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\motovalle-logo.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\operaciones-globales.new.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\operaciones-globales.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\petroliam-nasional-berhad-petronas.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\petronas.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\portafolio-aceite.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\portafolio-detalle-aceite.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\portafolio-detalle-descarga.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\portafolio-detalle-gota-aceite.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\portafolio-icono-informacion.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\quienes-somos-movil.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\quienes-somos-prueba.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\quienes-somos.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\quines-somos-motovalle.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\redime-tu-premio.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\Screenshot_2.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\sintium-control-calor.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\sprinta-aceite-motor2-tiempos.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\sprinta-aceite-motor4-tiempos.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\sprinta-aceites.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\sprinta-banner.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\sprinta-gotas-aceite.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\sprinta-mundo-desafio.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\sprinta-pistas.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\sprinta-tecnologia-flexitech.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\sutyum-banner-movil.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\syntium-alcanza-niveles-altos.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\syntium-banner.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\syntium-gota-aceite.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\syntium-menos-residuos.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\syntium-nodesperdicio-energia.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\tecnologia.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\transmisiones.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\urania-banner-movil.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\urania-banner.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\urania-descubre-la-fuerza - copia.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\urania-descubre-la-fuerza.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\urania-la-carretera-dura - copia.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\urania-la-carretera-dura.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\urania-petronas-urania-3000.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\urania-petronas-urania-5000.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\urania-petronas-urania-k.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\urania-petronas-urania-verde-5000.png
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\Image\urania-strongtech.png
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\img\001 Construyendo la Industria Automotriz de 2030 (1).jpg
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\img\001 Construyendo la Industria Automotriz de 2030 (Opcion 2).jpg
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\img\001 Construyendo la Industria Automotriz de 2030 (Opcion 5).jpg
@@ -6071,6 +6278,7 @@ E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\P
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\js\mercado-pago-functions.js
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\js\modernizr.custom.js
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\js\site.js
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\js\sitePetronas.js
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\js\smoothscroll.min.js
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\js\theme.js
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\js\waypoints.min.js
@@ -6382,6 +6590,8 @@ E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\P
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\lib\jquery\dist\jquery.min.js
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\lib\jquery\dist\jquery.min.map
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\lib\jquery\LICENSE.txt
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\lib\twitter-bootstrap\css\bootstrap.css
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\lib\twitter-bootstrap\js\bootstrap.min.js
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\mail\contact_me.php
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\massey_ferguson\home\4200Seires.jpg
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\massey_ferguson\home\btn massey grande.jpg
@@ -6489,6 +6699,7 @@ E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\P
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\massey_ferguson\products\pictures\series_6700\mf_6713\2020\IMG_MF 6713_0085_1.jpg
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\massey_ferguson\products\pictures\series_7000\mf_7150\2020\7150.jpg
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\mazda\home\btn mazda grande.jpg
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\mazda\home\btn mazda grande.old.jpg
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\mazda\home\btn mazda.jpg
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\mazda\home\cabezote.jpg
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\mazda\home\CX5_SE_NAV.jpg
@@ -12806,7 +13017,9 @@ E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\P
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\media\main-slider\hero-images\MicrosoftTeams-image.png
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\media\main-slider\hero-images\mustang-1703538_1920.jpg
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\media\main-slider\hero-images\mv-home (1).jpg
-E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\media\main-slider\hero-images\mv-home.jpg
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\media\main-slider\hero-images\mv-home (1)c.jpg
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\media\main-slider\hero-images\mv-home (1)e.jpg
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\media\main-slider\hero-images\mv-home.Actual.jpg
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\media\main-slider\hero-images\MV-SIN-LIMITES-BANNER-100.jpg
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\media\main-slider\hero-images\RANGER_PROMO_BANNER TIENDA (1).png
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\media\main-slider\hero-images\slider1.jpg
@@ -12867,6 +13080,8 @@ E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\P
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\media\Wallpaper_Mazda\mazda_wallpaper.jpg
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\media\Wallpaper_Mazda\wallpaper_cellphone2.jpg
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\media\Wallpaper_Mazda\wallpaper_computer.jpg
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\petronas\home\btn petronas grande.jpg
+E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\petronas\home\btn petronas.jpg
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\QtBinariesWindows\icudt49.dll
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\QtBinariesWindows\icuin49.dll
 E:\Desarrollos\Motovalle\motovalle.Ecommerce\obj\Release\netcoreapp3.1\win-x64\PubTmp\Out\wwwroot\QtBinariesWindows\icuuc49.dll

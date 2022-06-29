@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Not found";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="b-pageHeader error">
+    <div class="container">
+        <h1 class="wow zoomInUp" data-wow-delay="0.7s">Recurso no encontrado</h1>
+        <div class="b-pageHeader__search wow zoomInRight" data-wow-delay="0.7s">
+            <h3>¡Oops!... Algo sucedió.</h3>
+        </div>
+    </div>
+</section><!--b-pageHeader-->
+
+<div class="b-breadCumbs s-shadow">
+    <div class="container">
+        <a asp-action="Index" asp-controller="Home" class="b-breadCumbs__page">Home</a><span class="fa fa-angle-right"></span><a class="b-breadCumbs__page m-active">Página no encontrada</a>
+    </div>
+</div><!--b-breadCumbs-->
+
+<section class="b-error s-shadow">
+    <div class="container">
+        <h1 class="wow zoomInUp" data-wow-delay="0.4s">Error</h1>
+        <img class="img-responsive center-block wow zoomInUp" data-wow-delay="0.4s" src="~/images/backgrounds/404.jpg" alt="404" />
+        <h2 class="s-lineDownCenter wow zoomInUp" data-wow-delay="0.4s">page not found</h2>
+        <p class="wow zoomInUp" data-wow-delay="0.2s">La página o recurso que está buscando no está disponible, podría haberse eliminado, cambiado el nombre o está inhabilitada temporalmente.
+            <div class="wow zoomInUp" data-wow-delay="0.1s" style="margin-top:-3em;">
+                <a asp-action="Index" asp-controller="Home" class="btn btn-link"><b>Voler a la página principal</b></a>
+            </div>
+        </p>
+    </div>
+    <img alt="404b" src="~/images/backgrounds/404_1599x250.jpg" class="img-responsive center-block b-error-img" />
+</section><!--b-error-->

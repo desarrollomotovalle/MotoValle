@@ -1,0 +1,87 @@
+﻿
+@{
+    ViewData["Title"] = "Donaciones";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<section class="b-pageHeader">
+    <div class="container">
+        <h1 class="wow zoomInLeft" data-wow-delay="0.5s">Airlife</h1>
+        @*Issue 1: 04/08/2020 Diego - Remove Subtitle Octavio's request*@
+        @*<div class="b-pageHeader__search wow zoomInRight" data-wow-delay="0.5s">
+                <h3>Motovalle</h3>
+            </div>*@
+    </div>
+</section><!--b-pageHeader-->
+
+<div class="b-breadCumbs s-shadow wow zoomInUp" data-wow-delay="0.5s">
+    <div class="container">
+        <a asp-action="Index" asp-controller="Home" class="b-breadCumbs__page">Home</a><span class="fa fa-angle-right"></span><a asp-action="Aniversario" asp-controller="Pages" class="b-breadCumbs__page m-active">Aniversario 65 Años</a>
+    </div>
+    @if (ViewBag.Message != null)
+    {
+        <div class="alert alert-danger text-center wow zoomInUp" role="alert" data-wow-delay="0.5s">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <strong>¡Ups!..</strong> @ViewBag.Message &#128577;
+        </div>
+    }
+</div><!--b-breadCumbs-->
+
+
+<section class="b-article">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 col-xs-12">
+                <div class="b-article__main">
+                    <div class="b-blog__posts-one">
+                        <div class="row m-noBlockPadding">
+                            <div class="col-sm-1 col-xs-2">
+
+                            </div>
+                            <div class="col-sm-11 col-xs-10">
+                                <div class="b-blog__posts-one-body">
+                                    <header class="b-blog__posts-one-body-head wow zoomInUp" data-wow-delay="0.5s">
+                                        <h2 class="s-titleDet">Es Momento Para Ayudar</h2>
+                                    </header>
+
+                                    <div class="b-blog__posts-one-body-main wow zoomInUp" data-wow-delay="0.5s">
+                                        <div class="b-blog__posts-one-body-main-img">
+                                            <div class="embed-responsive embed-responsive-16by9">
+                                                <iframe src="https://www.youtube.com/embed/Nl34dJfZ4zQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                            </div>
+                                        </div>
+                                        <p>Para realizar donaciones, contáctenos al <b>317-677-4732</b></p>
+                                        <blockquote>
+                                            <a href="mailto: asistentemercadeo@motovalle.com">Enviar Correo</a>
+                                        </blockquote>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-xs-12">
+                <aside class="b-blog__aside">
+                    <div class="b-blog__aside-categories wow zoomInUp" data-wow-delay="0.5s">
+                        <header class="s-lineDownLeft">
+                            <h2 class="s-titleDet">OTROS TEMAS</h2>
+                        </header>
+                        <nav>
+                            <ul class="b-blog__aside-categories-list">
+                                <li><a href="https://www.cdc.gov/coronavirus/2019-ncov/prepare/prevention-sp.html">Recomendaciones de la CDC</a></li>
+                                <li><a href="https://www.minsalud.gov.co/salud/publica/PET/Paginas/Covid-19_copia.aspx">Recomendaciones de MiSalud</a></li>
+                                <li><a href="#">Como Limpiar tu Vehículo</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+
+                </aside>
+            </div>
+        </div>
+    </div>
+</section><!--b-article-->

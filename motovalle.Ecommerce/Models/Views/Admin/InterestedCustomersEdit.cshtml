@@ -1,0 +1,147 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using motovalle.Ecommerce.Models.Entities.Identity
+@model Ecommerce.Models.Entities.InterestedCustomers
+@inject UserManager<ApplicationUser> UserManager
+@{
+    ViewData["Title"] = "InterestedCustomersEdit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    var managed = Convert.ToBoolean(Model.Managed ?? 0);
+    var user = await UserManager.GetUserAsync(User);
+}
+
+<section class="content">
+    <div class="container">
+        <div>
+            <div class="col-12 text-center">
+                <h1 class="m-0 text-dark">Editar</h1>
+            </div>
+            <div class="text-left">
+                <p>
+                    <a asp-action="InterestedCustomers" asp-controller="Admin" class="btn btn-md btn-dark"><span class="fa fa-arrow-circle-left"></span> Volver</a>
+                </p>
+            </div>
+
+            @if (ViewBag.Message != null)
+            {
+                <div class="alert alert-danger text-center wow zoomInUp" role="alert" data-wow-delay="0.5s">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <strong>¡Ups!..</strong> @ViewBag.Message &#128577;
+                </div>
+            }
+        </div>
+
+        <div class="col-lg-offset-3 ">
+            <form method="post" asp-action="InterestedCustomersEdit" asp-controller="Admin" id="frmInterestedCustomer" name="frmInterestedCustomer">
+                @Html.AntiForgeryToken()
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="InterestedCustomersId" />
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label asp-for="CreateOn" class="control-label"></label>
+                            <input type="hidden" asp-for="CreateOn" class="form-control" />
+                            <input value="@Model.CreateOn" class="form-control" disabled />
+                            <span asp-validation-for="CreateOn" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label asp-for="Managed" class="control-label"></label>
+                            <input asp-for="Managed" type="hidden" id="managedHiddenId" />
+                            @if (managed)
+                            {
+                                <input type="checkbox" class="form-control" id="cbxManaged" checked />
+                            }
+                            else
+                            {
+                                <input type="checkbox" class="form-control" id="cbxManaged" />
+                            }
+                            <span asp-validation-for="Managed" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <div class="form-group">
+                            <label asp-for="Name" class="control-label"></label>
+                            <input asp-for="Name" class="form-control" />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="form-group">
+                            <label asp-for="Email" class="control-label"></label>
+                            <input asp-for="Email" class="form-control" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="form-group">
+                            <label asp-for="PhoneNumber" class="control-label"></label>
+                            <input asp-for="PhoneNumber" class="form-control" />
+                            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <div class="form-group">
+                            <label asp-for="FkInventoryItems.FkProducts.ProductName" class="control-label"></label>
+                            <input asp-for="FkInventoryItems.FkProducts.ProductName" class="form-control" disabled />
+                            <span asp-validation-for="FkInventoryItems.FkProducts.ProductName" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="form-group">
+                            <label asp-for="FkInventoryItems.FkColors.ColorName" class="control-label"></label>
+                            <input asp-for="FkInventoryItems.FkColors.ColorName" class="form-control" disabled />
+                            <span asp-validation-for="FkInventoryItems.FkColors.ColorName" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="form-group">
+                            <label asp-for="FkInventoryItems.SalesPrice" class="control-label"></label>
+                            <input value='@((Model.FkInventoryItems.SalesPrice ?? 0).ToString("C"))' class="form-control" disabled />
+                            <span asp-validation-for="FkInventoryItems.SalesPrice" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label asp-for="Retake" class="control-label"></label>
+                            <input asp-for="Retake" class="form-control"  />
+                            <span asp-validation-for="Retake" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label asp-for="Headquarter" class="control-label"></label>
+                            <select asp-for="Headquarter" asp-items="@ViewBag.Headquarters" class="form-control"></select>
+                            <span asp-validation-for="Headquarter" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label asp-for="ManagedFor" class="control-label"></label>
+                            <input type="hidden" asp-for="ManagedFor" value="@user.UserName" class="form-control" />
+                            <input value="@user.UserName" class="form-control" disabled />
+                            <span asp-validation-for="ManagedFor" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Guardar cambios" class="btn btn-primary" onclick="saveInterestedCustomer()" />
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

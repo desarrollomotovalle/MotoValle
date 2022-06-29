@@ -1,0 +1,231 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@
+    <link href="~/lib/twitter-bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/sitePetronas.css" />
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    @*<link href="~/css/animate.css" rel="stylesheet" />*@
+</head>
+<body>
+    <div class="row px-5 bg-white mx-lg-0 mx-0 d-none d-lg-block">
+        <header>
+            @*<nav class="navbar navbar-expand-lg navbar-white bg-white">*@
+            <nav class="navbar navbar-expand-lg navbar-white bg-white py-0">
+                <a class="p-0" asp-controller="Home" asp-action="Index"><img class="logo-motovalle" /></a>
+
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+
+
+                    <li>
+                        <a href="#">PRODUCTOS <i class="fa-solid fa-angle-down" style="color: #009A93;"></i> </a>
+
+                        <div>
+                            <div class="pb-2 wrapper">
+                                <ul>
+                                    <li class="titulo-banner"><a asp-controller="Petronas" asp-action="Automotor">AUTOMOTRIZ</a></li>
+                                    <li class="texto-banner"><a asp-controller="Petronas" asp-action="Syntium">Syntium Petronas</a></li>
+                                    <li class="texto-banner"><a asp-controller="Petronas" asp-action="PortafolioLubricantes">Gama De Productos</a></li>
+                                </ul>
+                                <ul>
+                                    <li class="titulo-banner"><a asp-controller="Petronas" asp-action="LubricanteVehiculosComerciales">CAMIONES</a></li>
+                                    <li class="texto-banner"><a asp-controller="Petronas" asp-action="Urania">Petronas Urania</a></li>
+                                    <li class="texto-banner"><a asp-controller="Petronas" asp-action="Portafolio">Gama De Productos</a></li>
+                                </ul>
+                                <ul>
+                                    <li class="titulo-banner"><a asp-controller="Petronas" asp-action="Deportes">DEPORTES</a></li>
+                                    <li class="texto-banner"><a asp-controller="Petronas" asp-action="Formula1">Fórmula 1</a></li>
+                                    <li class="texto-banner"><a asp-controller="Petronas" asp-action="RallyDakar">Rally Dakar</a></li>                                    
+                                </ul>
+                                <ul>
+                                    <li class="titulo-banner"><a asp-controller="Petronas" asp-action="Hidraulico">HIDRÁULICO</a></li>
+                                    <li class="texto-banner"><a href="">Petronas xxx</a></li>
+                                    <li class="texto-banner"><a asp-controller="Petronas" asp-action="Portafolio">Gama De Productos</a></li>
+                                </ul>
+
+                                <ul>
+                                    <li class="titulo-banner"><a asp-controller="Petronas" asp-action="LubricanteMotocicletas">MOTOCICLETAS</a></li>
+                                    <li class="texto-banner"><a asp-controller="Petronas" asp-action="Sprinta">Petronas Sprinta</a></li>
+                                    <li class="texto-banner"><a asp-controller="Petronas" asp-action="Portafolio">Gama De Productos</a></li>
+                                </ul>
+                                <ul>
+                                    <li class="titulo-banner"><a asp-controller="Petronas" asp-action="Industria">INDUSTRIA</a></li>
+                                    <li class="texto-banner"><a asp-controller="Petronas" asp-action="IndustriaAplicacion">Lubricante Por Aplicación</a></li>
+                                    <li class="texto-banner"><a asp-controller="Petronas" asp-action="IndustriaSegmento">Lubricante Por Segmento</a></li>
+                                    <li class="texto-banner"><a asp-controller="Petronas" asp-action="Portafolio">Gama De Productos</a></li>
+                                </ul>
+                                <ul>
+                                    <li class="titulo-banner"><a asp-controller="Petronas" asp-action="Agricola">AGRÍCOLA</a></li>
+                                    <li class="texto-banner"><a asp-controller="Petronas" asp-action="Agricola">Petronas Arbor</a></li>
+                                    <li class="texto-banner"><a asp-controller="Petronas" asp-action="Portafolio">Gama De Productos</a></li>
+                                </ul>
+                                <ul>
+                                    <li class="titulo-banner"><a asp-controller="Petronas" asp-action="Transmision">TRANSMISIONES</a></li>
+                                    <li class="texto-banner"><a asp-controller="Petronas" asp-action="Transmision">Petronas Tutela</a></li>                                    
+                                </ul>
+                            </div>
+                        </div>
+
+                    </li>
+                    <li><a asp-controller="Petronas" asp-action="Expertos">EXPERTOS EN</a></li>
+                    <li><a asp-controller="Petronas" asp-action="Acerca">ACERCA DE</a></li>
+                    <li>
+                        <a href="#">QUIENES SOMOS <i class="fa-solid fa-angle-down" style="color: #009A93;"></i></a>
+                        <div>
+                            <ul>
+                                <li class="titulo-banner"><a>MOTOVALLE</a></li>
+                                <li class="texto-banner"><a asp-controller="Petronas" asp-action="QuienesSomos">Conoce Motovalle</a></li>
+                                <li class="texto-banner"><a href="https://www.motovalle.com/" target="_blank">Motovalle.com</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a asp-controller="Petronas" asp-action="Contactenos">CONTÁCTENOS</a></li>
+                    @*<li><a href="/Pagos-en-linea/Wompi"><i class="fa-solid fa-cart-shopping" style="color: #009A93;"></i></a></li>
+                        <li><a href="javascript:void(0)" rel="noreferrer" title="Realizar un pago" onclick="callWompiHome()"><span class="fa fa-credit-card"></span></a></li>*@
+                    @*<li><a class="p-0 text-end" asp-controller="Home" asp-action="Index"><img src="/Image/logo-petronas.png" style="width:200px; height:55px;" /></a></li>*@
+                    @*<li><a class="p-0" asp-controller="Home" asp-action="Index"><img class="" src="/Image/logo-petronas.png" alt="Logo Petronas" /></a></li>*@
+
+
+                </ul>
+                @*<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#commonModalId">
+                        Llamar Modal
+                    </button>*@
+                <div class="d-none d-sm-block">
+                    <a href="/Petronas"><img src="/Image/logo-petronas.png" alt="Alternate Text" style="" /></a>
+                </div>
+            </nav>
+        </header>
+    </div>
+    @* Navbar para dispositivos moviles *@
+    <nav class="navbar navbar-expand-lg navbar-light bg-light  d-lg-none d-sm-block">
+        <div class="container-fluid">
+            <a class="p-0" asp-controller="Home" asp-action="Index"><img class="logo-motovalle" /></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    @*<li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle " href="" role="button" data-bs-toggle="dropdown">
+                                PRODUCTOS
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="nav-item dropdown submenu">
+                                    <a class="nav-link dropdown-toggle " href="" role="button" data-bs-toggle="dropdown">
+                                        AUTOMOTRIZ
+                                    </a>
+                                    <ul class="submenu dropdown-menu " aria-labelledby="multilevelDropdownMenu1">
+                                        <li><a class="dropdown-item" asp-controller="Petronas" asp-action="QuienesSomos">AUTOMOTRIZ</a></li>
+                                        <li><a class="dropdown-item" href="#">CAMIONES</a></li>
+                                        <li><a class="dropdown-item" href="#">DEPORTES</a></li>
+                                    </ul>
+                                </li>
+
+                            </ul>
+                        </li>*@
+                    <li class="nav-item">
+                        MENÚ
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Petronas" asp-action="Automotor">AUTOMOTRIZ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Petronas" asp-action="Industria">INDUSTRIA</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Petronas" asp-action="Deportes">DEPORTES</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Petronas" asp-action="Agricola">AGRÍCOLA</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Petronas" asp-action="Hidraulico">HIDRÁULICO</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Petronas" asp-action="Transmision">TRANSMISIONES</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Petronas" asp-action="Expertos">EXPERTOS EN SI MISMO</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Petronas" asp-action="Acerca">ACERCA DE</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Petronas" asp-action="QuienesSomos">QUIENES SOMOS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Petronas" asp-action="Contactenos">CONTÁCTENOS</a>
+                    </li>
+                    @*<li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                QUIENES SOMOS
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a class="dropdown-item" asp-controller="Petronas" asp-action="QuienesSomos">Conoce Motovalle</a></li>
+                                <li><a class="dropdown-item" asp-controller="Home" asp-action="Index">Motovalle.com</a></li>
+                            </ul>
+                        </li>*@
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    @*<div class="container-fluid">
+            <img src="/Image/logo-petronas.png" class="float-end" alt="Alternate Text" />
+        </div>*@
+
+    @*<div class="container">*@
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>
+    @*</div>*@
+
+    <footer class="border-top footer text-muted bg-white" style="margin-bottom:-60px;">
+        <div class="container">
+            <div class="row text-center">
+                <a class="navbar-brand" asp-controller="Home" asp-action="Index">
+                    <img src="/Image/Screenshot_2.png" style="width: 110px; height: 29px; padding-top: 5px;" alt="Alternate" />
+                    <span class="text-black" style="font-size:20px;">|</span>
+                    <img src="/Image/logo-petronas.png" alt="Alternate" />
+                </a>
+                <div class="row justify-content-center">
+                    <div class="col-12 col-lg my-4">
+                        <img class="automotor-footer" src="/Image/automotor.png" alt="Automotor" />
+                    </div>
+                    <div class="col-12 col-lg my-4">
+                        <img class="industria-footer" src="/Image/industria.png" alt="Industria" />
+                    </div>
+
+                    <div class="col-12 col-lg my-4">
+                        <img class="deportes-footer" src="/Image/deportes.png" alt="Deportes" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container style-copyright  text-petronas mt-3 pb-3">
+            <div class="row">
+                <div class="copyright text-center">
+                    Copyright &copy; 2022 <span>MOTORES DEL VALLE. </span> <span>Todos los derechos reservados.</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    @*<script src="~/lib/twitter-bootstrap/js/bootstrap.js"></script>*@
+    <script src="~/lib/twitter-bootstrap/js/bootstrap.min.js"></script>
+    @* Add js *@
+    <script src="https://kit.fontawesome.com/12bffbb70d.js" crossorigin="anonymous"></script>
+    @* End js *@
+    <script src="~/js/sitePetronas.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+
+

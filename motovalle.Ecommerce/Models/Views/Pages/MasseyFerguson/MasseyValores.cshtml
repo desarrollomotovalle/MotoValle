@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewData["Title"] = "MasseyQuienesSomos";
+    Layout = "~/Views/Shared/_LayoutMasseyFerguson.cshtml";
+}
+
+<section class="b-pageHeader massey">
+</section><!--b-pageHeader-->
+
+<div class="b-breadCumbs s-shadow">
+    <div class="container wow zoomInUp" data-wow-delay="0.5s">
+        <a class="b-breadCumbs__page" href="/">Home</a><span class="fa fa-angle-right"></span>
+        <a asp-action="Index" asp-controller="MasseyFerguson" class="b-breadCumbs__page">Massey Ferguson</a><span class="fa fa-angle-right"></span>
+        <a class="b-breadCumbs__page m-active" href="#">¿Quiénes somos?</a>
+    </div>
+</div><!--b-breadCumbs-->
+
+<section class="b-article">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 col-xs-12">
+                <div id="masseyBrandValuesId" class="row wow zoomInLeft" data-wow-delay="0.55s">
+                    <header class="b-contacts__form-header s-lineDownLeft wow zoomInUp" data-wow-delay="0.5s">
+                        <h1 class="s-titleDet text-center" style="font-size:18px;">
+                            Valores
+                        </h1>
+                    </header>
+                    <div class="col-md-4 col-xs-12">
+                        <img class="img-responsive center-block" src="~/massey_ferguson/home/carro-2.png" width="100%" alt="Tractor" />
+                    </div>
+                    <div class="col-md-8 col-xs-12">
+                        <p class="text-left" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                            <span style="color:#C21B2F"><b>Valores de la marca</b></span>
+                        </p>
+                        <br />
+                        <ul class="s-list">
+                            <li style="font-size:14px;"><span class="fa fa-check"></span>Productos modernos y de alta calidad que proporcionan un gran valor a la propiedad </li>
+                            <li style="font-size:14px;"><span class="fa fa-check"></span>Experiencia en el desarrollo de soluciones agrícolas de alto desempeño que superan las expectativas (simples y confiables) </li>
+                            <li style="font-size:14px;"><span class="fa fa-check"></span>Experiencia en la atención al cliente con foco en los agricultores y profesionales (productos, atendimiento al cliente, repuestos)  </li>
+                            <li style="font-size:14px;"><span class="fa fa-check"></span>Amplia gama de productos para los más diversos cultivos </li>
+                            <li style="font-size:14px;"><span class="fa fa-check"></span>Conecta el nombre, la máquina y el cultivo para ofrecer lo máximo en productividad </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-xs-12">
+                @await Html.PartialAsync("_NavCategoryMassey")
+            </div>
+        </div>
+    </div>
+</section><!--b-article-->

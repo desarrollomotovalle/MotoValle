@@ -1,0 +1,10 @@
+﻿@model string
+
+<div class="text-center">
+    <i class="fa fa-circle-o-notch fa-spin fa-5x fa-fw"></i>
+    @if (!string.IsNullOrEmpty(Model))
+    {
+        <br />
+        <span class="h2">@Model</span>
+    }
+</div>

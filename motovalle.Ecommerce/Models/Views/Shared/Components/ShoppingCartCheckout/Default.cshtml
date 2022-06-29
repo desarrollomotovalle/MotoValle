@@ -1,0 +1,74 @@
+﻿@model IEnumerable<ShoppingCartCheckoutViewModel>
+@{
+    var count = Model.Count();
+}
+
+<div id="shoppingItemRecordsDisplayId">
+    @if (Model.Count() > 0)
+    {
+        @foreach (var item in Model)
+        {
+            <div class="product-removal" style="margin-bottom:1em;">
+                <div class="b-items__cars-one wow zoomInUp" data-wow-delay="0.1s">
+                    <div class="b-items__cars-one-img">
+                        <img src="@Url.Content($"~/{item.PictureUrl}")" alt='@item.ProductName' style="max-width:230px; max-height:230px;" />
+                    </div>
+                    <div class="b-items__cars-one-info">
+                        <header class="b-items__cars-one-info-header s-lineDownLeft">
+                            <h2>@item.ProductName</h2>
+                            <span>@item.SalesPriceInventory.ToString("C")</span>
+                        </header>
+                        <p>
+                            @item.ShortDescription
+                        </p>
+                        <div class="b-items__cars-one-info-details">
+                            <div class="b-featured__item-links">
+                                <a href="#">@item.Color</a>
+                                <a href="#">@item.Year</a>
+                                <a href="#">@item.TransmissionName</a>
+                                <a href="#">@item.Passengers.ToString() Pasajeros</a>
+                                <a href="#">@item.Doors.ToString() Puertas</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pull-right">
+                        <button class="btn btn-danger" style="border-radius:25px;" type="button" onclick="removeItemFromCart(@item.ShoppingCartRecordsId)">
+                            <span class="fa fa-times"></span>
+                            Eliminar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        }
+
+        @*<a asp-action="CustomerData" asp-controller="ShoppingCart" asp-area="" class="btn m-btn btn-block btn-a text-right wow zoomInUp" style="padding: 1rem 0;">Continuar <span class="fa fa-angle-right"></span></a>*@
+    }
+    else
+    {
+        <div class="alert alert-info text-center wow zoomInUp" role="alert" data-wow-delay="0.2s">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <strong>No hay registros para mostrar</strong> &#128577;
+        </div>
+        <div class="text-center wow zoomInUp" data-wow-delay="0.1s">
+            <a asp-action="Index" asp-controller="Home" class="btn btn-default btn-block" style="border-radius: 25px; padding: 1rem 0;"><b>Seguir comprando</b> <span class="fa fa-home"></span></a>
+        </div>
+        <br />
+    }
+</div>
+
+<style>
+    #shoppingItemRecordsDisplayId {
+        height: 70vh;
+        width: 100%;
+        overflow: auto;
+        margin-bottom: 1rem;
+    }
+
+    @@media (min-width: 1367px) {
+        #shoppingItemRecordsDisplayId {
+            height: 55vh;
+        }
+    }
+</style>

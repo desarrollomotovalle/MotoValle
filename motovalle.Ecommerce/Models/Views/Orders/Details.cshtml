@@ -1,0 +1,515 @@
+﻿@model OrderWithDetailsAndProductInfo
+
+@{
+    ViewData["Title"] = "OrderDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var email = (string)ViewBag.Email;
+    var orderId = Model?.OrderDetails?.FirstOrDefault()?.OrderId ?? 0;
+}
+
+
+<section class="b-pageHeader orders">
+    <div class="container">
+        <h1 class=" wow zoomInLeft" data-wow-delay="0.5s">Detalle de la orden</h1>
+        <div class="b-pageHeader__search wow zoomInRight" data-wow-delay="0.5s">
+            <h3>Tu orden</h3>
+        </div>
+    </div>
+</section><!--b-pageHeader-->
+
+<div class="b-breadCumbs s-shadow">
+    <div class="container wow zoomInUp" data-wow-delay="0.5s">
+        <a asp-action="Index" asp-controller="Home" class="b-breadCumbs__page">Home</a><span class="fa fa-angle-right"></span><a asp-action="Index" asp-controller="OrderDetails" class="b-breadCumbs__page m-active">Detalle de la orden</a>
+    </div>
+    @if (ViewBag.Message != null)
+    {
+        <div class="alert alert-danger text-center wow zoomInUp" role="alert" data-wow-delay="0.5s">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <strong>¡Ups!..</strong> @ViewBag.Message &#128577;
+        </div>
+    }
+</div><!--b-breadCumbs-->
+
+
+<section class="b-detail s-shadow">
+    <div class="container">
+        <header class="b-detail__head s-lineDownLeft wow zoomInUp" data-wow-delay="0.5s">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-xs-12">
+                    <div class="b-detail__head-title">
+                        <h1>Detalle de la orden</h1>
+                        <h3>Estámos para servirte</h3>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="row wow zoomInUp" data-wow-delay="0.3s">
+            <div class="pull-right">
+                <a href="/Orders/GetManualInvoicePDF/@orderId/Emails/false" class="btn btn-default"><span class="fa fa-download"></span> Descarga orden</a>
+            </div>
+
+        </div>
+        <br />
+        <div class="b-compare__block wow zoomInUp" data-wow-delay="0.3s">
+            <div class="b-compare__block-title s-whiteShadow">
+                <h3 class="s-titleDet">Información de la orden</h3>
+                <a class="j-more" href="#" id="orderInfoIdDiv1"><span class="fa fa-angle-left"></span></a>
+            </div>
+            <div class="b-compare__block-inside j-inside">
+                <div class="row">
+                    <div class="col-xs-2">
+                        <div class="b-compare__block-inside-title">
+                            Orden número
+                        </div>
+                    </div>
+                    <div class="col-xs-2">
+                        <div class="b-compare__block-inside-value">
+                            @Model.OrderNumber.ToString()
+                        </div>
+                    </div>
+                    <div class="col-xs-2">
+                        <div class="b-compare__block-inside-title">
+                            Fecha de creación
+                        </div>
+                    </div>
+                    <div class="col-xs-2">
+                        <div class="b-compare__block-inside-value">
+                            @Model.OrderDate.ToString("dd/MM/yyyy")
+                        </div>
+                    </div>
+                    <div class="col-xs-2">
+                        <div class="b-compare__block-inside-title">
+                            Fecha de consulta
+                        </div>
+                    </div>
+                    <div class="col-xs-2">
+                        <div class="b-compare__block-inside-value">
+                            @DateTime.Now.ToString("dd/MM/yyyy")
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-2">
+                        <div class="b-compare__block-inside-title">
+                            Nombre completo
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="b-compare__block-inside-value text-center">
+                            @Model.FullName
+                        </div>
+                    </div>
+                    <div class="col-xs-2">
+                        <div class="b-compare__block-inside-title">
+                            Correo electrónico
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="b-compare__block-inside-value text-center">
+                            @email
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-2">
+                        <div class="b-compare__block-inside-title">
+                            Tipo de Identificación
+                        </div>
+                    </div>
+                    <div class="col-xs-2">
+                        <div class="b-compare__block-inside-value">
+                            @Model.IdentificationType
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="b-compare__block-inside-title">
+                            Número de identificación
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="b-compare__block-inside-value">
+                            @Model.IdentifiationNumber
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-2">
+                        <div class="b-compare__block-inside-title">
+                            Teléfono
+                        </div>
+                    </div>
+                    <div class="col-xs-2">
+                        <div class="b-compare__block-inside-value">
+                            @Model.PhoneNumber
+                        </div>
+                    </div>
+                    <div class="col-xs-2">
+                        <div class="b-compare__block-inside-title">
+                            Forma de pago
+                        </div>
+                    </div>
+                    <div class="col-xs-2">
+                        <div class="b-compare__block-inside-value">
+                            @Model.PaymentMethod
+                        </div>
+                    </div>
+                    <div class="col-xs-2">
+                        <div class="b-compare__block-inside-title">
+                            Trasacción
+                        </div>
+                    </div>
+
+                    @if (!string.IsNullOrEmpty(Model.TransactionId))
+                    {
+                        <div class="col-xs-2">
+                            <div class="b-compare__block-inside-value">
+                                @Model.TransactionId
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="col-xs-2">
+                            <div class="b-compare__block-inside-value">
+                                @Model.FKFundingRequestId
+                            </div>
+                        </div>
+                    }
+                </div>
+                <div class="row">
+                    <div class="col-xs-2">
+                        <div class="b-compare__block-inside-title">
+                            Estado del pago
+                        </div>
+                    </div>
+                    <div class="col-xs-2">
+                        <div class="b-compare__block-inside-value">
+                            @Model.Status
+                        </div>
+                    </div>
+                    <div class="col-xs-2">
+                        <div class="b-compare__block-inside-title">
+                            Notas
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        <div class="b-compare__block-inside-value">
+                            @Model.Notes
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h5 class="s-titleDet text-center">Totales</h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-3">
+                        <div class="b-compare__block-inside-title">
+                            Subtotal
+                        </div>
+                    </div>
+                    <div class="col-xs-9">
+                        <div class="b-compare__block-inside-value">
+                            @((Model.SubTotal ?? 0).ToString("C"))
+                        </div>
+                    </div>
+                </div>
+                @if (Model.HOrdersTaxes.Count > 0)
+                {
+                    foreach (var item in Model.HOrdersTaxes)
+                    {
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <div class="b-compare__block-inside-title">
+                                    @item.TaxName
+                                </div>
+                            </div>
+                            <div class="col-xs-9">
+                                <div class="b-compare__block-inside-value">
+                                    @(item.TaxTotal.ToString("C"))
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+                <div class="row">
+                    <div class="col-xs-3">
+                        <div class="b-compare__block-inside-title">
+                            Envío y manipulación
+                        </div>
+                    </div>
+                    <div class="col-xs-9">
+                        <div class="b-compare__block-inside-value">
+                            @((Model.Shipping ?? 0).ToString("C"))
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-3">
+                        <div class="b-compare__block-inside-title">
+                            Total
+                        </div>
+                    </div>
+                    <div class="col-xs-9">
+                        <div class="b-compare__block-inside-value">
+                            <b>@((Model.Total ?? 0).ToString("C"))</b>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="b-compare__block wow zoomInUp" data-wow-delay="0.3s">
+            <div class="b-compare__block-title s-whiteShadow">
+                <h3 class="s-titleDet">Direcciones</h3>
+                <a class="j-more" href="#" id="orderInfoIdDiv2"><span class="fa fa-angle-left"></span></a>
+            </div>
+            <div class="b-compare__block-inside j-inside">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h5 class="s-titleDet text-center">Envío</h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-2">
+                        <div class="b-compare__block-inside-title">
+                            País
+                        </div>
+                    </div>
+                    <div class="col-xs-10">
+                        <div class="b-compare__block-inside-value text-center">
+                            @Model.Country
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-2">
+                        <div class="b-compare__block-inside-title">
+                            Dirección
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="b-compare__block-inside-value text-center">
+                            @Model.ShipToAddress
+                        </div>
+                    </div>
+                    <div class="col-xs-2">
+                        <div class="b-compare__block-inside-title">
+                            Departamento
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="b-compare__block-inside-value text-center">
+                            @Model.ShipToState
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-2">
+                        <div class="b-compare__block-inside-title">
+                            Ciudad
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="b-compare__block-inside-value text-center">
+                            @Model.ShipToCity
+                        </div>
+                    </div>
+                    <div class="col-xs-2">
+                        <div class="b-compare__block-inside-title">
+                            Código postal
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="b-compare__block-inside-value text-center">
+                            @Model.ShipToZipCode
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h5 class="s-titleDet text-center">Facturación</h5>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-2">
+                        <div class="b-compare__block-inside-title">
+                            País
+                        </div>
+                    </div>
+                    <div class="col-xs-10">
+                        <div class="b-compare__block-inside-value text-center">
+                            @Model.Country
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-2">
+                        <div class="b-compare__block-inside-title">
+                            Dirección
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="b-compare__block-inside-value">
+                            @Model.BillToAddress
+                        </div>
+                    </div>
+                    <div class="col-xs-2">
+                        <div class="b-compare__block-inside-title">
+                            Departamento
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="b-compare__block-inside-value">
+                            @Model.BillToState
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-2">
+                        <div class="b-compare__block-inside-title">
+                            Ciudad
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="b-compare__block-inside-value">
+                            @Model.BillToCity
+                        </div>
+                    </div>
+                    <div class="col-xs-2">
+                        <div class="b-compare__block-inside-title">
+                            Código postal
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="b-compare__block-inside-value">
+                            @Model.BillToZipCode
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="b-compare__block wow zoomInUp" data-wow-delay="0.3s">
+            <div class="b-compare__block-title s-whiteShadow">
+                <h3 class="s-titleDet">Artículos</h3>
+                <a class="j-more" href="#" id="orderInfoIdDiv3"><span class="fa fa-angle-left"></span></a>
+                <div class="b-compare__block-inside j-inside">
+                    @if (Model.OrderDetails != null)
+                    {
+                        if (Model.OrderDetails.Count > 0)
+                        {
+
+                            @foreach (var item in Model.OrderDetails)
+                            {
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <div class="wow zoomInUp">
+                                            <div style="margin-bottom:1em;">
+                                                <div class="b-items__cars-one-img">
+                                                    <img src="@Url.Content($"~/{item.ProductImage}")" alt='@item.ProductName' />
+                                                </div>
+                                                <div class="b-items__cars-one-info">
+                                                    <header class="b-items__cars-one-info-header s-lineDownLeft">
+                                                        <h2>@item.ProductName</h2>
+                                                        <span>@((item.LineItemTotal ?? 0).ToString("C"))</span>
+                                                    </header>
+                                                    <div class="text-right">
+                                                        Cantidad: <strong>@item.Quantity</strong>
+                                                    </div>
+                                                    <p>
+                                                        @item.Description
+                                                    </p>
+                                                    <div class="b-items__cars-one-info-details">
+                                                        <div class="col-xs-6">
+                                                            <div class="b-compare__block-inside-value_item">
+                                                                <ul>
+                                                                    <li><span class="fa fa-check"></span>Modelo: @item.Year</li>
+                                                                    <li><span class="fa fa-check"></span>Tren de tracción: @item.DriveTrainName</li>
+                                                                    <li><span class="fa fa-check"></span>Motor: @item.EngineTypeName</li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xs-6">
+                                                            <div class="b-compare__block-inside-value_item">
+                                                                <ul>
+                                                                    <li><span class="fa fa-check"></span>Caballos de fuerza: @item.HorsePower HP</li>
+                                                                    <li><span class="fa fa-check"></span>Marca: @item.MakeName</li>
+                                                                    <li><span class="fa fa-check"></span>Puertas: @item.PassengerDoors Pasajeros: @item.Passengers</li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+
+                        }
+                        else
+                        {
+                            <div class="alert alert-info text-center wow zoomInUp" role="alert" data-wow-delay="0.5s">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <strong>No hay registros para mostrar</strong> &#128577;
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <div class="alert alert-info text-center wow zoomInUp" role="alert" data-wow-delay="0.5s">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <strong>No hay registros para mostrar</strong> &#128577;
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+@section Scripts{
+    <script type="text/javascript">
+        window.onload = () => {
+            document.getElementById("orderInfoIdDiv1").click();
+            document.getElementById("orderInfoIdDiv2").click();
+            document.getElementById("orderInfoIdDiv3").click();
+
+            if ("@TempData["FromAppPayment"]" !== null && "@TempData["FromAppPayment"]" === "true") {
+                //debugger;
+                const order = "@TempData["OrdersId"]" ?? "0"; 
+                fetch(`/Orders/GetManualInvoicePDF/${order}/Emails/true`);
+                Swal.fire({
+                    title: '¡Pago exitoso!',
+                    showClass: {
+                        popup: 'animated fadeInUp faster'
+                    },
+                    hideClass: {
+                        popup: 'animated fadeOutRight faster'
+                    },
+                    text: "Gracias por confiar en Motovalle",
+                    position: 'top-end',
+                    icon: 'success',
+                    showConfirmButton: true,
+                    allowOutsideClick: false,
+                    allowEscapeKey: false,
+                    timer: 6000,
+                    timerProgressBar: true
+                });
+            }
+        };
+    </script>
+}

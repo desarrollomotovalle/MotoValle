@@ -1,0 +1,118 @@
+﻿@{
+    ViewData["Title"] = "Petronas - Contactenos";
+    //Layout = "~/Views/Shared/_LayoutPetronas.cshtml";
+    //Layout = "";
+    Layout = "~/Views/Shared/_LayoutPetronas.cshtml";
+
+}
+
+
+@*<div id="carouselExampleIndicators" class="row-full carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <div class="banner banner-imagen-contactenos img-fluid">
+                <span class="vertical-line"></span>
+                <h3 class="banner-texto text-center text-md-start text-lg-start">contáctanos </h3>
+            </div>
+        </div>
+    </div>
+</div>*@
+
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <div class="banner banner-imagen-contactenos img-fluid">
+                <div class="container">
+                    <div class="banner-texto text-center text-md-start text-lg-start">
+                        <span class=" border-start border-4 border-white ps-md-4 ps-lg-4 p-sm-0 m-0 p-0 d-block ps-sm-0 border__sm__left__0">
+                            CONTÁCTENOS
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<body class="bg-white">
+    <div class="container">
+        <div class="col-12 text-center text-lg-start">
+            <label class="subtitulo mt-5">¿QUÉ PODEMOS HACER POR TI?</label>
+        </div>
+        <div class="col-lg-12 col mt-5">
+            <label class="texto-contactanos">Complete los campos a continuación y le responderemos a su consulta por correo electrónico.</label>
+        </div>
+
+        <form class="mt-5" action="/" method="post">
+            <div class="row">
+                <div class="col-12 col-lg-6">
+                    <div class="mb-3">
+                        <div>
+                            <label for="formGroupExampleInput" class="form-label">Nombres</label>
+                            <label style="color:red">*</label>
+                        </div>
+                        <div>
+                            <input class="text-input" type="text" id="nombre">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-6">
+                    <div class="mb-6">
+                        <div>
+                            <label for="exampleFormControlInput1" class="form-label">Email</label>
+                            <label style="color:red">*</label>
+                        </div>
+                        <div>
+                            <input class="text-input" type="email" id="email">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-lg-6">
+                    <div class="mb-3">
+                        <div>
+                            <label for="formGroupExampleInput" class="form-label">Numero de Contacto</label>
+                            <label style="color:red">*</label>
+                        </div>
+                        <div>
+                            <input class="text-input" type="text" id="numero-contacto">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <div class="mb-3">
+                        <div>
+                            <label for="exampleFormControlTextarea1" class="form-label">Mensaje</label>
+                            <label style="color:red">*</label>
+                        </div>
+                        <div>
+                            <textarea class="text-area-input" id="mensaje" rows="3"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                    <label class="form-check-label" for="invalidCheck">
+                        Acepto
+                    </label>
+                    <label style="color:red">*</label>
+
+                    <a href="https://motovalle.com/Home/Privacy/politicas-e-informaci%C3%B3n-legal" style="text-decoration: none; color:black;" id="politicas">He leído y acepto la política de privacidad</a>
+                    <label>y</label>
+                    <a href="https://motovalle.com/files/POLITICA%20DATOS%20PERSONALES%20MOTOVALLE[2336].pdf" style="text-decoration: none; color:black;">los términos y condiciones</a>
+                    <div class="invalid-feedback">
+                        You must agree before submitting.
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 text-center text-lg-start mt-3">
+                <button class="boton-from" type="submit">Enviar</button>
+            </div>
+
+        </form>
+    </div>
+</body>

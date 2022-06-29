@@ -1,0 +1,121 @@
+﻿
+@{
+    ViewData["Title"] = "Mazda Repuestos y Accessorios";
+
+    Layout = "~/Views/Shared/_LayoutMazda.cshtml";
+
+}
+
+<section class="b-pageHeader mazda">
+    <div class="container">
+        <h1 class="wow zoomInLeft" data-wow-delay="0.7s">Repuestos y Accesorios </h1>
+        <div class="b-pageHeader__search wow zoomInRight" data-wow-delay="0.7s">
+
+        </div>
+    </div>
+</section><!--b-pageHeader-->
+
+<div class="b-breadCumbs s-shadow">
+    <div class="container wow zoomInUp" data-wow-delay="0.5s">
+        <a class="b-breadCumbs__page" href="/">Home</a><span class="fa fa-angle-right"></span>
+        <a asp-action="Index" asp-controller="Mazda" class="b-breadCumbs__page">Mazda</a><span class="fa fa-angle-right"></span>
+        <a class="b-breadCumbs__page m-active" href="#">Test Page</a>
+    </div>
+</div><!--b-breadCumbs-->
+
+<section class="b-article">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 col-xs-12">
+                <div class="b-article__main">
+                    <div class="b-blog__posts-one">
+                        <div class="row m-noBlockPadding">
+                            <h2>NADA SE ADAPTA MEJOR A TU MAZDA</h2>
+
+                            <p>En nuestro centro de servicio Mazda encontrarás una amplia gama de repuestos genuinos para tu vehículo, que han sido creados especialmente para darle nuevos y mejores beneficios a cada modelo y cuentan con la garantía de calidad de Mazda.</p>
+
+                            <ejs-accordion id="defaultAccordion">
+                                <e-accordion-accordionitems>
+                                    <e-accordion-accordionitem header="Aceites Motor" content="Los aceites genuinos Mazda han sido elaborados con la más alta tecnología, diseñados específicamente para proteger y obtener el mejor desempeño de tu motor, mejorando el ahorro de combustible y disminuyendo las emisiones de CO2.El aceite de motor se encarga de limpiar los residuos de la combustión, de lubricar, refrigerar y proteger los componentes del motor. Con el paso del tiempo, el aceite se contamina con residuos de la combustión, agua y partículas y puede perder sus propiedades, por lo que debes cambiarlo 5.000 km o por lo menos una vez al año. En tu concesionario o taller Mazda más cercano podrás recibir una completa asesoría sobre las diferentes opciones de aceites genuinos Mazda, ya que hay uno diseñado específicamente para tu motor según el modelo, el tipo de combustible y si incorpora la tecnología SKYACTIV, así como el procedimiento del cambio y la correcta eliminación del aceite usado."></e-accordion-accordionitem>
+                                    <e-accordion-accordionitem header="Baterias" content="La causa más habitual de avería es una batería descargada o defectuosa, por lo que contar con una buena batería debe ser prioritario para el conductor. En Motovalle Mazda te proporcionaremos una batería original fabricada especialmente para el motor y modelo de tu vehículo."></e-accordion-accordionitem>
+                                    <e-accordion-accordionitem header="Filtros de Combustible" content="El filtro de combustible es un elemento indispensable para preservar el buen estado del motor y del sistema de inyección, ya que contribuye a minimizar las impurezas o sedimentos contenidos en el combustible que ingresan al sistema de inyección y a las cámaras de combustión del motor. El combustible pasa por un papel de filtración especial que con el tiempo se obstruye y pierde eficacia, por lo que debe ser sustituido de acuerdo a la guía de mantenimiento para el vehículo o con una mayor frecuencia si se usan combustibles de dudosa calidad, los cuales pueden afectar el óptimo funcionamiento del motor. Para un rendimiento óptimo se recomienda un papel de alta calidad que presente una superficie extensa y poros de tamaño y número adecuados. Así son los filtros de combustible originales Mazda, que están diseñados específicamente para el motor de tu vehículo y tienen una altísima capacidad de filtrado demostrada en pruebas de laboratorio."></e-accordion-accordionitem>
+                                    <e-accordion-accordionitem header="Fitros de Aire" content="El filtro de aire se encarga de atrapar las partículas externas para asegurar que entre aire limpio al motor de tu vehículo y que realice correctamente la combustión. Sin embargo, después de un tiempo estas partículas obstruyen el filtro, lo que evita el ingreso de aire limpio al motor pudiendo causar daños.
+
+Por esto es necesario cambiar el filtro de aire cada 30.000 km o más a menudo si manejas por zonas con cantidades elevadas de polvo y contaminación. En Motovalle Mazda te recomendaremos e instalaremos el filtro de aire acondicionado más adecuado."></e-accordion-accordionitem>
+                                    <e-accordion-accordionitem header="Filtros de Aire Acondicionado" content="El filtro del aire acondicionado es el responsable de atrapar el polvo y otras partículas presentes en el aire, para mantener un ambiente agradable en el interior del vehículo. Con el tiempo y el uso, el filtro de aire acondicionado se ensucia y se vuelve menos efectivo debido a que las partículas de polvo obstruyen el papel del filtro. El flujo de aire puede verse restringido y eso puede conllevar un olor desagradable o un funcionamiento defectuoso de la calefacción y el aire acondicionado.
+
+Es necesario cambiar el filtro de aire acondicionado cada 20.000 km o más a menudo si conduces por zonas con cantidades elevadas de polvo y contaminación."></e-accordion-accordionitem>
+                                    <e-accordion-accordionitem header="Pastillas" content="Tu seguridad y la de tus acompañantes dependen ampliamente de la calidad y desempeño de las pastillas y bandas de freno. Las pastillas y bandas de freno genuinas son fabricadas con materiales seleccionados y satisfacen estrictos estándares de vibraciones, ruido, cuidado del medio ambiente y distancia de frenado, asegurando una conducción segura y confortable.
+
+Las pastillas y bandas de freno se van desgastando cada vez que accionas el pedal del freno. Por eso, para mantener un desempeño óptimo de los frenos se recomienda realizar una revisión periódica cada seis meses o
+10.000 kilómetros. Para recibir una completa asesoría sobre el estado de tus frenos, dirígete a Motovalle Mazda."></e-accordion-accordionitem>
+                                    <e-accordion-accordionitem header="Amortiguadores" content="Los amortiguadores garantizan una conducción más confortable, evitando que el vehículo rebote y de sacudidas cada vez que se encuentre con un bache en la carretera. Además, protegen el chasís y contribuyen en gran medida a mejorar la seguridad de los ocupantes debido a que ayudan a controlar el vehículo cuando se transita a altas velocidades o en condiciones adversas en la carretera (lluvia, desniveles, baches, etc.)
+
+Cuando los amortiguadores están en mal estado, pueden presentarse los siguientes problemas:
+
+o Tiempos de frenado más prolongados.
+o Poco agarre a la carretera.
+o Mayor desgaste de las llantas.
+o Conducción incómoda.
+
+En Mazda Motovalle podrás recibir una completa asesoría sobre el estado de los amortiguadores."></e-accordion-accordionitem>
+                                    <e-accordion-accordionitem header="Llantas" content="Unas llantas en buen estado tienen mejor adherencia al piso, y permiten conducir de una forma más segura, respondiendo eficientemente ante cualquier peligro en la vía.
+
+Con el uso es normal que las llantas se desgasten y, si no se realiza un buen mantenimiento, se desgastarán de una forma irregular y su duración será inferior a la duración para la cual fueron diseñadas. Por eso es importante
+realizar un mantenimiento periódico a las llantas (alineación y balanceo, rotación y verificación de la presión).
+
+Las llantas que utilizan los vehículos Mazda han sido diseñadas y probadas para darle seguridad, eficiencia, confort y maniobrabilidad a tu vehículo."></e-accordion-accordionitem>
+                                    <e-accordion-accordionitem header="Plumillas" content="Casi todas las decisiones que se toman al volante dependen de una visión clara y despejada de la carretera, especialmente en condiciones climáticas adversas, por lo cual es muy importante que el parabrisas esté lo más limpio posible. Los limpiaparabrisas originales Mazda ofrecen una visibilidad óptima. Se adaptan perfectamente a las curvas de los parabrisas inclinados y aerodinámicos y además, garantizan una mayor limpieza.
+
+Recomendaciones para prolongar la vida útil de los limpiaparabrisas:
+
+o No utilices solventes para limpiarlas (gasolina, thinner, etc.) Enjuágalos bien con agua limpia y repite la operación si es necesario.
+o No actives el limpiaparabrisas con el vidrio seco, ya que el polvo o las suciedades pueden rayar el vidrio frontal y/o trasero.
+o Utiliza el líquido limpiaparabrisas original Mazda para optimizar el funcionamiento de las plumillas.
+
+Los limpiaparabrisas desgastados pueden ser peligrosos. Te recomendamos cambiarlos cada seis o doce meses aunque vivas en un clima seco. Solicita en tu taller autorizado Mazda que comprueben el estado del sistema
+limpiaparabrisas en las revisiones programadas."></e-accordion-accordionitem>
+                                    <e-accordion-accordionitem header="Bujías" content="La bujía de encendido desempeña un papel fundamental en el funcionamiento del motor, ya que se encarga de dar ignición a la mezcla de aire y combustible. El desgaste de las bujías puede causar problemas como:
+
+o Baja aceleración.
+o Dificultad al dar arranque al motor.
+o Respuesta lenta del motor.
+o Eficiencia pobre en el consumo de combustible.
+o Escape excesivo de gases, que sobrepasa los límites establecidos por
+la ley.
+
+Para prevenir estos problemas, te aconsejamos cambiar las bujías regularmente por bujías genuinas Mazda, las cuales encajan perfectamente en el motor de tu vehículo."></e-accordion-accordionitem>
+                                </e-accordion-accordionitems>
+                            </ejs-accordion>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-xs-12">
+                @await Html.PartialAsync("_NavCategoryMazda")
+
+            </div>
+        </div>
+    </div>
+</section><!--b-article-->
+
+<style>
+    .e-accordion .e-acrdn-item {
+        text-align: left;
+        color: black;
+        background-color: white;
+    }
+
+    .e-accordion .e-acrdn-header {
+        background: !important;
+        justify-content: left;
+        color: #7F2725;
+    }
+
+    .e-accordion {
+        color: #7F2725;
+        
+    }
+
+    
+</style>

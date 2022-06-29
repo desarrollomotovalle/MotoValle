@@ -1,0 +1,161 @@
+﻿@model Inventek.ERP.Models.Entities.Ecommerce.EcommerceCustomPages
+
+@{
+    ViewData["Title"] = Model.PageTitle;
+    switch (Model.FkEcommerceCustomMenuID)
+    {
+        case 1:
+            Layout = "~/Views/Shared/_LayoutFord.cshtml";
+            break;
+        case 2:
+            Layout = "~/Views/Shared/_LayoutMazda.cshtml";
+            break;
+        case 3:
+            Layout = "~/Views/Shared/_LayoutCarshow.cshtml";
+            break;
+        case 4:
+            Layout = "~/Views/Shared/_LayoutMasseyFerguson.cshtml";
+            break;
+        case 5:
+            Layout = "~/Views/Shared/_LayoutRepuestos.cshtml";
+            break;
+        default:
+            Layout = "~/Views/Shared/_Layout.cshtml";
+            break;
+    }
+
+}
+
+@{
+    switch (Model.FkEcommerceCustomMenuID)
+    {
+        case 1:
+            <section class="b-pageHeader">
+                <div class="container">
+                    <h1 class="wow zoomInLeft" data-wow-delay="0.7s">@Model.PageTitle</h1>
+                    <div class="b-pageHeader__search wow zoomInRight" data-wow-delay="0.7s">
+
+                    </div>
+                </div>
+            </section><!--b-pageHeader-->
+            break;
+        case 2:
+            <section class="b-pageHeader mazda">
+                <div class="container">
+                    <h1 class="wow zoomInLeft" data-wow-delay="0.7s">@Model.PageTitle</h1>
+                    <div class="b-pageHeader__search wow zoomInRight" data-wow-delay="0.7s">
+
+                    </div>
+                </div>
+            </section><!--b-pageHeader-->
+            break;
+        case 3:
+            <section class="b-pageHeader carshow">
+                <div class="container">
+                    <h1 class="wow zoomInLeft" data-wow-delay="0.7s">@Model.PageTitle</h1>
+                    <div class="b-pageHeader__search wow zoomInRight" data-wow-delay="0.7s">
+
+                    </div>
+                </div>
+            </section><!--b-pageHeader-->
+            break;
+        case 4:
+            <section class="b-pageHeader massey">
+                <div class="container">
+                    <h1 class="wow zoomInLeft" data-wow-delay="0.7s">@Model.PageTitle</h1>
+                    <div class="b-pageHeader__search wow zoomInRight" data-wow-delay="0.7s">
+
+                    </div>
+                </div>
+            </section><!--b-pageHeader-->
+            break;
+        case 5:
+            <section class="b-pageHeader">
+                <div class="container">
+                    <h1 class="wow zoomInLeft" data-wow-delay="0.7s">@Model.PageTitle</h1>
+                    <div class="b-pageHeader__search wow zoomInRight" data-wow-delay="0.7s">
+
+                    </div>
+                </div>
+            </section><!--b-pageHeader-->
+            break;
+        default:
+            <section class="b-pageHeader">
+                <div class="container">
+                    <h1 class="wow zoomInLeft" data-wow-delay="0.7s">@Model.PageTitle</h1>
+                    <div class="b-pageHeader__search wow zoomInRight" data-wow-delay="0.7s">
+
+                    </div>
+                </div>
+            </section><!--b-pageHeader-->
+            break;
+    }
+}
+
+<div class="b-breadCumbs s-shadow">
+    <div class="container wow zoomInUp" data-wow-delay="0.5s">
+        <a class="b-breadCumbs__page" href="/">Home</a><span class="fa fa-angle-right"></span><a class="b-breadCumbs__page m-active" href="www.tiendamotovalle.com/@Model.URL">@Model.PageTitle</a>
+    </div>
+</div><!--b-breadCumbs-->
+
+<section class="content">
+    <div class="container">
+        <div class="wow zoomInUp text-center" data-wow-delay="0.5s" style="margin-top:4em; margin-bottom:3em;">
+            <h1>@Model.PageDescription</h1>
+        </div>
+        <div class="row">
+            @Html.Raw(Model.PageHTML)
+        </div>
+    </div>
+</section>
+
+
+<!--<section class="b-article">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 col-xs-12">
+                <div class="b-article__main">
+                    <div class="b-blog__posts-one">
+                        <div class="row m-noBlockPadding">
+                            <div class="col-sm-1 col-xs-2">
+
+                            </div>
+                            <div class="col-sm-11 col-xs-10">
+                                <div class="b-blog__posts-one-body">
+                                    <header class="b-blog__posts-one-body-head wow zoomInUp" data-wow-delay="0.5s">
+                                        <h2 class="s-titleDet">@Model.PageTitle</h2>
+                                    </header>
+                                    <div class="b-blog__posts-one-body-main wow zoomInUp" data-wow-delay="0.5s">
+
+
+                                    </div>
+
+                                    <p></p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-xs-12">
+                <aside class="b-blog__aside">
+                    <div class="b-blog__aside-categories wow zoomInUp" data-wow-delay="0.5s">
+                        <header class="s-lineDownLeft">
+                            <h2 class="s-titleDet">OTROS TEMAS</h2>
+                        </header>
+                        <nav>
+                            <ul class="b-blog__aside-categories-list">
+                                <li><a href="https://www.cdc.gov/coronavirus/2019-ncov/prepare/prevention-sp.html" target="_blank">Recomendaciones de la CDC</a></li>
+                                <li><a href="https://www.minsalud.gov.co/salud/publica/PET/Paginas/Covid-19_copia.aspx" target="_blank">Recomendaciones de MiSalud</a></li>
+                                <li><a href="#">Como Limpiar tu Vehículo</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+
+                </aside>
+            </div>
+        </div>
+    </div>
+</section>-->
+<!--b-article-->

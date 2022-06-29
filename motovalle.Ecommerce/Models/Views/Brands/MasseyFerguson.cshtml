@@ -1,0 +1,3300 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using motovalle.Ecommerce.Models.Entities.Identity
+
+@inject UserManager<ApplicationUser> UserManager
+@model MasseyFergusonBrandViewModel
+
+@{
+    ViewData["Title"] = "MasseyFerguson";
+    Layout = "~/Views/Shared/_LayoutMasseyFerguson.cshtml";
+    var userName = string.Empty;
+    var userEmail = string.Empty;
+    var userPhone = string.Empty;
+
+    if (User.Identity.IsAuthenticated)
+    {
+        var user = await UserManager.GetUserAsync(User);
+        userName = user.FullName;
+        userEmail = user.Email;
+        userPhone = user.PhoneNumber;
+    }
+}
+
+<section class="b-pageHeader massey">
+    <div class="container">
+        <h1 class="wow zoomInLeft" data-wow-delay="0.5s">MOTOVALLE - MASSEY FERGUSON</h1>
+        @*Issue 1: 04/08/2020 Diego - Remove Motovalle Park for Octavio's request*@
+        @*<div class="b-pageHeader__search wow zoomInRight" data-wow-delay="0.5s">
+                <h3>Encuentra la maquinaria que necesitas</h3>
+            </div>*@
+    </div>
+</section><!--b-pageHeader-->
+
+<div class="b-breadCumbs s-shadow wow zoomInUp" data-wow-delay="0.5s">
+    <div class="container">
+        <a asp-action="Index" asp-controller="Home" class="b-breadCumbs__page">Home</a><span class="fa fa-angle-right"></span><a asp-action="MasseyFerguson" asp-controller="Brands" class="b-breadCumbs__page m-active">Marca (Massey Ferguson)</a>
+    </div>
+    @if (ViewBag.Message != null)
+    {
+        <div class="alert alert-danger text-center wow zoomInUp" role="alert" data-wow-delay="0.5s">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <strong>¡Ups!..</strong> @ViewBag.Message &#128577;
+        </div>
+    }
+</div><!--b-breadCumbs-->
+
+
+<section class="b-slider">
+    <div class="container wow zoomInRight" data-wow-delay="0.55s">
+        <div id="carousel" class="slide carousel carousel-fade">
+            <div class="carousel-inner">
+                <div class="item active">
+                    <img src="~/media/brand-sliders/massey-ferguson/header-1.jpg" alt="header-1" class="img-responsive" />
+                </div>
+                <div class="item">
+                    <img src="~/media/brand-sliders/massey-ferguson/header-2.jpg" alt="header-2" class="img-responsive" />
+                </div>
+                <div class="item">
+                    <img src="~/media/brand-sliders/massey-ferguson/header-3.jpg" alt="header-3" class="img-responsive" />
+                </div>
+                <div class="item">
+                    <img src="~/media/brand-sliders/massey-ferguson/header-4.jpg" alt="header-4" class="img-responsive" />
+                </div>
+                <div class="item">
+                    <img src="~/media/brand-sliders/massey-ferguson/header-5.jpg" alt="header-5" class="img-responsive" />
+                </div>
+            </div>
+            <a class="carousel-control right" href="#carousel" data-slide="next" id="idNextSlider">
+                <span class="fa fa-angle-right m-control-right"></span>
+            </a>
+            <a class="carousel-control left" href="#carousel" data-slide="prev">
+                <span class="fa fa-angle-left m-control-left"></span>
+            </a>
+        </div>
+    </div>
+</section><!--b-slider-->
+
+
+
+
+<div class="b-article s-shadow">
+    <div class="row">
+        <div class="col-md-10 col-xs-12">
+            <section class="b-detail">
+                @if (ViewBag.Error != null)
+                {
+                    <div class="container">
+                        @if (ViewBag.Error == false)
+                        {
+                            <div class="alert alert-success text-center wow zoomInUp" role="alert" data-wow-delay="0.5s">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <strong>¡Perfecto!..</strong> Se ha envíado tu solicitud correctamente &#128512;
+                            </div>
+                        }
+
+                        @if (ViewBag.Error == true)
+                        {
+                            if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+                            {
+                                <div class="alert alert-danger text-center wow zoomInUp" role="alert" data-wow-delay="0.5s">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <strong>¡Ups!..</strong> @ViewBag.ErrorMessage
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="alert alert-danger text-center wow zoomInUp" role="alert" data-wow-delay="0.5s">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <strong>¡Ups!..</strong> Lo sentimos. Algo salió mal, por favor intenta nuevamente &#128577;
+                                </div>
+                            }
+                        }
+                    </div>
+                }
+
+                <div class="container" id="masseyContentId">
+                    <!--Home-->
+                    <div id="masseyHomeId" class="text-center wow zoomInLeft" data-wow-delay="0.55s" style="margin-top:-2em; display:block;">
+                        <h2>Un mundo de experiencias <span style="color:#C21B2F">trabajando</span> con usted</h2>
+                        <h3>Conoce nuestra línea completa de maquinaria y encuentra la que mejor se adapte a tí</h3>
+                        <div class="container">
+                            <p class="text text-muted">
+                                *Los precios están sujetos a cambios sin previo aviso del concesionario. Los precios anunciados son sugeridos y pueden estar sujetos a <br />
+                                variaciones según el modelo, especificaciones y el plan comercial vigente aplicable a cada vehículo.<br />
+                                El precio exacto debe ser consultado con un asesor del concesionario. <br />
+                                El precio de referencia es sobre la versión básica de menor valor, dentro de las expuestas en esta página. <br />
+                                **Algunas imágenes o características pueden variar con respecto a las versiones que se comercializan en Colombia.
+                            </p>
+                        </div>
+                    </div>
+                    <!--About Massey-->
+                    <div id="masseyAboutId" class="row wow zoomInLeft" data-wow-delay="0.55s" style="display:none">
+                        <div class="col-md-4 col-xs-12">
+                            <img class="img-responsive center-block" src="~/massey_ferguson/home/carro.png" width="100%" alt="Tractor" />
+                        </div>
+                        <div class="col-md-8 col-xs-12">
+                            <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                <b>La marca <span style="color:#C21B2F">Massey Ferguson</span> es fabricada por AGCO, mayor fabricante de tractores de América Latina.</b> Los tractores, cosechadoras e implementos son producidos en las tres fábricas al sur de Brasil (situadas en las ciudades de Canoas, Santa Rosa e Ibirubá). Se exportan hacía más de 80 países, con actuación destacada en Venezuela, Chile, Estados Unidos y Sudáfrica. La marca Massey Ferguson está presente en América Latina hace más de 50 años.
+                            </p>
+                            <br />
+                            <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                AGCO fue fundada en 1990, ofrece una línea completa de productos incluyendo tractores, cosechadoras, equipamientos para henolaje y forraje, pulverizadores, equipamientos para preparación del suelo, implementos y repuestos relacionados. Los productos de AGCO se venden a través de sus principales marcas: Challenger, Fendt, Massey Ferguson y Valtra, que se distribuyen a través de más de 3.000 concesionarias y distribuidores independientes en más de 140 países en el mundo.
+                            </p>
+                        </div>
+                    </div>
+                    <!--Philosophy-->
+                    <div id="masseyPhilosophy" class="row wow zoomInLeft" data-wow-delay="0.55s" style="display:none">
+                        <div class="col-md-8 col-xs-12">
+                            <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                <span style="color:#C21B2F"><b>Misión</b></span>
+                            </p>
+                            <br />
+                            <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                Proyectar equipos agrícolas modernos y de alto desempeño, con foco en los productores rurales y en los más diversos cultivos alrededor del mundo.
+                            </p>
+                            <br />
+                            <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                <span style="color:#C21B2F"><b>Visión</b></span>
+                            </p>
+                            <br />
+                            <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                <b>Ser la marca más elegida</b> en maquinaria agrícola por productores rurales experimentados y profesionales de todo el mundo.
+                            </p>
+                            <br />
+                            <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                <span style="color:#C21B2F"><b>Posicionamiento de la marca</b></span>
+                            </p>
+                            <br />
+                            <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                <b>Para los agricultores de hoy que se dedican a la tierra, Massey Ferguson</b> tiene maquinarias agrícolas que proporcionan facilidad de uso y óptima confiabilidad. Ninguna otra marca tiene experiencia con más cultivos, más condiciones, más lugares, por más años y con más agricultores que Massey Ferguson.
+                            </p>
+                            <br />
+                            <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                <span style="color:#C21B2F"><b>Slogan</b></span>
+                            </p>
+                            <br />
+                            <p class="text-justify" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                <b>UN MUNDO DE EXPERIENCIAS. TRABAJANDO CON USTED.</b>
+                            </p>
+                        </div>
+                        <div class="col-md-4 col-xs-12">
+                            <img src="~/massey_ferguson/home/carro-1.png" class="img-responsive center-block" width="90%" alt="Tractor" />
+                        </div>
+                    </div>
+                    <!--Brand Values-->
+                    <div id="masseyBrandValuesId" class="row wow zoomInLeft" data-wow-delay="0.55s" style="display:none">
+                        <div class="col-md-4 col-xs-12">
+                            <img class="img-responsive center-block" src="~/massey_ferguson/home/carro-2.png" width="100%" alt="Tractor" />
+                        </div>
+                        <div class="col-md-8 col-xs-12">
+                            <p class="text-left" style="margin:0 2.5em 0 2.5em; font-size:16px;">
+                                <span style="color:#C21B2F"><b>Valores de la marca</b></span>
+                            </p>
+                            <br />
+                            <ul class="s-list">
+                                <li style="font-size:14px;"><span class="fa fa-check"></span>Productos modernos y de alta calidad que proporcionan un gran valor a la propiedad </li>
+                                <li style="font-size:14px;"><span class="fa fa-check"></span>Experiencia en el desarrollo de soluciones agrícolas de alto desempeño que superan las expectativas (simples y confiables) </li>
+                                <li style="font-size:14px;"><span class="fa fa-check"></span>Experiencia en la atención al cliente con foco en los agricultores y profesionales (productos, atendimiento al cliente, repuestos)  </li>
+                                <li style="font-size:14px;"><span class="fa fa-check"></span>Amplia gama de productos para los más diversos cultivos </li>
+                                <li style="font-size:14px;"><span class="fa fa-check"></span>Conecta el nombre, la máquina y el cultivo para ofrecer lo máximo en productividad </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--Operators Club-->
+                    <div id="masseyOperatorsClubId" class="row wow zoomInLeft" data-wow-delay="0.55s" style="display:none; margin-top:-4em;">
+                        <div class="col-md-12 col-xs-12 text-center">
+                            <img class="img-responsive center-block" src="~/massey_ferguson/home/header-4.png" width="90%" alt="Tractor" />
+                        </div>
+                        <div class="col-md-12 col-xs-12">
+                            <div>
+                                <br />
+                                <header class="b-contacts__form-header s-lineDownLeft wow zoomInUp" data-wow-delay="0.5s">
+                                    <h2 class="s-titleDet text-center">
+                                        Club de <span style="color:#C21B2F">Operadores Massey</span>
+                                    </h2>
+                                </header>
+                                <p class="text-center wow zoomInUp" data-wow-delay="0.5s">
+                                    ¡Haz parte del Club oficial de operadores Massey llenando el formulario de inscripción!
+                                </p>
+                                <form asp-action="OperatorsClubMasseyFerguson" asp-controller="Brands" method="post" class="wow zoomInUp" data-wow-delay="0.5s" style="padding: 0% 10% 0% 10%">
+                                    @Html.AntiForgeryToken()
+                                    @Html.ValidationSummary(false, string.Empty, htmlAttributes: new { @class = "text-danger" })
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <input asp-for="@Model.OperatorsClubViewModel.Name" class="form-control" placeholder="Nombres*" />
+                                                <span asp-validation-for="@Model.OperatorsClubViewModel.Name" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <input asp-for="@Model.OperatorsClubViewModel.LastName" class="form-control" placeholder="Apellidos*" />
+                                                <span asp-validation-for="@Model.OperatorsClubViewModel.LastName" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <input asp-for="@Model.OperatorsClubViewModel.PhoneNumber" class="form-control" placeholder="Celular" />
+                                                <span asp-validation-for="@Model.OperatorsClubViewModel.PhoneNumber" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <input asp-for="@Model.OperatorsClubViewModel.Email" class="form-control" placeholder="Email" />
+                                                <span asp-validation-for="@Model.OperatorsClubViewModel.Email" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label asp-for="@Model.OperatorsClubViewModel.DateOfBirth" class="control-label"></label>
+                                                <input asp-for="@Model.OperatorsClubViewModel.DateOfBirth" class="form-control" />
+                                                <span asp-validation-for="@Model.OperatorsClubViewModel.DateOfBirth" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <input asp-for="@Model.OperatorsClubViewModel.Serial" class="form-control" placeholder="Serie del Tractor - Modelo" />
+                                                <span asp-validation-for="@Model.OperatorsClubViewModel.Serial" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <input asp-for="@Model.OperatorsClubViewModel.ChasisNumber" class="form-control" placeholder="Número de Chasis" />
+                                                <span asp-validation-for="@Model.OperatorsClubViewModel.ChasisNumber" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 col-xs-12">
+                                            <div class="form-group">
+                                                <input asp-for="@Model.OperatorsClubViewModel.Ubication" class="form-control" placeholder="Ubicación, cuidad o municipio" />
+                                                <span asp-validation-for="@Model.OperatorsClubViewModel.Ubication" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @*<div class="row">
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <span asp-validation-for="@Model.OperatorsClubViewModel.DataTreatment" class="error text-danger"></span>
+                                                <label><input type="checkbox" asp-for="@Model.OperatorsClubViewModel.DataTreatment" id="user-dataTreatmentId" /><a asp-action="Privacy" asp-controller="Home" target="_blank"> Conozco y acepto</a> las políticas de tratamiento de datos de Motovalle y lo autorizo a contactarme</label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-6 col-xs-12">
+                                                <span asp-validation-for="@Model.OperatorsClubViewModel.TermsAndConditions" class="error text-danger"></span>
+                                                <label><input type="checkbox" asp-for="@Model.OperatorsClubViewModel.TermsAndConditions" id="user-termsconditions-id" /><a asp-action="Privacy" asp-controller="Home" target="_blank"> Acepto los términos</a> y condiciones</label>
+                                            </div>
+                                        </div>
+                                    </div>*@
+                                    <br />
+                                    <div class="form-group text-center">
+                                        <input type="submit" value="Suscribrirme ahora" class="btn btn-danger" />
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section><!--b-detail-->
+        </div>
+        <div class="col-md-2 col-xs-12">
+            <aside class="b-blog__aside">
+                <div class="b-blog__aside-categories wow zoomInUp" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: zoomInUp;">
+                    <header class="s-lineDownLeft">
+                        <h2 class="s-titleDet">Más de acerca de nosotros</h2>
+                    </header>
+                    <nav>
+                        <ul class="b-blog__aside-categories-list">
+                            <li class="m-active"><a onclick="getMasseyInfo('Home')"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+                            <li><a onclick="getMasseyInfo('About')">¿Quiénes somos?</a></li>
+                            <li><a onclick="getMasseyInfo('Philosophy')">Filosofía</a></li>
+                            <li><a onclick="getMasseyInfo('BrandValues')">Valores</a></li>
+                            <li><a onclick="getMasseyInfo('OperatorsClub')">Club de operadores</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </aside>
+        </div>
+    </div>
+    <div class="wow zoomInLeft" data-wow-delay="0.5s">
+        <div class="col-sm-4 col-xs-12">
+            <h2 style="margin-left:2em;"><span style="color:#C21B2F;">Categorías</span></h2>
+        </div>
+        <div class="col-sm-8 col-xs-12 pull-right">
+            <ul class="nav nav-tabs">
+                <li class="active">
+                    <a href="#todos" class="tabmap" data-toggle="tab" aria-expanded="true">
+                        <h3>TODOS</h3>
+                    </a>
+                </li>
+
+                @if (ViewBag.Categories != null)
+                {
+                    foreach (var category in ViewBag.Categories)
+                    {
+                        <li class="">
+                            <a href="@($"#category{category[0]}")" class="tabmap" data-toggle="tab" aria-expanded="false">
+                                <h3>@category[1]</h3>
+                            </a>
+                        </li>
+                    }
+                }
+            </ul>
+            <!--nav nav-tabs nav-justified-->
+        </div>
+    </div>
+
+</div>
+<section class="b-related m-home">
+    <div class="container">
+        <h5 class="s-titleBg wow zoomInUp" data-wow-delay="0.5s">ENCUENTRA LA MAQUINARIA QUE SE AJUSTE A TU NECESIDAD</h5><br />
+        <h2 class="s-title wow zoomInUp" data-wow-delay="0.5s">MAQUINARIA</h2>
+        <div class="panel-body">
+            <div class="tab-content">
+                <div class="tab-pane fade active in" id="todos">
+                    <div>
+                        <div class="row">
+                            @foreach (var item in Model.ProductsAndMakeBase)
+                            {
+                                <div class="col-lg-4 col-md-4 col-xs-6" style="margin-bottom:2em;">
+                                    <div class="b-auto__main-item wow zoomInRight" data-wow-delay="0.5s">
+                                        <img class="img-responsive center-block" src="@Url.Content($"~/{item.PictureUrl}")" alt="@item.ModelName" style="width:270px; height:230px;"/>
+                                        <div class="b-world__item-val">
+                                            <span class="b-world__item-val-title">CATEGORÍA <span>@item.CategoryName</span></span>
+                                        </div>
+                                        <h2><a href="/MasseyFerguson/Product/@item.ProductId/Inventory">@item.ProductName</a></h2>
+                                        <div class="b-auto__main-item-info s-lineDownLeft">
+                                            <span class="m-price">
+                                                @item.SalesPrice.ToString("C")
+                                            </span>
+                                            <span class="m-number">
+                                                <span class="fa fa-tachometer"></span>0 KM
+                                            </span>
+                                        </div>
+                                        <div class="b-featured__item-links m-auto">
+                                            <a href="#">Nuevo</a>
+                                            <a href="#">@item.Year</a>
+                                            <a href="#">@item.HorsePower HP</a>
+                                            <a href="#">@item.TransmissionName</a>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                @if (User.Identity.IsAuthenticated)
+                                                {
+                                                    <a onclick="jivo_api.setContactInfo({ name: '@userName', email: '@userEmail', phone: '@userPhone', description: '@item.ProductName' }); jivo_api.setCustomData({ 'Asunto': 'Quiero saber más sobre: @item.ProductName' }); jivo_api.open({ start: 'chat' });">Pregunta por él aquí <span class="fa fa-comments"></span></a>
+                                                }
+                                                else
+                                                {
+                                                    <a onclick="jivo_api.setCustomData({ 'Asunto': 'Quiero saber más sobre: @item.ProductName' }); jivo_api.open({ start: 'chat' });">Pregunta por él aquí <span class="fa fa-comments"></span></a>
+                                                }
+                                            </div>
+                                            ó
+                                            <div class="col-xs-12">
+                                                <a href="/MasseyFerguson/Product/@item.ProductId/Inventory">Compralo en nuestra tienda <span class="fa fa-shopping-cart"></span></a>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <br />
+                                                <br />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+                @if (ViewBag.Categories != null)
+                {
+                    @foreach (var category in ViewBag.Categories)
+                    {
+                        <div class="tab-pane fade" id="@($"category{category[0]}")">
+                            <div class="row">
+                                @foreach (var item in Model.ProductsAndMakeBase.Where(x => x.CategoriesId.ToString() == category[0]).ToList())
+                                {
+                                    <div class="col-lg-4 col-md-4 col-xs-6" style="margin-bottom:2em;">
+                                        <div class="b-auto__main-item">
+                                            <img class="img-responsive center-block" src="@Url.Content($"~/{item.PictureUrl}")" alt="@item.ModelName" style="width:270px; height:230px;" />
+                                            <div class="b-world__item-val">
+                                                <span class="b-world__item-val-title">CATEGORÍA <span>@item.CategoryName</span></span>
+                                            </div>
+                                            <h2><a href="/MasseyFerguson/Product/@item.ProductId/Inventory">@item.ProductName</a></h2>
+                                            <div class="b-auto__main-item-info s-lineDownLeft">
+                                                <span class="m-price">
+                                                    @item.SalesPrice.ToString("C")
+                                                </span>
+                                                <span class="m-number">
+                                                    <span class="fa fa-tachometer"></span>0 KM
+                                                </span>
+                                            </div>
+                                            <div class="b-featured__item-links m-auto">
+                                                <a href="#">Nuevo</a>
+                                                <a href="#">@item.Year</a>
+                                                <a href="#">@item.HorsePower HP</a>
+                                                <a href="#">@item.TransmissionName</a>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-12">
+                                                    @if (User.Identity.IsAuthenticated)
+                                                    {
+                                                        <a onclick="jivo_api.setContactInfo({ name: '@userName', email: '@userEmail', phone: '@userPhone', description: '@item.ProductName' }); jivo_api.setCustomData({ 'Asunto': 'Quiero saber más sobre: @item.ProductName' }); jivo_api.open({ start: 'chat' });">Pregunta por él aquí <span class="fa fa-comments"></span></a>
+                                                    }
+                                                    else
+                                                    {
+                                                        <a onclick="jivo_api.setCustomData({ 'Asunto': 'Quiero saber más sobre: @item.ProductName' }); jivo_api.open({ start: 'chat' });">Pregunta por él aquí <span class="fa fa-comments"></span></a>
+                                                    }
+                                                </div>
+                                                ó
+                                                <div class="col-xs-12">
+                                                    <a href="/MasseyFerguson/Product/@item.ProductId/Inventory">Compralo en nuestra tienda <span class="fa fa-shopping-cart"></span></a>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-12">
+                                                    <br />
+                                                    <br />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+
+    </div>
+    <br />
+    <br />
+</section><!--"b-related-->
+
+
+<div class="b-map wow zoomInUp" data-wow-delay="0.5s">
+    <div class="container wow zoomInLeft" data-wow-delay="0.55s">
+        <div class="col-sm-3 col-xs-12">
+            <h2 style="margin-left:0.5em;">Nuestras <span style="color:#C21B2F;">sedes</span></h2>
+        </div>
+        <div class="col-sm-9 col-xs-12 pull-right">
+            <ul class="nav nav-tabs">
+                <li class="active">
+                    <a href="#mapa1" class="tabmap" data-toggle="tab" aria-expanded="true"><h3>CALI</h3></a>
+                </li>
+                <li>
+                    <a href="#mapa2" class="tabmap" data-toggle="tab" aria-expanded="true"><h3>BOGOTÁ</h3></a>
+                </li>
+                <li>
+                    <a href="#mapa3" class="tabmap" data-toggle="tab" aria-expanded="true"><h3>VILLAVICENCIO</h3></a>
+                </li>
+                <li>
+                    <a href="#mapa4" class="tabmap" data-toggle="tab" aria-expanded="true"><h3>BUCARAMANGA</h3></a>
+                </li>
+                <li>
+                    <a href="#mapa5" class="tabmap" data-toggle="tab" aria-expanded="true"><h3>ITAGÜÍ</h3></a>
+                </li>
+                <li>
+                    <a href="#mapa6" class="tabmap" data-toggle="tab" aria-expanded="true"><h3>YOPAL</h3></a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+    <div class="panel with-nav-tabs-maps">
+        <div class="panel-body">
+            <div class="tab-content">
+                <div class="tab-pane fade in active" id="mapa1">
+                    <div>
+                        <div class="wpgmp_map_container wpgmp-map-21" rel="map21"><div class="wpgmp_map" style="width:100%; height:680px;" id="map21"></div></div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="mapa2">
+                    <div>
+                        <div class="wpgmp_map_container wpgmp-map-22" rel="map22"><div class="wpgmp_map" style="width:100%; height:680px;" id="map22"></div></div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="mapa3">
+                    <div>
+                        <div class="wpgmp_map_container wpgmp-map-23" rel="map23"><div class="wpgmp_map" style="width:100%; height:680px;" id="map23"></div></div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="mapa4">
+                    <div>
+                        <div class="wpgmp_map_container wpgmp-map-24" rel="map24"><div class="wpgmp_map" style="width:100%; height:680px;" id="map24"></div></div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="mapa5">
+                    <div>
+                        <div class="wpgmp_map_container wpgmp-map-25" rel="map25"><div class="wpgmp_map" style="width:100%; height:680px;" id="map25"></div></div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="mapa6">
+                    <div>
+                        <div class="wpgmp_map_container wpgmp-map-26" rel="map26"><div class="wpgmp_map" style="width:100%; height:680px;" id="map26"></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .wpgmp-map-21, .wpgmp-map-21 .wpgmp_tabs_container, .wpgmp-map-21 .wpgmp_listing_container, .wpgmp-map-22, .wpgmp-map-22 .wpgmp_tabs_container, .wpgmp-map-22 .wpgmp_listing_container
+    .wpgmp-map-23, .wpgmp-map-23 .wpgmp_tabs_container, .wpgmp-map-23 .wpgmp_listing_container, .wpgmp-map-24, .wpgmp-map-24 .wpgmp_tabs_container, .wpgmp-map-24 .wpgmp_listing_container
+    .wpgmp-map-25, .wpgmp-map-25 .wpgmp_tabs_container, .wpgmp-map-25 .wpgmp_listing_container {
+        font-size: 16px !important;
+    }
+</style>
+
+
+@section Scripts{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+    <script type="text/javascript">
+        window.onload = () => {
+            setInterval(() => {
+                document.querySelector("#idNextSlider").click();
+            }, 10000);
+        };
+
+        $('.b-blog__aside-categories-list li').click(function () {
+            $('.b-blog__aside-categories-list li').removeClass('m-active');
+            $(this).addClass('m-active');
+        });
+
+        // extend jquery range validator to work for required checkboxes
+        var defaultRangeValidator = $.validator.methods.range;
+        $.validator.methods.range = function (value, element, param) {
+            if (element.type === 'checkbox') {
+                // if it's a checkbox return true if it is checked
+                return element.checked;
+            } else {
+                // otherwise run the default validation function
+                return defaultRangeValidator.call(this, value, element, param);
+            }
+        }
+    </script>
+    <script type="text/javascript" src="~/js/maps.js"></script>
+    <script type='text/javascript' src='https://maps.google.com/maps/api/js?key=AIzaSyBVJ03UjRxywFn8ch5YseSPn2tZ_FsFOgQ&#038;libraries=geometry%2Cplaces%2Cweather%2Cpanoramio%2Cdrawing&#038;language=es&#038;ver=5.2.5'></script>
+    <script>
+        $(document).ready(function ($) {
+            var map21 = $("#map21").maps({
+                "map_options": {
+                    "center_lat": "3.440317",
+                    "center_lng": "-76.528622",
+                    "zoom": 13,
+                    "map_type_id": "ROADMAP",
+                    "center_by_nearest": true,
+                    "center_circle_fillcolor": "#8CAEF2",
+                    "center_circle_fillopacity": ".5",
+                    "center_circle_strokecolor": "#8CAEF2",
+                    "center_circle_strokeopacity": ".5",
+                    "center_circle_radius": "5",
+                    "show_center_circle": false,
+                    "show_center_marker": false,
+                    "center_marker_icon": "https://unpkg.com/leaflet@1.3.3/dist/images/marker-icon.png",
+                    "center_marker_infowindow": "",
+                    "center_circle_strokeweight": "1",
+                    "draggable": true,
+                    "scroll_wheel": false,
+                    "display_45_imagery": "",
+                    "marker_default_icon": "/images/maps/pointers/pointer.png",
+                    "infowindow_setting": `<div class="fc-main"><div class="fc-item-title">{marker_title} <span class="fc-badge info">{marker_category}</span></div><div class="fc-item-featured_image">{marker_image} </div><p>{marker_message}</p><address><b>Address : </b>{marker_address}</address></div><div><a href="https://www.google.com/maps/dir/?api=1&destination={address_map}&travelmode=traffic" target="_blank">Ver ruta en Google Maps</a></div>`,
+                    "infowindow_geotags_setting": `<div class="fc-main"><div class="fc-item-title">{post_title} <span class="fc-badge info">{post_categories}</span></div><div class="fc-item-featured_image">{post_featured_image} </div><p>{post_excerpt}</p><address><b>Address : </b>{marker_address}</address><p><a target="_blank"  class="fc-btn fc-btn-small fc-btn-red" href="{post_link}">Read More...</a></div>`,
+                    "infowindow_bounce_animation": "",
+                    "infowindow_drop_animation": false,
+                    "close_infowindow_on_map_click": false,
+                    "default_infowindow_open": false,
+                    "infowindow_open_event": "click",
+                    "infowindow_filter_only": false,
+                    "infowindow_click_change_zoom": 0,
+                    "infowindow_click_change_center": false,
+                    "full_screen_control": false,
+                    "search_control": true,
+                    "zoom_control": true,
+                    "map_type_control": false,
+                    "street_view_control": false,
+                    "zoom_mobile": 0,
+                    "draggable_mobile": true,
+                    "scroll_wheel_mobile": true,
+                    "full_screen_control_position": "TOP_RIGHT",
+                    "search_control_position": "TOP_LEFT",
+                    "zoom_control_position": "TOP_LEFT",
+                    "map_type_control_position": "TOP_LEFT",
+                    "map_type_control_style": "HORIZONTAL_BAR",
+                    "street_view_control_position": "TOP_LEFT",
+                    "map_control": true,
+                    "map_control_settings": [
+
+                    ],
+                    "screens": {
+                        "smartphones": {
+                            "map_width_mobile": "",
+                            "map_height_mobile": "380px",
+                            "map_zoom_level_mobile": "13"
+                        },
+                        "ipads": {
+                            "map_width_mobile": "",
+                            "map_height_mobile": "440px",
+                            "map_zoom_level_mobile": "13"
+                        },
+                        "large-screens": {
+                            "map_width_mobile": "",
+                            "map_height_mobile": "680px",
+                            "map_zoom_level_mobile": "13"
+                        }
+                    },
+                    "map_infowindow_customisations": false,
+                    "infowindow_border_color": "rgba(0, 0, 0, 0.0980392)",
+                    "infowindow_bg_color": "#fff",
+                    "show_infowindow_header": false,
+                    "width": "",
+                    "height": "680"
+                },
+                "places": [
+                    {
+                        "id": "12",
+                        "title": "Corporativo Massey Cali",
+                        "address": "Calle 26 # 1 - 71 Cali, Valle",
+                        "source": "manual",
+                        "content": "Corporativo Massey Cali",
+                        "location": {
+                            "icon": `${window.location.origin}/images/maps/pointers/massey1.png`,
+                            "lat": "3.4603634",
+                            "lng": "-76.5200597",
+                            "city": "Cali",
+                            "state": "Valle del Cauca",
+                            "country": "Colombia",
+                            "onclick_action": "marker",
+                            "redirect_custom_link": "",
+                            "marker_image": "",
+                            "open_new_tab": "yes",
+                            "postal_code": "760026",
+                            "draggable": false,
+                            "infowindow_default_open": false,
+                            "animation": "BOUNCE",
+                            "infowindow_disable": true,
+                            "zoom": 5,
+                            "extra_fields": {
+                                "address_map": "MOTOVALLE+Vitrina+Norte,+Calle+26,+Cali,+Valle+del+Cauca",
+                                "listorder": 0
+                            }
+                        },
+                        "categories": [
+                            {
+                                "id": "6",
+                                "name": "Corporativo Massey",
+                                "type": "category",
+                                "extension_fields": {
+                                    "cat_order": "0"
+                                },
+                                "icon": `${window.location.origin}/images/maps/pointers/massey1.png`
+                            }
+                        ],
+                        "custom_filters": [
+
+                        ]
+                    }
+                ],
+                "styles": [
+                    {
+                        "featureType": "all",
+                        "elementType": "geometry",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "all",
+                        "elementType": "labels",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "all",
+                        "elementType": "labels.text",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "all",
+                        "elementType": "labels.text.fill",
+                        "stylers": [
+                            {
+                                "color": "#7d7e92"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "all",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            },
+                            {
+                                "hue": "#ff0000"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "administrative",
+                        "elementType": "labels.text.fill",
+                        "stylers": [
+                            {
+                                "color": "#444444"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "landscape",
+                        "elementType": "geometry.fill",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            },
+                            {
+                                "color": "#e0e1e6"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "landscape",
+                        "elementType": "geometry.stroke",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "geometry",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            },
+                            {
+                                "color": "#c71313"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "geometry.fill",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            },
+                            {
+                                "color": "#7c7d91"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "geometry.stroke",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            },
+                            {
+                                "color": "#a12222"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "labels",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            },
+                            {
+                                "hue": "#000fff"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "labels.text",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "hue": "#0054ff"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.business",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            },
+                            {
+                                "hue": "#007aff"
+                            },
+                            {
+                                "weight": "10.00"
+                            },
+                            {
+                                "saturation": "-100"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.government",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.medical",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.place_of_worship",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.school",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.sports_complex",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "saturation": -100
+                            },
+                            {
+                                "lightness": 45
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.highway",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "visibility": "simplified"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.highway",
+                        "elementType": "geometry.fill",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            },
+                            {
+                                "color": "#dedee6"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.highway",
+                        "elementType": "geometry.stroke",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            },
+                            {
+                                "color": "#7c7d91"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.highway",
+                        "elementType": "labels.text.stroke",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            },
+                            {
+                                "hue": "#ff0000"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.arterial",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "transit",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "water",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "color": "#46bcec"
+                            },
+                            {
+                                "visibility": "on"
+                            }
+                        ]
+                    }
+                ],
+                "street_view": null,
+                "routes": null,
+                "marker_cluster": null,
+                "overlay_setting": null,
+                "panning_control": null,
+                "map_tabs": {
+                    "category_tab": null,
+                    "direction_tab": null,
+                    "nearby_tab": null,
+                    "route_tab": null
+                },
+                "listing": null,
+                "map_property": {
+                    "map_id": "21"
+                },
+                "shapes": {
+                    "drawing_editable": false
+                },
+                "filters": {
+                    "custom_filters": [
+
+                    ],
+                    "filters_container": `[data-container="wpgmp-filters-container"]`
+                }
+            }).data("wpgmp_maps");
+        });
+    </script>
+
+    <script>
+        $(document).ready(function ($) {
+            var map22 = $("#map22").maps({
+                "map_options": {
+                    "center_lat": "4.705731599999999",
+                    "center_lng": "-74.048969",
+                    "zoom": 12,
+                    "map_type_id": "ROADMAP",
+                    "center_by_nearest": true,
+                    "center_circle_fillcolor": "#8CAEF2",
+                    "center_circle_fillopacity": ".5",
+                    "center_circle_strokecolor": "#8CAEF2",
+                    "center_circle_strokeopacity": ".5",
+                    "center_circle_radius": "5",
+                    "show_center_circle": false,
+                    "show_center_marker": false,
+                    "center_marker_icon": "https://unpkg.com/leaflet@1.3.3/dist/images/marker-icon.png",
+                    "center_marker_infowindow": "",
+                    "center_circle_strokeweight": "1",
+                    "draggable": true,
+                    "scroll_wheel": false,
+                    "display_45_imagery": "",
+                    "marker_default_icon": "/images/maps/pointers/pointer.png",
+                    "infowindow_setting": `<div class="fc-main"><div class="fc-item-title">{marker_title} <span class="fc-badge info">{marker_category}</span></div><div class="fc-item-featured_image">{marker_image} </div><p>{marker_message}</p><address><b>Address : </b>{marker_address}</address></div><div><a href="https://www.google.com/maps/dir/?api=1&destination={address_map}&travelmode=traffic" target="_blank">Ver ruta en Google Maps</a></div>`,
+                    "infowindow_geotags_setting": `<div class="fc-main"><div class="fc-item-title">{post_title} <span class="fc-badge info">{post_categories}</span></div><div class="fc-item-featured_image">{post_featured_image} </div><p>{post_excerpt}</p><address><b>Address : </b>{marker_address}</address><p><a target="_blank"  class="fc-btn fc-btn-small fc-btn-red" href="{post_link}">Read More...</a></div>`,
+                    "infowindow_bounce_animation": "",
+                    "infowindow_drop_animation": false,
+                    "close_infowindow_on_map_click": false,
+                    "default_infowindow_open": false,
+                    "infowindow_open_event": "click",
+                    "infowindow_filter_only": false,
+                    "infowindow_click_change_zoom": 0,
+                    "infowindow_click_change_center": false,
+                    "full_screen_control": false,
+                    "search_control": true,
+                    "zoom_control": true,
+                    "map_type_control": false,
+                    "street_view_control": false,
+                    "zoom_mobile": 0,
+                    "draggable_mobile": true,
+                    "scroll_wheel_mobile": true,
+                    "full_screen_control_position": "TOP_RIGHT",
+                    "search_control_position": "TOP_LEFT",
+                    "zoom_control_position": "TOP_LEFT",
+                    "map_type_control_position": "TOP_LEFT",
+                    "map_type_control_style": "HORIZONTAL_BAR",
+                    "street_view_control_position": "TOP_LEFT",
+                    "map_control": true,
+                    "map_control_settings": [
+
+                    ],
+                    "screens": {
+                        "smartphones": {
+                            "map_width_mobile": "",
+                            "map_height_mobile": "380px",
+                            "map_zoom_level_mobile": "12"
+                        },
+                        "ipads": {
+                            "map_width_mobile": "",
+                            "map_height_mobile": "440px",
+                            "map_zoom_level_mobile": "12"
+                        },
+                        "large-screens": {
+                            "map_width_mobile": "",
+                            "map_height_mobile": "680px",
+                            "map_zoom_level_mobile": "12"
+                        }
+                    },
+                    "map_infowindow_customisations": false,
+                    "infowindow_border_color": "rgba(0, 0, 0, 0.0980392)",
+                    "infowindow_bg_color": "#fff",
+                    "show_infowindow_header": false,
+                    "width": "",
+                    "height": "680"
+                },
+                "places": [
+                    {
+                        "id": "13",
+                        "title": "Corporativo Massey Bogotá",
+                        "address": "Calle 13 # 49-91 Bogotá, Colombia",
+                        "source": "manual",
+                        "content": "Corporativo Massey Bogotá",
+                        "location": {
+                            "icon": `${window.location.origin}/images/maps/pointers/massey1.png`,
+                            "lat": "4.6263377",
+                            "lng": "-74.1058195",
+                            "city": "Bogotá",
+                            "state": "",
+                            "country": "Colombia",
+                            "onclick_action": "marker",
+                            "redirect_custom_link": "",
+                            "marker_image": "",
+                            "open_new_tab": "yes",
+                            "postal_code": "760003",
+                            "draggable": false,
+                            "infowindow_default_open": false,
+                            "animation": "BOUNCE",
+                            "infowindow_disable": true,
+                            "zoom": 5,
+                            "extra_fields": {
+                                "address_map": null,
+                                "listorder": 0
+                            }
+                        },
+                        "categories": [
+                            {
+                                "id": "6",
+                                "name": "Corporativo Massey",
+                                "type": "category",
+                                "extension_fields": {
+                                    "cat_order": "0"
+                                },
+                                "icon": `${window.location.origin}/images/maps/pointers/massey1.png`
+                            }
+                        ],
+                        "custom_filters": [
+
+                        ]
+                    }
+                ],
+                "styles": [
+                    {
+                        "featureType": "all",
+                        "elementType": "geometry",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "all",
+                        "elementType": "labels",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "all",
+                        "elementType": "labels.text",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "all",
+                        "elementType": "labels.text.fill",
+                        "stylers": [
+                            {
+                                "color": "#7d7e92"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "all",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            },
+                            {
+                                "hue": "#ff0000"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "administrative",
+                        "elementType": "labels.text.fill",
+                        "stylers": [
+                            {
+                                "color": "#444444"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "landscape",
+                        "elementType": "geometry.fill",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            },
+                            {
+                                "color": "#e0e1e6"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "landscape",
+                        "elementType": "geometry.stroke",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "geometry",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            },
+                            {
+                                "color": "#c71313"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "geometry.fill",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            },
+                            {
+                                "color": "#7c7d91"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "geometry.stroke",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            },
+                            {
+                                "color": "#a12222"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "labels",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            },
+                            {
+                                "hue": "#000fff"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "labels.text",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "hue": "#0054ff"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.business",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            },
+                            {
+                                "hue": "#007aff"
+                            },
+                            {
+                                "weight": "10.00"
+                            },
+                            {
+                                "saturation": "-100"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.government",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.medical",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.place_of_worship",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.school",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.sports_complex",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "saturation": -100
+                            },
+                            {
+                                "lightness": 45
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.highway",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "visibility": "simplified"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.highway",
+                        "elementType": "geometry.fill",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            },
+                            {
+                                "color": "#dedee6"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.highway",
+                        "elementType": "geometry.stroke",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            },
+                            {
+                                "color": "#7c7d91"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.highway",
+                        "elementType": "labels.text.stroke",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            },
+                            {
+                                "hue": "#ff0000"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.arterial",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "transit",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "water",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "color": "#46bcec"
+                            },
+                            {
+                                "visibility": "on"
+                            }
+                        ]
+                    }
+                ],
+                "street_view": null,
+                "routes": null,
+                "marker_cluster": null,
+                "overlay_setting": null,
+                "panning_control": null,
+                "map_tabs": {
+                    "category_tab": null,
+                    "direction_tab": null,
+                    "nearby_tab": null,
+                    "route_tab": null
+                },
+                "listing": null,
+                "map_property": {
+                    "map_id": "22"
+                },
+                "shapes": {
+                    "drawing_editable": false
+                },
+                "filters": {
+                    "custom_filters": [
+
+                    ],
+                    "filters_container": `[data-container="wpgmp-filters-container"]`
+                }
+            }).data("wpgmp_maps");
+        });
+    </script>
+
+    <script>
+        $(document).ready(function ($) {
+            var map23 = $("#map23").maps({
+                "map_options": {
+                    "center_lat": "4.13812",
+                    "center_lng": "-73.6297381",
+                    "zoom": 13,
+                    "map_type_id": "ROADMAP",
+                    "center_by_nearest": true,
+                    "center_circle_fillcolor": "#8CAEF2",
+                    "center_circle_fillopacity": ".5",
+                    "center_circle_strokecolor": "#8CAEF2",
+                    "center_circle_strokeopacity": ".5",
+                    "center_circle_radius": "5",
+                    "show_center_circle": false,
+                    "show_center_marker": false,
+                    "center_marker_icon": "https://unpkg.com/leaflet@1.3.3/dist/images/marker-icon.png",
+                    "center_marker_infowindow": "",
+                    "center_circle_strokeweight": "1",
+                    "draggable": true,
+                    "scroll_wheel": false,
+                    "display_45_imagery": "",
+                    "marker_default_icon": "/images/maps/pointers/pointer.png",
+                    "infowindow_setting": `<div class="fc-main"><div class="fc-item-title">{marker_title} <span class="fc-badge info">{marker_category}</span></div><div class="fc-item-featured_image">{marker_image} </div><p>{marker_message}</p><address><b>Address : </b>{marker_address}</address></div><div><a href="https://www.google.com/maps/dir/?api=1&destination={address_map}&travelmode=traffic" target="_blank">Ver ruta en Google Maps</a></div>`,
+                    "infowindow_geotags_setting": `<div class="fc-main"><div class="fc-item-title">{post_title} <span class="fc-badge info">{post_categories}</span></div><div class="fc-item-featured_image">{post_featured_image} </div><p>{post_excerpt}</p><address><b>Address : </b>{marker_address}</address><p><a target="_blank"  class="fc-btn fc-btn-small fc-btn-red" href="{post_link}">Read More...</a></div>`,
+                    "infowindow_bounce_animation": "",
+                    "infowindow_drop_animation": false,
+                    "close_infowindow_on_map_click": false,
+                    "default_infowindow_open": false,
+                    "infowindow_open_event": "click",
+                    "infowindow_filter_only": false,
+                    "infowindow_click_change_zoom": 0,
+                    "infowindow_click_change_center": false,
+                    "full_screen_control": false,
+                    "search_control": true,
+                    "zoom_control": true,
+                    "map_type_control": false,
+                    "street_view_control": false,
+                    "zoom_mobile": 0,
+                    "draggable_mobile": true,
+                    "scroll_wheel_mobile": true,
+                    "full_screen_control_position": "TOP_RIGHT",
+                    "search_control_position": "TOP_LEFT",
+                    "zoom_control_position": "TOP_LEFT",
+                    "map_type_control_position": "TOP_LEFT",
+                    "map_type_control_style": "HORIZONTAL_BAR",
+                    "street_view_control_position": "TOP_LEFT",
+                    "map_control": true,
+                    "map_control_settings": [
+
+                    ],
+                    "screens": {
+                        "smartphones": {
+                            "map_width_mobile": "",
+                            "map_height_mobile": "380px",
+                            "map_zoom_level_mobile": "13"
+                        },
+                        "ipads": {
+                            "map_width_mobile": "",
+                            "map_height_mobile": "440px",
+                            "map_zoom_level_mobile": "13"
+                        },
+                        "large-screens": {
+                            "map_width_mobile": "",
+                            "map_height_mobile": "680px",
+                            "map_zoom_level_mobile": "13"
+                        }
+                    },
+                    "map_infowindow_customisations": false,
+                    "infowindow_border_color": "rgba(0, 0, 0, 0.0980392)",
+                    "infowindow_bg_color": "#fff",
+                    "show_infowindow_header": false,
+                    "width": "",
+                    "height": "680"
+                },
+                "places": [
+                    {
+                        "id": "16",
+                        "title": "Corporativo Massey Villavicencio",
+                        "address": "CALLE 1 # 37 70 Villavicencio, Meta",
+                        "source": "manual",
+                        "content": "Corporativo Massey Villavicencio",
+                        "location": {
+                            "icon": `${window.location.origin}/images/maps/pointers/massey1.png`,
+                            "lat": "4.1177246",
+                            "lng": "-73.6374475",
+                            "city": "",
+                            "state": "",
+                            "country": "",
+                            "onclick_action": "marker",
+                            "redirect_custom_link": "",
+                            "marker_image": "",
+                            "open_new_tab": "yes",
+                            "postal_code": "",
+                            "draggable": false,
+                            "infowindow_default_open": false,
+                            "animation": "BOUNCE",
+                            "infowindow_disable": true,
+                            "zoom": 5,
+                            "extra_fields": {
+                                "address_map": "",
+                                "listorder": 0
+                            }
+                        },
+                        "categories": [
+                            {
+                                "id": "6",
+                                "name": "Corporativo Massey",
+                                "type": "category",
+                                "extension_fields": {
+                                    "cat_order": "0"
+                                },
+                                "icon": `${window.location.origin}/images/maps/pointers/massey1.png`
+                            }
+                        ],
+                        "custom_filters": [
+
+                        ]
+                    }
+                ],
+                "styles": [
+                    {
+                        "featureType": "all",
+                        "elementType": "geometry",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "all",
+                        "elementType": "labels",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "all",
+                        "elementType": "labels.text",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "all",
+                        "elementType": "labels.text.fill",
+                        "stylers": [
+                            {
+                                "color": "#7d7e92"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "all",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            },
+                            {
+                                "hue": "#ff0000"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "administrative",
+                        "elementType": "labels.text.fill",
+                        "stylers": [
+                            {
+                                "color": "#444444"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "landscape",
+                        "elementType": "geometry.fill",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            },
+                            {
+                                "color": "#e0e1e6"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "landscape",
+                        "elementType": "geometry.stroke",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "geometry",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            },
+                            {
+                                "color": "#c71313"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "geometry.fill",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            },
+                            {
+                                "color": "#7c7d91"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "geometry.stroke",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            },
+                            {
+                                "color": "#a12222"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "labels",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            },
+                            {
+                                "hue": "#000fff"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "labels.text",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "hue": "#0054ff"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.business",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            },
+                            {
+                                "hue": "#007aff"
+                            },
+                            {
+                                "weight": "10.00"
+                            },
+                            {
+                                "saturation": "-100"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.government",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.medical",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.place_of_worship",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.school",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.sports_complex",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "saturation": -100
+                            },
+                            {
+                                "lightness": 45
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.highway",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "visibility": "simplified"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.highway",
+                        "elementType": "geometry.fill",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            },
+                            {
+                                "color": "#dedee6"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.highway",
+                        "elementType": "geometry.stroke",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            },
+                            {
+                                "color": "#7c7d91"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.highway",
+                        "elementType": "labels.text.stroke",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            },
+                            {
+                                "hue": "#ff0000"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.arterial",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "transit",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "water",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "color": "#46bcec"
+                            },
+                            {
+                                "visibility": "on"
+                            }
+                        ]
+                    }
+                ],
+                "street_view": null,
+                "routes": null,
+                "marker_cluster": null,
+                "overlay_setting": null,
+                "panning_control": null,
+                "map_tabs": {
+                    "category_tab": null,
+                    "direction_tab": null,
+                    "nearby_tab": null,
+                    "route_tab": null
+                },
+                "listing": null,
+                "map_property": {
+                    "map_id": "23"
+                },
+                "shapes": {
+                    "drawing_editable": false
+                },
+                "filters": {
+                    "custom_filters": [
+
+                    ],
+                    "filters_container": `[data-container="wpgmp-filters-container"]`
+                }
+            }).data("wpgmp_maps");
+        });
+    </script>
+
+    <script>
+        $(document).ready(function ($) {
+            var map24 = $("#map24").maps({
+                "map_options": {
+                    "center_lat": "7.1191178",
+                    "center_lng": "-73.1158242",
+                    "zoom": 13,
+                    "map_type_id": "ROADMAP",
+                    "center_by_nearest": true,
+                    "center_circle_fillcolor": "#8CAEF2",
+                    "center_circle_fillopacity": ".5",
+                    "center_circle_strokecolor": "#8CAEF2",
+                    "center_circle_strokeopacity": ".5",
+                    "center_circle_radius": "5",
+                    "show_center_circle": false,
+                    "show_center_marker": false,
+                    "center_marker_icon": "https://unpkg.com/leaflet@1.3.3/dist/images/marker-icon.png",
+                    "center_marker_infowindow": "",
+                    "center_circle_strokeweight": "1",
+                    "draggable": true,
+                    "scroll_wheel": false,
+                    "display_45_imagery": "",
+                    "marker_default_icon": "/images/maps/pointers/pointer.png",
+                    "infowindow_setting": `<div class="fc-main"><div class="fc-item-title">{marker_title} <span class="fc-badge info">{marker_category}</span></div><div class="fc-item-featured_image">{marker_image} </div><p>{marker_message}</p><address><b>Address : </b>{marker_address}</address></div><div><a href="https://www.google.com/maps/dir/?api=1&destination={address_map}&travelmode=traffic" target="_blank">Ver ruta en Google Maps</a></div>`,
+                    "infowindow_geotags_setting": `<div class="fc-main"><div class="fc-item-title">{post_title} <span class="fc-badge info">{post_categories}</span></div><div class="fc-item-featured_image">{post_featured_image} </div><p>{post_excerpt}</p><address><b>Address : </b>{marker_address}</address><p><a target="_blank"  class="fc-btn fc-btn-small fc-btn-red" href="{post_link}">Read More...</a></div>`,
+                    "infowindow_bounce_animation": "",
+                    "infowindow_drop_animation": false,
+                    "close_infowindow_on_map_click": false,
+                    "default_infowindow_open": false,
+                    "infowindow_open_event": "click",
+                    "infowindow_filter_only": false,
+                    "infowindow_click_change_zoom": 0,
+                    "infowindow_click_change_center": false,
+                    "full_screen_control": false,
+                    "search_control": true,
+                    "zoom_control": true,
+                    "map_type_control": false,
+                    "street_view_control": false,
+                    "zoom_mobile": 0,
+                    "draggable_mobile": true,
+                    "scroll_wheel_mobile": true,
+                    "full_screen_control_position": "TOP_RIGHT",
+                    "search_control_position": "TOP_LEFT",
+                    "zoom_control_position": "TOP_LEFT",
+                    "map_type_control_position": "TOP_LEFT",
+                    "map_type_control_style": "HORIZONTAL_BAR",
+                    "street_view_control_position": "TOP_LEFT",
+                    "map_control": true,
+                    "map_control_settings": [
+
+                    ],
+                    "screens": {
+                        "smartphones": {
+                            "map_width_mobile": "",
+                            "map_height_mobile": "380px",
+                            "map_zoom_level_mobile": "13"
+                        },
+                        "ipads": {
+                            "map_width_mobile": "",
+                            "map_height_mobile": "440px",
+                            "map_zoom_level_mobile": "13"
+                        },
+                        "large-screens": {
+                            "map_width_mobile": "",
+                            "map_height_mobile": "680px",
+                            "map_zoom_level_mobile": "13"
+                        }
+                    },
+                    "map_infowindow_customisations": false,
+                    "infowindow_border_color": "rgba(0, 0, 0, 0.0980392)",
+                    "infowindow_bg_color": "#fff",
+                    "show_infowindow_header": false,
+                    "width": "",
+                    "height": "680"
+                },
+                "places": [
+                    {
+                        "id": "15",
+                        "title": "Corporativo Bucaramanga",
+                        "address": "Cr 15 N.21-39 Bucaramanga, Santander",
+                        "source": "manual",
+                        "content": "Corporativo Bucaramanga",
+                        "location": {
+                            "icon": `${window.location.origin}/images/maps/pointers/massey1.png`,
+                            "lat": "7.1191178",
+                            "lng": "-73.1158242",
+                            "city": "",
+                            "state": "",
+                            "country": "",
+                            "onclick_action": "marker",
+                            "redirect_custom_link": "",
+                            "marker_image": "",
+                            "open_new_tab": "yes",
+                            "postal_code": "",
+                            "draggable": false,
+                            "infowindow_default_open": false,
+                            "animation": "BOUNCE",
+                            "infowindow_disable": true,
+                            "zoom": 5,
+                            "extra_fields": {
+                                "address_map": "Carrera+27+%2340A-10,+Bucaramanga,+Santander",
+                                "listorder": 0
+                            }
+                        },
+                        "categories": [
+                            {
+                                "id": "6",
+                                "name": "Corporativo Massey",
+                                "type": "category",
+                                "extension_fields": {
+                                    "cat_order": "0"
+                                },
+                                "icon": `${window.location.origin}/images/maps/pointers/massey1.png`
+                            }
+                        ],
+                        "custom_filters": [
+
+                        ]
+                    }
+                ],
+                "styles": [
+                    {
+                        "featureType": "all",
+                        "elementType": "geometry",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "all",
+                        "elementType": "labels",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "all",
+                        "elementType": "labels.text",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "all",
+                        "elementType": "labels.text.fill",
+                        "stylers": [
+                            {
+                                "color": "#7d7e92"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "all",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            },
+                            {
+                                "hue": "#ff0000"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "administrative",
+                        "elementType": "labels.text.fill",
+                        "stylers": [
+                            {
+                                "color": "#444444"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "landscape",
+                        "elementType": "geometry.fill",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            },
+                            {
+                                "color": "#e0e1e6"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "landscape",
+                        "elementType": "geometry.stroke",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "geometry",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            },
+                            {
+                                "color": "#c71313"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "geometry.fill",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            },
+                            {
+                                "color": "#7c7d91"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "geometry.stroke",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            },
+                            {
+                                "color": "#a12222"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "labels",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            },
+                            {
+                                "hue": "#000fff"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "labels.text",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "hue": "#0054ff"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.business",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            },
+                            {
+                                "hue": "#007aff"
+                            },
+                            {
+                                "weight": "10.00"
+                            },
+                            {
+                                "saturation": "-100"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.government",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.medical",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.place_of_worship",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.school",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.sports_complex",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "saturation": -100
+                            },
+                            {
+                                "lightness": 45
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.highway",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "visibility": "simplified"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.highway",
+                        "elementType": "geometry.fill",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            },
+                            {
+                                "color": "#dedee6"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.highway",
+                        "elementType": "geometry.stroke",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            },
+                            {
+                                "color": "#7c7d91"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.highway",
+                        "elementType": "labels.text.stroke",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            },
+                            {
+                                "hue": "#ff0000"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.arterial",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "transit",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "water",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "color": "#46bcec"
+                            },
+                            {
+                                "visibility": "on"
+                            }
+                        ]
+                    }
+                ],
+                "street_view": null,
+                "routes": null,
+                "marker_cluster": null,
+                "overlay_setting": null,
+                "panning_control": null,
+                "map_tabs": {
+                    "category_tab": null,
+                    "direction_tab": null,
+                    "nearby_tab": null,
+                    "route_tab": null
+                },
+                "listing": null,
+                "map_property": {
+                    "map_id": "24"
+                },
+                "shapes": {
+                    "drawing_editable": false
+                },
+                "filters": {
+                    "custom_filters": [
+
+                    ],
+                    "filters_container": `[data-container="wpgmp-filters-container"]`
+                }
+            }).data("wpgmp_maps");
+        });</script>
+
+    <script>
+        $(document).ready(function ($) {
+            var map25 = $("#map25").maps({
+                "map_options": {
+                    "center_lat": "6.1614942",
+                    "center_lng": "-75.6157583",
+                    "zoom": 13,
+                    "map_type_id": "ROADMAP",
+                    "center_by_nearest": true,
+                    "center_circle_fillcolor": "#8CAEF2",
+                    "center_circle_fillopacity": ".5",
+                    "center_circle_strokecolor": "#8CAEF2",
+                    "center_circle_strokeopacity": ".5",
+                    "center_circle_radius": "5",
+                    "show_center_circle": false,
+                    "show_center_marker": false,
+                    "center_marker_icon": "https://unpkg.com/leaflet@1.3.3/dist/images/marker-icon.png",
+                    "center_marker_infowindow": "",
+                    "center_circle_strokeweight": "1",
+                    "draggable": true,
+                    "scroll_wheel": false,
+                    "display_45_imagery": "",
+                    "marker_default_icon": "/images/maps/pointers/pointer.png",
+                    "infowindow_setting": `<div class="fc-main"><div class="fc-item-title">{marker_title} <span class="fc-badge info">{marker_category}</span></div><div class="fc-item-featured_image">{marker_image} </div><p>{marker_message}</p><address><b>Address : </b>{marker_address}</address></div><div><a href="https://www.google.com/maps/dir/?api=1&destination={address_map}&travelmode=traffic" target="_blank">Ver ruta en Google Maps</a></div>`,
+                    "infowindow_geotags_setting": `<div class="fc-main"><div class="fc-item-title">{post_title} <span class="fc-badge info">{post_categories}</span></div><div class="fc-item-featured_image">{post_featured_image} </div><p>{post_excerpt}</p><address><b>Address : </b>{marker_address}</address><p><a target="_blank"  class="fc-btn fc-btn-small fc-btn-red" href="{post_link}">Read More...</a></div>`,
+                    "infowindow_bounce_animation": "",
+                    "infowindow_drop_animation": false,
+                    "close_infowindow_on_map_click": false,
+                    "default_infowindow_open": false,
+                    "infowindow_open_event": "click",
+                    "infowindow_filter_only": false,
+                    "infowindow_click_change_zoom": 0,
+                    "infowindow_click_change_center": false,
+                    "full_screen_control": false,
+                    "search_control": true,
+                    "zoom_control": true,
+                    "map_type_control": false,
+                    "street_view_control": false,
+                    "zoom_mobile": 0,
+                    "draggable_mobile": true,
+                    "scroll_wheel_mobile": true,
+                    "full_screen_control_position": "TOP_RIGHT",
+                    "search_control_position": "TOP_LEFT",
+                    "zoom_control_position": "TOP_LEFT",
+                    "map_type_control_position": "TOP_LEFT",
+                    "map_type_control_style": "HORIZONTAL_BAR",
+                    "street_view_control_position": "TOP_LEFT",
+                    "map_control": true,
+                    "map_control_settings": [
+
+                    ],
+                    "screens": {
+                        "smartphones": {
+                            "map_width_mobile": "",
+                            "map_height_mobile": "380px",
+                            "map_zoom_level_mobile": "13"
+                        },
+                        "ipads": {
+                            "map_width_mobile": "",
+                            "map_height_mobile": "440px",
+                            "map_zoom_level_mobile": "13"
+                        },
+                        "large-screens": {
+                            "map_width_mobile": "",
+                            "map_height_mobile": "680px",
+                            "map_zoom_level_mobile": "13"
+                        }
+                    },
+                    "map_infowindow_customisations": false,
+                    "infowindow_border_color": "rgba(0, 0, 0, 0.0980392)",
+                    "infowindow_bg_color": "#fff",
+                    "show_infowindow_header": false,
+                    "width": "",
+                    "height": "680"
+                },
+                "places": [
+                    {
+                        "id": "14",
+                        "title": "Corporativo Massey Itaguí, Antioquia",
+                        "address": "Autopista Sur Cra 42 No 29 -43, Itaguí, Antioquia",
+                        "source": "manual",
+                        "content": "Corporativo Massey Itaguí, Antioquia",
+                        "location": {
+                            "icon": `${window.location.origin}/images/maps/pointers/massey1.png`,
+                            "lat": "6.1614942",
+                            "lng": "-75.6157583",
+                            "city": "",
+                            "state": "",
+                            "country": "",
+                            "onclick_action": "marker",
+                            "redirect_custom_link": "",
+                            "marker_image": "",
+                            "open_new_tab": "yes",
+                            "postal_code": "",
+                            "draggable": false,
+                            "infowindow_default_open": false,
+                            "animation": "BOUNCE",
+                            "infowindow_disable": true,
+                            "zoom": 5,
+                            "extra_fields": {
+                                "address_map": "Durespo+S.A.+-+Medellu00edn,+Cra.+42+%23%2329+-+97,+Itaguí,+Antioquia",
+                                "listorder": 0
+                            }
+                        },
+                        "categories": [
+                            {
+                                "id": "6",
+                                "name": "Corporativo Massey",
+                                "type": "category",
+                                "extension_fields": {
+                                    "cat_order": "0"
+                                },
+                                "icon": `${window.location.origin}/images/maps/pointers/massey1.png`
+                            }
+                        ],
+                        "custom_filters": [
+
+                        ]
+                    }
+                ],
+                "styles": [
+                    {
+                        "featureType": "all",
+                        "elementType": "geometry",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "all",
+                        "elementType": "labels",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "all",
+                        "elementType": "labels.text",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "all",
+                        "elementType": "labels.text.fill",
+                        "stylers": [
+                            {
+                                "color": "#7d7e92"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "all",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            },
+                            {
+                                "hue": "#ff0000"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "administrative",
+                        "elementType": "labels.text.fill",
+                        "stylers": [
+                            {
+                                "color": "#444444"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "landscape",
+                        "elementType": "geometry.fill",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            },
+                            {
+                                "color": "#e0e1e6"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "landscape",
+                        "elementType": "geometry.stroke",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "geometry",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            },
+                            {
+                                "color": "#c71313"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "geometry.fill",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            },
+                            {
+                                "color": "#7c7d91"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "geometry.stroke",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            },
+                            {
+                                "color": "#a12222"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "labels",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            },
+                            {
+                                "hue": "#000fff"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "labels.text",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "hue": "#0054ff"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.business",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            },
+                            {
+                                "hue": "#007aff"
+                            },
+                            {
+                                "weight": "10.00"
+                            },
+                            {
+                                "saturation": "-100"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.government",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.medical",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.place_of_worship",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.school",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.sports_complex",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "saturation": -100
+                            },
+                            {
+                                "lightness": 45
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.highway",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "visibility": "simplified"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.highway",
+                        "elementType": "geometry.fill",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            },
+                            {
+                                "color": "#dedee6"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.highway",
+                        "elementType": "geometry.stroke",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            },
+                            {
+                                "color": "#7c7d91"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.highway",
+                        "elementType": "labels.text.stroke",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            },
+                            {
+                                "hue": "#ff0000"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.arterial",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "transit",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "water",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "color": "#46bcec"
+                            },
+                            {
+                                "visibility": "on"
+                            }
+                        ]
+                    }
+                ],
+                "street_view": null,
+                "routes": null,
+                "marker_cluster": null,
+                "overlay_setting": null,
+                "panning_control": null,
+                "map_tabs": {
+                    "category_tab": null,
+                    "direction_tab": null,
+                    "nearby_tab": null,
+                    "route_tab": null
+                },
+                "listing": null,
+                "map_property": {
+                    "map_id": "25"
+                },
+                "shapes": {
+                    "drawing_editable": false
+                },
+                "filters": {
+                    "custom_filters": [
+
+                    ],
+                    "filters_container": `[data-container="wpgmp-filters-container"]`
+                }
+            }).data("wpgmp_maps");
+        });
+    </script>
+
+    <script>
+        $(document).ready(function ($) {
+            var map26 = $("#map26").maps({
+                "map_options": {
+                    "center_lat": "5.329745727651533",
+                    "center_lng": "-72.39419203215827",
+                    "zoom": 13,
+                    "map_type_id": "ROADMAP",
+                    "center_by_nearest": true,
+                    "center_circle_fillcolor": "#8CAEF2",
+                    "center_circle_fillopacity": ".5",
+                    "center_circle_strokecolor": "#8CAEF2",
+                    "center_circle_strokeopacity": ".5",
+                    "center_circle_radius": "5",
+                    "show_center_circle": false,
+                    "show_center_marker": false,
+                    "center_marker_icon": "https://unpkg.com/leaflet@1.3.3/dist/images/marker-icon.png",
+                    "center_marker_infowindow": "",
+                    "center_circle_strokeweight": "1",
+                    "draggable": true,
+                    "scroll_wheel": false,
+                    "display_45_imagery": "",
+                    "marker_default_icon": "/images/maps/pointers/pointer.png",
+                    "infowindow_setting": `<div class="fc-main"><div class="fc-item-title">{marker_title} <span class="fc-badge info">{marker_category}</span></div><div class="fc-item-featured_image">{marker_image} </div><p>{marker_message}</p><address><b>Address : </b>{marker_address}</address></div><div><a href="https://www.google.com/maps/dir/?api=1&destination={address_map}&travelmode=traffic" target="_blank">Ver ruta en Google Maps</a></div>`,
+                    "infowindow_geotags_setting": `<div class="fc-main"><div class="fc-item-title">{post_title} <span class="fc-badge info">{post_categories}</span></div><div class="fc-item-featured_image">{post_featured_image} </div><p>{post_excerpt}</p><address><b>Address : </b>{marker_address}</address><p><a target="_blank"  class="fc-btn fc-btn-small fc-btn-red" href="{post_link}">Read More...</a></div>`,
+                    "infowindow_bounce_animation": "",
+                    "infowindow_drop_animation": false,
+                    "close_infowindow_on_map_click": false,
+                    "default_infowindow_open": false,
+                    "infowindow_open_event": "click",
+                    "infowindow_filter_only": false,
+                    "infowindow_click_change_zoom": 0,
+                    "infowindow_click_change_center": false,
+                    "full_screen_control": false,
+                    "search_control": true,
+                    "zoom_control": true,
+                    "map_type_control": false,
+                    "street_view_control": false,
+                    "zoom_mobile": 0,
+                    "draggable_mobile": true,
+                    "scroll_wheel_mobile": true,
+                    "full_screen_control_position": "TOP_RIGHT",
+                    "search_control_position": "TOP_LEFT",
+                    "zoom_control_position": "TOP_LEFT",
+                    "map_type_control_position": "TOP_LEFT",
+                    "map_type_control_style": "HORIZONTAL_BAR",
+                    "street_view_control_position": "TOP_LEFT",
+                    "map_control": true,
+                    "map_control_settings": [
+
+                    ],
+                    "screens": {
+                        "smartphones": {
+                            "map_width_mobile": "",
+                            "map_height_mobile": "380px",
+                            "map_zoom_level_mobile": "13"
+                        },
+                        "ipads": {
+                            "map_width_mobile": "",
+                            "map_height_mobile": "440px",
+                            "map_zoom_level_mobile": "13"
+                        },
+                        "large-screens": {
+                            "map_width_mobile": "",
+                            "map_height_mobile": "680px",
+                            "map_zoom_level_mobile": "16"
+                        }
+                    },
+                    "map_infowindow_customisations": false,
+                    "infowindow_border_color": "rgba(0, 0, 0, 0.0980392)",
+                    "infowindow_bg_color": "#fff",
+                    "show_infowindow_header": false,
+                    "width": "",
+                    "height": "680"
+                },
+                "places": [
+                    {
+                        "id": "26",
+                        "title": "Corporativo Massey Yopal, Casanare",
+                        "address": "Cra. 17 #29 - 66, Yopal, Casanare",
+                        "source": "manual",
+                        "content": "Corporativo Massey Yopal, Casanare",
+                        "location": {
+                            "icon": `${window.location.origin}/images/maps/pointers/massey1.png`,
+                            "lat": "5.329745727651533",
+                            "lng": "-72.39419203215827",
+                            "city": "",
+                            "state": "",
+                            "country": "",
+                            "onclick_action": "marker",
+                            "redirect_custom_link": "",
+                            "marker_image": "",
+                            "open_new_tab": "yes",
+                            "postal_code": "",
+                            "draggable": false,
+                            "infowindow_default_open": false,
+                            "animation": "BOUNCE",
+                            "infowindow_disable": true,
+                            "zoom": 5,
+                            "extra_fields": {
+                                "address_map": "Cra.%2017%20%2329%20-%2066%2C%20Yopal%2C%20Casanare",
+                                "listorder": 0
+                            }
+                        },
+                        "categories": [
+                            {
+                                "id": "6",
+                                "name": "Corporativo Massey",
+                                "type": "category",
+                                "extension_fields": {
+                                    "cat_order": "0"
+                                },
+                                "icon": `${window.location.origin}/images/maps/pointers/massey1.png`
+                            }
+                        ],
+                        "custom_filters": [
+
+                        ]
+                    }
+                ],
+                "styles": [
+                    {
+                        "featureType": "all",
+                        "elementType": "geometry",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "all",
+                        "elementType": "labels",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "all",
+                        "elementType": "labels.text",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "all",
+                        "elementType": "labels.text.fill",
+                        "stylers": [
+                            {
+                                "color": "#7d7e92"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "all",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            },
+                            {
+                                "hue": "#ff0000"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "administrative",
+                        "elementType": "labels.text.fill",
+                        "stylers": [
+                            {
+                                "color": "#444444"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "landscape",
+                        "elementType": "geometry.fill",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            },
+                            {
+                                "color": "#e0e1e6"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "landscape",
+                        "elementType": "geometry.stroke",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "geometry",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            },
+                            {
+                                "color": "#c71313"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "geometry.fill",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            },
+                            {
+                                "color": "#7c7d91"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "geometry.stroke",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            },
+                            {
+                                "color": "#a12222"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "labels",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            },
+                            {
+                                "hue": "#000fff"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "labels.text",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "hue": "#0054ff"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.business",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            },
+                            {
+                                "hue": "#007aff"
+                            },
+                            {
+                                "weight": "10.00"
+                            },
+                            {
+                                "saturation": "-100"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.government",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.medical",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.place_of_worship",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.school",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.sports_complex",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "saturation": -100
+                            },
+                            {
+                                "lightness": 45
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.highway",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "visibility": "simplified"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.highway",
+                        "elementType": "geometry.fill",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            },
+                            {
+                                "color": "#dedee6"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.highway",
+                        "elementType": "geometry.stroke",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            },
+                            {
+                                "color": "#7c7d91"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.highway",
+                        "elementType": "labels.text.stroke",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            },
+                            {
+                                "hue": "#ff0000"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.arterial",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "transit",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "water",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "color": "#46bcec"
+                            },
+                            {
+                                "visibility": "on"
+                            }
+                        ]
+                    }
+                ],
+                "street_view": null,
+                "routes": null,
+                "marker_cluster": null,
+                "overlay_setting": null,
+                "panning_control": null,
+                "map_tabs": {
+                    "category_tab": null,
+                    "direction_tab": null,
+                    "nearby_tab": null,
+                    "route_tab": null
+                },
+                "listing": null,
+                "map_property": {
+                    "map_id": "14"
+                },
+                "shapes": {
+                    "drawing_editable": false
+                },
+                "filters": {
+                    "custom_filters": [
+
+                    ],
+                    "filters_container": `[data-container="wpgmp-filters-container"]`
+                }
+            }).data("wpgmp_maps");
+        });</script>
+}

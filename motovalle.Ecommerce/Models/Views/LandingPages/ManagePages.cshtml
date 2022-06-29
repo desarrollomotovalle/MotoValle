@@ -1,0 +1,165 @@
+﻿@model Inventek.ERP.Models.Entities.Ecommerce.EcommerceCustomPages
+
+@{
+    ViewData["Title"] = "Manage Pages";
+    var asyncSettings = new Syncfusion.EJ2.Inputs.UploaderAsyncSettings { SaveUrl = @Url.Content("~/Uploader/SaveFile"), RemoveUrl = @Url.Content("~/Uploader/RemoveFile") };
+}
+
+@{
+    ViewData["Title"] = "Manage Pages";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearfix">
+                <div class="col-12 text-center">
+                    @if (Model.EcommerceCustomPagesId == 0)
+                    {
+                        <h2>
+                            New Page
+                        </h2>
+                    }
+                    else
+                    {
+                        <h1 class="m-0 text-dark">@ViewData["Title"]</h1>
+                    }
+
+                </div>
+                <div class="text-left">
+                    <button id="btnAddPage" onclick="AddEditPage(0)" class="btn btn-secondary">Add New Page</button>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-12">
+                        <form asp-action="Create" id="frmManagePages">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <input id="txtPageID" type="hidden" asp-for="EcommerceCustomPagesId" />
+                            <div class="form-group">
+                                <label asp-for="PageTitle" class="control-label">Page Title</label>
+                                <input id="txtTitle" asp-for="PageTitle" class="form-control" />
+                                <span asp-validation-for="PageTitle" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="PageDescription" class="control-label">Page Description</label>
+                                <input id="txtPageDescription" asp-for="PageDescription" class="form-control" />
+                                <span asp-validation-for="PageDescription" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="pageKeywords" class="control-label">Keywords (separate using commas)</label>
+                                <input id="txtPageKeywords" asp-for="pageKeywords" class="form-control" />
+                                <span asp-validation-for="pageKeywords" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="URL" class="control-label">URL</label>
+                                <input id="txtURL" asp-for="URL" class="form-control" />
+                                <span asp-validation-for="URL" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="SliderImage" class="control-label">URL Imagen</label>
+                                <input id="txtImageURL" asp-for="SliderImage" class="form-control" />
+                                <span asp-validation-for="SliderImage" class="text-danger"></span>
+                                <ejs-uploader id="uploadFiles" asyncSettings="@asyncSettings" autoUpload="true" allowedExtensions=".jpg,.png,.jpeg"></ejs-uploader>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="FkEcommerceCustomMenuID" class="control-label">Template ID (Ford: 1, Mazda: 2, Carshow: 3, Massey: 4, Repuestos: 5</label>
+                                <input id="txtMenuID" asp-for="FkEcommerceCustomMenuID" class="form-control" />
+                                <span asp-validation-for="FkEcommerceCustomMenuID" class="text-danger"></span>
+                            </div>
+                            <ejs-richtexteditor id="defaultRTE">
+                                <e-richtexteditor-insertimagesettings saveUrl="/Uploader/SaveFile" path="/files/"></e-richtexteditor-insertimagesettings>
+                                <e-content-template>
+                                    <div>
+                                        @Model.PageHTML
+                                    </div>
+                                </e-content-template>
+                            </ejs-richtexteditor>
+                            <span asp-validation-for="PageHTML" class="text-danger"></span>
+                            <br />
+                            <div>
+                                <button id="btn" class="btn btn-primary" type="submit">Save Page</button>
+                                <a class="btn btn-danger" asp-controller="CustomLandingPages" asp-action="Index">Cancel</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts{
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script type="text/javascript">
+        const $frmManagePages = document.querySelector("#frmManagePages");
+        $frmManagePages.addEventListener('submit', (event) => {
+            event.preventDefault();
+            if (!$(event.target).valid()) {
+                return;
+            }
+
+            Swal.fire({
+                title: 'Saving Page...',
+                html: 'I will close in a few seconds!',
+                onBeforeOpen: () => {
+                    Swal.showLoading()
+                },
+                allowOutsideClick: false,
+                allowEscapeKey: false
+            });
+
+            //Save UI Elements
+            var obj = document.getElementById('defaultRTE').ej2_instances[0];
+            var uploadObject = document.getElementById('uploadFiles').ej2_instances[0];
+            var title = document.getElementById('txtTitle').value;
+            var pageID = document.getElementById('txtPageID').value;
+            var pageKeys = document.getElementById('txtPageKeywords').value;
+            var pageDescription = document.getElementById('txtPageDescription').value;
+            var fullText = obj.getHtml();   //get component HTML
+            var menuID = document.getElementById('txtMenuID').value;
+            var urlSlug = document.getElementById('txtURL').value;
+
+            try {
+                imageURL = '/files/' + uploadObject.filesData[0].name;
+            }
+            catch
+            {
+                imageURL = document.getElementById('txtImageURL').value;
+            }
+
+            //Construct JSON Object
+            var postObject = JSON.stringify({ EcommerceCustomPagesId: pageID, PageTitle: title, PageDescription: pageDescription, FkEcommerceCustomMenuID: menuID, PageHTML: fullText, pageKeywords: pageKeys, URL: urlSlug, SliderImage: imageURL });
+
+            //Send to Controller
+            const url = '/api/APIPages';
+            const urlReturn = '/LandingPages';
+            fetch(url, {
+                method: "POST",
+                body: postObject,
+                headers: {
+                    "Accept": "application/json",
+                    "Content-Type": "application/json"
+                }
+            }).then((Data) => {
+                if (Data.ok == false) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: Data
+                    })
+                } else {
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Your work has been saved',
+                        showConfirmButton: false,
+                        timer: 1200
+                    }).then(() => { document.location.href = urlReturn });
+                }
+            });
+        });
+    </script>
+}

@@ -1,0 +1,79 @@
+﻿
+@{
+    ViewData["Title"] = "Servicios";
+
+    Layout = "~/Views/Shared/_LayoutMazda.cshtml";
+
+}
+
+<section class="b-pageHeader mazda">
+    <div class="container">
+        <h1 class="wow zoomInLeft" data-wow-delay="0.7s">Servicios </h1>
+        <div class="b-pageHeader__search wow zoomInRight" data-wow-delay="0.7s">
+
+        </div>
+    </div>
+</section><!--b-pageHeader-->
+
+<div class="b-breadCumbs s-shadow">
+    <div class="container wow zoomInUp" data-wow-delay="0.5s">
+        <a class="b-breadCumbs__page" href="/">Home</a><span class="fa fa-angle-right"></span>
+        <a asp-action="Index" asp-controller="Mazda" class="b-breadCumbs__page">Mazda</a><span class="fa fa-angle-right"></span>
+        <a class="b-breadCumbs__page m-active" href="#">Mazda Servicios</a>
+    </div>
+</div><!--b-breadCumbs-->
+
+<section class="b-article">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 col-xs-12">
+                <div class="b-article__main">
+                    <div class="b-blog__posts-one">
+                        <div class="row m-noBlockPadding">
+                            <p>Experimenta nuestro completo servicio al cliente Mazda, que evoluciona continuamente para mantenerse a la altura de tus expectativas.</p>
+                            <h2>Cuenta con nosotros incondicionalmente.</h2>
+                            <p>Visita nuestro centro de servicio autorizado y encontrarás todos los servicios de mantenimiento y reparación que tu vehículo necesita, realizados por personal altamente calificado, utilizando tecnología de punta y herramientas especializadas para diagnosticar y reparar correctamente tu Mazda.</p>
+                            <h2>Mantenimiento programado.</h2>
+                            <p>Para tener siempre una experiencia de manejo placentera, es fundamental realizar periódicamente inspecciones programadas de mantenimiento, en las que se utilicen repuestos genuinos con el fin de garantizar la seguridad, comodidad y óptimo funcionamiento de tu vehículo.</p>
+                            <ul>
+                                <li>Revisión del sistema eléctrico.</li>
+                                <li>Diagnóstico especializado de todo el sistema electrónico del auto: computadores y sensores (Mazda Vehicle Check-up).</li>
+                                <li>Revisión de dirección y suspensión.</li>
+                                <li>Rotación de llantas</li>
+                                <li>Alineación y balanceo.
+                                <li>
+                                <li>Revisión de frenos.</li>
+                                <li>Revisión de niveles líquidos (lubricantes, frenos, refrigerante, electrolito batería, líquido lavaparabrisas)</li>
+                                <li>Operaciones sugeridas en la guía de mantenimiento.</li>
+                            </ul>
+                            <h2>Servicios rápidos.</h2>
+                            <p>Son todos aquellos que podemos realizar en menos de 30 minutos, manteniendo siempre nuestros estándares de servicio y calidad:</p>
+                            <ul>
+                                Cambio de batería.
+                                <li>Rotación de llantas.</li>
+                                <li>Inspección del aire acondicionado.</li>
+                                <li>Cambio de plumillas limpiaparabrisas.</li>
+                                <li>Inspección del sistema de enfriamiento.</li>
+                            </ul>
+                            <h2>Cambio de aceite.</h2>
+                            <p>Para sacarle el máximo provecho a tu motor y evitar reparaciones inesperadas, recomendamos hacer el cambio de aceite cada 5.000 Km (mínimo una vez al año), utilizando siempre aceite genuino Mazda. De no ser reemplazado, el aceite podría producir lodo, aumento de consumo de gasolina y mal funcionamiento del motor.</p>
+                            <h2>Reparaciones especializadas de carrocería y pintura.</h2>
+                            <p>Ante cualquier eventualidad, nuestros expertos están en capacidad de reparar desde pequeños rayones, hasta golpes o fuertes colisiones, entregándote el vehículo como nuevo.</p>
+                            <h2>Reparaciones especializadas de mecánica.</h2>
+                            <p>
+                                Nadie mejor que nuestros técnicos entrenados y capacitados para diagnosticar y reparar los sistemas más complejos de tu vehículo:
+                                reparaciones de motor, reparaciones de transmisión o reparaciones de dirección y suspensión. En nuestro centro de servicio autorizado Mazda utilizamos únicamente repuestos y accesorios diseñados específicamente para cada uno de nuestros vehículos y ponemos a tu disposición al personal de servicio altamente calificado que tiene como prioridad asesorarte en todas tus necesidades e inquietudes, informándote desde el primer momento el precio de los procedimientos realizados a tu vehículo.
+                            </p>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-xs-12">
+                @await Html.PartialAsync("_NavCategoryMazda")
+
+            </div>
+        </div>
+    </div>
+</section><!--b-article-->

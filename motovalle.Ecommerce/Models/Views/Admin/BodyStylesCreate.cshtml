@@ -1,0 +1,41 @@
+﻿@model Ecommerce.Models.Entities.BodyStyles
+
+@{
+    ViewData["Title"] = "BodyStylesCreate";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="content">
+    <div class="container">
+        <div>
+            <div class="col-12 text-center">
+                <h1 class="m-0 text-dark">Crear Nuevo Registro</h1>
+            </div>
+            <div class="text-left">
+                <p>
+                    <a asp-action="BodyStyles" asp-controller="Admin" class="btn btn-md btn-dark"><span class="fa fa-arrow-circle-left"></span> Volver</a>
+                </p>
+            </div>
+        </div>
+
+        <div class="col-lg-offset-3 ">
+            <form method="post" asp-action="BodyStylesCreate" asp-controller="Admin">
+                @Html.AntiForgeryToken()
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="BodyStylesId" />
+                <div class="form-group">
+                    <label asp-for="BodyStyleName" class="control-label"></label>
+                    <input asp-for="BodyStyleName" class="form-control" />
+                    <span asp-validation-for="BodyStyleName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Guardar cambios" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

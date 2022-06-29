@@ -1,0 +1,28 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head prefix="og: http://ogp.me/ns#">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <!-- Render Meta general Meta Tags -->
+    @await Html.PartialAsync("_MetaTags")
+
+    <!-- Render General Analyzers -->
+    @await Html.PartialAsync("_Analyzers")
+
+</head>
+<body >
+    <!-- Render Body Analyzers -->
+    @await Html.PartialAsync("_AnalyzersBody")
+   
+    <!--JivoChat -->
+    <script src="//code.jivosite.com/widget/zQCYoMifqg" async></script>
+    <!--JivoChat -->
+    
+    <!-- End Scripts section -->
+</body>
+</html>

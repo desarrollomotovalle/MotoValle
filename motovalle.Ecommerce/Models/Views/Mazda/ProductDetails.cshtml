@@ -1,0 +1,434 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using motovalle.Ecommerce.Models.Entities.Identity
+
+@inject UserManager<ApplicationUser> UserManager
+@model InventoryAndProductBaseWithDetails
+
+@{
+    ViewData["Title"] = "ProductDetails";
+    Layout = "~/Views/Shared/_LayoutMazda.cshtml";
+    var index = 0;
+    var userName = string.Empty;
+    var userEmail = string.Empty;
+    var userPhone = string.Empty;
+
+    if (User.Identity.IsAuthenticated)
+    {
+        var user = await UserManager.GetUserAsync(User);
+        userName = user.FullName;
+        userEmail = user.Email;
+        userPhone = user.PhoneNumber;
+    }
+}
+
+<section class="b-pageHeader mazda">
+    <div class="container">
+        <h1 class="wow zoomInLeft" data-wow-delay="0.5s">Detalles del vehículo</h1>
+    </div>
+</section><!--b-pageHeader-->
+
+<div class="b-breadCumbs s-shadow wow zoomInUp" data-wow-delay="0.5s">
+    <div class="container">
+        <a asp-action="Index" asp-controller="Home" class="b-breadCumbs__page">Home</a><span class="fa fa-angle-right"></span><a asp-action="Index" asp-controller="Mazda" class="b-breadCumbs__page m-active">Tienda (Mazda)</a><span class="fa fa-angle-right"></span><a asp-action="ProductInventory" asp-controller="Mazda" asp-route-productId="@Model.ProductId" class="b-breadCumbs__page m-active">Producto (Stock)</a><span class="fa fa-angle-right"></span><a asp-action="ProductDetails" asp-controller="Mazda" asp-route-productId="@Model.ProductId" class="b-breadCumbs__page m-active">Detalles</a>
+    </div>
+    @if (ViewBag.Message != null)
+    {
+        <div class="alert alert-danger text-center wow zoomInUp" role="alert" data-wow-delay="0.5s">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <strong>¡Ups!..</strong> @ViewBag.Message &#128577;
+        </div>
+    }
+</div><!--b-breadCumbs-->
+
+<section class="b-detail s-shadow">
+    <div class="container">
+        <header class="b-detail__head s-lineDownLeft wow zoomInUp" data-wow-delay="0.5s">
+            <div class="row">
+                <div class="col-lg-9 col-sm-9 col-xs-12">
+                    <div class="b-detail__head-title">
+                        <h1>@Model.ProductName</h1>
+                        <h3>@Model.ProductDescription</h3>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-3 col-xs-12">
+                    <div class="b-detail__head-price">
+                        <div class="b-detail__head-price-num">@Model.SalesPriceInventory.ToString("C")</div>
+                        &nbsp;
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="b-detail__main">
+
+            @if (!string.IsNullOrEmpty(Model.Picture360UrlInventory))
+            {
+                <div class="row">
+                    <div class="col-lg-12 col-sm-12 col-xs-12">
+
+                        <div class="b-detail__main-info">
+                            <div class="b-detail__main-info-images wow zoomInUp" data-wow-delay="0.5s">
+                                <!--360 -->
+                                <div class="text-center">
+                                    <h1 class="s-titleDet">Vista 360° Exterior</h1>
+                                </div>
+                                <div class="img-thumbnail" style="width:100%">
+                                    <div class="cloudimage-360"
+                                         data-folder="@Url.Content($"~/{Model.Picture360UrlInventory}/")"
+                                         data-filename="{index}.jpg"
+                                         data-amount="@Model.Picture360QuantityInventory"
+                                         data-magnifier="2"
+                                         data-spin-reverse>
+                                    </div>
+                                    <!--360 -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p>&nbsp;</p>
+                </div>
+            }
+            else
+            {
+                if (!string.IsNullOrEmpty(Model.Picture360Url))
+                {
+                    <div class="row">
+                        <div class="col-lg-12 col-sm-12 col-xs-12">
+
+                            <div class="b-detail__main-info">
+                                <div class="b-detail__main-info-images wow zoomInUp" data-wow-delay="0.5s">
+                                    <!--360 -->
+                                    <div class="text-center">
+                                        <h1 class="s-titleDet">Vista 360° Exterior</h1>
+                                    </div>
+                                    <div class="img-thumbnail" style="width:100%">
+                                        <div class="cloudimage-360"
+                                             data-folder="@Url.Content($"~/{Model.Picture360Url}/")"
+                                             data-filename="{index}.jpg"
+                                             data-amount="@Model.Picture360Quantity"
+                                             data-magnifier="2"
+                                             data-spin-reverse>
+                                        </div>
+                                        <!--360 -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p>&nbsp;</p>
+                    </div>
+                }
+            }
+
+            @if (!string.IsNullOrEmpty(Model.Cupix360UrlInventory))
+            {
+                @if (!string.IsNullOrEmpty(Model.Cupix360UrlInventory))
+                {
+                    <div class="row">
+                        <div class="col-lg-12 col-sm-12 col-xs-12">
+                            <div class="b-detail__main-info">
+                                <div class="b-detail__main-info-images wow zoomInUp" data-wow-delay="0.5s">
+                                    <!--Cupix -->
+                                    <div class="text-center">
+                                        <h1 class="s-titleDet">Recorrido Interactivo 360°</h1>
+                                    </div>
+                                    <div class="">
+                                        <div class="embed-responsive embed-responsive-16by9">
+                                            <iframe class="embed-responsive-item" src='@Model.Cupix360UrlInventory' allow="accelerometer; autoplay; encrypted-media; gyroscope;" allowfullscreen></iframe>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p>&nbsp;</p>
+                    </div>
+                }
+            }
+            else
+            {
+                @if (!string.IsNullOrEmpty(Model.Cupix360Url))
+                {
+                    <div class="row">
+                        <div class="col-lg-12 col-sm-12 col-xs-12">
+                            <div class="b-detail__main-info">
+                                <div class="b-detail__main-info-images wow zoomInUp" data-wow-delay="0.5s">
+                                    <!--Cupix -->
+                                    <div class="text-center">
+                                        <h1 class="s-titleDet">Recorrido Interactivo 360°</h1>
+                                    </div>
+                                    <div class="">
+                                        <div class="embed-responsive embed-responsive-16by9">
+                                            <iframe class="embed-responsive-item" src='@Model.Cupix360Url' allow="accelerometer; autoplay; encrypted-media; gyroscope;" allowfullscreen></iframe>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p>&nbsp;</p>
+                    </div>
+                }
+            }
+
+            <div class="row">
+                <div class="col-md-8 col-xs-12">
+                    <div class="b-detail__main-info">
+                        <div class="b-detail__main-info-images wow zoomInUp" data-wow-delay="0.5s">
+                            <div class="row m-smallPadding">
+                                <div class="col-xs-10">
+                                    <ul class="b-detail__main-info-images-big bxslider enable-bx-slider" data-pager-custom="#bx-pager" data-mode="horizontal" data-pager-slide="true" data-mode-pager="vertical" data-pager-qty="5">
+                                        @foreach (var item in Model.InventoryItemPictures)
+                                        {
+                                            <li class="s-relative">
+                                                @if (!string.IsNullOrEmpty(Model.YoutubeUrl))
+                                                {
+                                                    <a data-toggle="modal" data-target="#idDetailsModal" href="#" onclick="getYoutubeVideoPartial('@Model.YoutubeUrl')" class="b-items__cars-one-img-video"><span class="fa fa-film"></span>VIDEO</a>
+                                                }
+
+                                                <img class="img-responsive center-block" src="@Url.Content($"~/{item.PictureUrl}")" alt="@(item.AlternateText ?? "Picture")" />
+                                            </li>
+                                        }
+                                    </ul>
+                                </div>
+                                <div class="col-xs-2 pagerSlider pagerVertical">
+                                    <div class="b-detail__main-info-images-small" id="bx-pager">
+                                        @{ index = 0; }
+                                        @foreach (var item in Model.InventoryItemPictures)
+                                        {
+                                            <a href="#" data-slide-index="@index" class="b-detail__main-info-images-small-one">
+                                                <img class="img-responsive" src="@Url.Content($"~/{item.PictureUrl}")" alt="@(item.AlternateText ?? "Picture")" />
+                                            </a>
+
+                                            index += 1;
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="b-detail__main-info-characteristics wow zoomInUp" data-wow-delay="0.5s">
+                            <div class="b-detail__main-info-characteristics-one">
+                                <div class="b-detail__main-info-characteristics-one-top">
+                                    <div><img src="~/images/custom-icons/nuevo-icono.png" class="fa" width="60%" /></div>
+                                    <p>@(Model.IsNew ? "Nuevo" : "Usado")</p>
+                                </div>
+                                <div class="b-detail__main-info-characteristics-one-bottom">
+                                    Estado
+                                </div>
+                            </div>
+                            <div class="b-detail__main-info-characteristics-one">
+                                <div class="b-detail__main-info-characteristics-one-top">
+                                    <div><img src="~/images/custom-icons/garantia-icono.png" class="fa" width="60%" /></div>
+                                    <p>@Model.WarrantyName</p>
+                                </div>
+                                <div class="b-detail__main-info-characteristics-one-bottom">
+                                    Garantía
+                                </div>
+                            </div>
+                            <div class="b-detail__main-info-characteristics-one">
+                                <div class="b-detail__main-info-characteristics-one-top">
+                                    @if (Model.TransmissionName.ToLower().Contains("autom"))
+                                    {
+                                        <div><img src="~/images/custom-icons/transmision-v2-icono.png" class="fa" width="60%" /></div>
+                                    }
+                                    else
+                                    {
+                                        <div><img src="~/images/custom-icons/transmision-v1-icono.png" class="fa" width="60%" /></div>
+                                    }
+                                    <p>@Model.TransmissionName</p>
+                                </div>
+                                <div class="b-detail__main-info-characteristics-one-bottom">
+                                    Transmisión
+                                </div>
+                            </div>
+                            <div class="b-detail__main-info-characteristics-one">
+                                <div class="b-detail__main-info-characteristics-one-top">
+                                    <div><img src="~/images/custom-icons/tren-de-traccion-icono.png" class="fa" width="60%" /></div>
+                                    <p>@Model.DriveTrainName</p>
+                                </div>
+                                <div class="b-detail__main-info-characteristics-one-bottom">
+                                    Tren de tracción
+                                </div>
+                            </div>
+                            <div class="b-detail__main-info-characteristics-one">
+                                <div class="b-detail__main-info-characteristics-one-top">
+                                    <div><img src="~/images/custom-icons/pasajeros-icono.png" class="fa" width="60%" /></div>
+                                    <p>@Model.Passengers</p>
+                                </div>
+                                <div class="b-detail__main-info-characteristics-one-bottom">
+                                    Pasajeros
+                                </div>
+                            </div>
+                            <div class="b-detail__main-info-characteristics-one">
+                                <div class="b-detail__main-info-characteristics-one-top">
+                                    <div><img src="~/images/custom-icons/capacidad-icono.png" class="fa" width="60%" /></div>
+                                    <p>@Html.Raw(string.IsNullOrEmpty(Model.GasMileage) ? "<br/>" : Model.GasMileage)</p>
+                                </div>
+                                <div class="b-detail__main-info-characteristics-one-bottom">
+                                    Capacidad Tanque
+                                </div>
+                            </div>
+                        </div>
+                        <div class="b-detail__main-info-text wow zoomInUp" data-wow-delay="0.5s">
+                            <h2 class="s-titleDet">INFORMACIÓN ADICIONAL</h2>
+                            <div class="b-detail__main-aside-about-form-links">
+                                <a href="#" class="j-tab m-active s-lineDownCenter" data-to='#info1'>DESCRIPCIÓN GENERAL</a>
+                                <a href="#" class="j-tab" data-to='#info2'>DESCRIPCIÓN DE GARANTÍA</a>
+                                @if (Model.ProductDocuments.Count > 0)
+                                {
+                                    @foreach (var item in Model.ProductDocuments)
+                                    {
+                                        <a target="_blank" rel="noreferrer" href="@Url.Content($"~/{item.FilePath}")">@item.FkProductDocumentsCategories.CategoryName</a>
+                                    }
+                                }
+                            </div>
+                            <div id="info1" class="text-justify">
+                                @Html.Raw(Model.ProductLongDescription)
+                            </div>
+                            <div id="info2" class="text-justify">
+                                @Html.Raw(Model.WarrantyDescription)
+                            </div>
+                        </div>
+
+                        <div class="b-detail__main-info-extra wow zoomInUp" data-wow-delay="0.5s">
+                            <div class="row">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-4 col-xs-12">
+                    <aside class="b-detail__main-aside">
+                        <div class="b-detail__main-aside-desc wow zoomInUp" data-wow-delay="0.5s">
+                            <h2 class="s-titleDet">Descripción</h2>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <h4 class="b-detail__main-aside-desc-title">Color</h4>
+                                </div>
+                                <div class="col-xs-6">
+                                    <p class="b-detail__main-aside-desc-value">@Model.ColorName</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <h4 class="b-detail__main-aside-desc-title">Modelo</h4>
+                                </div>
+                                <div class="col-xs-6">
+                                    <p class="b-detail__main-aside-desc-value">@Model.Year.ToString()</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <h4 class="b-detail__main-aside-desc-title">Kilómetros</h4>
+                                </div>
+                                <div class="col-xs-6">
+                                    <p class="b-detail__main-aside-desc-value">@Model.Mileage km</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <h4 class="b-detail__main-aside-desc-title">Carrocería</h4>
+                                </div>
+                                <div class="col-xs-6">
+                                    <p class="b-detail__main-aside-desc-value">@Model.CategoryName</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <h4 class="b-detail__main-aside-desc-title">Motor</h4>
+                                </div>
+                                <div class="col-xs-6">
+                                    <p class="b-detail__main-aside-desc-value">@Model.EngineTypeName</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <h4 class="b-detail__main-aside-desc-title">Tren de tracción</h4>
+                                </div>
+                                <div class="col-xs-6">
+                                    <p class="b-detail__main-aside-desc-value">@Model.DriveTrainName</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <h4 class="b-detail__main-aside-desc-title">Transmisión</h4>
+                                </div>
+                                <div class="col-xs-6">
+                                    <p class="b-detail__main-aside-desc-value">@Model.TransmissionName</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <h4 class="b-detail__main-aside-desc-title">Pasajeros/Puertas</h4>
+                                </div>
+                                <div class="col-xs-6">
+                                    <p class="b-detail__main-aside-desc-value">@Model.Passengers Pasajeros / @Model.PassengersDoors Puertas</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <h4 class="b-detail__main-aside-desc-title">Peso base</h4>
+                                </div>
+                                <div class="col-xs-6">
+                                    <p class="b-detail__main-aside-desc-value">@Model.BaseWeight.ToString("F") Kg</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <h4 class="b-detail__main-aside-desc-title">Caballos de fuerza</h4>
+                                </div>
+                                <div class="col-xs-6">
+                                    <p class="b-detail__main-aside-desc-value">@Model.HorsePower.ToString("F") Hp</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="b-detail__main-aside-about wow zoomInUp" data-wow-delay="0.5s">
+                            <div style="padding-bottom: 2.5em;">
+                                <div class="b-search__main-form-submit wow zoomInLeft" data-wow-delay="0.5s" data-wow-offset="100">
+                                    <button type="button" class="btn m-btn" onclick="addToCart(@Model.ProductId, @Model.InventoryItemsId, 1)">
+                                        Agregar al carrito
+                                        <span class="fa fa-shopping-cart"></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="b-detail__main-aside-about wow zoomInUp" data-wow-delay="0.5s">
+                            <div class="b-detail__main-aside-about-call">
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    <span class="fa fa-comments"></span>
+                                    <div>
+                                        Usa nuestro servicio de chat en línea.
+                                        <a onclick="jivo_api.setContactInfo({ name: '@userName', email: '@userEmail', phone: '@userPhone', description: '@Model.ProductName' }); jivo_api.setCustomData({ 'Asunto': 'Quiero saber más sobre: @Model.ProductName' }); jivo_api.open({ start: 'chat' });">Aquí</a>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <span class="fa fa-comments"></span>
+                                    <div>
+                                        Usa nuestro servicio de chat en línea.
+                                        <a onclick="jivo_api.setCustomData({ 'Asunto': 'Quiero saber más sobre: @Model.ProductName' }); jivo_api.open({ start: 'chat' });">Aquí</a>
+                                    </div>
+                                }
+                            </div>
+                            <div class="b-detail__main-aside-about-seller">
+                                <p><span>Estámos dispuestos a resolver todas tus dudas</span></p>
+                            </div>
+                        </div>
+                        @{ await Html.RenderPartialAsync("_Leads", new InterestedCustomerViewModel() { FkInventoryItemsId = Model.InventoryItemsId }); }
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!--b-detail-->
+
+@section Scripts{
+    <!--360 -->
+    <script src="https://cdn.scaleflex.it/plugins/js-cloudimage-360-view/2/js-cloudimage-360-view.min.js"></script>
+    <!--360 -->
+    <script>
+        (() => {
+            showFloatingCart(@Model.ProductId, @Model.InventoryItemsId, 'Mazda');
+        })();
+    </script>
+}

@@ -1,0 +1,429 @@
+﻿@model Ecommerce.Models.Entities.Products
+
+@{
+    ViewData["Title"] = "ProductsMore";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<section class="content">
+    <div class="container">
+        <div>
+            <div class="col-12 text-center">
+                <h1 class="m-0 text-dark">Preview</h1>
+            </div>
+            <div class="text-left">
+                <p>
+                    <a asp-action="Products" asp-controller="Admin" class="btn btn-md btn-dark"><span class="fa fa-arrow-circle-left"></span> Volver</a>
+                </p>
+            </div>
+            <div class="col-12 text-center">
+                <h2 class="m-0 text-dark"><b>Product Preview</b></h2>
+            </div>
+
+            @if (ViewBag.Message != null)
+            {
+                <div class="alert alert-danger text-center wow zoomInUp" role="alert" data-wow-delay="0.5s">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <strong>¡Ups!..</strong> @ViewBag.Message &#128577;
+                </div>
+            }
+        </div>
+        <hr />
+        <div class="col-lg-offset-3">
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.ProductsId)
+                </dt>
+                <dd class="col-sm-4">
+                    @Html.DisplayFor(model => model.ProductsId)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Sku)
+                </dt>
+                <dd class="col-sm-4">
+                    @Html.DisplayFor(model => model.Sku)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Upc)
+                </dt>
+                <dd class="col-sm-4">
+                    @Html.DisplayFor(model => model.Upc)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.AllowShow)
+                </dt>
+                <dd class="col-sm-4">
+                    @{ var allowShow = Model.AllowShow == 1 ? "YES" : "NO"; }
+                    @allowShow
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.ProductName)
+                </dt>
+                <dd class="col-sm-4">
+                    @Html.DisplayFor(model => model.ProductName)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.FkMakes)
+                </dt>
+                <dd class="col-sm-4">
+                    @Html.DisplayFor(model => model.FkMakes.MakeName)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.FkModels)
+                </dt>
+                <dd class="col-sm-4">
+                    @Html.DisplayFor(model => model.FkModels.ModelName)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.FkCategories)
+                </dt>
+                <dd class="col-sm-4">
+                    @Html.DisplayFor(model => model.FkCategories.CategoryName)
+                </dd>
+                <dt class="col-sm-2">
+                    Documents
+                </dt>
+                <dd class="col-sm-4">
+                    @if (ViewBag.FkProductDocuments != null)
+                    {
+                        <ul>
+                            @foreach (var item in (List<Ecommerce.Models.Entities.ProductDocuments>)ViewBag.FkProductDocuments)
+                            {
+                                <li>@item.FileName - @item.FkProductDocumentsCategories.CategoryName</li>
+                            }
+                        </ul>
+                    }
+                </dd>
+
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Description)
+                </dt>
+                <dd class="col-sm-4">
+                    @Html.DisplayFor(model => model.Description)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.LongDescription)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.Raw(Model.LongDescription)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.IsFeatured)
+                </dt>
+                <dd class="col-sm-4">
+                    @{ var isFeactured = Model.IsFeatured == 1 ? "YES" : "NO"; }
+                    @isFeactured
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Cost)
+                </dt>
+                <dd class="col-sm-4">
+                    @Html.DisplayFor(model => model.Cost)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.SalesPrice)
+                </dt>
+                <dd class="col-sm-4">
+                    @Html.DisplayFor(model => model.SalesPrice)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.QuantityInStock)
+                </dt>
+                <dd class="col-sm-4">
+                    @Html.DisplayFor(model => model.QuantityInStock)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Trim)
+                </dt>
+                <dd class="col-sm-4">
+                    @Html.DisplayFor(model => model.Trim)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Msrp)
+                </dt>
+                <dd class="col-sm-4">
+                    @Html.DisplayFor(model => model.Msrp)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Year)
+                </dt>
+                <dd class="col-sm-4">
+                    @Html.DisplayFor(model => model.Year)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Horsepower)
+                </dt>
+                <dd class="col-sm-4">
+                    @Html.DisplayFor(model => model.Horsepower)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.GasMileage)
+                </dt>
+                <dd class="col-sm-4">
+                    @Html.DisplayFor(model => model.GasMileage)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Passengers)
+                </dt>
+                <dd class="col-sm-4">
+                    @Html.DisplayFor(model => model.Passengers)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.PassengerDoors)
+                </dt>
+                <dd class="col-sm-4">
+                    @Html.DisplayFor(model => model.PassengerDoors)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.BaseWeight)
+                </dt>
+                <dd class="col-sm-4">
+                    @Html.DisplayFor(model => model.BaseWeight)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Picture360Quantity)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Picture360Quantity)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.PictureUrl)
+                </dt>
+                <dd class="col-sm-10">
+                    <img src="@Url.Content($"~/{Model.PictureUrl}")" alt='@Model.ProductName' style="max-width:270px; max-height:230px;" />
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Picture360Url)
+                </dt>
+                <dd class="col-sm-10">
+                    @if (!string.IsNullOrEmpty(Model.Picture360Url))
+                    {
+                        <div class="cloudimage-360" style="height:480px; width:480px;"
+                             data-folder="@Url.Content($"~/{Model.Picture360Url}/")"
+                             data-filename="{index}.jpg"
+                             data-amount="@Model.Picture360Quantity"
+                             data-magnifier="2"
+                             data-spin-reverse>
+                        </div>
+                        <!--360 -->
+                    }
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Cupix360Url)
+                </dt>
+                <dd class="col-sm-10">
+                    @if (!string.IsNullOrEmpty(Model.Cupix360Url))
+                    {
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe class="embed-responsive-item" src='@Model.Cupix360Url' allow="accelerometer; autoplay; encrypted-media; gyroscope;" allowfullscreen style="max-height:480px; max-width:480px;"></iframe>
+                        </div>
+                    }
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.YoutubeUrl)
+                </dt>
+                <dd class="col-sm-10">
+                    @if (!string.IsNullOrEmpty(Model.YoutubeUrl))
+                    {
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe class="embed-responsive-item" src='@Model.YoutubeUrl.Replace("watch?v=", "embed/")' allow="accelerometer; autoplay; encrypted-media; gyroscope;" allowfullscreen style="max-height:480px; max-width:480px;"></iframe>
+                        </div>
+                    }
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.FkBodyStyles)
+                </dt>
+                <dd class="col-sm-4">
+                    @Html.DisplayFor(model => model.FkBodyStyles.BodyStyleName)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.FkDriveTrains)
+                </dt>
+                <dd class="col-sm-4">
+                    @Html.DisplayFor(model => model.FkDriveTrains.DriveTrainName)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.FkEngineTypes)
+                </dt>
+                <dd class="col-sm-4">
+                    @Html.DisplayFor(model => model.FkEngineTypes.EngineTypeName)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.FkEpaClasses)
+                </dt>
+                <dd class="col-sm-4">
+                    @Html.DisplayFor(model => model.FkEpaClasses.EpaClassName)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.FkTransmissions)
+                </dt>
+                <dd class="col-sm-4">
+                    @Html.DisplayFor(model => model.FkTransmissions.TransmissionName)
+                </dd>
+
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Cylinders)
+                </dt>
+                <dd class="col-sm-4">
+                    @Html.DisplayFor(model => model.Cylinders)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.LoadCapacity)
+                </dt>
+                <dd class="col-sm-4">
+                    @Html.DisplayFor(model => model.LoadCapacity)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.SingleWeight)
+                </dt>
+                <dd class="col-sm-4">
+                    @Html.DisplayFor(model => model.SingleWeight)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Productivity)
+                </dt>
+                <dd class="col-sm-4">
+                    @Html.DisplayFor(model => model.Productivity)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.BaleLength)
+                </dt>
+                <dd class="col-sm-4">
+                    @Html.DisplayFor(model => model.BaleLength)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Speed)
+                </dt>
+                <dd class="col-sm-4">
+                    @Html.DisplayFor(model => model.Speed)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.RecommendedPower)
+                </dt>
+                <dd class="col-sm-4">
+                    @Html.DisplayFor(model => model.RecommendedPower)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.WorkingWidth)
+                </dt>
+                <dd class="col-sm-4">
+                    @Html.DisplayFor(model => model.WorkingWidth)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.NumberOfLines)
+                </dt>
+                <dd class="col-sm-4">
+                    @Html.DisplayFor(model => model.NumberOfLines)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.NumberOfDiscs)
+                </dt>
+                <dd class="col-sm-4">
+                    @Html.DisplayFor(model => model.NumberOfDiscs)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.InputRotation)
+                </dt>
+                <dd class="col-sm-4">
+                    @Html.DisplayFor(model => model.InputRotation)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.StandardCover)
+                </dt>
+                <dd class="col-sm-4">
+                    @Html.DisplayFor(model => model.StandardCover)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.CuttingWidth)
+                </dt>
+                <dd class="col-sm-4">
+                    @Html.DisplayFor(model => model.CuttingWidth)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.FkAspirationTypes)
+                </dt>
+                <dd class="col-sm-4">
+                    @Html.DisplayFor(model => model.FkAspirationTypes.AspirationTypeName)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.FkRearTiresTypes)
+                </dt>
+                <dd class="col-sm-4">
+                    @Html.DisplayFor(model => model.FkRearTiresTypes.RearTiresTypeName)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.FkFrontTiresTypes)
+                </dt>
+                <dd class="col-sm-4">
+                    @Html.DisplayFor(model => model.FkFrontTiresTypes.FrontTiresTypeName)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.FkSeparationSystems)
+                </dt>
+                <dd class="col-sm-4">
+                    @Html.DisplayFor(model => model.FkSeparationSystems.SeparationSystemName)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.FkHitchSystems)
+                </dt>
+                <dd class="col-sm-4">
+                    @Html.DisplayFor(model => model.FkHitchSystems.HitchSystemName)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.FkHitchPines)
+                </dt>
+                <dd class="col-sm-4">
+                    @Html.DisplayFor(model => model.FkHitchPines.HitchPinName)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.FkChamberDimensions)
+                </dt>
+                <dd class="col-sm-4">
+                    @Html.DisplayFor(model => model.FkChamberDimensions.ChamberDimensionName)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.FkConfigurationTypes)
+                </dt>
+                <dd class="col-sm-4">
+                    @Html.DisplayFor(model => model.FkConfigurationTypes.ConfigurationTypeName)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.FkConditioningSystems)
+                </dt>
+                <dd class="col-sm-4">
+                    @Html.DisplayFor(model => model.FkConditioningSystems.ConditioningSystemName)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.FkBladeTypes)
+                </dt>
+                <dd class="col-sm-4">
+                    @Html.DisplayFor(model => model.FkBladeTypes.BladeTypeName)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.FkTurningRadiusTypes)
+                </dt>
+                <dd class="col-sm-4">
+                    @Html.DisplayFor(model => model.FkTurningRadiusTypes.TurningRadiusTypeName)
+                </dd>
+            </dl>
+            <hr />
+            <div class="text-left">
+                <p>
+                    <a asp-action="ProductsEdit" asp-controller="Admin" asp-route-id="@Model.ProductsId" class="btn btn-md btn-outline-dark"><span class="fa fa-pencil-alt"></span> Editar</a>
+                </p>
+                <p>
+                    <a asp-action="Products" asp-controller="Admin" class="btn btn-md btn-dark"><span class="fa fa-arrow-circle-left"></span> Volver</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <!--360 -->
+    <script src="https://cdn.scaleflex.it/plugins/js-cloudimage-360-view/2/js-cloudimage-360-view.min.js"></script>
+    <!--360 -->
+}

@@ -1,0 +1,818 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using motovalle.Ecommerce.Models.Entities.Identity
+
+@inject UserManager<ApplicationUser> UserManager
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutRepuestos.cshtml";
+    var userName = string.Empty;
+    var userEmail = string.Empty;
+    var userPhone = string.Empty;
+
+    if (User.Identity.IsAuthenticated)
+    {
+        var user = await UserManager.GetUserAsync(User);
+        userName = user.FullName;
+        userEmail = user.Email;
+        userPhone = user.PhoneNumber;
+    }
+}
+
+<section class="b-pageHeader repuestos">
+    <div class="container">
+        <h1 class="wow zoomInUp" data-wow-delay="0.5s">Repuestos</h1>
+        <div class="b-pageHeader__search wow zoomInRight" data-wow-delay="0.7s">
+            <h3>Encuntra todo lo que necesitas</h3>
+        </div>
+    </div>
+</section><!--b-pageHeader-->
+
+<div class="b-breadCumbs s-shadow">
+    <div class="container">
+        <a asp-action="Index" asp-controller="Home" class="b-breadCumbs__page">Home</a><span class="fa fa-angle-right"></span><a asp-action="Index" asp-controller="Repuestos" class="b-breadCumbs__page m-active">Repuestos</a>
+    </div>
+</div><!--b-breadCumbs-->
+
+<section class="b-content">
+    <div class="container" style="margin-top:2em; margin-bottom:3em;">
+        <div class="wow zoomInUp text-center" data-wow-delay="0.5s">
+            <h2>
+                <span style="color:#228dcb;" class="brandColor">Motovalle </span>es una empresa orgullosamente Colombiana, líder en la comercialización de autopartes y representantes autorizados de diversas marcas del sector autopartista. <br />
+                Contamos con un portafolio de más de <b>150.000</b> Referencias para atender las necesidades de todos nuestros clientes.
+            </h2>
+        </div>
+    </div>
+</section><!--b-content-->
+
+<section class="b-content wow zoomInUp" data-wow-delay="0.5s">
+    <div class="container-fluid">
+        <div class="col-sm-2">
+            <h2>Seleccione</h2>
+        </div>
+        <div class="col-sm-10 pull-right">
+            <ul class="nav nav-tabs">
+                <li class="active">
+                    <a href="#ford" class="tabmap" data-toggle="tab" aria-expanded="true">
+                        <h4>FORD</h4>
+                        <img src="~/images/brand_logos/Ford_Logo.png" class="img-responsive center-block" alt="logo_ford" />
+                    </a>
+                </li>
+                <li>
+                    <a href="#mazda" class="tabmap" data-toggle="tab" aria-expanded="false">
+                        <h4>MAZDA</h4>
+                        <img src="~/images/brand_logos/Mazda_Logo.png" class="img-responsive center-block" alt="logo_mazda" />
+                    </a>
+                </li>
+                <li>
+                    <a href="#motorcraft" class="tabmap" data-toggle="tab" aria-expanded="false">
+                        <h4>MOTORCRAFT</h4>
+                        <img src="~/images/brand_logos/motorcraft.png" class="img-responsive center-block" alt="logo_motorcraft" />
+                    </a>
+                </li>
+                <li>
+                    <a href="#other" class="tabmap" data-toggle="tab" aria-expanded="false">
+                        <h4>OTRAS MARCAS Y PESADOS</h4>
+                        <img src="~/images/brand_logos/logo-clevite-tab.png" class="img-responsive center-block" alt="logo_clevitte" />
+                    </a>
+                </li>
+                <li>
+                    <a href="#accesories" class="tabmap" data-toggle="tab" aria-expanded="false">
+                        <h4>ACCESORIOS <br /></h4>
+                    </a>
+                </li>
+                <li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <a href="#cta" class="tabmap" data-toggle="tab" aria-expanded="false" onclick="jivo_api.setContactInfo({ name: '@userName', email: '@userEmail', phone: '@userPhone', description: 'Quiero preguntar por un repuesto.' }); jivo_api.setCustomData({ 'Asunto': 'Quiero preguntar por un repuesto' }); jivo_api.open({ start: 'chat' });">
+                            <h4 class="text-center">PREGUNTAR POR <br />UN REPUESTO</h4>
+                        </a>
+                    }
+                    else
+                    {
+                        <a href="#cta" class="tabmap" data-toggle="tab" aria-expanded="false" onclick="jivo_api.setCustomData({ 'Asunto': 'Quiero preguntar por un repuesto' }); jivo_api.open({ start: 'chat' });">
+                            <h4 class="text-center">PREGUNTAR POR <br />UN REPUESTO</h4>
+                        </a>
+                    }
+                </li>
+            </ul>
+            <!--nav nav-tabs nav-justified-->
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="tab-content">
+            <div class="tab-pane fade active in" id="ford">
+                <div class="row">
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                        <img class="img-responsive" src="~/repuestos/landing/taller.png" alt="Taller" />
+                    </div>
+                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                        <p style="font-size:18px;">
+                            <b>Somos una empresa con amplia trayectoria en el sector automotriz, dedicada a la comercialización de repuestos para vehículos FORD.</b> Nuestro compromiso suministrar repuestos genuinos y confiables.
+                        </p>
+                        <div class="pull-right">
+                            <img class="img-responsive" src="~/repuestos/landing/repuestos-1.png" alt="Repuestos-1" />
+                        </div>
+                    </div>
+                </div>
+                @{ await Html.RenderPartialAsync("_RepuestosFord"); }
+            </div>
+            <div class="tab-pane fade" id="mazda">
+                <div class="row">
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                        <img class="img-responsive" src="~/repuestos/landing/mazda/carros.png" alt="Carros" />
+                    </div>
+                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                        <p style="font-size:18px;">
+                            <b>En Motovalle encontrarás una amplia gama de repuestos genuinos para tu vehículo</b>, que han sido creados especialmente para darle nuevos y mejores beneficios a cada modelo y cuentan con la garantía de calidad de Mazda.
+                        </p>
+                        <h3><span style="color:#de483d;">Nada se adapta mejor a tu Mazda</span></h3>
+                        <p style="font-size:18px;">
+                            En la red autorizada Mazda encontrarás una amplia gama de repuestos genuinos para tu vehículo, que han sido creados especialmente para darle nuevos y mejores beneficios a cada modelo y cuentan con la garantía de calidad de Mazda.
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <br />
+                    @{ await Html.RenderPartialAsync("_RepuestosMazda"); }
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="motorcraft">
+                <div class="row">
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                        <img class="img-responsive" src="~/repuestos/landing/motorcraft/piloto.png" alt="Piloto" />
+                    </div>
+                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                        <p style="font-size:18px;">
+                            <b>Somos la marca de repuestos respaldada por más de 100 años de experticia en ingeniería de Ford</b>. Ofrecemos partes para restaurar tu vehículo como recién salido de la fábrica: Baterías, bujías, filtros de aceite, aire y gasolina, lubricantes, químicos y limpiaparabrisas. Conoce aquí sus características y beneficios ¡Y descubre por qué la confianza va por dentro
+                        </p>
+                        <div class="fa-pull-left">
+                            <img class="img-responsive" src="~/repuestos/landing/motorcraft/logo-motorcraft.png" alt="logo-motorcraft" />
+                            <br />
+                            <br />
+                            <p style="font-size:18px;">
+                                Contamos con la gama de repuestos originales Motorcraft.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                @{ await Html.RenderPartialAsync("_RepuestosMotorcraft"); }
+            </div>
+            <div class="tab-pane fade" id="other">
+                <div class="row">
+                    <div class="container">
+                        <p style="font-size:18px;">
+                            Somos una empresa líder en Colombia en la <b>comercialización de Autopartes para vehículos livianos y pesados de las siguientes marcas:</b>
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="b-personal hiring" style="margin-bottom:-3em;">
+                        <div id="carousel-small" class="owl-carousel enable-owl-carousel" data-items="5" data-navigation="true" data-auto-play="true" data-stop-on-hover="true" data-items-desktop="5" data-items-desktop-small="3" data-items-tablet="3" data-items-tablet-small="3">
+                            <div>
+                                <div class="b-personal__worker wow zoomInUp" >
+                                    <div class="b-personal__worker-img">
+                                        <img src="~/repuestos/landing/others/mahle-logo.png" class="img-responsive" alt="mathe" />
+                                    </div>
+                                    <div class="text-center">
+                                        <h3 style="color:#228dcb;">Partes originales para motores:</h3>
+                                        <p>Cummins, Caterpillar, Internacional, Mack, Detroit Diesel, Volvo, Mercedez Benz, Perkins</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="b-personal__worker wow zoomInUp" >
+                                    <div class="b-personal__worker-img">
+                                        <img src="~/repuestos/landing/others/pai-industries-logo.png" class="img-responsive" alt="pai" />
+                                    </div>
+                                    <div class="text-center">
+                                        <h3 style="color:#228dcb;">Bomper to Bomper:</h3>
+                                        <p>Cummins, Caterpillar, Internacional, Mack, Detroit Diesel, Volvo, Mercedez Benz, Perkins</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="b-personal__worker wow zoomInUp" >
+                                    <div class="b-personal__worker-img">
+                                        <img src="~/repuestos/landing/others/flexfab-logo-1.png" class="img-responsive" alt="flexlab" />
+                                    </div>
+                                    <h3 style="color:#228dcb;">Manguera siliconada</h3>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="b-personal__worker wow zoomInUp" >
+                                    <div class="b-personal__worker-img">
+                                        <img src="~/repuestos/landing/others/valvoline.png" class="img-responsive" alt="volvoline" />
+                                    </div>
+                                    <h3 style="color:#228dcb;">Lubricantes</h3>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="b-personal__worker wow zoomInUp" >
+                                    <div class="b-personal__worker-img">
+                                        <img src="~/repuestos/landing/others/4.png" class="img-responsive" alt="wabco" />
+                                    </div>
+                                    <h3 style="color:#228dcb;">Sistemas de Aire comprimido vehicular</h3>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="b-personal__worker wow zoomInUp" >
+                                    <div class="b-personal__worker-img">
+                                        <img src="~/repuestos/landing/others/repuestos1.png" class="img-responsive" alt="zf" />
+                                    </div>
+                                    <h3 style="color:#228dcb;">Suspensión, transmisión, embragues</h3>
+                                    <p>Scania, Mercedez, Volvo y mercado europeo.</p>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="b-personal__worker wow zoomInUp" >
+                                    <div class="b-personal__worker-img">
+                                        <img src="~/repuestos/landing/others/2.png" class="img-responsive" alt="sach" />
+                                    </div>
+                                    <h3 style="color:#228dcb;">Suspensión, transmisión, embragues</h3>
+                                    <p>Scania, Mercedez, Volvo y mercado europeo.</p>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="b-personal__worker wow zoomInUp" >
+                                    <div class="b-personal__worker-img">
+                                        <img src="~/repuestos/landing/others/3.png" class="img-responsive" alt="eaton" />
+                                    </div>
+                                    <h3 style="color:#228dcb;">Transmisión embrague</h3>
+                                    <p>Mercado USA - BRASIL.</p>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="b-personal__worker wow zoomInUp" >
+                                    <div class="b-personal__worker-img">
+                                        <img src="~/repuestos/landing/others/5.png" class="img-responsive" alt="brog" />
+                                    </div>
+                                    <h3 style="color:#228dcb;">Ventilaores Fan clutch</h3>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="b-personal__worker wow zoomInUp" >
+                                    <div class="b-personal__worker-img">
+                                        <img src="~/repuestos/landing/others/6.png" class="img-responsive" alt="dayco" />
+                                    </div>
+                                    <h3 style="color:#228dcb;">Poleas y tensores</h3>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="b-personal__worker wow zoomInUp" >
+                                    <div class="b-personal__worker-img">
+                                        <img src="~/repuestos/landing/others/7.png" class="img-responsive" alt="fag" />
+                                    </div>
+                                    <h3 style="color:#228dcb;">Embragues y rodamientos</h3>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="b-personal__worker wow zoomInUp" >
+                                    <div class="b-personal__worker-img">
+                                        <img src="~/repuestos/landing/others/8.png" class="img-responsive" alt="motor" />
+                                    </div>
+                                    <h3 style="color:#228dcb;">Bombas de combustible y bombas de agua</h3>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="b-personal__worker wow zoomInUp" >
+                                    <div class="b-personal__worker-img">
+                                        <img src="~/repuestos/landing/others/9.png" class="img-responsive" alt="bosch" />
+                                    </div>
+                                    <h3 style="color:#228dcb;">Sistemas de inyección de combustible</h3>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="b-personal__worker wow zoomInUp" >
+                                    <div class="b-personal__worker-img">
+                                        <img src="~/repuestos/landing/others/10.png" class="img-responsive" alt="elgin" />
+                                    </div>
+                                    <h3 style="color:#228dcb;">Componentes de motor</h3>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="b-personal__worker wow zoomInUp" >
+                                    <div class="b-personal__worker-img">
+                                        <img src="~/repuestos/landing/others/logohubner.png" class="img-responsive" alt="hubner" />
+                                    </div>
+                                    <h3 style="color:#228dcb;">Componentes de motor</h3>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="b-personal__worker wow zoomInUp" >
+                                    <div class="b-personal__worker-img">
+                                        <img src="~/repuestos/landing/others/susin.png" class="img-responsive" alt="susin" />
+                                    </div>
+                                    <h3 style="color:#228dcb;">Componentes de motor</h3>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="b-personal__worker wow zoomInUp" >
+                                    <div class="b-personal__worker-img">
+                                        <img src="~/repuestos/landing/others/nino.png" class="img-responsive" alt="nino" />
+                                    </div>
+                                    <h3 style="color:#228dcb;">Iluminación automotriz</h3>
+                                </div>
+                            </div>
+                            @*<div>
+                                    <div class="b-personal__worker wow zoomInUp" >
+                                        <div class="b-personal__worker-img">
+                                            <img src="~/repuestos/landing/others/13.png" class="img-responsive" alt="seire" />
+                                        </div>
+                                    </div>
+                                </div>*@
+                            @*<div>
+                                    <div class="b-personal__worker wow zoomInUp" >
+                                        <div class="b-personal__worker-img">
+                                            <img src="~/repuestos/landing/others/11.png" class="img-responsive" alt="cummins" />
+                                        </div>
+                                    </div>
+                                </div>*@
+                            @*<div>
+                                    <div class="b-personal__worker wow zoomInUp" >
+                                        <div class="b-personal__worker-img">
+                                            <img src="~/repuestos/landing/others/12.png" class="img-responsive" alt="cummins" />
+                                        </div>
+                                    </div>
+                                </div>*@
+                        </div>
+                    </div><!--b-personal-->
+                </div>
+            </div>
+            <div class="tab-pane fade" id="accesories">
+                <h3><b>Estámos en construcción</b></h3>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="b-map wow zoomInUp" data-wow-delay="0.5s">
+    <div class="wow zoomInLeft" data-wow-delay="0.55s">
+        <div class="col-sm-6 col-xs-12">
+            <h2 style="margin-left:2em;">Nuestras <span style="color:#228dcb;">sedes</span></h2>
+        </div>
+        <div class="col-sm-6 col-xs-12 pull-right">
+            <ul class="nav nav-tabs">
+                <li class="active">
+                    <a href="#mapa1" class="tabmap" data-toggle="tab" aria-expanded="true"><h3>BOGOTÁ</h3></a>
+                </li>
+                <li>
+                    <a href="#mapa2" class="tabmap" data-toggle="tab" aria-expanded="true"><h3>CALI</h3></a>
+                </li>
+            </ul>
+        </div>
+        <div class="panel with-nav-tabs-maps">
+            <div class="panel-body">
+                <div class="tab-content">
+                    <div class="tab-pane fade in active" id="mapa1">
+                        <div>
+                            <div class="wpgmp_map_container wpgmp-map-18" rel="map18"><div class="wpgmp_map " style="width:100%; height:680px;" id="map18"></div></div>
+                            <div class="info-maps">
+                                <div class="row">
+                                    <div class="container-center">
+
+                                        @*<div class="item-map col-xs-12 col-sm-12 col-md-2 col-md-offset-4">
+                                                <div class="row">
+                                                    <div class="item-inter col-xs-12 col-sm-12 col-md-12">
+                                                        <h4>Ford - Sede Av Sexta</h4>
+                                                        <p>Av 6 # 47-58</p>
+                                                    </div>
+                                                    <div class="item-inter col-xs-12 col-sm-12 col-md-12">
+                                                        <h5>Horarios:</h5>
+                                                        <p>Lunes a viernes de 7:30 a.m. a 5:30 p.m.</br>Sábados de 9:00 a.m. a 12:00 p.m.<br></p>
+                                                    </div>
+                                                    <div class="item-inter col-xs-12 col-sm-12 col-md-12">
+                                                        <h4>Contact Center</h4>
+                                                        <p>(1) 746 3333</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="item-map col-xs-12 col-sm-12 col-md-2 ">
+                                                <div class="row">
+                                                    <div class="item-inter col-xs-12 col-sm-12 col-md-12">
+                                                        <h4>Ford - Sede 7 de Agosto</h4>
+                                                        <p>Carrera 27 # 66-73</p>
+                                                    </div>
+                                                    <div class="item-inter col-xs-12 col-sm-12 col-md-12">
+                                                        <h5>Horarios:</h5>
+                                                        <p>Lunes a viernes de 8:00 a.m. a 5:30 p.m.</br>Sábados de 8:00 a.m. a 1:30 p.m.<br></p>
+                                                    </div>
+                                                    <div class="item-inter col-xs-12 col-sm-12 col-md-12">
+                                                        <h4>Contact Center</h4>
+                                                        <p>(1) 745 6611</p>
+                                                    </div>
+                                                </div>
+                                            </div>*@
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!--container-->
+                    </div>
+                    <!--end class tab-pane-->
+                    <div class="tab-pane fade" id="mapa2">
+                        <div>
+                            <div class="wpgmp_map_container wpgmp-map-19" rel="map19"><div class="wpgmp_map " style="width:100%; height:680px;" id="map19"></div></div>
+                            <div class="info-maps">
+                                <div class="row">
+                                    <div class="container-center">
+
+                                        @*<div class="item-map col-xs-12 col-sm-12 col-md-1 col-md-offset-4">
+                                                <div class="row">
+                                                    <div class="item-inter col-xs-12 col-sm-12 col-md-12">
+                                                        <h4>Sede Norte</h4>
+                                                        <p>Calle 26 # 1 - 71</p>
+                                                        <br>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="item-map col-xs-12 col-sm-12 col-md-2">
+                                                <div class="row">
+                                                    <div class="item-inter col-xs-12 col-sm-12 col-md-12">
+                                                        <h5>Horarios:</h5>
+                                                        <p>Lunes a viernes de 7:30 a.m. a 6:00 p.m.</br>Sábados de 9:00 a.m. a 6:00 p.m.<br></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="item-map col-xs-12 col-sm-12 col-md-1">
+                                                <div class="row">
+                                                    <div class="item-inter col-xs-12 col-sm-12 col-md-12">
+                                                        <h5>Contact Center</h5>
+                                                        <p>(2) 488 30 00</p>
+                                                    </div>
+                                                </div>
+                                            </div>*@
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!--container-->
+                    </div>
+                    <!--end class tab-pane-->
+                </div>
+                <!--panel-body-->
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .wpgmp-map-18, .wpgmp-map-18 .wpgmp_tabs_container, .wpgmp-map-18 .wpgmp_listing_container {
+        font-size: 16px !important;
+    }
+
+    .wpgmp-map-19, .wpgmp-map-19 .wpgmp_tabs_container, .wpgmp-map-19 .wpgmp_listing_container {
+        font-size: 16px !important;
+    }
+</style>
+
+@section Scripts{
+    <script type="text/javascript" src="~/js/maps.js"></script>
+    <script type='text/javascript' src='https://maps.google.com/maps/api/js?key=AIzaSyBVJ03UjRxywFn8ch5YseSPn2tZ_FsFOgQ&#038;libraries=geometry%2Cplaces%2Cweather%2Cpanoramio%2Cdrawing&#038;language=es&#038;ver=5.2.5'></script>
+    <script>
+        jQuery(document).ready(function ($) {
+            var map18 = $("#map18").maps({
+                "map_options": {
+                    "center_lat": "4.626299",
+                    "center_lng": "-74.10585600000002",
+                    "zoom": 12,
+                    "map_type_id": "ROADMAP",
+                    "center_by_nearest": true,
+                    "center_circle_fillcolor": "#8CAEF2",
+                    "center_circle_fillopacity": ".5",
+                    "center_circle_strokecolor": "#8CAEF2",
+                    "center_circle_strokeopacity": ".5",
+                    "center_circle_radius": "5",
+                    "show_center_circle": false,
+                    "show_center_marker": false,
+                    "center_marker_icon": "https://unpkg.com/leaflet@1.3.3/dist/images/marker-icon.png",
+                    "center_marker_infowindow": "",
+                    "center_circle_strokeweight": "1",
+                    "draggable": true,
+                    "scroll_wheel": false,
+                    "display_45_imagery": "",
+                    "marker_default_icon": "/images/maps/pointers/pointer.png",
+                    "infowindow_setting": "<div class=\"fc-main\">\n<div class=\"fc-item-title\">{marker_title} <span class=\"fc-badge info\">{marker_category}<\/span><\/div>\n<div class=\"fc-item-featured_image\">{marker_image} <\/div>\n<p>{marker_message}<\/p>\n<address><b>Address : <\/b>{marker_address}<\/address>\n<\/div>\n",
+                    "infowindow_geotags_setting": "<div class=\"fc-main\">\n<div class=\"fc-item-title\">{post_title} <span class=\"fc-badge info\">{post_categories}<\/span><\/div>\n<div class=\"fc-item-featured_image\">{post_featured_image} <\/div>\n<p>{post_excerpt}<\/p>\n<address><b>Address : <\/b>{marker_address}<\/address>\n<p><a target=\"_blank\"  class=\"fc-btn fc-btn-small fc-btn-red\" href=\"{post_link}\">Read More...<\/a><\/div>\n",
+                    "infowindow_bounce_animation": "",
+                    "infowindow_drop_animation": false,
+                    "close_infowindow_on_map_click": false,
+                    "default_infowindow_open": false,
+                    "infowindow_open_event": "click",
+                    "infowindow_filter_only": false,
+                    "infowindow_click_change_zoom": 0,
+                    "infowindow_click_change_center": false,
+                    "full_screen_control": true,
+                    "search_control": true,
+                    "zoom_control": true,
+                    "map_type_control": true,
+                    "street_view_control": true,
+                    "zoom_mobile": 0,
+                    "draggable_mobile": true,
+                    "scroll_wheel_mobile": true,
+                    "full_screen_control_position": "TOP_RIGHT",
+                    "search_control_position": "TOP_LEFT",
+                    "zoom_control_position": "TOP_LEFT",
+                    "map_type_control_position": "TOP_LEFT",
+                    "map_type_control_style": "HORIZONTAL_BAR",
+                    "street_view_control_position": "TOP_LEFT",
+                    "map_control": true,
+                    "map_control_settings": [
+
+                    ],
+                    "screens": {
+                        "smartphones": {
+                            "map_width_mobile": "",
+                            "map_height_mobile": "380px",
+                            "map_zoom_level_mobile": "10"
+                        },
+                        "ipads": {
+                            "map_width_mobile": "",
+                            "map_height_mobile": "440px",
+                            "map_zoom_level_mobile": "10"
+                        },
+                        "large-screens": {
+                            "map_width_mobile": "",
+                            "map_height_mobile": "680px",
+                            "map_zoom_level_mobile": "8"
+                        }
+                    },
+                    "map_infowindow_customisations": false,
+                    "infowindow_border_color": "rgba(0, 0, 0, 0.0980392)",
+                    "infowindow_bg_color": "#fff",
+                    "show_infowindow_header": false,
+                    "width": "",
+                    "height": "680"
+                },
+                "places": [
+                    {
+                        "id": "21",
+                        "title": "Ford - Sede Av Sexta",
+                        "address": "Avenida 6 # 47- 58 Bogot\u00e1",
+                        "source": "manual",
+                        "content": "Ford - Sede Av Sexta",
+                        "location": {
+                            "icon": `${window.location.origin}/images/maps/pointers/ford1.png`,
+                            "lat": "4.6243247",
+                            "lng": "-74.1064186",
+                            "city": "Bogot\u00e1",
+                            "state": "Cundinamarca",
+                            "country": "Colombia",
+                            "onclick_action": "marker",
+                            "redirect_custom_link": "",
+                            "marker_image": "",
+                            "open_new_tab": "yes",
+                            "postal_code": "",
+                            "draggable": false,
+                            "infowindow_default_open": false,
+                            "animation": "BOUNCE",
+                            "infowindow_disable": true,
+                            "zoom": 5,
+                            "extra_fields": {
+                                "address_map": null,
+                                "listorder": 0
+                            }
+                        },
+                        "categories": [
+                            {
+                                "id": "5",
+                                "name": "Corporativo Ford",
+                                "type": "category",
+                                "extension_fields": {
+                                    "cat_order": "0"
+                                },
+                                "icon": `${window.location.origin}/images/maps/pointers/ford1.png`
+                            }
+                        ],
+                        "custom_filters": [
+
+                        ]
+                    },
+                    //{
+                    //    "id": "22",
+                    //    "title": "Ford - Sede 7 de Agosto",
+                    //    "address": "Carrera 27 #66-73, Bogot\u00e1, Colombia",
+                    //    "source": "manual",
+                    //    "content": "Ford - Sede 7 de Agosto",
+                    //    "location": {
+                    //        "icon": `${window.location.origin}/images/maps/pointers/ford1.png`,
+                    //        "lat": "4.6590294",
+                    //        "lng": "-74.07186990000002",
+                    //        "city": "Bogot\u00e1",
+                    //        "state": "Cundinamarca",
+                    //        "country": "Colombia",
+                    //        "onclick_action": "marker",
+                    //        "redirect_custom_link": "",
+                    //        "marker_image": "",
+                    //        "open_new_tab": "yes",
+                    //        "postal_code": "111221",
+                    //        "draggable": false,
+                    //        "infowindow_default_open": false,
+                    //        "animation": "BOUNCE",
+                    //        "infowindow_disable": true,
+                    //        "zoom": 5,
+                    //        "extra_fields": {
+                    //            "address_map": null,
+                    //            "listorder": 0
+                    //        }
+                    //    },
+                    //    "categories": [
+                    //        {
+                    //            "id": "5",
+                    //            "name": "Corporativo Ford",
+                    //            "type": "category",
+                    //            "extension_fields": {
+                    //                "cat_order": "0"
+                    //            },
+                    //            "icon": `${window.location.origin}/images/maps/pointers/ford1.png`
+                    //        }
+                    //    ],
+                    //    "custom_filters": [
+
+                    //    ]
+                    //}
+                ],
+                "styles": "[{\"featureType\":\"all\",\"elementType\":\"geometry\",\"stylers\":[{\"visibility\":\"on\"}]},{\"featureType\":\"all\",\"elementType\":\"labels\",\"stylers\":[{\"visibility\":\"on\"}]},{\"featureType\":\"all\",\"elementType\":\"labels.text\",\"stylers\":[{\"visibility\":\"on\"}]},{\"featureType\":\"all\",\"elementType\":\"labels.text.fill\",\"stylers\":[{\"color\":\"#7d7e92\"}]},{\"featureType\":\"all\",\"elementType\":\"labels.icon\",\"stylers\":[{\"visibility\":\"on\"},{\"hue\":\"#ff0000\"}]},{\"featureType\":\"administrative\",\"elementType\":\"labels.text.fill\",\"stylers\":[{\"color\":\"#444444\"}]},{\"featureType\":\"landscape\",\"elementType\":\"geometry.fill\",\"stylers\":[{\"visibility\":\"on\"},{\"color\":\"#e0e1e6\"}]},{\"featureType\":\"landscape\",\"elementType\":\"geometry.stroke\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"poi\",\"elementType\":\"all\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"poi\",\"elementType\":\"geometry\",\"stylers\":[{\"visibility\":\"off\"},{\"color\":\"#c71313\"}]},{\"featureType\":\"poi\",\"elementType\":\"geometry.fill\",\"stylers\":[{\"visibility\":\"on\"},{\"color\":\"#7c7d91\"}]},{\"featureType\":\"poi\",\"elementType\":\"geometry.stroke\",\"stylers\":[{\"visibility\":\"off\"},{\"color\":\"#a12222\"}]},{\"featureType\":\"poi\",\"elementType\":\"labels\",\"stylers\":[{\"visibility\":\"on\"},{\"hue\":\"#000fff\"}]},{\"featureType\":\"poi\",\"elementType\":\"labels.text\",\"stylers\":[{\"visibility\":\"on\"}]},{\"featureType\":\"poi\",\"elementType\":\"labels.icon\",\"stylers\":[{\"hue\":\"#0054ff\"}]},{\"featureType\":\"poi.business\",\"elementType\":\"labels.icon\",\"stylers\":[{\"visibility\":\"on\"},{\"hue\":\"#007aff\"},{\"weight\":\"10.00\"},{\"saturation\":\"-100\"}]},{\"featureType\":\"poi.government\",\"elementType\":\"labels.icon\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"poi.medical\",\"elementType\":\"all\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"poi.place_of_worship\",\"elementType\":\"labels.icon\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"poi.school\",\"elementType\":\"labels.icon\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"poi.sports_complex\",\"elementType\":\"labels.icon\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"road\",\"elementType\":\"all\",\"stylers\":[{\"saturation\":-100},{\"lightness\":45}]},{\"featureType\":\"road.highway\",\"elementType\":\"all\",\"stylers\":[{\"visibility\":\"simplified\"}]},{\"featureType\":\"road.highway\",\"elementType\":\"geometry.fill\",\"stylers\":[{\"visibility\":\"on\"},{\"color\":\"#dedee6\"}]},{\"featureType\":\"road.highway\",\"elementType\":\"geometry.stroke\",\"stylers\":[{\"visibility\":\"on\"},{\"color\":\"#7c7d91\"}]},{\"featureType\":\"road.highway\",\"elementType\":\"labels.text.stroke\",\"stylers\":[{\"visibility\":\"off\"},{\"hue\":\"#ff0000\"}]},{\"featureType\":\"road.arterial\",\"elementType\":\"labels.icon\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"transit\",\"elementType\":\"all\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"water\",\"elementType\":\"all\",\"stylers\":[{\"color\":\"#46bcec\"},{\"visibility\":\"on\"}]}]",
+                "street_view": null,
+                "routes": null,
+                "marker_cluster": null,
+                "overlay_setting": null,
+                "panning_control": null,
+                "map_tabs": {
+                    "category_tab": null,
+                    "direction_tab": null,
+                    "nearby_tab": null,
+                    "route_tab": null
+                },
+                "listing": null,
+                "map_property": {
+                    "map_id": "18"
+                },
+                "shapes": {
+                    "drawing_editable": false
+                },
+                "filters": {
+                    "custom_filters": [
+
+                    ],
+                    "filters_container": "[data-container=\"wpgmp-filters-container\"]"
+                }
+            }).data("wpgmp_maps");
+        });
+    </script>
+    <script>
+        jQuery(document).ready(function ($) {
+            var map19 = $("#map19").maps({
+                "map_options": {
+                    "center_lat": "3.440317",
+                    "center_lng": "-76.528622",
+                    "zoom": 11,
+                    "map_type_id": "ROADMAP",
+                    "center_by_nearest": true,
+                    "center_circle_fillcolor": "#8CAEF2",
+                    "center_circle_fillopacity": ".5",
+                    "center_circle_strokecolor": "#8CAEF2",
+                    "center_circle_strokeopacity": ".5",
+                    "center_circle_radius": "5",
+                    "show_center_circle": false,
+                    "show_center_marker": false,
+                    "center_marker_icon": "https://unpkg.com/leaflet@1.3.3/dist/images/marker-icon.png",
+                    "center_marker_infowindow": "",
+                    "center_circle_strokeweight": "1",
+                    "draggable": true,
+                    "scroll_wheel": false,
+                    "display_45_imagery": "",
+                    "marker_default_icon": "/images/maps/pointers/pointer.png",
+                    "infowindow_setting": "<div class=\"fc-main\">\n<div class=\"fc-item-title\">{marker_title} <span class=\"fc-badge info\">{marker_category}<\/span><\/div>\n<div class=\"fc-item-featured_image\">{marker_image} <\/div>\n<p>{marker_message}<\/p>\n<address><b>Address : <\/b>{marker_address}<\/address>\n<\/div>\n<div><a href=\"https:\/\/www.google.com\/maps\/dir\/?api=1&destination={address_map}&travelmode=traffic\" target=\"_blank\">Ver ruta en Google Maps<\/a><\/div>\n",
+                    "infowindow_geotags_setting": "<div class=\"fc-main\">\n<div class=\"fc-item-title\">{post_title} <span class=\"fc-badge info\">{post_categories}<\/span><\/div>\n<div class=\"fc-item-featured_image\">{post_featured_image} <\/div>\n<p>{post_excerpt}<\/p>\n<address><b>Address : <\/b>{marker_address}<\/address>\n<p><a target=\"_blank\"  class=\"fc-btn fc-btn-small fc-btn-red\" href=\"{post_link}\">Read More...<\/a><\/div>\n",
+                    "infowindow_bounce_animation": "",
+                    "infowindow_drop_animation": false,
+                    "close_infowindow_on_map_click": false,
+                    "default_infowindow_open": false,
+                    "infowindow_open_event": "click",
+                    "infowindow_filter_only": false,
+                    "infowindow_click_change_zoom": 0,
+                    "infowindow_click_change_center": false,
+                    "full_screen_control": true,
+                    "search_control": true,
+                    "zoom_control": true,
+                    "map_type_control": true,
+                    "street_view_control": true,
+                    "zoom_mobile": 0,
+                    "draggable_mobile": true,
+                    "scroll_wheel_mobile": true,
+                    "full_screen_control_position": "TOP_RIGHT",
+                    "search_control_position": "TOP_LEFT",
+                    "zoom_control_position": "TOP_LEFT",
+                    "map_type_control_position": "TOP_LEFT",
+                    "map_type_control_style": "HORIZONTAL_BAR",
+                    "street_view_control_position": "TOP_LEFT",
+                    "map_control": true,
+                    "map_control_settings": [
+
+                    ],
+                    "screens": {
+                        "smartphones": {
+                            "map_width_mobile": "",
+                            "map_height_mobile": "380px",
+                            "map_zoom_level_mobile": "13"
+                        },
+                        "ipads": {
+                            "map_width_mobile": "",
+                            "map_height_mobile": "440px",
+                            "map_zoom_level_mobile": "13"
+                        },
+                        "large-screens": {
+                            "map_width_mobile": "",
+                            "map_height_mobile": "680px",
+                            "map_zoom_level_mobile": "13"
+                        }
+                    },
+                    "map_infowindow_customisations": false,
+                    "infowindow_border_color": "rgba(0, 0, 0, 0.0980392)",
+                    "infowindow_bg_color": "#fff",
+                    "show_infowindow_header": false,
+                    "width": "",
+                    "height": "680"
+                },
+                "places": [
+                    {
+                        "id": "3",
+                        "title": "Motovalle Ford Cali Sede Norte",
+                        "address": "Motovalle Cali, Calle 26 #1 - 71, Santiago de Cali, Valle del Cauca, Colombia",
+                        "source": "manual",
+                        "content": "Motovalle Ford Cali Sede Norte",
+                        "location": {
+                            "icon": "/images/maps/pointers/Motovalle-Pointers-235.png",
+                            "lat": "3.460392",
+                            "lng": "-76.52010000000001",
+                            "city": "Cali",
+                            "state": "Valle del Cauca",
+                            "country": "Colombia",
+                            "onclick_action": "marker",
+                            "redirect_custom_link": "",
+                            "marker_image": `<img src='${window.location.origin}/images/maps/pointers/Motovalle-Pointers-235.png' class='wpgmp_marker_image' />`,
+                            "open_new_tab": "yes",
+                            "postal_code": "760003",
+                            "draggable": false,
+                            "infowindow_default_open": false,
+                            "animation": "BOUNCE",
+                            "infowindow_disable": true,
+                            "zoom": 5,
+                            "extra_fields": {
+                                "address_map": "MOTOVALLE+Vitrina+Norte,+Calle+26,+Cali,+Valle+del+Cauca",
+                                "listorder": 0
+                            }
+                        },
+                        "categories": [
+                            {
+                                "id": "4",
+                                "name": "Sede Norte",
+                                "type": "category",
+                                "extension_fields": {
+                                    "cat_order": "0"
+                                },
+                                "icon": "/images/maps/pointers/Motovalle-Pointers-235.png"
+                            }
+                        ],
+                        "custom_filters": [
+
+                        ]
+                    }
+                ],
+                "styles": "[{\"featureType\":\"all\",\"elementType\":\"geometry\",\"stylers\":[{\"visibility\":\"on\"}]},{\"featureType\":\"all\",\"elementType\":\"labels\",\"stylers\":[{\"visibility\":\"on\"}]},{\"featureType\":\"all\",\"elementType\":\"labels.text\",\"stylers\":[{\"visibility\":\"on\"}]},{\"featureType\":\"all\",\"elementType\":\"labels.text.fill\",\"stylers\":[{\"color\":\"#7d7e92\"}]},{\"featureType\":\"all\",\"elementType\":\"labels.icon\",\"stylers\":[{\"visibility\":\"on\"},{\"hue\":\"#ff0000\"}]},{\"featureType\":\"administrative\",\"elementType\":\"labels.text.fill\",\"stylers\":[{\"color\":\"#444444\"}]},{\"featureType\":\"landscape\",\"elementType\":\"geometry.fill\",\"stylers\":[{\"visibility\":\"on\"},{\"color\":\"#e0e1e6\"}]},{\"featureType\":\"landscape\",\"elementType\":\"geometry.stroke\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"poi\",\"elementType\":\"all\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"poi\",\"elementType\":\"geometry\",\"stylers\":[{\"visibility\":\"off\"},{\"color\":\"#c71313\"}]},{\"featureType\":\"poi\",\"elementType\":\"geometry.fill\",\"stylers\":[{\"visibility\":\"on\"},{\"color\":\"#7c7d91\"}]},{\"featureType\":\"poi\",\"elementType\":\"geometry.stroke\",\"stylers\":[{\"visibility\":\"off\"},{\"color\":\"#a12222\"}]},{\"featureType\":\"poi\",\"elementType\":\"labels\",\"stylers\":[{\"visibility\":\"on\"},{\"hue\":\"#000fff\"}]},{\"featureType\":\"poi\",\"elementType\":\"labels.text\",\"stylers\":[{\"visibility\":\"on\"}]},{\"featureType\":\"poi\",\"elementType\":\"labels.icon\",\"stylers\":[{\"hue\":\"#0054ff\"}]},{\"featureType\":\"poi.business\",\"elementType\":\"labels.icon\",\"stylers\":[{\"visibility\":\"on\"},{\"hue\":\"#007aff\"},{\"weight\":\"10.00\"},{\"saturation\":\"-100\"}]},{\"featureType\":\"poi.government\",\"elementType\":\"labels.icon\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"poi.medical\",\"elementType\":\"all\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"poi.place_of_worship\",\"elementType\":\"labels.icon\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"poi.school\",\"elementType\":\"labels.icon\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"poi.sports_complex\",\"elementType\":\"labels.icon\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"road\",\"elementType\":\"all\",\"stylers\":[{\"saturation\":-100},{\"lightness\":45}]},{\"featureType\":\"road.highway\",\"elementType\":\"all\",\"stylers\":[{\"visibility\":\"simplified\"}]},{\"featureType\":\"road.highway\",\"elementType\":\"geometry.fill\",\"stylers\":[{\"visibility\":\"on\"},{\"color\":\"#dedee6\"}]},{\"featureType\":\"road.highway\",\"elementType\":\"geometry.stroke\",\"stylers\":[{\"visibility\":\"on\"},{\"color\":\"#7c7d91\"}]},{\"featureType\":\"road.highway\",\"elementType\":\"labels.text.stroke\",\"stylers\":[{\"visibility\":\"off\"},{\"hue\":\"#ff0000\"}]},{\"featureType\":\"road.arterial\",\"elementType\":\"labels.icon\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"transit\",\"elementType\":\"all\",\"stylers\":[{\"visibility\":\"off\"}]},{\"featureType\":\"water\",\"elementType\":\"all\",\"stylers\":[{\"color\":\"#46bcec\"},{\"visibility\":\"on\"}]}]",
+                "street_view": null,
+                "routes": null,
+                "marker_cluster": null,
+                "overlay_setting": null,
+                "panning_control": null,
+                "map_tabs": {
+                    "category_tab": null,
+                    "direction_tab": null,
+                    "nearby_tab": null,
+                    "route_tab": null
+                },
+                "listing": null,
+                "map_property": {
+                    "map_id": "19"
+                },
+                "shapes": {
+                    "drawing_editable": false
+                },
+                "filters": {
+                    "custom_filters": [
+
+                    ],
+                    "filters_container": "[data-container=\"wpgmp-filters-container\"]"
+                }
+            }).data("wpgmp_maps");
+        });
+    </script>
+}

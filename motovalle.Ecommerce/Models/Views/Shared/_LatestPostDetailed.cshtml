@@ -1,0 +1,51 @@
+﻿@model Inventek.CMS.DAL.ViewModels.ListViewModel
+
+
+@if (Model.Posts.Count > 0)
+{
+    foreach (var post in Model.Posts)
+    {
+        <div class="b-blog__posts-one wow zoomInUp" data-wow-delay="0.3s">
+            <div class="row">
+                <div class="col-xs-8">
+                    <header class="b-blog__posts-one-body-head s-lineDownLeft">
+                        <div class="b-blog__posts-one-body-head-notes">
+                            <span class="b-blog__posts-one-body-head-notes-note"><span class="fa fa-user"></span>Motovalle</span>
+                            <span class="b-blog__posts-one-body-head-notes-note"><span class="fa fa-calendar-o"></span>@post.PostedOn.ToShortDateString()</span>
+                        </div>
+                        <h2 class="s-titleDet">@post.Title</h2>
+                    </header>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-4 pull-right">
+                    <img class="img-responsive center-block" src="@post.ImageURL" alt=@post.Title />
+                </div>
+                <div class="col-xs-8 pull-right">
+                    <div class="b-blog__posts-one-info">
+                        <p>
+                            @post.ShortDescription
+                        </p>
+                        <a asp-controller="Blog" asp-action="Post" asp-route-id="@post.PostsId" class="btn m-btn m-readMore">Read More<span class="fa fa-angle-right"></span></a>
+                        @*<div class="b-blog__posts-one-social pull-right">
+                            <em>SHARE THIS</em>
+                            <a href="#"><span class="fa fa-google-plus-square "></span></a>
+                            <a href="#"><span class="fa  fa-facebook-square"></span></a>
+                            <a href="#"><span class="fa fa-twitter-square "></span></a>
+                            <a href="#"><span class="fa fa-pinterest-square"></span></a>
+                        </div>*@
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    }
+}
+else
+{
+    <p>No posts found!</p>
+}
+<div class="blog-pagination">
+    @{ await Html.RenderPartialAsync("_Pager", Model); }
+</div>
+

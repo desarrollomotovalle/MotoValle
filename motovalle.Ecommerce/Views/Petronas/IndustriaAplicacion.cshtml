@@ -1,0 +1,160 @@
+﻿@{
+    ViewData["Title"] = "Petronas - Industria Aplicación";
+    Layout = "~/Views/Shared/_LayoutPetronas.cshtml";
+
+}
+
+<body class="bg-white">
+    @*<div id="carouselExampleIndicators" class="row-full carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="banner banner-image-industria-aplicacion">
+                        <span class="vertical-line-industria">
+                            <label class="banner-texto-industria text-center text-md-start text-lg-start">
+                                Lubricantes Industriales por Aplicación
+                            </label>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="banner banner-image-industria-aplicacion img-fluid">
+                    <div class="container">
+                        <div class="banner-texto text-center text-md-start text-lg-start animate__fadeInLeft">
+                            <span class=" border-start border-4 border-white ps-md-4 ps-lg-4 p-sm-0 m-0 p-0 d-block ps-sm-0 border__sm__left__0">
+                                Lubricantes Industriales por Aplicación
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="text-center">
+            <label class="titulo-lorem px-4 mt-5">
+                SI TU EQUIPO LO NECESITA, LO HEMOS DESARROLLADO.
+            </label>
+        </div>
+        <div class="text-center mt-4">
+            <label class="texto-lorem-industria px-4">
+                Hemos desarrollado una amplia gama de lubricantes. Esto asegura que siempre tengamos un producto especialmente desarrollado para sus necesidades.
+                Independientemente, protegen las partes del motor de los camiones mineros siberianos de arranques en frío a -40 °C o aseguran el funcionamiento sin problemas de un horno de cemento a 1400 °C.
+
+            </label>
+        </div>
+        <div class="text-center">
+            <label class="titulo-lorem mt-5">
+                VER NUESTRA GAMA DE PRODUCTOS
+            </label>
+        </div>
+
+    </div>
+
+
+
+    <div class="container  mt-5">
+        <div class="row px-5 px-lg-0">
+            <div class=" col-lg-4 col-sm-6 col-12 mb-5">
+                <a class="nav-link text-dark p-0" asp-controller="Petronas" asp-action="IndustriaAplicacionMotosierra">
+                    <div class="card d-flex justify-content-center align-items-center imagen-industria-aplicacion-motosierra" style="height:170px;">
+                        <div class="text-center text-white tarjeta-titulo-industria">Aceite para motosierra</div>
+                    </div>
+                </a>
+            </div>
+
+            <div class=" col-lg-4 col-sm-6 col-12 mb-5">
+                <a class="nav-link text-dark p-0" asp-controller="Petronas" asp-action="IndustriaAplicacionTransferencia">
+                    <div class="card d-flex justify-content-center align-items-center imagen-industria-aplicacion-transferencia" style="height:170px;">
+                        <div class="text-center text-white tarjeta-titulo-industria">Aceite para transferencia</div>
+                    </div>
+                </a>
+            </div>
+
+            <div class=" col-lg-4 col-sm-6 col-12 mb-5">
+                <a class="nav-link text-dark p-0" asp-controller="Petronas" asp-action="IndustriaAplicacionCirculantes">
+                    <div class="card d-flex justify-content-center align-items-center imagen-industria-aplicacion-circulantes" style="height:170px;">
+                        <div class="text-center text-white tarjeta-titulo-industria">Aceite circulantes</div>
+                    </div>
+                </a>
+            </div>
+
+            @*</div>
+
+
+
+        <div class="container">*@
+            @*<div class="row px-5 px-lg-0">*@
+            <div class=" col-lg-4 col-sm-6 col-12 mb-5">
+                <a class="nav-link text-dark p-0" asp-controller="Petronas" asp-action="IndustriaAplicacionEngranajes">
+                    <div class="card d-flex justify-content-center align-items-center imagen-industria-aplicacion-engranajes" style="height:170px;">
+                        <div class="text-center text-white tarjeta-titulo-industria">ACEITES DE ENGRANAJES</div>
+                    </div>
+                </a>
+            </div>
+
+            <div class=" col-lg-4 col-sm-6 col-12 mb-5">
+                <a class="nav-link text-dark p-0" asp-controller="Petronas" asp-action="IndustriaAplicacionFerrocarril">
+                    <div class="card d-flex justify-content-center align-items-center imagen-industria-aplicacion-ferrocarril" style="height:170px;">
+                        <div class="text-center text-white tarjeta-titulo-industria">ACEITES DE FERROCARRIL</div>
+                    </div>
+                </a>
+            </div>
+
+            <div class=" col-lg-4 col-sm-6 col-12 mb-5">
+                <a class="nav-link text-dark p-0" asp-controller="Petronas" asp-action="IndustriaAplicacionMotorGas">
+                    <div class="card d-flex justify-content-center align-items-center imagen-industria-aplicacion-motoragas" style="height:170px;">
+                        <div class="text-center text-white tarjeta-titulo-industria">ACEITES DE MOTOR A GAS</div>
+                    </div>
+                </a>
+            </div>
+            @*<div class="col-lg-4 col-sm-6 col-12 mb-5">
+            <a class="nav-link text-dark  p-0" asp-controller="Petronas" asp-action="IndustriaDetalle">
+                <div class="card  py-5 px-5 align-self-center " style=" background: #C4C4C4; ">
+                    <div class="align-self-center tarjeta-titulo-industria">Aceites de engranajes</div>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-4 col-sm-6 col-12 mb-5">
+            <a class="nav-link text-dark p-0" asp-controller="Petronas" asp-action="IndustriaDetalle">
+                <div class="card  py-5 px-5 align-self-center " style=" background: #C4C4C4; ">
+                    <div class="align-self-center tarjeta-titulo-industria">Aceites de ferrocarril</div>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-4 col-sm-6 col-12">
+            <a class="nav-link text-dark  p-0" asp-controller="Petronas" asp-action="IndustriaDetalle">
+                <div class="card  py-5 px-5 align-self-center " style=" background: #C4C4C4; ">
+                    <div class="align-self-center tarjeta-titulo-industria">Aceites de motor a gas</div>
+                </div>
+            </a>
+        </div>*@
+            @*</div>*@
+        </div>
+    </div>
+
+
+
+    <div class="mt-5">
+        <div class="row-petronas">
+            <div class="container p-5">
+                <div class="row">
+                    <div class="col text-center">
+                        <p class="titulo-petronas">Ponte en contacto para mejorar tu rendimiento</p>
+                        <br />
+                        <a class="boton-petronas p-3 " asp-controller="Petronas" asp-action="Contactenos"> Contáctanos </a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</body>

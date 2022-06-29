@@ -1,0 +1,133 @@
+﻿@*@model motovalle.Ecommerce.Models.ViewModelsPetronas.PortafolioDetalleViewModel*@
+
+@using motovalle.Ecommerce.Models.ViewModelsPetronas;
+@model IEnumerable<PortafolioDetalleViewModel>
+
+@{
+    ViewData["Title"] = "Petronas - Detalle Portafolio Automotriz";
+    Layout = "~/Views/Shared/_LayoutPetronas.cshtml";
+
+    //List<SelectListItem>
+    //listaFormaFarmaceutica = ViewBag.ListaFormaFarmaceutica;
+
+    }
+
+    <body class="bg-white">
+        <div class="container">
+            @foreach (var item in Model)
+            {
+                <div class="row text-center mt-5">
+                    @*<img src="/Image/Lubricantes/LubricanteAutomotriz/img-PETRONAS-Syntium-RACER-10W-60.png" alt="Alternate Text" />*@
+                    <img src="@item.UrlImagen" alt="Alternate Text" />
+                </div>
+
+
+                <div class="text-center">
+                    <label class="titulo-portafolio-detalle px-3 px-lg-0">@item.portafolioLubricantesDetalle.TituloDetalle</label>
+                    <label class="subtitulo-portafolio-detalle px-3 px-lg-0 mt-5">
+                        @item.portafolioLubricantesDetalle.DescripcionTituloDetalle
+                    </label>
+
+                </div>
+                @*<div class="mt-5">
+                <label class="parrafo-portafolio-detalle px-3 px-lg-0">
+                    @item.portafolioLubricantesDetalle.TituloDescripcionAplicaciones
+                </label>
+            </div>*@
+                <div class="mt-5">
+                    <label class="subtitulo2-portafolio-detalle px-3 px-lg-0">@item.portafolioLubricantesDetalle.TituloDescripcionAplicaciones</label>
+                    @*<p class="parrafo2.portafolio-detalle mt-4 px-3 px-lg-0">*@
+                    <p class="texto-portafolio mt-4 px-3 px-lg-0">
+                        @item.portafolioLubricantesDetalle.DescripcionAplicaciones
+                    </p>
+                </div>
+
+                <div class="mt-5">
+                    <label class="subtitulo2-portafolio-detalle px-3 px-lg-0">@item.portafolioLubricantesDetalle.TituloCaracteristicas</label>
+                    <div class="texto-portafolio px-3 px-lg-0">
+                        <ul>
+
+                            @if (item.portafolioLubricantesDetalle.Caracteristica1 != null)
+                            {
+                                <li class="p-2">@item.portafolioLubricantesDetalle.Caracteristica1</li>
+                            }
+                            @if (item.portafolioLubricantesDetalle.Caracteristica2 != null)
+                            {
+                                <li class="p-2">@item.portafolioLubricantesDetalle.Caracteristica2</li>
+                            }
+                            @if (item.portafolioLubricantesDetalle.Caracteristica3 != null)
+                            {
+                                <li class="p-2">@item.portafolioLubricantesDetalle.Caracteristica3</li>
+                            }
+                            @if (item.portafolioLubricantesDetalle.Caracteristica4 != null)
+                            {
+                                <li class="p-2">@item.portafolioLubricantesDetalle.Caracteristica4</li>
+                            }
+                            @if (item.portafolioLubricantesDetalle.Caracteristica5 != null)
+                            {
+                                <li class="p-2">@item.portafolioLubricantesDetalle.Caracteristica5</li>
+                            }
+                            @if (item.portafolioLubricantesDetalle.Caracteristica6 != null)
+                            {
+                                <li class="p-2">@item.portafolioLubricantesDetalle.Caracteristica6</li>
+                            }
+                            @if (item.portafolioLubricantesDetalle.Caracteristica7 != null)
+                            {
+                                <li class="p-2">@item.portafolioLubricantesDetalle.Caracteristica7</li>
+                            }
+
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="mt-5">
+                    <label class="subtitulo2-portafolio-detalle px-3 px-lg-0">@item.portafolioLubricantesDetalle.TituloEspecificaciones</label>
+                    <div class="texto-portafolio px-3 px-lg-0">
+                        <ul>
+
+                            @if (item.portafolioLubricantesDetalle.Especificacion1 != null)
+                            {
+                                <li class="p-2">@item.portafolioLubricantesDetalle.Especificacion1</li>
+                            }
+                            @if (item.portafolioLubricantesDetalle.Especificacion2 != null)
+                            {
+                                <li class="p-2">@item.portafolioLubricantesDetalle.Especificacion2</li>
+                            }
+                            @if (item.portafolioLubricantesDetalle.Especificacion3 != null)
+                            {
+                                <li class="p-2">@item.portafolioLubricantesDetalle.Especificacion3</li>
+                            }
+                            @if (item.portafolioLubricantesDetalle.Especificacion4 != null)
+                            {
+                                <li class="p-2">@item.portafolioLubricantesDetalle.Especificacion4</li>
+                            }
+                            @if (item.portafolioLubricantesDetalle.Especificacion5 != null)
+                            {
+                                <li class="p-2">@item.portafolioLubricantesDetalle.Especificacion5</li>
+                            }
+                            @if (item.portafolioLubricantesDetalle.Especificacion6 != null)
+                            {
+                                <li class="p-2">@item.portafolioLubricantesDetalle.Especificacion6</li>
+                            }
+                            @if (item.portafolioLubricantesDetalle.Especificacion7 != null)
+                            {
+                                <li class="p-2">@item.portafolioLubricantesDetalle.Especificacion7</li>
+                            }
+
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="mt-5">
+                    <label class="subtitulo2-portafolio-detalle px-3 px-lg-0">@item.portafolioLubricantesDetalle.TituloSeguridad</label>
+
+                    <p class="texto-portafolio mt-4 px-3 px-lg-0">
+                        @item.portafolioLubricantesDetalle.DescripcionSalud
+                    </p>
+                </div>
+            }
+
+
+        </div>
+
+    </body>

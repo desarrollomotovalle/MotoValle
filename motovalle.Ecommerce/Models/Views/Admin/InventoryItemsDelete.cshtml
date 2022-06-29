@@ -1,0 +1,147 @@
+﻿@model Ecommerce.Models.Entities.InventoryItems
+@{
+    ViewData["Title"] = "InventoryItemsDelete";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="content">
+    <div class="container">
+        <div>
+            <div class="col-12 text-center">
+                <h1 class="m-0 text-dark">Eliminar</h1>
+            </div>
+            <div class="text-left">
+                <p>
+                    <a asp-action="InventoryItems" asp-controller="Admin" class="btn btn-md btn-dark"><span class="fa fa-arrow-circle-left"></span> Volver</a>
+                </p>
+            </div>
+            <div class="col-12 text-center">
+                <h2 class="m-0 text-dark"><b>¿Estás seguro de querer eliminar este registro?</b></h2>
+                <h3 class="m-0 text-danger"><b>Además se eliminarán todas las imagenes de este inventario</b></h3>
+            </div>
+
+            @{ await Html.RenderPartialAsync("_MessageStatus"); }
+        </div>
+        <hr />
+        <div class="col-lg-offset-3">
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.InventoryItemsId)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.InventoryItemsId)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Vin)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Vin)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Cost)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Cost)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.SalesPrice)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.SalesPrice)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.QuantityInStock)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.QuantityInStock)
+                </dd>
+                <dt class="col-sm-2">
+                    Taxes For Inventory
+                </dt>
+                <dd class="col-sm-10">
+                    @if (ViewBag.TaxesForInventory != null)
+                    {
+                        <ul>
+                            @foreach (var item in ViewBag.TaxesForInventory)
+                            {
+                                <li>@item.FkTaxes.TaxName - @item.FkTaxes.TaxPercent%</li>
+                            }
+                        </ul>
+                    }
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Mileage)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Mileage)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.IsNew)
+                </dt>
+                <dd class="col-sm-10">
+                    @{var isNew = Model.IsNew == 1 ? "YES" : "NO"; }
+                    @isNew
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.IsSold)
+                </dt>
+                <dd class="col-sm-10">
+                    @{ var isSold = Model.IsSold == 1 ? "YES" : "NO";}
+                    @isSold
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.CoverPictureUrl)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.CoverPictureUrl)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.FkColors)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.FkColors.ColorName)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.FkProducts)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.FkProducts.ProductName)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Picture360Url)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Picture360Url)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Picture360Quantity)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Picture360Quantity)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Cupix360Url)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Cupix360Url)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.FkWarranties)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.FkWarranties.WarrantyName)
+                </dd>
+            </dl>
+            <hr />
+            <form method="post" asp-action="InventoryItemsDeleteConfirmed" asp-controller="Admin">
+                @Html.AntiForgeryToken()
+                <input type="hidden" asp-for="InventoryItemsId" />
+                <input type="submit" value="Eliminar" class="btn btn-danger" />
+            </form>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

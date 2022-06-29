@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Ecommerce.Models.Entities.ShoppingCartRecords>
+@{
+    ViewData["Title"] = "ShoppingCartRecords";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="content">
+    <div class="container">
+        <div>
+            <div class="col-12 text-center">
+                <h1 class="m-0 text-dark">Carrito de Compras</h1>
+            </div>
+
+            @{ await Html.RenderPartialAsync("_MessageStatus"); }
+        </div>
+
+        <div class="table">
+            <table id="dtTableDefault" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(x => x.ShoppingCartRecordsId)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(x => x.DateCreated)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(x => x.FkCustomers.EmailAddress)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(x => x.FkProducts.ProductName)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(x => x.FkInventoryItemsId)
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.ShoppingCartRecordsId)</td>
+                            <td>@Html.DisplayFor(modelItem => item.DateCreated)</td>
+                            <td>@Html.DisplayFor(modelItem => item.FkCustomers.EmailAddress)</td>
+                            <td>@Html.DisplayFor(modelItem => item.FkProducts.ProductName)</td>
+                            <td>@Html.DisplayFor(modelItem => item.FkInventoryItemsId)</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+
+@section Scripts{
+    <script type="text/javascript" src="~/admin/dist/js/admin-ecommerce-tables-settings-default.js"></script>
+}

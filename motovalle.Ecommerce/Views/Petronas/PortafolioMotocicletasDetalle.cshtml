@@ -1,0 +1,125 @@
+﻿@model motovalle.Ecommerce.Models.PortafolioLubricantesDetalle
+
+@{
+    ViewData["Title"] = "Petronas - Detalle Portafolio Automotriz";
+    Layout = "~/Views/Shared/_LayoutPetronas.cshtml";
+
+    List<SelectListItem> listaFormaFarmaceutica = ViewBag.ListaFormaFarmaceutica;
+
+}
+
+<body class="bg-white">
+    <div class="container">
+        <div class="row text-center mt-5">
+            @*<img src="/Image/Lubricantes/LubricanteAutomotriz/img-PETRONAS-Syntium-RACER-10W-60.png" alt="Alternate Text" />*@
+            @*<img src="@Model.UrlImagen" alt="Alternate Text" />*@
+        </div>
+
+
+        <div class="text-center">
+            <label class="titulo-portafolio-detalle px-3 px-lg-0">@Model.TituloDetalle</label>
+            <label class="subtitulo-portafolio-detalle px-3 px-lg-0 mt-5">
+                @Model.DescripcionTituloDetalle
+            </label>
+
+        </div>
+        @*<div class="mt-5">
+                <label class="parrafo-portafolio-detalle px-3 px-lg-0">
+                    @Model.TituloDescripcionAplicaciones
+                </label>
+            </div>*@
+        <div class="mt-5">
+            <label class="subtitulo2-portafolio-detalle px-3 px-lg-0">@Model.TituloDescripcionAplicaciones</label>
+            @*<p class="parrafo2.portafolio-detalle mt-4 px-3 px-lg-0">*@
+            <p class="texto-portafolio mt-4 px-3 px-lg-0">
+                @Model.DescripcionAplicaciones
+            </p>
+        </div>
+
+        <div class="mt-5">
+            <label class="subtitulo2-portafolio-detalle px-3 px-lg-0">@Model.TituloCaracteristicas</label>
+            <div class="texto-portafolio px-3 px-lg-0">
+                <ul>
+
+                    @if (Model.Caracteristica1 != null)
+                    {
+                        <li class="p-2">@Model.Caracteristica1</li>
+                    }
+                    @if (Model.Caracteristica2 != null)
+                    {
+                        <li class="p-2">@Model.Caracteristica2</li>
+                    }
+                    @if (Model.Caracteristica3 != null)
+                    {
+                        <li class="p-2">@Model.Caracteristica3</li>
+                    }
+                    @if (Model.Caracteristica4 != null)
+                    {
+                        <li class="p-2">@Model.Caracteristica4</li>
+                    }
+                    @if (Model.Caracteristica5 != null)
+                    {
+                        <li class="p-2">@Model.Caracteristica5</li>
+                    }
+                    @if (Model.Caracteristica6 != null)
+                    {
+                        <li class="p-2">@Model.Caracteristica6</li>
+                    }
+                    @if (Model.Caracteristica7 != null)
+                    {
+                        <li class="p-2">@Model.Caracteristica7</li>
+                    }
+
+                </ul>
+            </div>
+        </div>
+
+        <div class="mt-5">
+            <label class="subtitulo2-portafolio-detalle px-3 px-lg-0">@Model.TituloEspecificaciones</label>
+            <div class="texto-portafolio px-3 px-lg-0">
+                <ul>
+
+                    @if (Model.Especificacion1 != null)
+                    {
+                        <li class="p-2">@Model.Especificacion1</li>
+                    }
+                    @if (Model.Especificacion2 != null)
+                    {
+                        <li class="p-2">@Model.Especificacion2</li>
+                    }
+                    @if (Model.Especificacion3 != null)
+                    {
+                        <li class="p-2">@Model.Especificacion3</li>
+                    }
+                    @if (Model.Especificacion4 != null)
+                    {
+                        <li class="p-2">@Model.Especificacion4</li>
+                    }
+                    @if (Model.Especificacion5 != null)
+                    {
+                        <li class="p-2">@Model.Especificacion5</li>
+                    }
+                    @if (Model.Especificacion6 != null)
+                    {
+                        <li class="p-2">@Model.Especificacion6</li>
+                    }
+                    @if (Model.Especificacion7 != null)
+                    {
+                        <li class="p-2">@Model.Especificacion7</li>
+                    }
+
+                </ul>
+            </div>
+        </div>
+
+        <div class="mt-5">
+            <label class="subtitulo2-portafolio-detalle px-3 px-lg-0">@Model.TituloSeguridad</label>
+
+            <p class="texto-portafolio mt-4 px-3 px-lg-0">
+                @Model.DescripcionSalud
+            </p>
+        </div>
+
+    </div>
+
+</body>

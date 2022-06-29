@@ -1,0 +1,68 @@
+﻿@model int
+
+<aside class="b-submit__aside">
+    <div class="b-submit__aside-step @Html.Raw(Model >= 1 ? "m-active" : string.Empty) wow zoomInUp" data-wow-delay="0.1s">
+        <h3>Paso 1 @Html.Raw(Model > 1 ? "<span class='fa fa-check-circle'></span>" : string.Empty)</h3>
+        <div class="b-submit__aside-step-inner clearfix @Html.Raw(Model >= 1 ? "m-active" : string.Empty)">
+            <div class="b-submit__aside-step-inner-icon">
+                <span class="fa fa-shopping-cart"></span>
+            </div>
+            <div class="b-submit__aside-step-inner-info">
+                <h4>Ítems</h4>
+                <p>Verifica tu carrito de compras</p>
+                @if (Model == 1)
+                {
+                    <div class="b-submit__aside-step-inner-info-triangle"></div>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="b-submit__aside-step @Html.Raw(Model >= 2 ? "m-active" : string.Empty) wow zoomInUp" data-wow-delay="0.1s">
+        <h3>Paso 2 @Html.Raw(Model > 2 ? "<span class='fa fa-check-circle'></span>" : string.Empty)</h3>
+        <div class="b-submit__aside-step-inner clearfix @Html.Raw(Model >= 2 ? "m-active" : string.Empty)">
+            <div class="b-submit__aside-step-inner-icon">
+                <span class="fa fa-user"></span>
+            </div>
+            <div class="b-submit__aside-step-inner-info">
+                <h4>Cliente</h4>
+                <p>Diligencia tu información</p>
+                @if (Model == 2)
+                {
+                    <div class="b-submit__aside-step-inner-info-triangle"></div>
+                }
+            </div>
+        </div>
+    </div>    
+    <div class="b-submit__aside-step @Html.Raw(Model >= 3 ? "m-active" : string.Empty) wow zoomInUp" data-wow-delay="0.1s">
+        <h3>Paso 3 @Html.Raw(Model > 3 ? "<span class='fa fa-check-circle'></span>" : string.Empty)</h3>
+        <div class="b-submit__aside-step-inner clearfix @Html.Raw(Model >= 3 ? "m-active" : string.Empty)">
+            <div class="b-submit__aside-step-inner-icon">
+                <span class="fa fa-bank"></span>
+            </div>
+            <div class="b-submit__aside-step-inner-info">
+                <h4>Forma de Pago</h4>
+                <p>Selecciona forma de pago</p>
+                @if (Model == 3)
+                {
+                    <div class="b-submit__aside-step-inner-info-triangle"></div>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="b-submit__aside-step @Html.Raw(Model >= 4 ? "m-active" : string.Empty) wow zoomInUp" data-wow-delay="0.1s">
+        <h3>Paso 4 @Html.Raw(Model > 4 ? "<span class='fa fa-check-circle'></span>" : string.Empty)</h3>
+        <div class="b-submit__aside-step-inner clearfix @Html.Raw(Model >= 4 ? "m-active" : string.Empty)">
+            <div class="b-submit__aside-step-inner-icon">
+                <span class="fa fa-money"></span>
+            </div>
+            <div class="b-submit__aside-step-inner-info">
+                <h4>Finaliza</h4>
+                <p>Finaliza la compra</p>
+                @if (Model == 4)
+                {
+                    <div class="b-submit__aside-step-inner-info-triangle"></div>
+                }
+            </div>
+        </div>
+    </div>
+</aside>

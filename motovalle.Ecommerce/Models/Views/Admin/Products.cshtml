@@ -1,0 +1,253 @@
+﻿@model IEnumerable<Ecommerce.Models.Entities.Products>
+@{
+    ViewData["Title"] = "Products";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="content">
+    <div class="container-fluid">
+        <div>
+            <div class="col-12 text-center">
+                <h1 class="m-0 text-dark">Productos</h1>
+            </div>
+            <div class="text-left">
+                <p>
+                    <a asp-action="ProductsCreate" asp-controller="Admin" class="btn btn-md btn-dark">Crear nuevo registro <span class="fa fa-plus-square"></span></a>
+                </p>
+            </div>
+
+            @{ await Html.RenderPartialAsync("_MessageStatus"); }
+        </div>
+
+        <div class="table">
+            <table id="dtTableDefault" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(x => x.ProductsId)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(model => model.AllowShow)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(model => model.Sku)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(model => model.Upc)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(model => model.ProductName)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(model => model.FkMakes)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(model => model.FkModels)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(model => model.FkCategories)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(model => model.Description)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(model => model.LongDescription)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(model => model.IsFeatured)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(model => model.Cost)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(model => model.SalesPrice)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(model => model.QuantityInStock)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(model => model.Trim)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(model => model.Msrp)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(model => model.Year)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(model => model.Horsepower)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(model => model.GasMileage)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(model => model.Passengers)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(model => model.PassengerDoors)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(model => model.BaseWeight)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(model => model.YoutubeUrl)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(model => model.FkBodyStyles)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(model => model.FkDriveTrains)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(model => model.FkEngineTypes)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(model => model.FkEpaClasses)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(model => model.FkTransmissions)
+                        </th>
+                        <th class="th-sm">
+                            Editar
+                        </th>
+                        <th class="th-sm">
+                            Ver más
+                        </th>
+                        <th class="th-sm">
+                            Documentos
+                        </th>
+                        <th class="th-sm">
+                            Mantenimientos
+                        </th>
+                        <th class="th-sm">
+                            Eliminar
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ProductsId)
+                            </td>
+                            <td>
+                                @{ var allowShow = item.AllowShow == 0 ? "NO" : "YES"; }
+                                @allowShow
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Sku)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Upc)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ProductName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FkMakes.MakeName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FkModels.ModelName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FkCategories.CategoryName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Description)
+                            </td>
+                            <td>
+                                <a asp-action="ProductsMore" asp-controller="Admin" asp-route-id="@item.ProductsId">Para ver la descripción, da click en la opción ver más</a>
+                            </td>
+                            <td>
+                                @{ var isFeactured = item.IsFeatured == 0 ? "NO" : "YES"; }
+                                @isFeactured
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Cost)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SalesPrice)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.QuantityInStock)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Trim)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Msrp)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Year)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Horsepower)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.GasMileage)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Passengers)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PassengerDoors)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.BaseWeight)
+                            </td>
+                            <td>
+                                @if (item.YoutubeUrl != null)
+                                {
+                                    @Html.DisplayFor(modelItem => item.YoutubeUrl)
+                                }
+
+                            </td>
+                            <td>
+                                @if(item.FkBodyStyles != null)
+                                {
+                                    Html.DisplayFor(modelItem => item.FkBodyStyles.BodyStyleName);
+                                } 
+                            </td>
+                            <td>
+                                @if (item.FkDriveTrains != null)
+                                {
+                                    @Html.DisplayFor(modelItem => item.FkDriveTrains.DriveTrainName)
+                                }
+                            </td>
+                            <td>
+                                @if (item.FkEngineTypes != null)
+                                {
+                                    @Html.DisplayFor(modelItem => item.FkEngineTypes.EngineTypeName)
+                                }                                
+                            </td>
+                            <td>
+                                @if (item.FkEpaClasses != null)
+                                {
+                                    Html.DisplayFor(modelItem => item.FkEpaClasses.EpaClassName);
+                                }
+                            </td>
+                            <td>
+                                @if (item.FkTransmissions != null)
+                                {
+                                    @Html.DisplayFor(modelItem => item.FkTransmissions.TransmissionName)
+                                }
+
+                            </td>
+                            <td><a class="btn btn-info btn-block" style="width:100%" asp-action="ProductsEdit" asp-controller="Admin" asp-route-id="@item.ProductsId"><span class="fa fa-pencil-alt"></span></a></td>
+                            <td><a class="btn btn-primary btn-block" style="width:100%" asp-action="ProductsMore" asp-controller="Admin" asp-route-id="@item.ProductsId"><span class="fa fa-eye"></span></a></td>
+                            <td><a class="btn btn-secondary btn-block" style="width:70%" asp-action="ProductDocuments" asp-controller="Admin" asp-route-id="@item.ProductsId"><span class="fa fa-newspaper"></span></a></td>
+                            <td><a class="btn btn-warning btn-block text-white @Html.Raw(item.FkMakes.MakeName.Contains("mazda", StringComparison.OrdinalIgnoreCase) || item.FkMakes.MakeName.Contains("ford", StringComparison.OrdinalIgnoreCase) ? string.Empty : "disabled")" style="width:70%" asp-action="ProductMaintenances" asp-controller="Admin" asp-route-id="@item.ProductsId"><span class="fa fa-cogs"></span></a></td>
+                            <td><a class="btn btn-danger btn-block" style="width:100%" asp-action="ProductsDelete" asp-controller="Admin" asp-route-id="@item.ProductsId"><span class="fa fa-times"></span></a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+
+@section Scripts{
+    <script type="text/javascript" src="~/admin/dist/js/admin-ecommerce-tables-settings-default.js"></script>
+}

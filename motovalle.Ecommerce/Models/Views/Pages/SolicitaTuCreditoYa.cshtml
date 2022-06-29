@@ -1,0 +1,580 @@
+﻿@model CreditOnlineNowViewModel
+@{
+    ViewData["Title"] = "Solicita Tu Credito Ya";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="b-pageHeader main">
+    <div class="container">
+        <h1 class="wow zoomInLeft" data-wow-delay="0.5s">Solicita tu crédito de Vehículo</h1>
+    </div>
+</section><!--b-pageHeader-->
+
+<div class="b-breadCumbs s-shadow">
+    <div class="container wow zoomInUp" data-wow-delay="0.5s">
+        <a asp-action="Index" asp-controller="Home" class="b-breadCumbs__page">Home</a><span class="fa fa-angle-right"></span><a asp-action="SolicitaTuCreditoYa" asp-controller="Pages" class="b-breadCumbs__page m-active">Solicita tu crédito de vehículo en línea</a>
+    </div>
+</div><!--b-breadCumbs-->
+
+<div class="b-infoBar" style="padding: 4rem;">
+    <h2 class="text-center wow zoomInUp" data-wow-delay="0.5s" style="margin-top:0;">¡Obtenga una respuesta en línea inmediatamente!</h2>
+    <h3 class="text-center wow zoomInUp" data-wow-delay="0.5s" style="padding: 0 0 1em 0">Crédito de vehículo</h3>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8 col-sm-offset-3 col-xs-10 col-xs-offset-1">
+                <div class="b-infoBar__progress wow zoomInUp" data-wow-delay="0.5s">
+                    <div class="b-infoBar__progress-line">
+                        <div class="b-infoBar__progress-line-step">
+                            <div class="b-infoBar__progress-line-step-circle">
+                                <div class="b-infoBar__progress-line-step-circle-inner">
+                                    <span class="h5"><br /><b>1</b></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="b-infoBar__progress-line-step">
+                            <div class="b-infoBar__progress-line-step-circle">
+                                <div class="b-infoBar__progress-line-step-circle-inner">
+                                    <span class="h5"><br /><b>2</b></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="b-infoBar__progress-line-step">
+                            <div class="b-infoBar__progress-line-step-circle">
+                                <div class="b-infoBar__progress-line-step-circle-inner">
+                                    <span class="h5"><br /><b>3</b></span>
+                                </div>
+                            </div>
+                            <div class="b-infoBar__progress-line-step-circle m-last">
+                                <div class="b-infoBar__progress-line-step-circle-inner">
+                                    <span class="h5"><br /><b>4</b></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!--b-infoBar-->
+
+<div class="b-submit">
+    <div class="container">
+        <div class="row">
+            <!--Steps column-->
+            <div class="col-lg-4 col-md-5 col-sm-5 col-xs-6 wow zoomInUp" data-wow-delay="0.5s">
+                <aside class="b-submit__aside">
+                    <div class="b-submit__aside-step m-active">
+                        <h3>Paso 1</h3>
+                        <div class="b-submit__aside-step-inner m-active clearfix">
+                            <div class="b-submit__aside-step-inner-icon">
+                                <span class="fa fa-user"></span>
+                            </div>
+                            <div class="b-submit__aside-step-inner-info">
+                                <h4>Información de contacto</h4>
+                                <p>Diligencia tu información</p>
+                                <div class="b-submit__aside-step-inner-info-triangle"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="b-submit__aside-step">
+                        <h3>Paso 2</h3>
+                        <div class="b-submit__aside-step-inner clearfix">
+                            <div class="b-submit__aside-step-inner-icon">
+                                <span class="fa fa-map-marker"></span>
+                            </div>
+                            <div class="b-submit__aside-step-inner-info">
+                                <h4>Direcciones</h4>
+                                <p>Diligencia tu información</p>
+                                <div class="b-submit__aside-step-inner-info-triangle"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="b-submit__aside-step">
+                        <h3>Paso 3</h3>
+                        <div class="b-submit__aside-step-inner clearfix">
+                            <div class="b-submit__aside-step-inner-icon">
+                                <span class="fa fa-list-ul"></span>
+                            </div>
+                            <div class="b-submit__aside-step-inner-info">
+                                <h4>Informacíón específica</h4>
+                                <p>Diligencia la información</p>
+                                <div class="b-submit__aside-step-inner-info-triangle"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="b-submit__aside-step">
+                        <h3>Paso 4</h3>
+                        <div class="b-submit__aside-step-inner clearfix">
+                            <div class="b-submit__aside-step-inner-icon">
+                                <span class="fa fa-money"></span>
+                            </div>
+                            <div class="b-submit__aside-step-inner-info">
+                                <h4>Monto y solicitud</h4>
+                                <p>Ingresa los datos</p>
+                                <div class="b-submit__aside-step-inner-info-triangle"></div>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+            <!--End Steps column-->
+            <!-- Form column -->
+            <div class="col-lg-8 col-md-7 col-sm-7 col-xs-6 wow zoomInUp" data-wow-delay="0.5s">
+                <div class="render-loading" style="display: none">
+                    <div class="text-center">
+                        <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>
+                <div class="b-submit__main">
+                    <form class="s-submit clearfix" asp-action="SolicitaTuCreditoYa" asp-controller="Pages" method="POST" novalidate id="frmSolicitaTuCreditoYa">
+                        @Html.AntiForgeryToken()
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <!--Step 0-->
+                        <div class="row wow zoomInUp"  id="step0">
+                            <header class="s-headerSubmit s-lineDownLeft">
+                                <h2 class="">Información de contacto</h2>
+                            </header>
+                            <div class="col-md-6 col-xs-12">
+                                <div class="b-submit__main-element">
+                                    <label>@Html.DisplayNameFor(x => x.Name) <span>*</span></label>
+                                    <div class='s-relative'>
+                                        @Html.EditorFor(x => x.Name)
+                                        <span asp-validation-for="Name" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="b-submit__main-element">
+                                    <label>@Html.DisplayNameFor(x => x.LastName) <span>*</span></label>
+                                    <div class='s-relative'>
+                                        @Html.EditorFor(x => x.LastName)
+                                        <span asp-validation-for="LastName" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="b-submit__main-element">
+                                    <label>@Html.DisplayNameFor(x => x.EmailAddress) <span>*</span></label>
+                                    <div class='s-relative'>
+                                        @Html.EditorFor(x => x.EmailAddress)
+                                        <span asp-validation-for="EmailAddress" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-xs-12">
+                                <div class="b-submit__main-element">
+                                    <label>@Html.DisplayNameFor(x => x.PhoneNumber) <span>*</span></label>
+                                    <div class='s-relative'>
+                                        @Html.EditorFor(x => x.PhoneNumber)
+                                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="b-submit__main-element">
+                                    <label>@Html.DisplayNameFor(x => x.AlternatePhoneNumber) <span>*</span></label>
+                                    <div class='s-relative'>
+                                        @Html.EditorFor(x => x.AlternatePhoneNumber)
+                                        <span asp-validation-for="AlternatePhoneNumber" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="b-submit__main-element">
+                                    <label>@Html.DisplayNameFor(x => x.CompanyName) <span>*</span></label>
+                                    <div class='s-relative'>
+                                        @Html.EditorFor(x => x.CompanyName)
+                                        <span asp-validation-for="CompanyName" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Step 1-->
+                        <div class="row wow zoomInUp"  id="step1">
+                            <header class="s-headerSubmit s-lineDownLeft">
+                                <h2 class="">Direcciones</h2>
+                            </header>
+                            <div class="col-md-6 col-xs-12">
+                                <div class="b-submit__main-element">
+                                    <label>@Html.DisplayNameFor(x => x.Country) <span>*</span></label>
+                                    <div class='s-relative'>
+                                        @Html.EditorFor(x => x.Country)
+                                        <span asp-validation-for="Country" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="b-submit__main-element">
+                                    <label>@Html.DisplayNameFor(x => x.State) <span>*</span></label>
+                                    <div class='s-relative'>
+                                        @Html.EditorFor(x => x.State)
+                                        <span asp-validation-for="State" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="b-submit__main-element">
+                                    <label>@Html.DisplayNameFor(x => x.City) <span>*</span></label>
+                                    <div class='s-relative'>
+                                        @Html.EditorFor(x => x.City)
+                                        <span asp-validation-for="City" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-xs-12">
+                                <div class="b-submit__main-element">
+                                    <label>@Html.DisplayNameFor(x => x.Address) <span>*</span></label>
+                                    <div class='s-relative'>
+                                        @Html.EditorFor(x => x.Address)
+                                        <span asp-validation-for="Address" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="b-submit__main-element">
+                                    <label>@Html.DisplayNameFor(x => x.ZipCode)</label>
+                                    <div class='s-relative'>
+                                        @Html.EditorFor(x => x.ZipCode)
+                                        <span asp-validation-for="ZipCode" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Step 2-->
+                        <div class="row wow zoomInUp"  id="step2">
+                            <header class="s-headerSubmit s-lineDownLeft">
+                                <h2 class="">Informacíón Específica</h2>
+                            </header>
+                            <div class="col-md-6 col-xs-12">
+                                <div class="b-submit__main-element">
+                                    <label>@Html.DisplayNameFor(x => x.DocType) <span>*</span></label>
+                                    <div class='s-relative'>
+                                        @Html.DropDownListFor(x => x.DocType, Html.GetEnumSelectList<SantanderBankDocTypes>(), new { @class = "m-select" })
+                                        <span class="fa fa-caret-down"></span>
+                                        <span asp-validation-for="Name" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="b-submit__main-element">
+                                    <label>@Html.DisplayNameFor(x => x.DocNumber) <span>*</span></label>
+                                    <div class='s-relative'>
+                                        @Html.EditorFor(x => x.DocNumber)
+                                        <span asp-validation-for="DocNumber" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="b-submit__main-element">
+                                    <label>@Html.DisplayNameFor(x => x.ActividadEconomica) <span>*</span></label>
+                                    <div class='s-relative'>
+                                        @Html.DropDownListFor(x => x.ActividadEconomica, Html.GetEnumSelectList<SantanderBankEconomicActivity>(), new { @class = "m-select" })
+                                        <span class="fa fa-caret-down"></span>
+                                        <span asp-validation-for="ActividadEconomica" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-xs-12">
+                                <div class="b-submit__main-element">
+                                    <label>@Html.DisplayNameFor(x => x.ActividadIndependiente) <span>*</span></label>
+                                    <div class='s-relative'>
+                                        @Html.DropDownListFor(x => x.ActividadIndependiente, Html.GetEnumSelectList<SantanderBankIndependentActivity>(), new { @class = "m-select" })
+                                        <span class="fa fa-caret-down"></span>
+                                        <span asp-validation-for="ActividadIndependiente" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="b-submit__main-element">
+                                    <label>@Html.DisplayNameFor(x => x.MonthlyIncome) <span>*</span></label>
+                                    <div class='s-relative'>
+                                        <input asp-for="MonthlyIncome" type="hidden" />
+                                        <input class="form-control" type="text" id="MonthlyIncomeMasked" name="MonthlyIncomeMasked" onkeyup="getCurrencyFormatForNumber(this, event, 'MonthlyIncome');" onblur="getCurrencyFormatForNumber(this, event, 'MonthlyIncome');" />
+                                        <span asp-validation-for="MonthlyIncome" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Step 3-->
+                        <div class="row wow zoomInUp"  id="step3">
+                            <header class="s-headerSubmit s-lineDownLeft">
+                                <h2 class="">Monto y Solicitud</h2>
+                            </header>
+                            <div class="col-md-12 col-xs-12">
+                                <div class="b-submit__main-element">
+                                    <label>@Html.DisplayNameFor(x => x.TotalAmount) <span>*</span></label>
+                                    <div class='s-relative'>
+                                        <input asp-for="TotalAmount" type="hidden" />
+                                        <input class="form-control" type="text" id="TotalAmountMasked" name="TotalAmountMasked" onkeyup="getCurrencyFormatForNumber(this, event, 'TotalAmount');" onblur="getCurrencyFormatForNumber(this, event, 'TotalAmount');" />
+                                        <span asp-validation-for="TotalAmount" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="b-submit__main-element">
+                                    <label>@Html.DisplayNameFor(x => x.InitialFee) <span>*</span></label>
+                                    <div class='s-relative'>
+                                        <input asp-for="InitialFee" type="hidden" />
+                                        <input class="form-control" type="text" id="InitialFeeMasked" name="InitialFeeMasked" onkeyup="getCurrencyFormatForNumber(this, event, 'InitialFee');" onblur="getCurrencyFormatForNumber(this, event, 'InitialFee');" />
+                                        <span asp-validation-for="InitialFee" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="b-submit__main-element">
+                                    <label>@Html.DisplayNameFor(x => x.Installments) <span>*</span></label>
+                                    <div class='s-relative'>
+                                        @Html.DropDownListFor(x => x.Installments, Html.GetEnumSelectList<SantanderBankInstallments>(), new { @class = "m-select" })
+                                        <span class="fa fa-caret-down"></span>
+                                        <span asp-validation-for="Installments" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-xs-12">
+                                <div class="b-submit__main-element">
+                                    <input type="checkbox" asp-for="HabeasData" required>
+                                    <label class="s-submitCheckLabel" asp-for="HabeasData"><span class="fa fa-check"></span></label>
+                                    <label class="s-submitCheck" asp-for="HabeasData">Acepto las <a href="~/files/POLITICA DATOS PERSONALES MOTOVALLE[2336].pdf" rel="noreferrer" target="_blank"> políticas de privacidad</a></label>
+                                    <span asp-validation-for="HabeasData" class="text-danger"></span>
+                                </div>
+
+                                <div class="b-submit__main-element">
+                                    <div class="p-2">
+                                        @{ await Html.RenderPartialAsync("_Recaptcha"); }
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn m-btn pull-right">Solicitar<span class="fa fa-angle-right"></span></button>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="py-2">
+                        <div class="clearfix text-center">
+                            <button class="btn btn-default p-2" id="previousStep"><i class="fa fa-arrow-left"></i> Anterior</button>
+                            <button class="btn btn-default p-2" id="nextStep">Siguiente <i class="fa fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Form Column -->
+        </div>
+    </div>
+</div>
+<!--b-submit-->
+
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />    
+    <script type="text/javascript">
+        let currentStep = 0;
+        const $previousStep = document.querySelector("#previousStep");
+        const $nextStep = document.querySelector("#nextStep");
+        const $frmSolicitaTuCreditoYa = document.querySelector("#frmSolicitaTuCreditoYa");
+        const $stepsProgess = document.querySelectorAll(".b-infoBar__progress-line-step-circle-inner");
+        const $progessLine = document.querySelectorAll(".b-infoBar__progress-line-step");
+        const $asideSteps = document.querySelectorAll(".b-submit__aside-step");
+        const $asideStepsInner = document.querySelectorAll(".b-submit__aside-step-inner");
+        const $asideStepsInfo = document.querySelectorAll(".b-submit__aside-step-inner-info");
+        const $asideStepsTriangle = document.querySelectorAll(".b-submit__aside-step-inner-info-triangle");
+        const $loading = document.querySelector(".render-loading");
+        const totalSteps = $stepsProgess.length;
+        const steps = [...Array(totalSteps).keys()];
+
+        (() => {
+            ////Hide steps
+            steps.forEach((step) => {
+                if (step === 0) {
+                    const index = `#step${step}`;
+                    document.querySelector(index).style.display = "block";
+                    $stepsProgess[step].classList.add("m-active");
+                    $asideStepsTriangle[step].style.display = "block";
+                } else {
+                    const index = `#step${step}`;
+                    document.querySelector(index).style.display = "none";
+                    $asideStepsTriangle[step].style.display = "none";
+                }
+            });
+
+            $previousStep.disabled = true;
+        })();
+
+        ////Next
+        $nextStep.addEventListener('click', (e) => {
+            if (!$($frmSolicitaTuCreditoYa).valid()) {
+                return;
+            }
+
+            if ((currentStep + 1) == (totalSteps - 1)) {
+                $nextStep.disabled = true;
+            } else {
+                $nextStep.disabled = false;
+                $previousStep.disabled = false;
+            }
+
+            renderStep(true);
+        });
+
+        ////Prev
+        $previousStep.addEventListener('click', (e) => {
+            if ((currentStep - 1) == 0) {
+                $previousStep.disabled = true;
+
+            } else {
+                $nextStep.disabled = false;
+                $previousStep.disabled = false;
+            }
+
+            renderStep(false);
+        });
+
+        function renderStep(isNextOrPrev) {
+            $loading.style.display = "block";
+            setTimeout(() => {
+                $loading.style.display = "none";
+                if (isNextOrPrev) {
+                    $progessLine[currentStep].classList.add("m-active");
+                    currentStep++;
+                    $stepsProgess[currentStep].classList.add("m-active");
+                    $asideSteps[currentStep].classList.add("m-active");
+                    $asideStepsInner[currentStep].classList.add("m-active");
+                    $asideStepsTriangle[currentStep].style.display = "block";
+                } else {
+                    $stepsProgess[currentStep].classList.remove("m-active");
+                    $asideSteps[currentStep].classList.remove("m-active");
+                    $asideStepsInner[currentStep].classList.remove("m-active");
+                    $asideStepsTriangle[currentStep].style.display = "none";
+                    currentStep--;
+                    $progessLine[currentStep].classList.remove("m-active");
+                }
+
+                const current = `#step${currentStep}`;
+                const previous = `#step${currentStep + (isNextOrPrev ? -1 : 1)}`;
+                document.querySelector(current).style.display = "block";
+                if (document.querySelector(previous)) {
+                    document.querySelector(previous).style.display = "none";
+                }
+            }, 1000)
+        }
+
+        $frmSolicitaTuCreditoYa.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            if (!$($frmSolicitaTuCreditoYa).valid()) {
+                return;
+            }
+
+            const gResponse = grecaptcha.getResponse();
+            if (!gResponse) {
+                await Swal.fire({
+                    icon: 'error',
+                    title: 'Verifica los datos ingresados',
+                    text: 'Por favor valida el reCaptcha',
+                    footer: '<b><a href="/Info/ContactUs">Por favor infórmanos</a></b>',
+                    allowOutsideClick: false,
+                    allowEscapeKey: false
+                });
+
+                return;
+            }
+
+            Swal.fire({
+                title: 'Envíando información...',
+                html: '¡Me cerraré en pocos segundos!',
+                onBeforeOpen: () => {
+                    Swal.showLoading()
+                },
+                allowOutsideClick: false,
+                allowEscapeKey: false
+            });
+
+            const serverResponse = await fetch('/Pages/SolicitaTuCreditoYa', {
+                method: "POST",
+                body: new FormData($frmSolicitaTuCreditoYa),
+                headers: {
+                    "Accept": "application/json"
+                }
+            });
+
+            if (serverResponse.ok) {
+                const response = await serverResponse.json();
+                switch (response.ControlStatus) {
+                    case "ModelError":
+                        grecaptcha.reset();
+                        let errorLog = "<div style='text-aling:left'>";
+                        response.Errors.forEach((element) => {
+                            errorLog += "- " + element + " <br/>";
+                        });
+
+                        errorLog += "</div>";
+                        await Swal.fire({
+                            icon: 'warning',
+                            title: 'Verifica los siguientes campos:',
+                            html: errorLog,
+                            footer: '<b>Te esperamos.</b>',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        });
+
+                        break;
+                    case "Error":
+                        //Comment Swal when another bank request exists
+                        grecaptcha.reset();
+                        await Swal.fire({
+                            icon: 'error',
+                            title: '¡Ups!. Ha ocurrido un error',
+                            html: response.Message,
+                            footer: '<b>Por favor intenta nuevamente.</b>',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        });
+
+                        break;
+                    case "Info":
+                        //Comment Swal when another bank request exists
+                        await Swal.fire({
+                            icon: 'info',
+                            title: 'Información',
+                            html: response.Message,
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        });
+
+                        break;
+                    case "FundingRequestOk":
+                        const formatter = new Intl.NumberFormat('en-US', {
+                            style: 'currency',
+                            currency: 'USD'
+                        });
+
+                        const tableHtml = `<p class='lead'><b>Banco Santander</b> dice: ${response.Message}</p>
+                               <table style="width: 283px; height: 89px;" border="0">
+                                    <tbody>
+                                    <tr style="height: 21px;">
+                                    <td style="height: 21px; width: 127px;">Monto Solicitado:</td>
+                                    <td style="height: 21px; width: 155px;">${formatter.format(response.Response.MontoSol)}</td>
+                                    </tr>
+                                    <tr style="height: 21px;">
+                                    <td style="height: 21px; width: 127px;">Plazo:</td>
+                                    <td style="height: 21px; width: 155px;">${response.Response.Request.Plazo}</td>
+                                    </tr>
+                                    <tr style="height: 21px;">
+                                    <td style="height: 21px; width: 127px;">Tasa:</td>
+                                    <td style="height: 21px; width: 155px;">${response.Response.Request.Tasa}</td>
+                                    </tr>
+                                    <tr style="height: 21px;">
+                                    <td style="height: 21px; width: 127px;">Cuota Proyectada:</td>
+                                    <td style="height: 21px; width: 155px;">${formatter.format(response.Response.CuotaProyectada)}</td>
+                                    </tr>
+                                    </tbody>
+                               </table>`;
+
+                        $frmSolicitaTuCreditoYa.reset();
+
+                        await Swal.fire({
+                            icon: 'success',
+                            title: 'Tu solicitud de crédito ha sido procesada.',
+                            html: tableHtml,
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        });
+
+                        break;
+                    default:
+                        //Comment Swal when another bank request exists
+                        await Swal.fire({
+                            icon: 'error',
+                            title: 'Respuesta inesperada',
+                            text: 'Lo sentimos, intenta más tarde.',
+                            footer: '<b><a href="/Info/ContactUs">Por favor infórmanos</a></b>',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        });
+
+                        break;
+                }
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Algo salió mal',
+                    footer: 'Por favor verifica los datos ingresados'
+                });
+            }
+        });
+    </script>
+}

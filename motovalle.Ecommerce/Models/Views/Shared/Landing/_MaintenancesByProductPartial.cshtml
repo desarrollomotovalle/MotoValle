@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Ecommerce.Models.Entities.ProductMaintenances>
+@{
+    var index = 0;
+}
+
+<div class="wow zoomInUp">
+    @if (Model.Any())
+    {
+        <div class="panel-group" id="maintenanceAccordion">
+            @foreach (var item in Model)
+            {
+                var collapseIndex = Guid.NewGuid().ToString();
+                <div class="panel panel-default">
+                    <div class="panel-heading custom">
+                        <h4 class="panel-title">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#maintenanceAccordion" href="@Html.Raw($"#{collapseIndex}")">
+                                @item.MaintenanceIndex - @item.Title @Html.Raw(item.SalesPrice > 0m ? $"Precio: <b>{item.SalesPrice:c}</b>" : string.Empty)
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="@Html.Raw($"{collapseIndex}")" class="panel-collapse collapse @Html.Raw(index == 0 ? "in" : string.Empty)">
+                        <div class="panel-body">
+                            @Html.Raw(item.Description)
+                        </div>
+                    </div>
+                </div>
+                index++;
+            }
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-info" role="alert">
+            <h4 class="alert-heading"><i class="fa fa-info fa-3x"></i> No hay información para mostrar</h4>
+            <p>Hemos consultado en nuestra base de datos y no hemos encontrado registros para mostrar.</p>
+            @{ await Html.RenderPartialAsync("_ContactUs"); }
+        </div>
+    }
+</div>

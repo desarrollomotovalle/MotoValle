@@ -1,0 +1,142 @@
+﻿
+@*@model IEnumerable<PortafolioAutomotriz>*@
+
+@{
+    ViewData["Title"] = "Petronas - Portafolio Automotriz";
+    Layout = "~/Views/Shared/_LayoutPetronas.cshtml";
+
+    List<SelectListItem> listaGamaProductos = ViewBag.ListaGamaProductos;
+    List<SelectListItem> listaTipoAceite = ViewBag.ListaTipoAceite;
+    List<SelectListItem> listaViscosidad = ViewBag.ListaViscosidad;
+}
+
+<body class="bg-white">
+    <div class="container">
+        @* Estilos de cuadro de busquedad *@
+        <div class="row">
+            <div class="comprimir col-4">
+                <div class="card mt-5 tarjeta-portafolio">
+                    <div class="card-body">
+                        <div class=" mt-3">
+                            <h5 class="titulo-filtro"> BÚSQUEDA DE LUBRICANTES </h5>
+                        </div>
+                        <div>
+                            <p class="texto-filtro">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum.</p>
+                        </div>
+
+                        <div class="card mt-3 ">
+                            <div class="p-3 border">
+                                GAMA DE PRODUCTOS
+                                <img style="float: right;" src="/Image/portafolio-icono-informacion.png" alt="Alternate Text" />
+                            </div>
+                            <form id="fmrEnviarGamaProductos" class="mb-2" style="background: #F6F6F6;">
+                                @Html.DropDownList("GamaProducto", listaGamaProductos, new { @class = "form-control form-control-sm border-0" })
+                            </form>
+                        </div>
+
+                        <div class="card mt-3 ">
+                            <div class="p-3 border">
+                                TIPO DE ACEITE
+                                <img style="float: right;" src="/Image/portafolio-icono-informacion.png" alt="Alternate Text" />
+                            </div>
+                            <form id="fmrEnviarTipoAceite" class="mb-2" style="background: #F6F6F6;">
+                                @Html.DropDownList("TipoAceite", listaTipoAceite, new { @class = "form-control form-control-sm border-0" })
+                            </form>
+                        </div>
+
+                        <div class="card mt-3 ">
+                            <div class="p-3 border">
+                                VISCOSIDAD
+                                <img style="float: right;" src="/Image/portafolio-icono-informacion.png" alt="Alternate Text" />
+                            </div>
+                            <form id="fmrEnviarViscosidad" class="mb-2" style="background: #F6F6F6;">
+                                @Html.DropDownList("ViscosidadAceite", listaViscosidad, new { @class = "form-control form-control-sm border-0" })
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="col-12 col-lg-8 mt-5 ">
+                @foreach (var item in Model)
+                {
+                    <form asp-controller="Petronas" asp-action="" method="post">
+                        <div class="card mb-3 tarjeta-portafolio">
+
+                            <a asp-action="PortafolioAutomotrizDetalle" asp-route-id="@item.IdDetallePortafolioAutomotriz" style="text-decoration: none;">
+                                <div class="row g-0">
+                                    <div class="col-md-4  text-center text-lg-start mt-5">
+                                        <img src="@item.UrlImagen" class="img-fluid  rounded-start" alt="...">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <p class="card-text text-center text-lg-start "><small class="text-muted texto-titulo-portafolio">@item.TipoAceite</small></p>
+                                            <h5 class="card-title text-center text-lg-start titulo-portafolio-tarjeta">@item.ReferenciaProducto</h5>
+                                            <div class="linea-portafolio-tarjeta"> </div>
+
+                                            <ul class="card-text mt-3  texto-tarjeta-portafolio" style="text-align: center;">
+                                                @if (item.DescripcionProducto1 != null)
+                                                {
+                                                    <li class="text-center text-lg-start">@item.DescripcionProducto1</li>
+                                                }
+                                                @if (item.DescripcionProducto2 != null)
+                                                {
+                                                    <li class="text-center text-lg-start mt-lg-2">@item.DescripcionProducto2</li>
+                                                }
+                                                @if (item.DescripcionProducto3 != null)
+                                                {
+                                                    <li class="text-center text-lg-start mt-lg-2">@item.DescripcionProducto3</li>
+                                                }
+                                                @if (item.DescripcionProducto4 != null)
+                                                {
+                                                    <li class="text-center text-lg-start mt-2">@item.DescripcionProducto4</li>
+                                                }
+                                                @if (item.DescripcionProducto5 != null)
+                                                {
+                                                    <li class="text-center text-lg-start mt-2">@item.DescripcionProducto5</li>
+                                                }
+                                                @if (item.DescripcionProducto6 != null)
+                                                {
+                                                    <li class="text-center text-lg-start mt-2">@item.DescripcionProducto6</li>
+                                                }
+                                                @if (item.DescripcionProducto7 != null)
+                                                {
+                                                    <li class="text-center text-lg-start mt-2">@item.DescripcionProducto7</li>
+                                                }
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </form>
+                }
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    var IdGamaProducto = document.getElementById("GamaProducto");
+    IdGamaProducto.onchange = function () {
+        //Se ejecuta todo lo que coloques aqui
+        document.getElementById("fmrEnviarGamaProductos").submit();
+    }
+
+        var IdTipoAceite = document.getElementById("TipoAceite");
+    IdTipoAceite.onchange = function () {
+        //Se ejecuta todo lo que coloques aqui
+        document.getElementById("fmrEnviarTipoAceite").submit();
+    }
+
+    var IdViscosidad = document.getElementById("ViscosidadAceite");
+    IdViscosidad.onchange = function () {
+        //Se ejecuta todo lo que coloques aqui
+        document.getElementById("fmrEnviarViscosidad").submit();
+    }
+</script>
+
+
+

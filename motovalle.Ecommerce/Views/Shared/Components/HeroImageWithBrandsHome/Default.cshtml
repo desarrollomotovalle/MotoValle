@@ -6,9 +6,16 @@
 <section id="brands-home" class="brands-home">
     <div class="container">
         <div class="row">
+            @*<div class="col-12 col-sm-6 col-md-3 col-lg-3 col-xl-3 d-flex wow zoomInDown">
+                    <a asp-action="Index" asp-controller="Mazda">
+                        <div class="content-box mazda">
+                        </div>
+                    </a>
+                </div>*@
+
             <div class="col-12 col-sm-6 col-md-3 col-lg-3 col-xl-3 d-flex wow zoomInDown">
-                <a asp-action="Index" asp-controller="Mazda">
-                    <div class="content-box mazda">
+                <a asp-action="Index" asp-controller="Petronas">
+                    <div class="content-box petronas">
                     </div>
                 </a>
             </div>
@@ -79,8 +86,13 @@
         background-size: cover;
     }
 
-    .brands-home .content-box.mazda {
+    @*.brands-home .content-box.mazda {
         background: url("@Url.Content("~/mazda/home/btn mazda grande.jpg")") center no-repeat;
+        background-size: cover;
+    }*@
+
+        .brands-home .content-box.petronas {
+        background: url("@Url.Content("~/petronas/home/btn petronas grande.jpg")") center no-repeat;
         background-size: cover;
     }
 
@@ -143,10 +155,15 @@
             background-size: cover;
         }
 
-        .brands-home .content-box.mazda {
+        @*.brands-home .content-box.mazda {
             background: url("@Url.Content("~/mazda/home/btn mazda.jpg")") center no-repeat;
             background-size: cover;
-        }
+        }*@
+
+            .brands-home .content-box.petronas {
+                background: url("@Url.Content("~/petronas/home/btn petronas.jpg")") center no-repeat;
+                background-size: cover;
+            }
 
         .brands-home .content-box.massey {
             background: url("@Url.Content("~/massey_ferguson/home/btn massey.jpg")") center no-repeat;

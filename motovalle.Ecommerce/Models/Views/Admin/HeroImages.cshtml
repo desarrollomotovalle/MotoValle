@@ -1,0 +1,97 @@
+﻿@model IEnumerable<Ecommerce.Models.Entities.HeroImages>
+
+@{
+    ViewData["Title"] = "HeroImages";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="content">
+    <div class="container-fluid">
+        <div>
+            <div class="col-12 text-center">
+                <h1 class="m-0 text-dark">Imágenes Slider Marcas</h1>
+                <h6 class="text-info">La resolución óptima para las imágenes es: <b>1600 x 420px</b></h6>
+            </div>
+            <div class="text-left">
+                <p>
+                    <a asp-action="HeroImagesCreate" asp-controller="Admin" class="btn btn-md btn-dark">Crear nuevo registro <span class="fa fa-plus-square"></span></a>
+                </p>
+            </div>
+
+            @{ await Html.RenderPartialAsync("_MessageStatus"); }
+        </div>
+
+        <div class="table">
+            <table id="dtTableDefault" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th class="th-sm">
+                            Id
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(x => x.FkMakesId)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(x => x.Enable)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(x => x.Index)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(x => x.ImageURL)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(x => x.ShowSpan)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(x => x.SpanText)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(x => x.SpanComplementText)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(x => x.HasButton)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(x => x.ButtonURL)
+                        </th>
+                        <th class="th-sm">
+                            Preview
+                        </th>
+                        <th class="th-sm">
+                            Editar
+                        </th>
+                        <th class="th-sm">
+                            Eliminar
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.HeroImagesId)</td>
+                            <td>@(item.FkMakes?.MakeName ?? "Motovalle")</td>
+                            <td>@(item.Enable ? "YES" : "NO")</td>
+                            <td>@Html.DisplayFor(modelItem => item.Index)</td>
+                            <td>@Html.DisplayFor(modelItem => item.ImageURL)</td>
+                            <td>@(item.ShowSpan ? "YES" : "NO")</td>
+                            <td>@Html.DisplayFor(modelItem => item.SpanText)</td>
+                            <td>@Html.DisplayFor(modelItem => item.SpanComplementText)</td>
+                            <td>@(item.HasButton ? "YES" : "NO")</td>
+                            <td>@Html.DisplayFor(modelItem => item.ButtonURL)</td>
+                            <td><img src="@Url.Content($"/{item.ImageURL}")" alt="sliderImg" style="max-width: 300px;" /></td>
+                            <td><a class="btn btn-info btn-block" style="width:70%" asp-action="HeroImagesEdit" asp-controller="Admin" asp-route-id="@item.HeroImagesId"><span class="fa fa-pencil-alt"></span></a></td>
+                            <td><a class="btn btn-danger btn-block" style="width:70%" asp-action="HeroImagesDelete" asp-controller="Admin" asp-route-id="@item.HeroImagesId"><span class="fa fa-times"></span></a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+
+@section Scripts{
+    <script type="text/javascript" src="~/admin/dist/js/admin-ecommerce-tables-settings-default.js"></script>
+}

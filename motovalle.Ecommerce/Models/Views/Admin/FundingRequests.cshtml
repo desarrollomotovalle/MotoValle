@@ -1,0 +1,217 @@
+﻿@model Ecommerce.Models.Entities.FundingRequests
+
+@{
+    ViewData["Title"] = "FundingRequests";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    var orderNumber = Model.Orders.FirstOrDefault().OrderNumber;
+}
+
+<section class="content">
+    <div class="container">
+        <div>
+            <div class="col-12 text-center">
+                <h1 class="m-0 text-dark">Solicitud de Crédito para la Orden # <b>@orderNumber</b>.</h1>
+            </div>
+            <div class="text-left">
+                <p>
+                    <a asp-action="Orders" asp-controller="Admin" class="btn btn-md btn-dark"><span class="fa fa-arrow-circle-left"></span> Volver</a>
+                </p>
+            </div>
+
+            @{ await Html.RenderPartialAsync("_MessageStatus"); }
+        </div>
+        <div class="col-lg-offset-3">
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.FundingRequestId)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.FundingRequestId)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.RequestDate)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.RequestDate)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.BankName)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.BankName)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.TotalAmountRequest)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.TotalAmountRequest)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.InitialFee)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.InitialFee)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Installments)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Installments)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Status)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Status)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.IdentificationType)
+                </dt>
+                <dd class="col-sm-3">
+                    @Html.DisplayFor(model => model.IdentificationType)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.IdentificationNumber)
+                </dt>
+                <dd class="col-sm-5">
+                    @Html.DisplayFor(model => model.IdentificationNumber)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Names)
+                </dt>
+                <dd class="col-sm-10">
+                    @string.Concat(Model.Names, " ", Model.LastName)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.EconomicActivity)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.EconomicActivity)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.IndependentActivity)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.IndependentActivity)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.MonthlyIncome)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.MonthlyIncome)
+                </dd>
+
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.DateOfBirth)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.DateOfBirth)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.CityOfResidence)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.CityOfResidence)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Notes)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Notes)
+                </dd>
+            </dl>
+        </div>
+
+        <div class="text-left">
+            <p>
+                <a asp-action="FundingRequestsEdit" asp-controller="Admin" asp-route-id="@Model.FundingRequestId" class="btn btn-md btn-outline-dark"><span class="fa fa-pencil-alt"></span> Editar</a>
+            </p>
+            <p>
+                <a asp-action="Orders" asp-controller="Admin" class="btn btn-md btn-dark"><span class="fa fa-arrow-circle-left"></span> Volver</a>
+            </p>
+        </div>
+
+
+        @*<div class="table">
+            <table id="dtTableDefault" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(x => x.FundingRequestId)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(x => x.RequestDate)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(x => x.BankName)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(x => x.TotalAmountRequest)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(x => x.InitialFee)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(x => x.Installments)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(x => x.Status)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(x => x.IdentificationType)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(x => x.IdentificationNumber)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(x => x.Names)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(x => x.DateOfBirth)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(x => x.Profession)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(x => x.CityOfResidence)
+                        </th>
+                        <th class="th-sm">
+                            @Html.DisplayNameFor(x => x.Notes)
+                        </th>
+                        <th class="th-sm">
+                            Editar
+                        </th>
+                        <th class="th-sm">
+                            Eliminar
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => modelItem.FundingRequestId)</td>
+                        <td>@Html.DisplayFor(modelItem => modelItem.RequestDate)</td>
+                        <td>@Html.DisplayFor(modelItem => modelItem.BankName)</td>
+                        <td>@Html.DisplayFor(modelItem => modelItem.TotalAmountRequest)</td>
+                        <td>@Html.DisplayFor(modelItem => modelItem.InitialFee)</td>
+                        <td>@Html.DisplayFor(modelItem => modelItem.Installments)</td>
+                        <td>@Html.DisplayFor(modelItem => modelItem.Status)</td>
+                        <td>@Html.DisplayFor(modelItem => modelItem.IdentificationType)</td>
+                        <td>@Html.DisplayFor(modelItem => modelItem.IdentificationNumber)</td>
+                        <td>@string.Concat(Model.Names, " ", Model.LastName)</td>
+                        <td>@Html.DisplayFor(modelItem => modelItem.DateOfBirth)</td>
+                        <td>@Html.DisplayFor(modelItem => modelItem.Profession)</td>
+                        <td>@Html.DisplayFor(modelItem => modelItem.CityOfResidence)</td>
+                        <td>@Html.DisplayFor(modelItem => modelItem.Notes)</td>
+                        <td><a class="btn btn-info btn-block" style="width:70%" asp-action="FundingRequestsEdit" asp-controller="Admin" asp-route-id="@Model.FundingRequestId"><span class="fa fa-pencil-alt"></span></a></td>
+                        <td><a class="btn btn-danger btn-block" style="width:70%" asp-action="FundingRequestsDelete" asp-controller="Admin" asp-route-id="@Model.FundingRequestId"><span class="fa fa-times"></span></a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>*@
+    </div>
+</section>
+
+
+@section Scripts{
+    <script type="text/javascript" src="~/admin/dist/js/admin-ecommerce-tables-settings-default.js"></script>
+}

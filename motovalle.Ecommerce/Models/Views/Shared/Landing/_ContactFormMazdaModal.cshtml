@@ -1,0 +1,72 @@
+﻿@model motovalle.Ecommerce.Models.ViewModels.Landing.ContactViewModel
+
+
+<div class="modal fade MazdaCotizador" tabindex="-1" role="dialog" aria-labelledby="Cotizador" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content" style="background-color:#191919; color:white;">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h3 class="text-center">
+                    <strong>SOLICITAR COTIZACIÓN</strong>
+                </h3>
+                <button type="button" class="close" data-dismiss="modal" id="closeMazdaModalLanding">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <!-- Form -->
+                <form method="post" asp-action="@TempData["Controller"]" asp-controller="Pages" id="frmMazdaCotizar">
+                    @Html.AntiForgeryToken()
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input asp-for="CampaingNumber" hidden />
+                    <!-- Heading -->
+
+                    <div class="form-group">
+                        <i class='bx bxs-user'></i>
+                        <label asp-for="FullName"></label>
+                        <input asp-for="FullName" class="form-control" />
+                        <span asp-validation-for="FullName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <i class='bx bx-mail-send'></i>
+                        <label asp-for="Email"></label>
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <i class='bx bx-map'></i>
+                        <label asp-for="City"></label>
+                        <input asp-for="City" class="form-control" />
+                        <span asp-validation-for="City" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <i class='bx bxs-phone'></i>
+                        <label asp-for="PhoneNumber"></label>
+                        <input asp-for="PhoneNumber" class="form-control" />
+                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <i class='bx bxs-pencil'></i>
+                        <label asp-for="Message"></label>
+                        @Html.TextAreaFor(x => x.Message, 4, 1, new { @class = "form-control" })
+                        <span asp-validation-for="Message" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-check">
+                            @Html.CheckBoxFor(model => model.HabeasData, new { @class = "form-check-input", @required = "required" })
+                            <label class="form-check-label">
+                                Acepto las <a href="~/files/POLITICA DATOS PERSONALES MOTOVALLE[2336].pdf" rel="noreferrer" target="_blank" class="btn btn-link p-0 m-0" > políticas de privacidad</a>
+                            </label>
+                        </div>
+                        <span asp-validation-for="HabeasData" class="text-danger"></span>
+                    </div>
+
+                    <div class="text-center">
+                        <input type="submit" class="btn btn-secondary" value="¡Cotiza ya!" />
+                    </div>
+                </form>
+                <!-- Form -->
+            </div>
+        </div>
+    </div>
+</div>

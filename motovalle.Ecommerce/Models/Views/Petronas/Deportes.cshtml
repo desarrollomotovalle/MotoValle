@@ -1,0 +1,104 @@
+﻿@{
+    ViewData["Title"] = "Petronas - Deportes";
+    //Layout = "~/Views/Shared/_LayoutPetronas.cshtml";
+    //Layout = "";
+    Layout = "~/Views/Shared/_LayoutPetronas.cshtml";
+
+}
+
+@*<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <div class="banner banner-home-deportes img-fluid">
+                <span class="vertical-line"></span>
+                <h3 class="banner-texto text-center text-md-start text-lg-start">DEPORTES </h3>
+            </div>
+        </div>
+    </div>
+</div>*@
+
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <div class="banner banner-home-deportes img-fluid">
+                <div class="container">
+                    <div class="banner-texto text-center text-md-start text-lg-start">
+                        <span class=" border-start border-4 border-white ps-md-4 ps-lg-4 p-sm-0 m-0 p-0 d-block ps-sm-0 border__sm__left__0">
+                            DEPORTES
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="bg-white">
+    <div class="container">
+        <a class="nav-link text-dark bg-white p-0" asp-controller="Petronas" asp-action="Formula1">
+            <div class="row">
+                <div class="col-lg-6 col-12 tarjeta-linea-impar">
+                    <div class="bloque">
+                        <div class="titulo-tarjeta-izquierda-impar">
+                            FÓRMULA 1
+                        </div>
+                        <div>
+                            <p class="text-tarjeta-izquierda-impar">
+                                La fórmula uno es para los mejores. No hay lugar para las concesiones. Es por eso que el equipo Mercedes PETRONAS AMG solo elige lo mejor, los mejores pilotos, los mejores automóviles, los mejores motores y, por supuesto, los mejores aceites. Nuestra alianza tecnológica de vanguardia ofrece Fluid Technology Solutions de avanzada a un deporte que exige excelencia sin excepciones.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-12 tarjeta-centrar-imagen col-sm-12">
+                    <img class="p-5 p-lg-0 img-fluid" src="/Image/imagen-deportes-f1.png" alt="Alternate Text" @*style="width: 367px; height: 195px;"*@ />
+                </div>
+                <label class="text-center pb-2 texto-ver-mas">VER MÁS </label>
+            </div>
+        </a>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <a class="nav-link text-dark  p-0" asp-controller="Petronas" asp-action="RallyDakar">
+            <div class="row">
+                <div class="ocultar-imagen tarjeta-centrar-imagen">
+                    <img class="p-3 p-lg-0 img-fluid" src="/Image/imagen-deportes-rallydakar.png" alt="Alternate Text" @*style="width: 300px; height: 300px;"*@ />
+                </div>
+                <div class="tarjeta-linea-par ">
+                    @*<div class="bloque">
+                            <div class="titulo-tarjeta-derecha-par mb-2">
+                                RALLY DAKAR
+                            </div>
+                            <div>
+                                <p class="text-tarjeta-derecha-par">
+                                    Como principal patrocinador del equipo PETRONAS De Rooy IVECO en el Dakar y Africa Eco-Race, nuestros productos son los únicos lubricantes y fluidos funcionales recomendados por IVECO para una amplia gama de vehículos comerciales ligeros y pesados. Nuestra tecnología innovadora nos ayuda a lograr resultados sorprendentes al aplicar lo que hemos aprendido en condiciones extremas y duras para mejorar el rendimiento de los vehículos comerciales cotidianos.
+                                </p>
+                            </div>
+
+                        </div>*@
+                    <div class="bloque">
+                        <div class="titulo-tarjeta-derecha-par mb-2">
+                            RALLY DAKAR
+                        </div>
+                        <div>
+                            <p class="text-tarjeta-derecha-par">
+                                @*Como principal patrocinador del equipo PETRONAS De Rooy IVECO en el Dakar y Africa Eco-Race, nuestros productos son los únicos lubricantes y fluidos funcionales recomendados por IVECO para una amplia gama de vehículos comerciales ligeros y pesados. Nuestra tecnología innovadora nos ayuda a lograr resultados sorprendentes al aplicar lo que hemos aprendido en condiciones extremas y duras para mejorar el rendimiento de los vehículos comerciales cotidianos.*@
+                                Nuestros lubricantes se prueban en las condiciones más extremas del mundo. Como patrocinador principal del equipo PETRONAS De Rooy ICECO en el Dakar y el rally África Eco Race, nuestros productos son los únicos lubricantes y fluidos funcionales recomendados por Iveco para su amplia gama de vehículos comerciales y de servicio pesado y liviano.
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="cambiar-posicion-imagen">
+                    <div class="tarjeta-centrar-imagen">
+                        <img class="p-3 p-lg-0 img-fluid" src="/Image/imagen-deportes-motogp.png" alt="Alternate Text" style="width: 200px; height: 200px;" />
+                    </div>
+                    <label class="text-center pb-2 texto-ver-mas">VER MÁS </label>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+
+

@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    @*
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@
+    <link href="~/lib/twitter-bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/sitePetronas.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    @*
+        <link href="~/css/animate.css" rel="stylesheet" />*@
+</head>
+<body>
+
+
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>
+    @*
+
+
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        @*
+        <script src="~/lib/twitter-bootstrap/js/bootstrap.js"></script>*@
+    <script src="~/lib/twitter-bootstrap/js/bootstrap.min.js"></script>
+    @* Add js *@
+    <script src="https://kit.fontawesome.com/12bffbb70d.js" crossorigin="anonymous"></script>
+    @* End js *@
+    <script src="~/js/sitePetronas.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+
+

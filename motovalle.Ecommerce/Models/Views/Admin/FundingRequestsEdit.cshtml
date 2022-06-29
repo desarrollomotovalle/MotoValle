@@ -1,0 +1,205 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using motovalle.Ecommerce.Models.Entities.Identity
+
+@model Ecommerce.Models.Entities.FundingRequests
+
+@inject UserManager<ApplicationUser> UserManager
+@{
+    ViewData["Title"] = "FundingRequestsEdit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    var user = await UserManager.GetUserAsync(User);
+}
+
+<section class="content">
+    <div class="container">
+        <div>
+            <div class="col-12 text-center">
+                <h1 class="m-0 text-dark">Editar</h1>
+            </div>
+            <div class="text-left">
+                <p>
+                    <a asp-action="FundingRequests" asp-controller="Admin" asp-route-id="@Model.FundingRequestId" class="btn btn-md btn-dark"><span class="fa fa-arrow-circle-left"></span> Volver</a>
+                </p>
+            </div>
+
+            @if (ViewBag.Message != null)
+            {
+                <div class="alert alert-danger text-center wow zoomInUp" role="alert" data-wow-delay="0.5s">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <strong>¡Ups!..</strong> @ViewBag.Message &#128577;
+                </div>
+            }
+        </div>
+
+        <div class="col-lg-offset-3 ">
+            <form method="post" asp-action="FundingRequestsEdit" asp-controller="Admin">
+                @Html.AntiForgeryToken()
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="FundingRequestId" />
+                <input type="hidden" asp-for="FKCustomersId" />
+                <div class="row">
+                    <div class="col-3">
+                        <div class="form-group">
+                            <label asp-for="FundingRequestId" class="control-label"></label>
+                            <input type="hidden" asp-for="FundingRequestId" class="form-control" />
+                            <input value="@Model.FundingRequestId" class="form-control" disabled />
+                            <span asp-validation-for="FundingRequestId" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="form-group">
+                            <label asp-for="RequestDate" class="control-label"></label>
+                            <input type="hidden" asp-for="RequestDate" class="form-control" />
+                            <input value="@Model.RequestDate" class="form-control" disabled />
+                            <span asp-validation-for="RequestDate" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label asp-for="BankName" class="control-label"></label>
+                            <input type="hidden" asp-for="BankName" class="form-control" />
+                            <input value="@Model.BankName" class="form-control" disabled />
+                            <span asp-validation-for="BankName" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <div class="form-group">
+                            <label asp-for="TotalAmountRequest" class="control-label"></label>
+                            <input asp-for="TotalAmountRequest" type="hidden" class="form-control" />
+                            <input value="@Model.TotalAmountRequest.ToString("C")" class="form-control" disabled />
+                            <span asp-validation-for="TotalAmountRequest" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="form-group">
+                            <label asp-for="InitialFee" class="control-label"></label>
+                            <input asp-for="InitialFee" class="form-control" />
+                            <span asp-validation-for="InitialFee" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <div class="form-group">
+                            <label asp-for="Installments" class="control-label"></label>
+                            <input asp-for="Installments" class="form-control" />
+                            <span asp-validation-for="Installments" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="form-group">
+                            <label asp-for="Status" class="control-label"></label>
+                            <input asp-for="Status" class="form-control" />
+                            <span asp-validation-for="Status" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <div class="form-group">
+                            <label asp-for="IdentificationType" class="control-label"></label>
+                            <input asp-for="IdentificationType" class="form-control" />
+                            <span asp-validation-for="IdentificationType" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="form-group">
+                            <label asp-for="IdentificationNumber" class="control-label"></label>
+                            <input asp-for="IdentificationNumber" class="form-control" />
+                            <span asp-validation-for="IdentificationNumber" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="form-group">
+                            <label asp-for="Profession" class="control-label"></label>
+                            <input asp-for="Profession" type="hidden" class="form-control" />
+                            <input value="@Model.Profession" class="form-control" disabled />
+                            <span asp-validation-for="Profession" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label asp-for="Names" class="control-label"></label>
+                            <input asp-for="Names" class="form-control" />
+                            <span asp-validation-for="Names" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label asp-for="LastName" class="control-label"></label>
+                            <input asp-for="LastName" class="form-control" />
+                            <span asp-validation-for="LastName" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <div class="form-group">
+                            <label asp-for="EconomicActivity" class="control-label"></label>
+                            <input asp-for="EconomicActivity" class="form-control" />
+                            <span asp-validation-for="EconomicActivity" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="form-group">
+                            <label asp-for="IndependentActivity" class="control-label"></label>
+                            <input asp-for="IndependentActivity" class="form-control" />
+                            <span asp-validation-for="IndependentActivity" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="form-group">
+                            <label asp-for="MonthlyIncome" class="control-label"></label>
+                            <input asp-for="MonthlyIncome" class="form-control" />
+                            <span asp-validation-for="MonthlyIncome" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-3">
+                        <div class="form-group">
+                            <label asp-for="DateOfBirth" class="control-label"></label>
+                            <input asp-for="DateOfBirth" class="form-control" />
+                            <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="form-group">
+                            <label asp-for="CityOfResidence" class="control-label"></label>
+                            <input asp-for="CityOfResidence" class="form-control" />
+                            <span asp-validation-for="CityOfResidence" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label asp-for="UpdatedFor" class="control-label"></label>
+                            <input type="hidden" asp-for="UpdatedFor" value="@user.UserName" class="form-control" />
+                            <input value="@user.UserName" class="form-control" disabled />
+                            <span asp-validation-for="UpdatedFor" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label asp-for="Notes" class="control-label"></label>
+                            @Html.TextAreaFor(x => x.Notes, 4, 1, new { @class = "form-control" })
+                            <span asp-validation-for="Notes" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Guardar cambios" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

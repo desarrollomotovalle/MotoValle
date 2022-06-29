@@ -1,0 +1,79 @@
+﻿@model List<ProductAndMakeBase>
+
+@if (Model.Count > 0)
+{
+    @foreach (var item in Model)
+    {
+        <div class="b-items__cars-one wow zoomInUp" data-wow-delay="0.25s">
+            <div class="b-items__cars-one-img">
+                <img src="@Url.Content($"~/{item.PictureUrl}")" alt='@item.ProductName' style="max-width:270px; max-height:230px;" />
+                @if (item.IsFeatured)
+                {
+                    <span class="b-items__cars-one-img-type m-premium">DESTACADO</span>
+                }
+
+                @if (!string.IsNullOrEmpty(item.YoutubeUrl))
+                {
+                    <a data-toggle="modal" data-target="#idDetailsModal" href="#" onclick="getYoutubeVideoPartial('@item.YoutubeUrl')" class="b-items__cars-one-img-video"><span class="fa fa-film"></span>VIDEO</a>
+                }
+            </div>
+            <div class="b-items__cars-one-info">
+                <h2>@item.ProductName</h2>
+                <div class="row s-noRightMargin">
+                    <div class="col-md-9 col-xs-12">
+                        <p>@item.ProductDescription</p>
+                        <div class="m-width row m-smallPadding">
+                            <div class="col-xs-6">
+                                <div class="row m-smallPadding">
+                                    <div class="col-xs-6">
+                                        <span class="b-items__cars-one-info-title">Tipo:</span>
+                                        <span class="b-items__cars-one-info-title">Kilometraje:</span>
+                                        <span class="b-items__cars-one-info-title">Trasmisión:</span>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <span class="b-items__cars-one-info-value">@item.CategoryName</span>
+                                        <span class="b-items__cars-one-info-value">0 KM</span>
+                                        <span class="b-items__cars-one-info-value">@item.TransmissionName</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-6">
+                                <div class="row m-smallPadding">
+                                    <div class="col-xs-5">
+                                        <span class="b-items__cars-one-info-title">Caballos de fuerza:</span>
+                                        <span class="b-items__cars-one-info-title">Modelo:</span>
+                                        <span class="b-items__cars-one-info-title">Especs.:</span>
+                                    </div>
+                                    <div class="col-xs-7">
+                                        <span class="b-items__cars-one-info-value">@item.HorsePower.ToString() Hp</span>
+                                        <span class="b-items__cars-one-info-value">@item.Year</span>
+                                        <span class="b-items__cars-one-info-value">@item.Passengers.ToString()-Pasajeros, @item.PassengersDoors.ToString()-Puertas</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-xs-12">
+                        <div class="b-items__cars-one-info-price">
+                            <div class="pull-right">
+                                <h4>Precio Venta:</h4>
+                                <h4>@item.SalesPrice.ToString("C")</h4>
+                                <span class="b-items__cars-one-info-title ">Inventario</span>
+                            </div>
+                            <a asp-action="ProductInventory" asp-controller="Ford" asp-route-productId="@item.ProductId" class="btn m-btn pull-right">VER STOCK<span class="fa fa-angle-right"></span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}
+else
+{
+    <div class="alert alert-info text-center wow zoomInUp" role="alert" data-wow-delay="0.5s">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <strong>No hay registros para mostrar</strong> &#128577;
+    </div>
+}

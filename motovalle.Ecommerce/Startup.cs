@@ -137,7 +137,15 @@ namespace motovalle.Ecommerce
 
             // Context for Landing Page
             services.AddDbContext<msi_ecommerceContext>(options => options
-                    .UseMySql(Configuration.GetConnectionString("DefaultConnection"))); 
+                    .UseMySql(Configuration.GetConnectionString("DefaultConnection")));
+
+            // Context for petronas Page
+            services.AddDbContext<motovalle_petronasContext>(options => options
+                    .UseMySql(Configuration.GetConnectionString("PetronasConnection")));
+
+            // Context for Motovalle Page
+            services.AddDbContext<MOTOVALLEContext>(options => options
+                    .UseSqlServer(Configuration.GetConnectionString("MotovalleConnection")));
             #endregion
 
             ////Configure Depedency Injection for our repositories

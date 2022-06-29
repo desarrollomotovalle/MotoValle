@@ -1,0 +1,10 @@
+﻿@using Microsoft.Extensions.Options
+@using reCAPTCHA.AspNetCore
+@inject IOptions<RecaptchaSettings> RecaptchaSettings
+<div class="row">
+    <div class="col-xs-12">
+        <div class="text-center">
+            @Html.Recaptcha(RecaptchaSettings.Value, language: "es")
+        </div>
+    </div>
+</div>

@@ -1,0 +1,186 @@
+﻿@model motovalle.Ecommerce.Models.ViewModels.LandingPetronasQR.TMercadeoClientesViewModel
+
+@{
+    ViewData["Title"] = "Petronas - Redime tu premio";
+    Layout = "~/Views/Shared/Landing/_LayoutLandingPetronasQR.cshtml";
+
+}
+
+
+<div class="container">
+    @*<div class="banner-landing-qr-petronas">
+        </div>*@
+    <img class="img-fluid banner-landing-qr-petronas" src="~/Image/LandingQR/banner-inicio.png" alt="Banner Petronas QR" />
+
+    <div class="container mt-3">
+        <div class="card border-0">
+
+
+
+            <div class="container">
+                <h2 class="px-5 mt-5 text-petronas"><strong>Ingresa los siguientes datos y activa tu descuento con MOTOVALLE PETRONAS:</strong>(Bono no acumulable, valido para un solo registro de placa)</h2>
+            </div>
+
+            <hr />
+
+            <form asp-controller="Petronas" asp-action="RedimeTuPremio" method="post" id="fmrEnviar">
+
+
+                @*campos*@
+                <input asp-for="IdQR" type="number" class="d-none" value="@Model.IdQR" />
+                <input asp-for="DescripcionConvenio" type="text" class="d-none" value="@Model.DescripcionConvenio" id="descripcionConvenio" />
+
+
+
+                <div class="card-body">
+
+                    <div class="col-lg-6 offset-lg-3 offset-sm-0 col-sm-12 ">
+                        <div class="input-group mt-3">
+                            <span class="input-group-text bg-white bg-light border-0 m-0" style="padding-right:25px;"><i class="text-petronas fa-regular fa-2x fa-user"></i></span>
+                            <input asp-for="NombreCompleto" pattern="[A-Za-z]" type="text" class="form-control bg-light border-0 m-0" placeholder="Nombre completo" id="name" />
+                        </div>
+                        <span class="text-danger" asp-validation-for="NombreCompleto"></span>
+                    </div>
+
+                    <div class="col-lg-6 offset-lg-3 offset-sm-0 col-sm-12 ">
+                        <div class="input-group mt-3">
+                            <span class="input-group-text bg-white bg-light border-0 m-0" style="padding-right:18px;"><i class="fa-regular fa-2x fa-address-card text-petronas"></i></span>
+                            <input asp-for="NroDocumento" type="number" class="form-control bg-light border-0 m-0" placeholder="Número de identificación" id="NroDocumento" />
+                        </div>
+                        <span asp-validation-for="NroDocumento" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-lg-6 offset-lg-3 offset-sm-0 col-sm-12 ">
+                        <div class="input-group mt-3">
+                            <span class="input-group-text bg-white bg-light border-0 m-0" style="padding-right:30px;"><i class="text-petronas fa-solid fa-2x fa-mobile-screen-button"></i></span>
+                            <input asp-for="NroContacto" type="number" class="form-control bg-light border-0 m-0" placeholder="Número de contácto" id="phoneNumber" />
+                        </div>
+                        <span asp-validation-for="NroContacto" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-lg-6 offset-lg-3 offset-sm-0 col-sm-12 ">
+                        <div class="input-group mt-3">
+                            <span class="input-group-text bg-white bg-light border-0 m-0" style="padding-right:22px;"><i class="text-petronas fa-regular fa-2x fa-envelope"></i></span>
+                            <input asp-for="Correo" type="email" class="form-control bg-light border-0 m-0" placeholder="Correo electrónico" id="email" />
+                        </div>
+                        <span asp-validation-for="Correo" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-lg-6 offset-lg-3 offset-sm-0 col-sm-12 ">
+                        <div class="input-group mt-3">
+                            <span class="input-group-text bg-white bg-light border-0 m-0" style="padding-right:19px;"><i class="fa-solid fa-2x fa-map-location-dot text-petronas"></i></span>
+                            <select asp-for="CiudadRegistro" id="CiudadRegistro" class="form-select text-secondary bg-light border-0" aria-label="Default select example">
+                                <option value="" selected>-- Seleccione la ciudad del registro--</option>
+                                <option value="Bogotá">Bogotá</option>
+                                <option value="Cali">Cali</option>
+                            </select>
+                        </div>
+                        <span asp-validation-for="CiudadRegistro" class="text-danger"></span>
+
+                    </div>
+
+                    <div class="col-lg-6 offset-lg-3 offset-sm-0 col-sm-12 ">
+                        <div class="input-group mt-3">
+                            <span class="input-group-text bg-white bg-light border-0 m-0" style="padding-right:23px;"><i class="fa-solid fa-2x fa-car text-petronas"></i></span>
+                            @*<input type="text" class="form-control bg-light border-0 m-0" placeholder="Nombre completo" />*@
+                            <select asp-for="Marca" class="form-select text-secondary bg-light border-0" aria-label="Default select example">
+                                <option value="" selected>-- Seleccione la marca del vehículo --</option>
+                                <option value="Mazda">Mazda</option>
+                                <option value="Ford">Ford</option>
+                                <option value="Renault">Renault</option>
+                                <option value="Chevrolet">Chevrolet</option>
+                                <option value="Toyota">Toyota</option>
+                                <option value="Nissan">Nissan</option>
+                                <option value="Kia">Kia</option>
+                                <option value="Volkswagen">Volkswagen</option>
+                                <option value="Bmw">Bmw</option>
+                                <option value="Audi">Audi</option>
+                                <option value="Citroen">Citroen</option>
+                                <option value="Subaru">Subaru</option>
+                                <option value="Otro">Otro</option>
+                            </select>
+                        </div>
+                        <span asp-validation-for="Marca" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-lg-6 offset-lg-3 offset-sm-0 col-sm-12 ">
+                        <div class="input-group mt-3">
+                            <span class="input-group-text bg-white bg-light border-0 m-0" style="padding-right:14px;"><i class="text-petronas fa-solid fa-2x fa-car-side"></i></span>
+                            <input asp-for="Linea" type="text" class="form-control bg-light border-0 m-0" placeholder="Linea del vehículo (Mazda 2, Picanto, Ónix, etc)" id="Linea" />
+                        </div>
+                        <span asp-validation-for="Linea" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-lg-6 offset-lg-3 offset-sm-0 col-sm-12 ">
+                        <div class="input-group mt-3">
+                            <span class="input-group-text bg-white bg-light border-0 m-0" style="padding-right:18px;"><i class="fa-solid fa-2x fa-credit-card text-petronas"></i></span>
+                            <input asp-for="Modelo" type="number" class="form-control bg-light border-0 m-0" placeholder="Modelo del vehículo (2010, 2011, 2012, etc)" id="Modelo" />
+                        </div>
+                        <span asp-validation-for="Modelo" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-lg-6 offset-lg-3 offset-sm-0 col-sm-12 ">
+                        <div class="input-group mt-3">
+                            <span class="input-group-text bg-white bg-light border-0 m-0" style="padding-right:22px;"><i class="fa-solid fa-2x fa-car-rear text-petronas"></i></span>
+                            <input asp-for="Placa" type="text" class="form-control bg-light border-0 m-0" placeholder="Número de placa" id="Placa" onkeyup="mayus(this);" />
+                        </div>
+                        <span asp-validation-for="Placa" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-lg-6 offset-lg-3 offset-sm-0 col-sm-12 text-center mt-3">
+                        <button class="btn btn-outline-primary mt-sm-3 text-petronas" onclick="abrirModal()" id="btnEnviar">Guardar información</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="~/js/sitePetronas.js"></script>
+
+@if (Model.Control == "MsjGuardar")
+{
+    <script>
+        Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: '¡La información se registró correctamente!',
+            showConfirmButton: false,
+            iconColor: '#00A19C',
+            timer: 2500,
+        })
+
+        enviarInformacion();
+
+    </script>
+}
+
+@if (Model.Control == "MsjPlaca")
+{
+    <script>enviarInformacion(); Swal.fire({ icon: 'warning', title: 'Ya eres parte de nuestro Centro de Servicio Motovalle Petronas', text: 'Escríbenos para obtener más información.', confirmButtonColor: '#00A19C', confirmButtonText: '<i class="fa-brands fa-whatsapp"></i> ¡Contáctanos!', showCancelButton: true, cancelButtonText: 'Cancelar', closeOnConfirm: true, }).then((result) => { if (result.isConfirmed) { window.location.href = 'https://api.whatsapp.com/send/?phone=573113769946&text=%C2%A1Hola%21%2C+deseo+redimir+mi+bono+en+los+centros+de+servicio+Motovalle+Petronas.&app_absent=0'; } });</script>
+}
+
+@if (Model.Control == "MsjCamposRequeridos")
+{
+    <script>Swal.fire({ icon: 'warning', title: 'Error al registrar la información', text: 'Por favor verifica que todos los campos estén diligenciados.', confirmButtonColor: '#00A19C', confirmButtonText: 'Aceptar' })</script>
+}
+
+@if (Model.Control == "IdQRNull")
+{
+    <script> Swal.fire({ icon: 'warning', @*title: 'Error',*@ text: 'No se logró obtener el código del QR', confirmButtonColor: '#00A19C', confirmButtonText: 'Aceptar' }) </script>
+}
+
+@if (Model.Control == "IdQRNoExiste")
+{
+    <script> Swal.fire({ icon: 'warning', @*title: 'Error',*@ text: 'El ID del QR no existe en la base de datos', confirmButtonColor: '#00A19C', confirmButtonText: 'Aceptar' }) </script>
+}
+
+@if (Model.Control == "errorInesperado")
+{
+    <script>Swal.fire({ icon: 'error', title: 'Error', text: 'Se presentó un error inesperado, por favor contacta el departamento de TI', confirmButtonColor: '#00A19C', confirmButtonText: 'Aceptar' })</script>
+}
+
+
+

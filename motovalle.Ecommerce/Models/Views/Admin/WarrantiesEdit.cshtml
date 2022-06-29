@@ -1,0 +1,173 @@
+﻿@model Ecommerce.Models.Entities.Warranties
+
+@{
+    ViewData["Title"] = "WarrantiesEdit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    var tools = new[] { "Bold", "Italic", "Underline", "StrikeThrough",
+        "FontName", "FontSize", "FontColor", "BackgroundColor",
+        "LowerCase", "UpperCase", "SuperScript", "SubScript", "|",
+        "Formats", "Alignments", "OrderedList", "UnorderedList",
+        "Outdent", "Indent", "|",
+        "CreateTable", "CreateLink", "|", "ClearFormat", "Print",
+        "SourceCode", "FullScreen", "|", "Undo", "Redo" };
+}
+
+<section class="content">
+    <div class="container">
+        <div>
+            <div class="col-12 text-center">
+                <h1 class="m-0 text-dark">Editar</h1>
+            </div>
+            <div class="text-left">
+                <p>
+                    <a asp-action="Warranties" asp-controller="Admin" class="btn btn-md btn-dark"><span class="fa fa-arrow-circle-left"></span> Volver</a>
+                </p>
+            </div>
+
+            @if (ViewBag.Message != null)
+            {
+                <div class="alert alert-danger text-center wow zoomInUp" role="alert" data-wow-delay="0.5s">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <strong>¡Ups!..</strong> @ViewBag.Message &#128577;
+                </div>
+            }
+        </div>
+
+        <div class="col-lg-offset-3 ">
+            <form method="post" asp-action="WarrantiesEdit" asp-controller="Admin" id="frmWarrantyCreate" name="frmWarrantyCreate">
+                @Html.AntiForgeryToken()
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="WarrantiesId" />
+                <div class="form-group">
+                    <label asp-for="WarrantyName" class="control-label"></label>
+                    <input asp-for="WarrantyName" class="form-control" />
+                    <span asp-validation-for="WarrantyName" class="text-danger"></span>
+                    <input asp-for="Description" type="hidden" id="descriptionId" />
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+            </form>
+            <label asp-for="Description" class="control-label"></label>
+            <ejs-richtexteditor id="descriptionRichId" pasteCleanupSettings="new Syncfusion.EJ2.RichTextEditor.RichTextEditorPasteCleanupSettings() { Prompt= true }">
+                <e-content-template>
+                    @Model.Description
+                </e-content-template>
+                <e-richtexteditor-fontfamily items="@ViewBag.Fonts" width="80px"></e-richtexteditor-fontfamily>
+                <e-richtexteditor-toolbarsettings items="@tools"></e-richtexteditor-toolbarsettings>
+            </ejs-richtexteditor>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Guardar cambios" class="btn btn-primary" onclick="editDescription('warranty')" />
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/mode/css/css.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/mode/xml/xml.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/mode/htmlmixed/htmlmixed.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var rteObj, myCodeMirror, textArea;
+        function created() {
+            rteObj = this;
+            textArea = rteObj.contentModule.getEditPanel();
+        }
+        function mirrorConversion(e) {
+            var id = rteObj.getID() + 'mirror-view';
+            var mirrorView = rteObj.element.querySelector('#' + id);
+            var charCount = rteObj.element.querySelector('.e-rte-character-count');
+            if (e.targetItem === 'Preview') {
+                textArea.style.display = 'block';
+                mirrorView.style.display = 'none';
+                textArea.innerHTML = myCodeMirror.getValue();
+                charCount.style.display = 'block';
+            }
+            else {
+                if (!mirrorView) {
+                    mirrorView = ej.base.createElement('div', { className: 'e-content' });
+                    mirrorView.id = id;
+                    textArea.parentNode.appendChild(mirrorView);
+                }
+                else {
+                    mirrorView.innerHTML = '';
+                }
+                textArea.style.display = 'none';
+                mirrorView.style.display = 'block';
+                renderCodeMirror(mirrorView, defaultRTE.value);
+                charCount.style.display = 'none';
+            }
+        }
+        function renderCodeMirror(mirrorView, content) {
+            myCodeMirror = CodeMirror(mirrorView, {
+                value: content,
+                lineNumbers: true,
+                mode: 'text/html',
+                lineWrapping: true,
+            });
+        }
+        function handleFullScreen(e) {
+            var sbCntEle = document.querySelector('.sb-content.e-view');
+            var sbHdrEle = document.querySelector('.sb-header.e-view');
+            if (e.targetItem === 'Maximize') {
+                if (ej.base.Browser.isDevice && ej.base.Browser.isIos) {
+                    ej.base.addClass([sbCntEle, sbHdrEle], ['hide-header']);
+                }
+            }
+            else if (e.targetItem === 'Minimize') {
+                if (ej.base.Browser.isDevice && ej.base.Browser.isIos) {
+                    ej.base.removeClass([sbCntEle, sbHdrEle], ['hide-header']);
+                }
+            }
+        }
+        function actionCompleteHandler(e) {
+            if (e.targetItem && (e.targetItem === 'SourceCode' || e.targetItem === 'Preview')) {
+                this.sourceCodeModule.getPanel().style.display = 'none';
+                mirrorConversion(e);
+            }
+            else {
+                setTimeout(function () { rteObj.toolbarModule.refreshToolbarOverflow(); }, 400);
+            }
+        }
+    </script>
+}
+
+<style>
+    .e-code-mirror::before {
+        content: '\e345';
+    }
+
+    .e-html-preview::before {
+        content: '\e350';
+    }
+
+    .CodeMirror-linenumber,
+    .CodeMirror-gutters {
+        display: none;
+    }
+
+    .sb-header {
+        z-index: 100;
+    }
+
+    .sb-content.e-view.hide-header {
+        top: 0 !important;
+    }
+
+    .sb-header.e-view.hide-header {
+        display: none;
+    }
+
+    .e-richtexteditor .e-rte-content .e-content pre {
+        padding: 10px;
+        background: #F4F5F7;
+    }
+
+    .highcontrast .e-richtexteditor .e-rte-content .e-content pre {
+        padding: 10px;
+        background: #303030;
+    }
+</style>

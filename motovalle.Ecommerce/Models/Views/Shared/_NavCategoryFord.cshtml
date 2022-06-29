@@ -1,0 +1,18 @@
+﻿@model int
+<aside class="b-blog__aside">
+    <div class="b-blog__aside-categories wow zoomInUp" data-wow-delay="0.5s">
+        <header class="s-lineDownLeft">
+            <h2 class="s-titleDet">MÁS DE ACERCA DE NOSOTROS</h2>
+        </header>
+        <nav>
+            <ul class="b-blog__aside-categories-list">
+                <li><a asp-controller="Ford" asp-action="Index"><i class="fa fa-home"></i> Ford Home</a></li>
+                <li class="@Html.Raw(Model == 1 ? "m-acive" : string.Empty)"><a asp-controller="Pages" asp-action="FordSerivicioIntengral">Servicio Integral</a></li>
+                <li class="@Html.Raw(Model == 2 ? "m-acive" : string.Empty)"><a href="https://www.citactiva.es/citas" rel="noreferrer">Agendamiento</a></li>
+                <li class="@Html.Raw(Model == 3 ? "m-acive" : string.Empty)"><a asp-controller="Pages" asp-action="FordTestDrive">Test Drive</a></li>
+                <li class="@Html.Raw(Model == 4 ? "m-acive" : string.Empty)"><a href="https://motorcraft.com.co/inicio" rel="noreferrer">Motorcraft</a></li>
+                <li><a asp-controller="Pages" asp-action="Mantenimientos" asp-route-makesName="Ford">Mantenimientos</a></li>
+            </ul>
+        </nav>
+    </div>
+</aside>

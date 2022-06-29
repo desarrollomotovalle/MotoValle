@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head prefix="og: http://ogp.me/ns">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <!-- Render Meta general Meta Tags -->
+    @await Html.PartialAsync("_MetaTags")
+
+    <link rel="shortcut icon" type="image/x-icon" href="~/favicon.ico" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <!-- Animate CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/animate.css@4.0.0/animate.min.css" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link href="~/landingAssets/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="~/landingAssets/css/mdb.min.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="~/landingAssets/css/style.css" rel="stylesheet" asp-append-version="true">
+
+    <!-- Render General Analyzers -->
+    @await Html.PartialAsync("_Analyzers")
+
+    @RenderSection("Styles", required: false)
+</head>
+<body>
+    <!-- Render Body Analyzers -->
+    @await Html.PartialAsync("_AnalyzersBody")
+    @RenderBody()
+
+    <!--Footer-->
+    <footer class="page-footer text-center" style="margin-top:-1.7em;">
+        <hr class="my-4">
+
+        <!-- Social icons -->
+        <div class="pb-4">
+            <a href="https://www.facebook.com/motovalle/" target="_blank">
+                <i class="fab fa-facebook-f mr-3 fa-2x"></i>
+            </a>
+
+            <a href="https://twitter.com/motovalle_col" target="_blank">
+                <i class="fab fa-twitter mr-3 fa-2x"></i>
+            </a>
+
+            <a href="https://www.youtube.com/channel/UC23iJYw5WDP7jXmcdP9KFvQ" target="_blank">
+                <i class="fab fa-youtube mr-3 fa-2x"></i>
+            </a>
+
+            <a href="https://www.instagram.com/motovalle_oficial/" target="_blank">
+                <i class="fab fa-instagram mr-3 fa-2x"></i>
+            </a>
+
+            <a href="https://www.linkedin.com/company/motovalle-oficial/" target="_blank">
+                <i class="fab fa-linkedin mr-3 fa-2x"></i>
+            </a>
+        </div>
+        <!-- Social icons -->
+        <!--Copyright-->
+        <div class="footer-copyright py-3">
+            © @DateTime.Now.Year Copyright:
+            <a href="https://www.motovalle.com/" target="_blank"> Todos los derechos reservados - Motores del Valle S.A.S </a> - Powered by <a href="http://www.innovamarketingsystems.com/" target="_blank"> Innova Marketing Systems. </a>
+        </div>
+        <!--/.Copyright-->
+
+    </footer>
+    <!--/.Footer-->
+    <!-- SCRIPTS -->
+    <!--JivoChat -->
+    <script src="//code.jivosite.com/widget/zQCYoMifqg" async></script>
+    <!--JivoChat -->
+    <!-- JQuery -->
+    <script type="text/javascript" src="~/landingAssets/js/jquery-3.4.1.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="~/landingAssets/js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="~/landingAssets/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="~/landingAssets/js/mdb.min.js"></script>
+    <!-- Landing V2 Script -->
+    <script type="text/javascript" src="~/landingAssets/js/lading-v2-functions.js" asp-append-version="true"></script>
+    <!-- Sweet Alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <!-- Initializations -->
+    <script type="text/javascript">
+        // Animations initialization
+        new WOW().init();
+    </script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

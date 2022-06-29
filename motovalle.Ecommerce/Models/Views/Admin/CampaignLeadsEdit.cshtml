@@ -1,0 +1,128 @@
+﻿@model Ecommerce.Models.Entities.CampaignLeads
+
+@{
+    ViewData["Title"] = "CampaignLeadsEdit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="content">
+    <div class="container">
+        <div>
+            <div class="col-12 text-center">
+                <h1 class="m-0 text-dark">Editar</h1>
+            </div>
+            <div class="text-left">
+                <p>
+                    <a asp-action="CampaignLeads" asp-controller="Admin" class="btn btn-md btn-dark"><span class="fa fa-arrow-circle-left"></span> Volver</a>
+                </p>
+            </div>
+
+            @if (ViewBag.Message != null)
+            {
+                <div class="alert alert-danger text-center wow zoomInUp" role="alert" data-wow-delay="0.5s">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <strong>¡Ups!..</strong> @ViewBag.Message &#128577;
+                </div>
+            }
+        </div>
+
+        <div class="col-lg-offset-3 ">
+            <form method="post" asp-action="CampaignLeadsEdit" asp-controller="Admin">
+                @Html.AntiForgeryToken()
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="CampaignLeadsId" />
+                <input type="hidden" asp-for="CreatedOn" />
+                <input type="hidden" asp-for="EmailSentTo" />
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label asp-for="CreatedOn" class="control-label"></label>
+                            <input asp-for="CreatedOn" class="form-control" disabled />
+                            <span asp-validation-for="CreatedOn" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label asp-for="Name" class="control-label"></label>
+                            <input asp-for="Name" class="form-control" />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label asp-for="Email" class="control-label"></label>
+                            <input asp-for="Email" class="form-control" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label asp-for="City" class="control-label"></label>
+                            <input asp-for="City" class="form-control" />
+                            <span asp-validation-for="City" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label asp-for="PhoneNumber" class="control-label"></label>
+                            <input asp-for="PhoneNumber" class="form-control" />
+                            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label asp-for="Campaign" class="control-label"></label>
+                            <select asp-for="Campaign" class="form-control" asp-items="Html.GetEnumSelectList<Campaings>()"></select>
+                            <span asp-validation-for="Campaign" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label asp-for="InfoFrom" class="control-label"></label>
+                            <input asp-for="InfoFrom" class="form-control" />
+                            <span asp-validation-for="InfoFrom" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label asp-for="EmailSentTo" class="control-label"></label>
+                            <input asp-for="EmailSentTo" class="form-control" disabled/>
+                            <span asp-validation-for="EmailSentTo" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label asp-for="Status" class="control-label"></label>
+                            <select asp-for="Status" class="form-control" asp-items="Html.GetEnumSelectList<Status>()"></select>
+                            <span asp-validation-for="Status" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label asp-for="Remarks" class="control-label"></label>
+                            <textarea asp-for="Remarks" cols="1" rows="5" class="form-control"></textarea>
+                            <span asp-validation-for="Remarks" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Guardar cambios" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

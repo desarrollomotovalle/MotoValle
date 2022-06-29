@@ -1,0 +1,119 @@
+﻿@model List<InventoryForProduct>
+@{
+    ViewData["Title"] = "Massey Ferguson Interactivo";
+    Layout = "~/Views/Shared/_LayoutMasseyFerguson.cshtml";
+}
+
+<section class="b-pageHeader massey">
+    <div class="container">
+        <h1 class="wow zoomInLeft" data-wow-delay="0.5s">Massey Ferguson Interactivo</h1>
+        @*Issue 1: 04/08/2020 Diego - Remove Subtitle Octavio's request*@
+        @*<div class="b-pageHeader__search wow zoomInRight" data-wow-delay="0.5s">
+            <h3>Motovalle</h3>
+        </div>*@
+    </div>
+</section><!--b-pageHeader-->
+
+<div class="b-breadCumbs s-shadow wow zoomInUp" data-wow-delay="0.5s">
+    <div class="container">
+        <a asp-action="Index" asp-controller="Home" class="b-breadCumbs__page">Home</a><span class="fa fa-angle-right"></span><a asp-action="Massey_Ferguson_Interactivo" asp-controller="Pages" class="b-breadCumbs__page m-active">Massey Ferguson Interactivo</a>
+    </div>
+    @if (ViewBag.Message != null)
+    {
+        <div class="alert alert-danger text-center wow zoomInUp" role="alert" data-wow-delay="0.5s">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <strong>¡Ups!..</strong> @ViewBag.Message &#128577;
+        </div>
+    }
+</div><!--b-breadCumbs-->
+
+<section class="b-article">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 col-xs-12">
+                <div class="b-article__main">
+                    <div class="b-blog__posts-one">
+                        <div class="row m-noBlockPadding">
+                            <div class="col-sm-1 col-xs-2">
+
+                            </div>
+                            <div class="col-sm-11 col-xs-10">
+                                <div class="b-blog__posts-one-body">
+                                    <header class="b-blog__posts-one-body-head wow zoomInUp" data-wow-delay="0.5s">
+                                        <h2 class="s-titleDet">Massey Ferguson Interactivo</h2>
+                                    </header>
+                                    <div class="s-lineDownLeft s-titleLeft">
+                                        <div>
+                                            <h2 class="s-titleDet">Vitrina en casa</h2>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <p>En estos momentos ir a nuestro concesionario puede ser problemático. Por lo tanto, queremos llevarte Motovalle a tu casa. ¡Vive la experiencia de conocer los modelos que más te llaman la atención de forma virtual aquí!. Estaremos agregando contenido diariamente. ¡Visítenos periódicamente para vivir la experiencia Masey Ferguson!</p>
+                                    <div class="clearfix"></div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <ul class="s-list" style="columns: 2; -webkit-columns: 2; -moz-columns: 2;">
+                                                @foreach (var item in Model)
+                                                {
+                                                    <li style="-webkit-column-break-inside: avoid; page-break-inside: avoid; break-inside: avoid;">
+                                                        <span class="fa fa-check"></span><a asp-action="ProductDetails" asp-controller="Ford" asp-route-productId="@item.ProductId" asp-route-inventoryItemsId="@item.InventoryItemsId" style="margin-top:0.3em;">@item.ProductName</a>
+                                                    </li>
+                                                }
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="b-blog__posts-one-body-main wow zoomInUp" data-wow-delay="0.5s">
+                                        <div class="b-blog__posts-one-body-main-img">
+                                            <div class="bxslider enable-bx-slider" data-pager-custom="#bx-pager" data-mode="fade" data-pager-slide="false" data-mode-pager="horizontal" data-pager-qty="0">
+                                                <img class="img-responsive" src="~/images/ford/ford_mustang.jpg" alt="Ford Mustang" />
+                                            </div>
+                                        </div>
+                                        <p>El mundo esta pasando por momentos muy difíciles. Realmente, son tiempos como ningún otro. La Familia Motovalle quiere acompañarlos. ¡Hemos diseñado esta sección en nuestra página exclusivamente para ayudar a distraerlos y que podamos ejercer unas actividades distintas y divertidas! Esperamos que las disfruten. Favor no dudar en comunicarse con nosotros por nuestro chat si tiene alguna pregunta o comentario. </p>
+                                    </div>
+                                    <div class="b-blog__posts-one-body-why wow zoomInUp" data-wow-delay="0.5s">
+                                        <div class="s-lineDownLeft  s-titleLeft">
+                                            <div>
+                                                <h2 class="s-titleDet">Massey Coloring</h2>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <p>Curabitur libero. Donec facilisis velit eu est. Phasellus cons quat. Aenean vitae quam. Vivamus etdug nunc. Nunc conseq sem velde metus imperdiet lacinia. Cras ornare pretium tortor. Donec sed augue sed nunc rutrum egestas. Bulum ante ipsum mis in faucibus orci luctus et ultrices posuere.</p>
+                                        <div class="s-lineDownLeft  s-titleLeft">
+                                            <div>
+                                                <h2 class="s-titleDet">Massey Wallpapers</h2>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <p>Curabitur libero. Donec facilisis velit eu est. Phasellus cons quat. Aenean vitae quam. Vivamus etdug nunc. Nunc conseq sem velde metus imperdiet lacinia. Cras ornare pretium tortor. Donec sed augue sed nunc rutrum egestas. Bulum ante ipsum mis in faucibus orci luctus et ultrices posuere.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-xs-12">
+                <aside class="b-blog__aside">
+                    <div class="b-blog__aside-categories wow zoomInUp" data-wow-delay="0.5s">
+                        <header class="s-lineDownLeft">
+                            <h2 class="s-titleDet">Áreas Interactivas</h2>
+                        </header>
+                        <nav>
+                            <ul class="b-blog__aside-categories-list">
+                                <li><a href="#">Ford Coloring</a></li>
+                                <li><a href="#">Wallpapers</a></li>
+                                <li><a href="#">Ford en Películas</a></li>
+                                @*<li><a href="#">Test Drive Interactivo</a></li>
+                                <li><a href="#">Combatiendo COVID-19 con Airlife</a></li>
+                                <li><a href="#">Donaciones y Programas de Ayuda</a></li>*@
+                            </ul>
+                        </nav>
+                    </div>
+
+                </aside>
+            </div>
+        </div>
+    </div>
+</section><!--b-article-->

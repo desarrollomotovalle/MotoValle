@@ -1,0 +1,154 @@
+﻿@model motovalle.Ecommerce.Models.ViewModels.Landing.ContactLavadoGratisViewModel
+
+@{
+    ViewData["Title"] = "Lavado Ilimitado Gratis";
+    Layout = "~/Views/Shared/Landing/_LayoutLanding.cshtml";
+}
+
+<div class="row no-gutters">
+    <div class="col-xl-8 col-lg-12 bg-image">
+    </div>
+
+
+    <div class="col-xl-4 col-lg-12 d-flex float-right pl-2" id="prueba">
+        <div class="container align-self-center p-6">
+            <form asp-controller="Ofertas" asp-action="LavadoGratisIlimitado" method="post">
+                <h5 class="font-weight-bold mb-3 text-center">Registro de información</h5>
+                <div class="form-row">
+                    <div class="col">
+                        <label class="label" asp-for="Nombres"></label>
+                        <input type="text" asp-for="Nombres" class="form-control" id="Nombres">
+                        <span asp-validation-for="Nombres" class="text-danger"></span>
+                    </div>
+                    <div class="col">
+                        <label class="label" asp-for="Apellidos"></label>
+                        <input type="text" class="form-control" asp-for="Apellidos" id="Apellidos">
+                        <span asp-validation-for="Apellidos" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col">
+                        <label class="label" asp-for="Cedula"></label>
+                        <input type="text" class="form-control" asp-for="Cedula">
+                        <span asp-validation-for="Cedula" class="text-danger"></span>
+                    </div>
+                    <div class="col">
+                        <label class="label" asp-for="Celular"></label>
+                        <input type="text" class="form-control" asp-for="Celular">
+                        <span asp-validation-for="Cedula" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col">
+                        <label class="label" asp-for="Correo"></label>
+                        <input type="text" class="form-control" asp-for="Correo">
+                        <span asp-validation-for="Correo" class="text-danger"></span>
+                    </div>
+                    <div class="col">
+                        <label class="label" asp-for="MarcaVehiculo"></label>
+                        <input type="text" class="form-control" asp-for="MarcaVehiculo">
+                        <span asp-validation-for="MarcaVehiculo" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col">
+                        <label class="label" asp-for="Modelo"> </label>
+                        <input type="text" class="form-control" asp-for="Modelo">
+                        <span asp-validation-for="Modelo" class="text-danger"></span>
+                    </div>
+                    <div class="col">
+                        <label class="label" asp-for="Placa"></label>
+                        <input type="text" class="form-control" asp-for="Placa">
+                        <span asp-validation-for="Placa" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col">
+                        <label class="label" asp-for="Factura"></label>
+                        <input type="text" class="form-control" asp-for="Factura">
+                        <span asp-validation-for="Factura" class="text-danger"></span>
+                    </div>
+                    <div class="col">
+                        <label class="label" asp-for="FechaFactura"></label>
+                        <input type="date" class="form-control" asp-for="FechaFactura" id="FechaFactura">
+                        <span asp-validation-for="FechaFactura" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col">
+                        <label class="label" asp-for="CiudadResidencia"></label>
+                        <select class="form-control" asp-for="CiudadResidencia">
+                            <option disabled selected>-- Seleccione --</option>
+                            <option value="Bogota">Bogota</option>
+                            <option value="Cali">Cali</option>
+                        </select>
+                        <span asp-validation-for="CiudadResidencia" class="text-danger"></span>
+                    </div>
+                </div>
+
+
+                <div class="form-check mt-2">
+                    <input class="form-check-input" type="checkbox" asp-for="TratamientoDatos">
+                    <label class="form-check-label" asp-for="TratamientoDatos">
+                        Acepto las<a href="~/files/POLITICA DATOS PERSONALES MOTOVALLE[2336].pdf" rel="noreferrer" target="_blank"> políticas de privacidad</a>
+                    </label>
+                    <div>
+                        <span asp-validation-for="TratamientoDatos" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <button type="submit" class="btn btn-outline-primary">Envíar</button>
+                </div>
+            </form>
+
+
+        </div>
+    </div>
+</div>
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+@if (ViewBag.msg == "Agregado")
+{
+    <script>
+        Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: '¡Datos almacenados correctamente!',
+            showConfirmButton: false,            
+            timer: 2500
+        })   
+        
+    </script>
+}
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+    <script type="text/javascript">
+        window.onload = () => {
+            document.querySelector("#Nombres").value = "";
+            document.querySelector("#Apellidos").value = "";
+
+        }
+
+
+
+        // extend jquery range validator to work for required checkboxes
+        var defaultRangeValidator = $.validator.methods.range;
+        $.validator.methods.range = function (value, element, param) {
+            if (element.type === 'checkbox') {
+                // if it's a checkbox return true if it is checked
+                return element.checked;
+            } else {
+                // otherwise run the default validation function
+                return defaultRangeValidator.call(this, value, element, param);
+            }
+        }
+
+        $('#FechaFactura').datepicker({
+            dateFormat: "yy-mm-dd",
+            endDate: new Date()
+        });
+    </script>
+}

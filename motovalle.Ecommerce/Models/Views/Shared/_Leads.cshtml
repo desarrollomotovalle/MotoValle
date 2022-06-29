@@ -1,0 +1,248 @@
+﻿@model InterestedCustomerViewModel
+
+
+<div class="b-detail__main-aside-payment wow zoomInUp" data-wow-delay="0.5s">
+    <h2 class="s-titleDet">@Html.Raw(ViewBag.Make != null && ViewBag.Make == "Massey Ferguson" ? "ESTOY INTERESADO EN ESTE EQUIPO" : "ESTOY INTERESADO EN ESTE VEHÍCULO")</h2>
+    <div class="b-detail__main-aside-about-seller">
+        <p style="font-size:12px;">Déjanos tus datos <span style="font-size:14px;">¡Nos comunicaremos contigo para brindarte toda la información que requieras!</span></p>
+    </div>
+    <div class="b-detail__main-aside-payment-form">
+
+
+        @* Formulario oculto para enviar información a SalesForce *@
+
+        <form id="frmSalesForce" style="display:none" target="hidden-form" method="POST" action="https://inteligenciadevendas.my.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" >
+
+            <input type=hidden name="oid" value="00D6A000001UcOT">
+            <input type=hidden name="retURL" value="https://motovalle.com/Ford">
+
+            @*----------------------------------------------------------------------
+                NOTE: These fields are optional debugging elements. Please uncomment
+                these lines if you wish to test in debug mode.*@
+            @*<input type="hidden" name="debug" value=1>
+                <input type="hidden" name="debugEmail" value="rupert@kolekto.com.br">*@
+            @*----------------------------------------------------------------------*@
+
+            <table>
+
+                <tr>
+                    <td>
+                        <label for="first_name">Nombre:</label>
+                    </td>
+                    <td>
+                        <input id="first_name" maxlength="40" name="first_name" size="20" type="text" required="true" />
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td>
+                        <label for="last_name">Apellido:</label>
+                    </td>
+                    <td>
+                        <input id="last_name" maxlength="80" name="last_name" size="20" type="text" required="true" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <label for="email">Email:</label>
+                    </td>
+                    <td>
+                        <input id="email" maxlength="80" name="email" size="20" type="text" required="true" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <label for="mobile">Teléfono Móvil / Contacto:</label>
+                    </td>
+                    <td>
+                        <input id="mobile" maxlength="40" name="mobile" size="20" type="text" required="true" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <label for="VehicleModelLatam__c">Vehículo de interés</label>
+                    </td>
+                    <td>
+                        <select id="VehicleModelLatam__c" name="VehicleModelLatam__c" style="width: 173px" required="true">
+                            <option value="">-- Nenhum --</option>
+                            <option value="Fusion Colombia">Fusion</option>
+                            <option value="Mustang Colombia">Mustang</option>
+                            <option value="Ecosport Colombia">Ecosport</option>
+                            <option value="Escape Colombia">Escape</option>
+                            <option value="Bronco Colombia">Bronco</option>
+                            <option value="Edge Colombia">Edge</option>
+                            <option value="Explorer Colombia">Explorer</option>
+                            <option value="Expedition Colombia">Expedition</option>
+                            <option value="Ranger Colombia">Ranger</option>
+                            <option value="F150 Colombia">F150</option>
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <label for="DealerCode__c">Nombre del Dealer</label>
+                    </td>
+                    <td>
+                        <select id="DealerCode__c" name="DealerCode__c" style="width:190px" required="true">
+                            <option value="">-- Nenhum --</option>
+                            <option value="C894">BOGOTÁ PUENTE ARANDA</option>
+                            <option value="C893">CALI SEDE NORTE</option>
+                            <option value="C893a">CALI SEDE SUR</option>
+                        </select>
+                    </td>
+                </tr>
+
+                <input type="hidden" id="recordType" name="recordType" value="0122K000001QJ5O" />
+
+                <input type="hidden" id="MobilePhoneType__c" name="MobilePhoneType__c" value="Personal" />
+
+                <input type="hidden" id="LeadSubSource__c" name="LeadSubSource__c" value="Website Colombia" />
+
+                <input type="hidden" id="LeadSubSource2__c" name="LeadSubSource2__c" value="Organic" />
+
+                <input type="hidden" id="lead_source" name="lead_source" value="Dealer Digital Colombia" />
+                <br>
+
+                <tr>
+                    <td colspan="4" align="center">
+                        <input type="submit">
+                    </td>
+                </tr>
+            </table>
+        </form>
+
+        @* iframe para visualizar información del formulario oculto *@
+        <iframe name="hidden-form" style="display:none" >
+        </iframe>
+
+        @* Formulario visible para enviar informacion *@
+        <form id="frmInventoryLeads">
+            @Html.AntiForgeryToken()
+            <div><input id="Nombre" asp-for="Name" class="mb-4" placeholder="Nombre Completo"><span asp-validation-for="Name"></span></div>
+            <div><input id="Email" asp-for="Email" class="mb-4" placeholder="Tu correo"><span asp-validation-for="Email"></span></div>
+            <div><input id="phoneInterestedId" asp-for="PhoneNumber" class="mb-4" placeholder="Tu número de contacto"><span asp-validation-for="PhoneNumber"></span></div>
+            <div>
+                <select id="cmbRetakeInterestedId" class="mb-4" onchange="enableRetakeCarName()">
+                    @if (ViewBag.Make != null && ViewBag.Make == "Massey Ferguson")
+                    {
+                        <option value="0" selected>¿Te interesa otro equipo?</option>
+                    }
+                    else
+                    {
+                        <option value="0" selected>¿Te interesa un retoma?</option>
+                    }
+                    <option value="1">Sí</option>
+                    <option value="0">No</option>
+                </select>
+            </div>
+            <div>
+                @if (ViewBag.Make != null && ViewBag.Make == "Massey Ferguson")
+                {
+                    <input asp-for="Retake" class="mb-4" placeholder="En qué equipo está interesado" disabled>
+                    <span asp-validation-for="Retake"></span>
+
+                }
+                else
+                {
+                    <input asp-for="Retake" class="mb-4" placeholder="Vehículo a retomar" disabled>
+                    <span asp-validation-for="Retake"></span>
+                }
+            </div>
+            <div>
+                <select id="sede" asp-for="Headquarter" asp-items="@ViewBag.Headquarters" class="mb-4">
+                    @if (ViewBag.Make != null && ViewBag.Make == "Massey Ferguson")
+                    {
+                        <option value="0" selected>¿Dónde estás ubicado?</option>
+                    }
+                    else
+                    {
+                        <option value="0" selected>¿Dónde quisieras que te atendieramos?</option>
+                    }
+                </select>
+                <span asp-validation-for="Headquarter"></span>
+            </div>
+            <input asp-for="FkInventoryItemsId" type="hidden" value="@Model.FkInventoryItemsId" />
+            <div class="form-group">
+                <div class="form-check">
+                    @Html.CheckBoxFor(model => model.HabeasData, new { @class = "form-check-input", @required = "required" })
+                    <label class="form-check-label">
+                        Acepto las <a href="~/files/POLITICA DATOS PERSONALES MOTOVALLE[2336].pdf" rel="noreferrer" target="_blank" class="p-0 m-0">políticas de privacidad</a>
+                    </label>
+                </div>
+                <span asp-validation-for="HabeasData" class="text-danger"></span>
+            </div>
+            <input type="hidden" id="modelo" value="@Model.Modelo"/>
+            @if (!string.IsNullOrEmpty(Model.Modelo))
+            {
+                <button type="submit" class="btn m-btn" onclick="enviarSalesForce()">ENVIAR<span class="fa fa-angle-right"></span></button>
+            }
+            else
+            {
+                <button type="submit" class="btn m-btn">ENVIAR<span class="fa fa-angle-right"></span></button>
+            }
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+
+}
+
+@* Script para enviar informacion a SalesForce *@
+<script>
+
+    function enviarSalesForce() {        
+        /*Captura el valor de los campos del formulario visible*/
+        var nombre = document.getElementById("Nombre").value;
+        var email = document.getElementById("Email").value;
+        var mobile = document.getElementById("phoneInterestedId").value;
+        var sede = document.getElementById("sede").value;
+        var modelo = document.getElementById("modelo").value;
+
+        /*Asigna el valor de las variables al formalario no visible*/        
+        document.getElementById("first_name").value = nombre; 
+        document.getElementById("last_name").value = "."; // cambiar despues
+        document.getElementById("email").value = email;
+        document.getElementById("mobile").value = mobile;
+        /*var sede = "";*/
+        /*Valida la sede y asigna el codigo correspondiente*/
+        if (sede == "Bogota - Vitrina") {
+            document.getElementById("DealerCode__c").value = "C894";
+        } else if (sede == "Cali - Sede Norte") {
+            document.getElementById("DealerCode__c").value = "C893";
+        } else if (sede == "Cali - Sede Sur"){
+            document.getElementById("DealerCode__c").value = "C893a";
+        }
+
+        if (modelo.toUpperCase().includes("RANGER")) {
+            document.getElementById("VehicleModelLatam__c").value = "Ranger Colombia"
+        } else if (modelo.toUpperCase().includes("FUSION")) {
+            document.getElementById("VehicleModelLatam__c").value = "Fusion Colombia"
+        } else if (modelo.toUpperCase().includes("ESCAPE")) {
+            document.getElementById("VehicleModelLatam__c").value = "Escape Colombia"
+        } else if (modelo.toUpperCase().includes("MUSTANG")) {
+            document.getElementById("VehicleModelLatam__c").value = "Mustang Colombia"
+        } else if (modelo.toUpperCase().includes("ECOSPORT")) {
+            document.getElementById("VehicleModelLatam__c").value = "Ecosport Colombia"
+        } else if (modelo.toUpperCase().includes("BRONCO")) {
+            document.getElementById("VehicleModelLatam__c").value = "Bronco Colombia"
+        } else if (modelo.toUpperCase().includes("EDGE")) {
+            document.getElementById("VehicleModelLatam__c").value = "Edge Colombia"
+        } else if (modelo.toUpperCase().includes("EXPLORER")) {
+            document.getElementById("VehicleModelLatam__c").value = "Explorer Colombia"
+        } else if (modelo.toUpperCase().includes("EXPEDITION")) {
+            document.getElementById("VehicleModelLatam__c").value = "Expedition Colombia"
+        } else if (modelo.toUpperCase().includes("F-150")) {
+            document.getElementById("VehicleModelLatam__c").value = "F150 Colombia"
+        }
+        document.getElementById("frmSalesForce").submit();       
+        
+    }
+
+</script>

@@ -1,0 +1,124 @@
+﻿
+@{
+    ViewData["Title"] = "Airlife";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="b-pageHeader">
+    <div class="container">
+        <h1 class="wow zoomInLeft" data-wow-delay="0.5s">Airlife</h1>
+        @*Issue 1: 04/08/2020 Diego - Remove Subtitle Octavio's request*@
+        @*<div class="b-pageHeader__search wow zoomInRight" data-wow-delay="0.5s">
+            <h3>Motovalle</h3>
+        </div>*@
+    </div>
+</section><!--b-pageHeader-->
+
+<div class="b-breadCumbs s-shadow wow zoomInUp" data-wow-delay="0.5s">
+    <div class="container">
+        <a asp-action="Index" asp-controller="Home" class="b-breadCumbs__page">Home</a><span class="fa fa-angle-right"></span><a asp-action="Airlife" asp-controller="Pages" class="b-breadCumbs__page m-active">Airlife</a>
+    </div>
+    @if (ViewBag.Message != null)
+    {
+        <div class="alert alert-danger text-center wow zoomInUp" role="alert" data-wow-delay="0.5s">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <strong>¡Ups!..</strong> @ViewBag.Message &#128577;
+        </div>
+    }
+</div><!--b-breadCumbs-->
+
+<section class="b-article">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 col-xs-12">
+                <div class="b-article__main">
+                    <div class="b-blog__posts-one">
+                        <div class="row m-noBlockPadding">
+                            <div class="col-sm-1 col-xs-2">
+
+                            </div>
+                            <div class="col-sm-11 col-xs-10">
+                                <div class="b-blog__posts-one-body">
+                                    <header class="b-blog__posts-one-body-head wow zoomInUp" data-wow-delay="0.5s">
+                                        <h2 class="s-titleDet">Tu Vehículo Purificado en Solo 6 Pasos Simples</h2>
+                                    </header>
+                                    <div class="b-blog__posts-one-body-main wow zoomInUp" data-wow-delay="0.5s">
+                                        <div class="b-blog__posts-one-body-main-img">
+                                            <ul class="bxslider enable-bx-slider" data-pager-custom="#bx-pager" data-mode="fade" data-pager-slide="false" data-mode-pager="horizontal" data-pager-qty="0">
+                                                <li><img class="img-responsive" src="~/images/airlife/airlife.png" alt="airlife system" /></li>
+                                            </ul>
+                                        </div>
+                                        <p>¡La contaminación en los ductos de ventilación de tu vehículo podría causarte molestias! </p>
+                                        <p>Los olores desagradables producidos por cigarrillo, mascotas, restos de comida y la suciedad de los zapatos son absorbidos al interior de tu vehículo y convertidos en contaminantes orgánicos, hongos, virus y bacterias que podrían afectar tu salud y la de tu familia. </p>
+                                    </div>
+                                    <div class="b-blog__posts-one-body-why wow zoomInUp" data-wow-delay="0.5s">
+                                        <div class="s-lineDownLeft  s-titleLeft">
+                                            <div>
+                                                <h2 class="s-titleDet">Solución - Tu salud merece un nuevo aire</h2>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <p>Con la tecnología Airlife, purificamos y limpiamos el aire al interior y el habitáculo de tu vehículo, eliminando olores y reduciendo hasta en un 99,9% los patógenos que puede ser nocivos para los seres humanos. ¡Eso lo logramos sin utilizar químicos!</p>
+
+                                        <div class="s-lineDownLeft  s-titleLeft">
+                                            <h2 class="s-titleDet">La Purificación de su Carro en 6 Simples Pasos</h2>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <div class="col">
+                                            <ol style="color:#8a8a8a">
+                                                <li>Encendemos el vehículo, cerrando ventanas mientras abrimos los difusores de aire acondicionado. </li>
+                                                <li>Contectamos el equipo de Airlife</li>
+                                                <li>Encendemos el aire a máxima potencia</li>
+                                                <li>Pulsamos el botón de encendido</li>
+                                                <li>Cerramos las puertas y ventanas, manteniendo el carro prendido</li>
+                                                <li>Dejamos pasar 20 minutos mientras el equipo trabaja. </li>
+                                            </ol>
+                                        </div>
+                                        <p></p>
+                                        <div class="row">
+                                            <div class="col-sm-5 col-xs-12">
+                                                <img src="~/images/airlife/filtro.png" class="img-responsive" alt="airlife filter" />
+                                            </div>
+                                            <div class="col-sm-7 col-xs-12">
+                                                <h3>Beneficios</h3>
+                                                <ul class="s-list">
+                                                    <li><span class="fa fa-check"></span>Elimina los malos olores orgánicos </li>
+                                                    <li><span class="fa fa-check"></span>Elimina hasta 99,9 de los patógenos </li>
+                                                    <li><span class="fa fa-check"></span>Sugerido para personas necesitando un automóvil libre de organismos nocivos </li>
+                                                    <li><span class="fa fa-check"></span>Tecnología sin químicos ni riesgos de salud </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p></p>
+                                    <div class="b-blog__posts-one-body-main wow zoomInUp" data-wow-delay="0.5s">
+                                        <p>Para Motovalle, tu seguridad y la de nuestros colaboradores son importantes. Para tu tranquilidad, habilitamos nuestros canales digitales para estar más cerca de ti.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-xs-12">
+                <aside class="b-blog__aside">
+                    <div class="b-blog__aside-categories wow zoomInUp" data-wow-delay="0.5s">
+                        <header class="s-lineDownLeft">
+                            <h2 class="s-titleDet">OTROS TEMAS</h2>
+                        </header>
+                        <nav>
+                            <ul class="b-blog__aside-categories-list">
+                                <li><a href="https://www.cdc.gov/coronavirus/2019-ncov/prepare/prevention-sp.html" target="_blank">Recomendaciones de la CDC</a></li>
+                                <li><a href="https://www.minsalud.gov.co/salud/publica/PET/Paginas/Covid-19_copia.aspx" target="_blank">Recomendaciones de MiSalud</a></li>
+                                <li><a href="#">Como Limpiar tu Vehículo</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+
+                </aside>
+            </div>
+        </div>
+    </div>
+</section><!--b-article-->

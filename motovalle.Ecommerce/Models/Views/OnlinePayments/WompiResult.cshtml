@@ -1,0 +1,304 @@
+﻿@model motovalle.Ecommerce.Models.DTO.Services.WompiPaymentGateway.Responses.WompiTransactionPaymentGatewayResponseDTO
+
+@{
+    ViewData["Title"] = "Wompi Result";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="b-pageHeader checkout">
+    <div class="container">
+        <h1 class="wow zoomInLeft" data-wow-delay="0.5s">Información de la transacción</h1>
+    </div>
+</section>
+
+<div class="b-breadCumbs s-shadow" style="z-index: auto;">
+    <div class="container wow zoomInUp" data-wow-delay="0.5s">
+        <a class="b-breadCumbs__page" asp-action="Index" asp-controller="Home">Home</a><span class="fa fa-angle-right"></span><a class="b-breadCumbs__page m-active" href="#">Información de la transacción</a>
+    </div>
+</div>
+
+@if (ViewBag.FromShoppingCart != null && ViewBag.Error == null && Model.Data.Status == WompiStatus.APPROVED)
+{
+    <section id="progressSection">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="text-center">
+                        <h4 class="text-bold">Generando detalle de la orden...</h4>
+                        <progress value="0" max="5" id="progressBar"></progress>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <a class="btn btn-info fadeInDown" href="/Orders/GetManualInvoicePDF/@ViewBag.OrdersId/Emails/false" style="display:none; border-radius: 25px; padding: 1rem 5rem;">Descargar detalle de la orden</a>
+                </div>
+                <div class="col-xs-6">
+                    <a class="btn btn-primary fadeInUp" href="/Orders/Details/@ViewBag.OrdersId" target="_blank" rel="nofollow" style="display:none; border-radius: 25px; padding: 1rem 5rem;">Ver detalle de la orden</a>
+                </div>
+            </div>
+        </div>
+    </section>
+}
+
+<section class="b-detail s-shadow" id="printSection">
+    <div class="container">
+        <header class="b-detail__head s-lineDownLeft wow zoomInUp" data-wow-delay="0.5s">
+            <div class="row">
+                <div class="col-lg-12 col-sm-12 col-xs-12">
+                    <div class="b-detail__head-title">
+                        <h1>Estado del pago</h1>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="b-detail__main">
+            @if (ViewBag.Error != null)
+            {
+                <div class="alert alert-danger" role="alert">
+                    <h4 class="alert-heading">Ups!</h4>
+                    <p>Algo salió mal consultando la información de tu transacción</p>
+                    <hr>
+                    <p class="mb-0">Por favor contacta al administrador del sistema.</p>
+                </div>
+            }
+
+            <div class="row">
+                <div class="col-md-6 wow zoomInRight" data-wow-delay="0.5s">
+                    @switch (Model.Data.Status)
+                    {
+                        case WompiStatus.PENDING:
+                            <div class="alert alert-warning" role="alert">
+                                <div class="row">
+                                    <div class="col-sm-8" style="padding: 0 2em;">
+                                        <h2 class="alert-heading">En Proceso...</h2>
+                                        <p>@Html.DisplayFor(x => x.Data.StatusMessage)</p>
+                                    </div>
+                                    <div class="col-sm-4 text-center">
+                                        <span class="fa fa-refresh fa-5x warning"></span>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <hr>
+                                            <p class="text-center">Gracias por confiar en nosotros.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            break;
+                        case WompiStatus.APPROVED:
+                            <div class="alert alert-success" role="alert">
+                                <div class="row">
+                                    <div class="col-sm-8" style="padding: 0 2em;">
+                                        <h2 class="alert-heading">¡Pago éxitoso!</h2>
+                                        <p class="lead">@Html.DisplayFor(x => x.Data.StatusMessage)</p>
+                                    </div>
+                                    <div class="col-sm-4 text-center">
+                                        <span class="fa fa-check fa-5x success"></span>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <hr>
+                                            <p class="text-center">Gracias por confiar en nosotros.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            break;
+                        case WompiStatus.DECLINED:
+                            <div class="alert alert-info" role="alert">
+                                <div class="row">
+                                    <div class="col-sm-8" style="padding: 0 2em;">
+                                        <h2 class="alert-heading">¡Ups!</h2>
+                                        <p>@Html.DisplayFor(x => x.Data.StatusMessage)</p>
+                                    </div>
+                                    <div class="col-sm-4 text-center">
+                                        <span class="fa fa-ban fa-5x info"></span>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <hr>
+                                            <p class="text-center">Por favor contacta al administrador del sistema.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            break;
+                        case WompiStatus.ERROR:
+                            <div class="alert alert-danger" role="alert">
+                                <div class="row">
+                                    <div class="col-sm-8" style="padding: 0 2em;">
+                                        <h2 class="alert-heading">¡Ups!</h2>
+                                        <p>@Html.DisplayFor(x => x.Data.StatusMessage)</p>
+                                    </div>
+                                    <div class="col-sm-4 text-center">
+                                        <span class="fa fa-times fa-5x danger"></span>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <hr>
+                                            <p class="text-center">Por favor contacta al administrador del sistema.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            break;
+                        case WompiStatus.VOIDED:
+                            <div class="alert alert-secondary" role="alert">
+                                <div class="row">
+                                    <div class="col-sm-8" style="padding: 0 2em;">
+                                        <h2 class="alert-heading">¡Ups!</h2>
+                                        <p>@Html.DisplayFor(x => x.Data.StatusMessage)</p>
+                                    </div>
+                                    <div class="col-sm-4 text-center">
+                                        <span class="fa fa-info fa-5x secondary"></span>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <hr>
+                                            <p class="text-center">Por favor contacta al administrador del sistema.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            break;
+                        default:
+                            <div class="alert alert-primary" role="alert">
+                                <div class="row">
+                                    <div class="col-sm-8" style="padding: 0 2em;">
+                                        <h2 class="alert-heading">¡Ups!</h2>
+                                        <p>Estado de la transacción desconocido</p>
+                                    </div>
+                                    <div class="col-sm-4 text-center">
+                                        <span class="fa fa-info fa-5x primary"></span>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <hr>
+                                            <p class="text-center">Por favor contacta al administrador del sistema.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            break;
+                    }
+                </div>
+                <div class="col-md-6 wow zoomInLeft" data-wow-delay="0.5s">
+                    <h2 class="s-title text-center wow zoomInRight" style="margin-bottom: 0;">Información de transacción</h2>
+                    <hr />
+                    <dl class="row">
+                        <dt class="col-sm-5 font-weight-bold">@Html.DisplayNameFor(x => x.Data.Id):</dt>
+                        <dd class="col-sm-7">@Html.DisplayFor(x => x.Data.Id)</dd>
+
+                        <dt class="col-sm-5 font-weight-bold">@Html.DisplayNameFor(x => x.Data.CreatedAt):</dt>
+                        <dd class="col-sm-7">@Html.DisplayFor(x => x.Data.CreatedAtLocal)</dd>
+
+                        <dt class="col-sm-5 font-weight-bold">@Html.DisplayNameFor(x => x.Data.Status):</dt>
+                        <dd class="col-sm-7">@Html.DisplayFor(x => x.Data.Status)</dd>
+
+                        <dt class="col-sm-5 font-weight-bold">@Html.DisplayNameFor(x => x.Data.PaymentMethodType):</dt>
+                        <dd class="col-sm-7">@Html.DisplayFor(x => x.Data.PaymentMethodType)</dd>
+
+                        <dt class="col-sm-5 font-weight-bold">@Html.DisplayNameFor(x => x.Data.Reference):</dt>
+                        <dd class="col-sm-7">@Html.DisplayFor(x => x.Data.Reference)</dd>
+
+                        <dt class="col-sm-5 font-weight-bold">@Html.DisplayNameFor(x => x.Data.Currency):</dt>
+                        <dd class="col-sm-7">@Model.Data.Currency.ToString()</dd>
+
+                        <dt class="col-sm-5 font-weight-bold">@Html.DisplayNameFor(x => x.Data.AmountInPesos):</dt>
+                        <dd class="col-sm-7">@Html.DisplayFor(x => x.Data.AmountInPesos)</dd>
+                    </dl>
+                </div>
+                <div class="col-md-12 text-center wow zoomInLeft" data-wow-delay="0.5s">
+                    <a class="btn btn-info" style="border-radius: 25px; padding: 1rem 5rem;" href="javascript:void(0)" onclick="printSection('printSection')" rel="noreferrer"><span class="fa fa-print"></span> Imprimir comprobante</a>
+                    @if (ViewBag.FromShoppingCart == null)
+                    {
+                        <a class="btn btn-primary" style="border-radius: 25px; padding: 1rem 5rem;" href="javascript:void(0)" rel="noreferrer" onclick="callWompiHome()"><span class="fa fa-credit-card"></span> Realizar otro pago</a>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+@section Scripts{
+    <script type="text/javascript">
+        (() => {
+            setTimeout(() => {
+                const $renderResult = document.querySelector(".b-detail__main");
+                if ($renderResult) {
+                    const offsetTop = $renderResult.offsetTop + 100;
+                    scroll({
+                        top: offsetTop,
+                        behavior: "smooth"
+                    });
+                }
+            }, 750);
+
+            if ("@ViewBag.FromShoppingCart" != "null") {
+                let timeleft = 5;
+                const downloadTimer = setInterval(async function () {
+                    if (timeleft == 1) {
+                        const $progressSection = document.querySelector("#progressSection");
+                        $progressSection.querySelector("h4").textContent = "Abrir Detalle de orden";
+                        $progressSection.querySelectorAll("a").forEach(a => a.style.display = "block") ;
+
+                        ///Get Manual Invoice call
+                        const url = `/Orders/GetManualInvoicePDF/${@ViewBag.OrdersId}/Emails/${true}`;
+                        fetch(url, {
+                            method: "GET",
+                            headers: {
+                                "Accept": "application/json",
+                                "Content-Type": "application/json"
+                            }
+                        }).then(orderPdfRequest => {
+                            if (orderPdfRequest.ok) {
+                                Swal.fire({
+                                    title: 'Orden creada exitosamente',
+                                    text: "Se ha enviado la orden a tu Email",
+                                    footer: "Redirigiendo al detalle de la orden. Espera unos segundos.",
+                                    showClass: {
+                                        popup: 'animated fadeInUp faster'
+                                    },
+                                    hideClass: {
+                                        popup: 'animated fadeOutRight faster'
+                                    },
+                                    position: 'top-end',
+                                    icon: 'success',
+                                    showConfirmButton: false,
+                                    timerProgressBar: true,
+                                    timer: 5000,
+                                    allowOutsideClick: false,
+                                    allowEscapeKey: false
+                                });
+                            } else {
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: '¡Ups!',
+                                    text: 'Error al crear la orden',
+                                    footer: '<b><a href="/Info/ContactUs">Por favor infórmanos</a></b>',
+                                    allowOutsideClick: false,
+                                    allowEscapeKey: false
+                                });
+                            }
+                        });
+                    }
+
+                    if (timeleft <= 0) {
+                        document.getElementById("progressBar").value = 5 - timeleft;
+                        timeleft -= 1;
+                        clearInterval(downloadTimer);
+                    }
+
+                    document.getElementById("progressBar").value = 5 - timeleft;
+                    timeleft -= 1;
+                }, 1000);
+            }
+        })();
+    </script>
+}

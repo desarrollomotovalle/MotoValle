@@ -1,0 +1,167 @@
+﻿@{
+    ViewData["Title"] = "Petronas - Portafolio";
+    //Layout = "~/Views/Shared/_LayoutPetronas.cshtml";
+    //Layout = "";
+    Layout = "~/Views/Shared/_LayoutPetronas.cshtml";
+
+}
+
+<body class="bg-white">
+    <div class="container">
+        @* Estilos de cuadro de busquedad *@
+        <div class="row">
+            <div class="comprimir col-4">
+                <div class="card mt-5 tarjeta-portafolio">
+                    <div class="card-body">
+                        <div class=" mt-3">
+                            <h5 class="titulo-filtro"> BÚSQUEDA DE LUBRICANTES </h5>
+                        </div>
+                        <div>
+                            <p class="texto-filtro">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum.</p>
+                        </div>
+
+                        <div class="card mt-3 ">
+                            <div class="p-3">
+                                Aplicación del producto
+                                <img style="float: right;" src="/Image/portafolio-icono-informacion.png" alt="Alternate Text" />
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li style="background: #F6F6F6;" class="list-group-item">
+
+                                    <select style="background: #F6F6F6; border: none;" class="form-control form-control-sm">
+                                        <option>-Selecciona-</option>
+                                    </select>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="card mt-5">
+                            <div class="p-3">
+                                Industria
+                                <img style="float: right;" src="/Image/portafolio-icono-informacion.png" alt="Alternate Text" />
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li style="background: #F6F6F6;" class="list-group-item">
+
+                                    <select style="background: #F6F6F6; border: none;" class="form-control form-control-sm">
+                                        <option>-Selecciona-</option>
+                                    </select>
+                                </li>
+                            </ul>
+                        </div>
+
+
+                        <div class="card mt-5 mb-5">
+                            <div class="p-3">
+                                Propiedades del producto
+                                <img style="float: right;" src="/Image/portafolio-icono-informacion.png" alt="Alternate Text" />
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li style="background: #F6F6F6;" class="list-group-item">
+
+                                    <select style="background: #F6F6F6; border:none;" class="form-control form-control-sm">
+                                        <option>-Selecciona-</option>
+                                    </select>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            @* Estilos de tarjetas *@
+
+            <div class="col-12 col-lg-8 mt-5 ">
+                <div class="card mb-3 tarjeta-portafolio">
+                    <a asp-controller="Petronas" asp-action="PortafolioDetalle" style="text-decoration: none;">
+                        <div class="row g-0">
+                            <div class="col-md-4  text-center text-lg-start mt-5">
+                                <img src="/Image/portafolio-aceite.png" class="img-fluid  rounded-start" alt="...">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <p class="card-text text-center text-lg-start "><small class="text-muted texto-titulo-portafolio">Lorem ipsum dolor sit amet</small></p>
+                                    <h5 class="card-title text-center text-lg-start titulo-portafolio-tarjeta">
+                                        PETRONAS Lorem ipsum
+                                    </h5>
+                                    <div class="linea-portafolio-tarjeta"> </div>
+
+                                    <ul class="card-text mt-3  texto-tarjeta-portafolio" style="text-align: center;">
+                                        <li class="text-center text-lg-start">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie.</li>
+                                        <li class="text-center text-lg-start mt-2">Lorem ipsum dolor sit amet</li>
+                                        <li class="text-center text-lg-start mt-2">consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a</li>
+                                        <li class="text-center text-lg-start mt-2">mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin</li>
+                                    </ul>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="card mb-3 tarjeta-portafolio">
+                    <a asp-controller="Petronas" asp-action="PortafolioDetalle" style="text-decoration: none;">
+                        <div class="row g-0">
+                            <div class="col-md-4 text-center text-lg-start mt-5">
+                                <img src="/Image/portafolio-aceite.png" class="img-fluid   rounded-start " alt="...">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <p class="card-text "><small class="text-muted texto-titulo-portafolio">Lorem ipsum dolor sit amet</small></p>
+
+                                    <h5 class="card-title titulo-portafolio-tarjeta">
+                                        PETRONAS Lorem ipsum
+                                    </h5>
+                                    <div class="linea-portafolio-tarjeta"> </div>
+                                    <ul class="card-text mt-3 texto-tarjeta-portafolio">
+                                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie.</li>
+                                        <li class="mt-2">Lorem ipsum dolor sit amet</li>
+                                        <li class="mt-2">consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a</li>
+                                        <li class="mt-2">mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="card mb-3 tarjeta-portafolio">
+                    <a asp-controller="Petronas" asp-action="PortafolioDetalle" style="text-decoration: none;">
+                        <div class="row g-0">
+                            <div class="col-md-4 text-center text-lg-start mt-5">
+                                <img src="/Image/portafolio-aceite.png" class="img-fluid  rounded-start" alt="...">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <p class="texto-titulo-portafolio">Lorem ipsum dolor sit amet </p>
+
+                                    <h5 class="card-title titulo-portafolio-tarjeta">
+                                        PETRONAS Lorem ipsum
+                                    </h5>
+                                    <div class="linea-portafolio-tarjeta"> </div>
+                                    <ul class="card-text mt-3 texto-tarjeta-portafolio">
+                                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie.</li>
+                                        <li class="mt-2">Lorem ipsum dolor sit amet</li>
+                                        <li class="mt-2">consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a</li>
+                                        <li class="mt-2">mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+
+
+
+

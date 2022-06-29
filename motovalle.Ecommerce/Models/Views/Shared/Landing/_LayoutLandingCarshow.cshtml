@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head prefix="og: http://ogp.me/ns">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <!-- Render Meta general Meta Tags -->
+    @await Html.PartialAsync("_MetaTags")
+    <link rel="shortcut icon" type="image/x-icon" href="~/favicon.ico" />
+
+    <!-- Vendor CSS Files -->
+    <link href="~/landingAssets/landing-mazda/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/landingAssets/landing-mazda/assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+    <link href="~/landingAssets/landing-mazda/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="~/landingAssets/landing-mazda/assets/vendor/venobox/venobox.css" rel="stylesheet">
+    <link href="~/landingAssets/landing-mazda/assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="~/landingAssets/landing-mazda/assets/vendor/aos/aos.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="~/landingAssets/landing-mazda/assets/css/style-carshow.css" rel="stylesheet" asp-append-version="true">
+
+    <!-- Animate CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/animate.css@4.0.0/animate.min.css" rel="stylesheet">
+
+    <!-- Render General Analyzers -->
+    @await Html.PartialAsync("_Analyzers")
+
+    @RenderSection("Styles", required: false)
+</head>
+<body>
+    <!-- Render Body Analyzers -->
+    @await Html.PartialAsync("_AnalyzersBody")
+    @RenderBody()
+
+    <!--Footer-->
+    <footer id="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="col-12 footer-links p-0">
+                    <div class="social-links text-center">
+                        <a href="https://www.facebook.com/motovalle/" target="_blank" class="facebook" rel="noreferrer"><i class="bx bxl-facebook"></i></a>
+                        <a href="https://www.instagram.com/motovalle_oficial/" target="_blank" class="instagram" rel="noreferrer"><i class="bx bxl-instagram"></i></a>
+                        <a href="https://twitter.com/motovalle_col" target="_blank" class="instagram" rel="noreferrer"><i class="bx bxl-twitter"></i></a>
+                        <a href="https://www.youtube.com/channel/UC23iJYw5WDP7jXmcdP9KFvQ" target="_blank" class="instagram" rel="noreferrer"><i class="bx bxl-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container py-5">
+            <div class="copyright">
+                &copy; @DateTime.Now.Year Copyright <strong><span><a href="https://www.motovalle.com/" target="_blank" rel="noreferrer">Motores del Valle S.A.S </a></span></strong>. Todos los derechos reservados
+            </div>
+            <div class="credits">
+                Powered by <a href="http://www.innovamarketingsystems.com/" target="_blank" rel="noreferrer"> Innova Marketing Systems.</a>
+            </div>
+        </div>
+    </footer>
+    <!--/.Footer-->
+
+    <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+    <!-- SCRIPTS -->
+    <!--JivoChat -->
+    <script src="//code.jivosite.com/widget/zQCYoMifqg" async></script>
+    <!--JivoChat -->
+    <!-- Sweet Alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
+    <!-- Vendor JS Files -->
+    <script src="~/landingAssets/landing-mazda/assets/vendor/jquery/jquery.min.js"></script>
+    <script src="~/landingAssets/landing-mazda/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/landingAssets/landing-mazda/assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+    <script src="~/landingAssets/landing-mazda/assets/vendor/php-email-form/validate.js"></script>
+    <script src="~/landingAssets/landing-mazda/assets/vendor/jquery-sticky/jquery.sticky.js"></script>
+    <script src="~/landingAssets/landing-mazda/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="~/landingAssets/landing-mazda/assets/vendor/venobox/venobox.min.js"></script>
+    <script src="~/landingAssets/landing-mazda/assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+    <script src="~/landingAssets/landing-mazda/assets/vendor/aos/aos.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="~/landingAssets/landing-mazda/assets/js/main.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

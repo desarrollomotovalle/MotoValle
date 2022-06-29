@@ -1,0 +1,53 @@
+﻿<div class="container">
+    @if (ViewBag.Message != null)
+    {
+        <div class="alert alert-danger text-center wow zoomInUp" role="alert" data-wow-delay="0.5s">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <strong>¡Ups!..</strong> @ViewBag.Message &#128577;
+        </div>
+    }
+    else
+    {
+        @if (TempData["CreateOk"] != null)
+        {
+            <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <strong>¡Perfecto!...</strong> @Html.Raw(TempData["CreateOk"]) &#128512;
+            </div>
+        }
+
+        @if (TempData["DeleteOk"] != null)
+        {
+            <div class="alert alert-secondary alert-dismissible fade show text-center" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <strong>¡Perfecto!...</strong> @Html.Raw(TempData["DeleteOk"]) &#128512;
+            </div>
+        }
+
+        @if (TempData["EditOk"] != null)
+        {
+            <div class="alert alert-info alert-dismissible fade show text-center" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <strong>¡Perfecto!...</strong> @Html.Raw(TempData["EditOk"]) &#128512;
+            </div>
+        }
+
+        @if (TempData["Info"] != null)
+        {
+            <div class="alert alert-warning text-center wow zoomInUp" role="alert" data-wow-delay="0.5s">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <strong>¡Info!..</strong> @TempData["Info"] &#128512;
+            </div>
+        }
+    }
+</div>

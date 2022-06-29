@@ -1,0 +1,70 @@
+﻿
+@{
+    ViewData["Title"] = "SEO";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearfix">
+                <div class="col-12 text-center">
+                    <h1 class="m-0 text-dark">Administrador de SEO</h1>
+                </div>
+                <br />
+                <div id="info2">
+                    <div class="alert alert-info text-center" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <ul>
+                            <li><i class="fa fa-info-circle"></i> Importante: El registro <b>Default</b> por ningún motivo deberá ser eliminado (Puede ser editado sin cambiar el Page Path), ya que este contiene los valores por defecto que se mostrarán para aquellas rutas que no se encuentren parametrizadas.</li>
+                            <li><i class="fa fa-info-circle"></i> Para el Blog sólo se debe usar el Page Path: <b>/Blog</b> (No tomar la paginación)</li>
+                        </ul>
+
+                        
+                    </div>
+                </div>
+                <div id="ej2Tab" class="row">
+                    <div class="e-tab-header">
+                        <div>SEO </div>
+                    </div>
+                    <div class="e-content">
+                        <div>
+                            <ejs-grid id="grdSeo" allowPaging="false" allowSorting="false" allowFiltering="false" allowSelection="true" toolbar="@(new List<string>() { "Add", "Edit", "Delete" })">
+                                <e-data-manager url="/api/SearchEngineOptimizations" adaptor="WebApiAdaptor" crossdomain="true"></e-data-manager>
+                                <e-grid-editSettings allowAdding="true" allowDeleting="true" allowEditing="true" mode="Dialog" showDeleteConfirmDialog="true"></e-grid-editSettings>
+                                <e-grid-columns>
+                                    <e-grid-column field="SearchEngineOptimizationsId" headerText="ID" textAlign="Right" width="120" isPrimaryKey="true" visible="false"></e-grid-column>
+                                    <e-grid-column field="PagePath" headerText="Page Path" width="150" validationRules="@(new { required = true,  })"></e-grid-column>
+                                    <e-grid-column field="Title" headerText="Title" textAlign="Left" width="150" validationRules="@(new { required = true })"></e-grid-column>
+                                    <e-grid-column field="Description" headerText="Description" textAlign="Left" width="250" validationRules="@(new { required = true })"></e-grid-column>
+                                    <e-grid-column field="Keywords" headerText="Keywords" textAlign="Left" width="250" validationRules="@(new { required = true })"></e-grid-column>
+                                </e-grid-columns>
+                            </ejs-grid>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<style>
+    .e-content .e-item {
+        font-size: 12px;
+        padding: 10px;
+        text-align: justify;
+    }
+</style>
+
+@section Scripts{
+    <script type="text/javascript">
+        var tabObj = new ej.navigations.Tab({
+            heightAdjustMode: "Content"
+        });
+        tabObj.appendTo('#ej2Tab');
+    </script>
+}
+

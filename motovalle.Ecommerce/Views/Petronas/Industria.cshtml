@@ -1,0 +1,133 @@
+﻿@{
+    ViewData["Title"] = "Petronas - Industria";
+    //Layout = "~/Views/Shared/_LayoutPetronas.cshtml";
+    //Layout = "";
+    Layout = "~/Views/Shared/_LayoutPetronas.cshtml";
+
+}
+
+@*<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <div class="banner banner-home-industria img-fluid">
+                <span class="vertical-line"></span>
+                <h3 class="banner-texto text-center text-md-start text-lg-start">INDUSTRIA </h3>
+            </div>
+        </div>
+    </div>
+</div>*@
+
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <div class="banner banner-home-industria img-fluid">
+                <div class="container">
+                    <div class="banner-texto text-center text-md-start text-lg-start animate__fadeInLeft">
+                        <span class=" border-start border-4 border-white ps-md-4 ps-lg-4 p-sm-0 m-0 p-0 d-block ps-sm-0 border__sm__left__0">
+                            INDUSTRIA
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="bg-white">
+    <div class="container">
+        <a class="nav-link text-dark bg-white p-0" asp-controller="Petronas" asp-action="IndustriaAplicacion">
+            <div class="row">
+                <div class="col-lg-6 col-12 tarjeta-linea-impar">
+                    <div class="bloque">
+                        <div class="titulo-tarjeta-izquierda-impar mb-2 mt-0">
+                            LUBRICANTES INDUSTRIALES POR APLICACIÓN
+                        </div>
+                        <div>
+                            <p class="mt-lg-3 text-tarjeta-izquierda-impar ">
+                                Los lubricantes industriales de alto rendimiento logran brindar la máxima protección a su equipo, esto se traduce a mejorar la resistencia y prevenir daños a futuro, sea por uso o por inactividad.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-12 tarjeta-centrar-imagen col-sm-12">
+                    <img class="p-5 p-lg-0 img-fluid" src="/Image/industria-lubricantes-aplicacion.png" alt="Alternate Text" style="width: 311px; height: 248px;" />
+                </div>
+                <label class="text-center pb-2 texto-ver-mas">VER MÁS </label>
+            </div>
+        </a>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <a class="nav-link text-dark  p-0" asp-controller="Petronas" asp-action="IndustriaSegmento">
+            <div class="row">
+                <div class="ocultar-imagen tarjeta-centrar-imagen">
+                    <img class="p-3 p-lg-0 img-fluid" src="/Image/industria-segmento.png" alt="Alternate Text" style="width: 350px; height: 212px;" />
+                </div>
+                <div class="tarjeta-linea-par ">
+                    <div class="bloque">
+                        <div class="titulo-tarjeta-derecha-par mb-2">
+                            LUBRICANTES INDUSTRIALES POR SEGMENTO
+                        </div>
+                        <div>
+                            <p class=" mt-lg-3 text-tarjeta-derecha-par">
+                                Nuestros lubricantes de alto rendimiento respaldan el negocio en todas las industrias. Desde la agricultura hasta la automoción, desde la marina hasta la minería, ya que utilizan la última tecnología para maximizar el rendimiento de los equipos, protegen los vehículos y minimizan el tiempo de inactividad.
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="cambiar-posicion-imagen">
+                    <div class="tarjeta-centrar-imagen">
+                        <img class="py-4 px-5 p-lg-0 img-fluid" src="/Image/industria-segmento.png" alt="Alternate Text" style="width: 350px; height: 212px;" />
+                    </div>
+                    <label class="text-center pb-2 texto-ver-mas">VER MÁS </label>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+
+<div class="bg-white">
+    <div class="container">
+        <a class="nav-link text-dark bg-white p-0" asp-controller="Petronas" asp-action="Portafolio">
+            <div class="row">
+                <div class="col-lg-6 col-12 tarjeta-linea-impar">
+                    <div class="bloque">
+                        <div class="titulo-tarjeta-izquierda-impar mb-2 mt-0">
+                            PORTAFOLIO COMPLETO DE PRODUCTOS
+                        </div>
+                        <div>
+                            <p class="mt-lg-3 text-tarjeta-izquierda-impar ">
+                                Ofrecemos lubricantes de alto rendimiento para ayudar a garantizar una conducción suave, mejorar el rendimiento, maximizar la eficiencia y prolongar la vida útil de su vehículo.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-12 tarjeta-centrar-imagen col-sm-12">
+                    <img class="p-5 p-lg-0 img-fluid" src="/Image/industria-portafolio.png" alt="Alternate Text" style="width: 398px; height: 242px;" />
+                </div>
+                <label class="text-center pb-2 texto-ver-mas">VER MÁS </label>
+            </div>
+        </a>
+    </div>
+</div>
+
+<div>
+    <div class="row-petronas">
+        <div class="container p-5">
+            <div class="row">
+                <div class="col text-center">
+                    <p class="titulo-petronas">Ponte en contacto para mejorar tu rendimiento</p>
+                    <br />
+                    <a class="boton-petronas p-3 " asp-controller="Petronas" asp-action="Contactenos"> Contáctanos </a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

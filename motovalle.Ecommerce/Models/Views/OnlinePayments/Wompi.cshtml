@@ -1,0 +1,49 @@
+﻿@model motovalle.Ecommerce.Models.ViewModels.Wompi.WompiInitialInfoViewModel
+
+<div class="wow zoomInUp">
+    <h4>Información Inicial</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-12">
+            <form asp-action="WompiConfirmInfo" asp-controller="OnlinePayments">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input asp-for="PublicKey" type="hidden" />
+                <input asp-for="RedirectURL" type="hidden" />
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label asp-for="CurrencyType" class="control-label"></label>
+                        <select asp-for="CurrencyType" class="form-control" asp-items="Html.GetEnumSelectList<motovalle.Ecommerce.Models.WompiCurrencyType>()" style="border-radius: 25px;"></select>
+                        <span asp-validation-for="CurrencyType" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="AmountInPesos" class="control-label"></label>
+                        <input asp-for="AmountInPesos" type="hidden" min="1" />
+                        <input class="form-control currency-mask" type="text" data-main="AmountInPesos" required min="1" style="border-radius: 25px;" />
+                        <span asp-validation-for="AmountInPesos" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Reference" class="control-label"></label>
+                        <input asp-for="Reference" class="form-control" min="1" required style="border-radius: 25px;" type="number" />
+                        <span asp-validation-for="Reference" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group text-center">
+                        <button type="submit" class="btn btn-primary" style="border-radius: 25px; padding: 1rem 5rem;">Continuar <i class="fa fa-arrow-circle-right"></i></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-12">
+            <img src="~/media/brands/pagos-seguros-por-wompi.png" alt="Wompi" title="Wompi" loading="lazy" class="img-responsive" width="85%" style="margin: 2.5em;" />
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}
